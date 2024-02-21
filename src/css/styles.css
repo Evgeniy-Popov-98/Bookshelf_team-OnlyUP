@@ -1,22 +1,14 @@
 @import url('./reset.css');
+@import url('./component.css');
 
 :root {
   --bg-color: #f6f6f6;
-  --text-color: #15141d;
-  --title-color: #4b526a;
-  --button-color-text: #fff;
-  --fill-svg: #4b526a;
-
-  background-color: #0000005e;
+  --text-color: #111111;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-color: #222527;
-    --img-bg: url(../images/background/space.png) no-repeat center top;
+    --bg-color: #202024;
     --text-color: #ffffff;
-    --title-color: #ffc700;
-    --button-color-text: #060803;
-    --fill-svg: #ffc700;
   }
 }
