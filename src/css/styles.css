@@ -1,25 +1,22 @@
-/**
-  |============================
-  | include css partials with
-  | default @import url()
-  |============================
-*/
 @import url('./reset.css');
-@import url('./vite-promo.css');
-@import url('./header.css');
 
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+  --bg-color: #f6f6f6;
+  --text-color: #15141d;
+  --title-color: #4b526a;
+  --button-color-text: #fff;
+  --fill-svg: #4b526a;
 
-  color: #242424;
-  background-color: rgba(255, 255, 255, 0.87);
+  background-color: #0000005e;
+}
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #222527;
+    --img-bg: url(../images/background/space.png) no-repeat center top;
+    --text-color: #ffffff;
+    --title-color: #ffc700;
+    --button-color-text: #060803;
+    --fill-svg: #ffc700;
+  }
 }
