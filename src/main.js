@@ -3,6 +3,12 @@ import { renderBooks } from './js/rendering-book';
 
 // renderBooks();
 
-let endpoints = 'category';
-let category = 'Audio Fiction';
-const newCategory = await getBooks(endpoints, category);
+async function main() {
+  let endpoints = 'category';
+  let category = 'Audio Fiction';
+  const newCategory = await getBooks(endpoints, category);
+  console.log(newCategory);
+  renderBooks(newCategory);
+}
+
+main();
