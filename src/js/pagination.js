@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
-    var container = document.getElementById('pagination');
-    var options = {
+    let container = document.getElementById('pagination');
+    let options = {
         totalItems: 100,
         itemsPerPage: 10,
         visiblePages: 5,
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
     };
 
-    var pagination = new tui.Pagination(container, options);
+    let pagination = new tui.Pagination(container, options);
 
     // Code for adding a book and managing element visibility
     function addBook() {
