@@ -10,8 +10,6 @@ export async function getBooks(endpoints, category) {
   const url = `${BASE_URL}${END_POINT}`;
 
   const res = await axios.get(url, { params });
-  console.log(res);
-
   if (res.data.length === 0) {
     throw new Error('Error');
   } else {
