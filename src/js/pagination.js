@@ -1,3 +1,5 @@
+import Pagination from 'tui-pagination'; // Імпорт бібліотеки
+
 document.addEventListener('DOMContentLoaded', function () {
     let container = document.getElementById('pagination');
     let options = {
@@ -9,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
     };
 
-    let pagination = new tui.Pagination(container, options);
+    let pagination = new Pagination(container, options); // Використання імпортованого Pagination
 
     // Code for adding a book and managing element visibility
     function addBook() {
