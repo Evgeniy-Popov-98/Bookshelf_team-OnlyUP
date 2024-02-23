@@ -30,21 +30,28 @@ export function testModal() {
   //=====================================================
   const testOpenModal = document.querySelector('.open-modal');
   testOpenModal.addEventListener('click', () => {
-    openModal();
+    // openModal();
+    testGetBook()
   });
   //========================================================
-  document.addEventListener('click', async function (event) {
-    const target = event.target;
-    if (target.closest('.list-book')) {
-      const bookId = target.closest('.book-item').dataset.id;
-      try {
-        const book = await getBooks(bookId);
-        openModal(book);
-      } catch (error) {
-        console.error(error.message);
-      }
-    }
-  });
+  // document.addEventListener('click', async function (event) {
+  //   const target = event.target;
+  //   if (true) {
+  //     // const bookId = target.closest('.book-item').dataset.id;
+  //     try {
+  //       const book = await getBooks('642fd89ac8cf5ee957f12361');
+  //       console.log(book)
+  //       openModal(book);
+  //     } catch (error) {
+  //       console.error(error.message);
+  //     }
+  //   }
+  // });
+
+ async function testGetBook() {
+    const data = await getBooks('_id', '642fd89ac8cf5ee957f12361');
+    console.log(data)
+ }
 
   document.addEventListener('DOMContentLoaded', function () {
     const closeModalButton = document.querySelector('.close-btn');
