@@ -1,6 +1,6 @@
 .home-pg{
-    height: 100vh;
-    overflow: scroll;
+    height: 100%;
+    overflow: hidden;
 }
 .title {
     
