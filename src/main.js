@@ -1,1 +1,3 @@
-import { getBooks } from './js/API/api-books';
+import {render} from './js/API/home'
+
+render()
