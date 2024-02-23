@@ -1,16 +1,22 @@
 
-import {getBooks} from './api-books'
-import refs from './refs'
+import {getBooks} from './api-books';
+import refs from './refs';
+import {errorMessage} from './messageError';
 
 export async function render(){
     try {
         const data = await getBooks('top-books');
-        for (const el of data) {
-            categoriesTemplate(el);           
+                for (const el of data) {
+            categoriesTemplate(el);  
+            if(el.books.length>=1) {
                 renderBooks(el);
+            }else{
+                errorMessage('Sorry, there are no items in this category');
+            }        
+                
         }
     } catch (error) {
-        console.error('Failed to render books:', error);
+        errorMessage(`Failed to render books:${error}`);
     }
 }
 
