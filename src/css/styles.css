@@ -1,5 +1,6 @@
 @import url('./reset.css');
 @import url('./component.css');
+@import url('./modal.css');
 
 :root {
   --bg-color: #f6f6f6;
