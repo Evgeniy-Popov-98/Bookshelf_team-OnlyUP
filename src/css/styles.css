@@ -1,3 +1,23 @@
 @import url('./reset.css');
 @import url('./component.css');
 @import url('./switch-button.css');
+@import url('./home.css');
+
+
+:root {
+  --bg-color: #f6f6f6;
+  --text-color: #111111;
+  --black: #111;
+	--black-1: #202024;
+	--violet: #4f2ee8;
+	--yellow: #eac645;
+	--white: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #202024;
+    --text-color: #ffffff;
+
+  }
+}
