@@ -1,5 +1,5 @@
 .switch-box {
-  margin: 20% 50%;
+  margin: 2vh 80vw;
   width: 40px;
   height: 20px;
   position: relative;
@@ -9,8 +9,6 @@
   border-radius: 15px;
   background: linear-gradient(180deg, #4f2ee8 0%, #dcdcdc 100%);
   box-shadow: inset 1px 1px 2px 0 rgba(0, 0, 0, 0.1);
-
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .switch-button {
