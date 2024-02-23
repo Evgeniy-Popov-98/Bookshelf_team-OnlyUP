@@ -25,9 +25,9 @@ function categoriesTemplate(categories){
     const markup = `<li id="${categories.list_name}" class="list-category-books">
     <h2 class="list-category-title">${categories.list_name}</h2>
     <ul class="list-book">
-    
-    </ul>    
-    </li>`
+     </ul>    
+    </li>
+    <button type="button" class="btn-more">See more</button>`
     refs.galleryBooks.insertAdjacentHTML('beforeend', markup);
 }
 
@@ -41,7 +41,7 @@ function bookTemplate(book) {
     <h3 class="title-book">${title}</h3>
     <p class="author">${author}</p>
     </li>
-    <button type="button" class="btn-more">See more</button>`;
+   `;
 }
 function booksTemplate(books) {
     return  books.map(bookTemplate).join('');
