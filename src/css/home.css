@@ -1,6 +1,6 @@
-.container{
-    
-    
+.home-pg{
+    height: 100vh;
+    overflow: scroll;
 }
 .title {
     
@@ -22,6 +22,9 @@
 .js-gallery-books {
 }
 .list-category-books {
+    overflow: hidden;
+    height: 625px;
+    margin-bottom: 40px;
 }
 .list-category-title {
     font-family: var(--font-family);
@@ -36,18 +39,19 @@ margin-bottom: 18px;
 .list-book {
     margin-bottom: 8px;
     display: flex;
-    flex-direction: column;
-    
-    
+    flex-direction: column;  
 }
 
 .card{} 
 .book-item{
-
+    margin-bottom: 8px;
+    height: 535px;
 }
 .book-img{
     border-radius: 8px;
     margin-bottom: 14px;
+    width: 100%;
+    height: 485px;
 }
 .title-book{
     font-weight: 700;
@@ -81,5 +85,10 @@ color: var(--black);
 display: flex;
 align-items: center;
 justify-content: center;
-margin-bottom: 40px;
+margin-left: auto;
+}
+.btn-more:hover,
+.btn-more:focus{
+background-color: var(--violet);
+color:var(--white)
 }

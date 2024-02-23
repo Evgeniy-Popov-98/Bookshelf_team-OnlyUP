@@ -18,9 +18,10 @@ export async function render(){
 function categoriesTemplate(categories){
     const markup = `<li id="${categories.list_name}" class="list-category-books">
     <h2 class="list-category-title">${categories.list_name}</h2>
-    <ul class="list-book"></ul>
-    <button type="button" class="btn-more">See more</button>
-  </li>`
+    <ul class="list-book">
+    
+    </ul>    
+    </li>`
     refs.galleryBooks.insertAdjacentHTML('beforeend', markup);
 }
 
@@ -33,7 +34,8 @@ function bookTemplate(book) {
     <img class="book-img" src="${book_image}" alt="${contributor} ${title}">
     <h3 class="title-book">${title}</h3>
     <p class="author">${author}</p>
-</li>`;
+    </li>
+    <button type="button" class="btn-more">See more</button>`;
 }
 function booksTemplate(books) {
     return  books.map(bookTemplate).join('');
@@ -43,5 +45,5 @@ export function renderBooks(el) {
     const categoriesID = el.list_name;
     const listBook = document.getElementById(categoriesID).querySelector('.list-book');
     const markup = booksTemplate(el.books);
-    listBook.insertAdjacentHTML('beforeend', markup);
+    listBook.insertAdjacentHTML('afterbegin', markup);
 }
