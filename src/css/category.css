@@ -1,0 +1,42 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1440px;
+  width: 356px;
+  height: 483px;
+  margin: 0 auto;
+}
+
+main {
+  background-color: #fff;
+  padding: 1rem 0;
+  margin-left: 24px;
+}
+
+.all {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 133%;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+li {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 133%;
+  letter-spacing: -0.02em;
+  color: rgba(17, 17, 17, 0.6);
+  margin-bottom: 32px;
+}
+
+li:hover,
+:focus {
+  color: #4f2ee8;
+}
