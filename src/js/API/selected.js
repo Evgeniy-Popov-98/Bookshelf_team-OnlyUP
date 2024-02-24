@@ -18,7 +18,7 @@ export function renderBooks(books) {
       <li class="gallery-book-item" id="book-${book._id}>
         <div class="container-item">
           <img class="gallery-image" src="${book.book_image}" alt="${book.description}">
-          <h3 class="title-book">${book.title}</h3>
+          <h3 class="name-book">${book.name}</h3>
           <p class="author-book">${book.author}</p>
         </div>
       </li>`;
@@ -28,5 +28,6 @@ export function renderBooks(books) {
 }
 
 function updateTitle(category) {
-  const titleElement = document.querySelector('.title'); 
-  titleElement.innerHTML = `Category: ${category}`; 
+  const titleElement = document.querySelector('.title');
+  titleElement.innerHTML = `Category: ${category}`;
+}

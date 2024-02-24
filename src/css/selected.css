@@ -1,8 +1,8 @@
-.selected-pg {
+.selected {
   height: 100vh;
   overflow: scroll;
 }
-.title {
+.name {
   font-weight: 700;
   font-size: 32px;
   line-height: 119%;
@@ -10,15 +10,15 @@
   color: var(--black);
   margin-bottom: 40px;
 }
-.color-text {
+.color {
   color: var(--violet);
 }
 .wrap-gallery {
 }
-.gallery-books {
+.booksgallery {
   overflow: hidden;
 }
-.js-gallery-books {
+.js-booksgallery {
 }
 .list-category-books {
   overflow: hidden;
@@ -93,13 +93,18 @@
 }
 
 /* ==================================================Media===================================================== */
+@media screen and (min-width: 375px) {
+  .container {
+    max-width: 375px;
+  }
+}
 
 @media screen and (min-width: 768px) {
-  .gallery-books {
+  .booksgallery {
     display: flex;
     flex-direction: column;
   }
-  .title {
+  .name {
     font-size: 48px;
     line-height: 108%;
   }
@@ -107,7 +112,7 @@
     height: 408px;
     margin-bottom: 0;
   }
-  .list-category-title {
+  .list-category-name {
     line-height: 171%;
   }
   .list-book {
@@ -136,7 +141,8 @@
   }
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1280px) {
   .container {
+    max-width: 1112px;
   }
 }
