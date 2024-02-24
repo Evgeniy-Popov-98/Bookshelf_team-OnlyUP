@@ -11,11 +11,11 @@ export async function homeCategory(END_POINT, categoriesBooks) {
 }
 
 export function renderBooks(books) {
-  const gallery = document.querySelector('.gallery-books');
+  const gallery = document.querySelector('.booksgallery');
   const markup = books
     .map(book => {
       return `
-      <li class="gallery-book-item" id="book-${book._id}>
+      <li class="booksgallery-item" id="book-${book._id}">
         <div class="container-item">
           <img class="gallery-image" src="${book.book_image}" alt="${book.description}">
           <h3 class="name-book">${book.name}</h3>
@@ -28,6 +28,6 @@ export function renderBooks(books) {
 }
 
 function updateTitle(category) {
-  const titleElement = document.querySelector('.title');
+  const titleElement = document.querySelector('.selected-title');
   titleElement.innerHTML = `Category: ${category}`;
 }
