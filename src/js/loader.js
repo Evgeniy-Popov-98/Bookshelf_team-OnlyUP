@@ -1,20 +1,14 @@
-.loader-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
+document.addEventListener('DOMContentLoaded', function () {
+  const loaderContainer = document.querySelector('.loader-container');
+  const loader = document.querySelector('.loader');
 
-.loader {
-  border: 8px solid rgba(0, 0, 0, 0.1); /* Півпрозорі лінії loader */
-  border-top: 8px solid #3498db; /* Колір верхньої лінії */
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 1s linear infinite; /* Анімація обертання */
-}
+  // Показати лоадер
+  function showLoader() {
+    loaderContainer.style.display = 'flex';
+  }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
+  // Приховати лоадер
+  function hideLoader() {
+    loaderContainer.style.display = 'none';
+  }
+});
