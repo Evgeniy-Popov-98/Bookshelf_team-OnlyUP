@@ -1,0 +1,137 @@
+.header-container {
+  width: 375px;
+  height: 64px;
+  border: 1.5px solid #111;
+  border-radius: 0 0 8px 8px;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-wrap {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  width: 109px;
+  height: 28px;
+  border: 1px solid blue;
+}
+.logo-img-link {
+}
+.logo-img {
+}
+.lodo-text-link {
+}
+.logo-text {
+}
+.menu-wrap {
+  display: none;
+}
+.swither-burger-wrap {
+  width: 82px;
+  height: 28px;
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  align-items: center;
+  border: 1px solid blue;
+}
+.switcher-link {
+}
+.switcher-img {
+}
+.burger-menu-link {
+  display: block;
+}
+.burger-menu-icon {
+  fill: black;
+}
+.user {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .header-container {
+    width: 768px;
+    height: 72px;
+  }
+
+  .logo-menu-wrap {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .menu-wrap {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    border: 1px solid green;
+  }
+  .home-btn {
+    border-radius: 36px;
+    padding: 8px 16px;
+    width: 72px;
+    height: 34px;
+    background: #eac645;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.28571;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    color: #111;
+  }
+  .shopping-wrap {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    width: 118px;
+    height: 20px;
+    border: 1px solid gray;
+  }
+  .shopping-link {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    /* в макеті 14 */
+    font-size: 12px;
+    line-height: 1.28571;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    color: #111;
+  }
+
+  .switcher-user-wrap {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    align-items: center;
+  }
+  .swither-burger-wrap {
+    width: 40px;
+    height: 24px;
+    /* margin-right: 24px; */
+  }
+  .burger-menu-link {
+    display: none;
+  }
+  .user {
+    display: block;
+    width: 184px;
+    height: 45px;
+    border-radius: 36px;
+    background: #4f2ee8;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .header-container {
+    width: 1440px;
+  }
+}
