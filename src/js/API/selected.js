@@ -4,6 +4,7 @@ export async function homeCategory(END_POINT, categoriesBooks) {
   try {
     const data = await getBooks(END_POINT, categoriesBooks);
     renderBooks(data);
+    updateTitle(categoriesBooks);
   } catch (error) {
     console.error('Failed to fetch books:', error);
   }
@@ -14,7 +15,7 @@ export function renderBooks(books) {
   const markup = books
     .map(book => {
       return `
-      <li class="gallery-book-item">
+      <li class="gallery-book-item" id="book-${book._id}>
         <div class="container-item">
           <img class="gallery-image" src="${book.book_image}" alt="${book.description}">
           <h3 class="title-book">${book.title}</h3>
@@ -25,3 +26,7 @@ export function renderBooks(books) {
     .join('');
   gallery.insertAdjacentHTML('beforeend', markup);
 }
+
+function updateTitle(category) {
+  const titleElement = document.querySelector('.title'); 
+  titleElement.innerHTML = `Category: ${category}`; 
