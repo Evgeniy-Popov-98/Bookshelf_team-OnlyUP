@@ -1,7 +1,10 @@
 @import url('./reset.css');
 @import url('./component.css');
+@import url('./header.css');
+@import url('./switch-button.css');
 @import url('./home.css');
 @import url('./selected.css');
+@import url('./pagination.css');
 
 :root {
   --bg-color: #f6f6f6;
