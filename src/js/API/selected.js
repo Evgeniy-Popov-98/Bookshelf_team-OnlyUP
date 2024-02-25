@@ -18,7 +18,7 @@ export function renderBooks(books) {
       <li class="booksgallery-item" id="book-${book._id}">
         <div class="container-item">
           <img class="gallery-image" src="${book.book_image}" alt="${book.description}">
-          <h3 class="name-book">${book.name}</h3>
+          <h3 class="name-book">${book.title}</h3>
           <p class="author-book">${book.author}</p>
         </div>
       </li>`;
@@ -29,5 +29,10 @@ export function renderBooks(books) {
 
 function updateTitle(category) {
   const titleElement = document.querySelector('.selected-title');
-  titleElement.innerHTML = `${category}`;
+  const itemCategory = category.split(' ');
+  const textSpan = itemCategory[itemCategory.length - 1];
+  itemCategory.pop();
+  titleElement.innerHTML = `${itemCategory.join(
+    ' '
+  )} <span class="selected-color">${textSpan} </span>`;
 }

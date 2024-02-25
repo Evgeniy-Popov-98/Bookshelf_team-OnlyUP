@@ -1,8 +1,9 @@
 .selected-page {
   height: 100vh;
-  overflow: scroll;
 }
+
 .selected-title {
+  margin-top: 40px;
   font-weight: 700;
   font-size: 32px;
   line-height: 119%;
@@ -10,58 +11,35 @@
   color: var(--black);
   margin-bottom: 40px;
 }
+
 .selected-color {
   color: var(--violet);
 }
-.wrap-gallery {
-}
+
 .booksgallery {
-  overflow: hidden;
-}
-.js-booksgallery {
-}
-.list-category-books {
-  overflow: hidden;
-  height: 571px;
-  margin-bottom: 8px;
-}
-.list-category-title {
-  font-family: var(--font-family);
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 129%;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  color: #b4afaf;
-  margin-bottom: 18px;
-}
-.list-book {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 40px;
 }
 
-.card {
-}
-.book-item {
-}
-.book-img {
-  border-radius: 8px;
+.gallery-image {
   margin-bottom: 14px;
-  width: 100%;
+  width: 335px;
   height: 485px;
+  border-radius: 8px;
 }
-.title-book {
+
+.name-book {
+  margin-bottom: 4px;
   font-weight: 700;
   font-size: 16px;
   line-height: 112%;
   letter-spacing: -0.04em;
   text-transform: uppercase;
   color: var(--black);
-  margin-bottom: 4px;
 }
 
-.author {
+.author-book {
   font-style: italic;
   font-weight: 400;
   font-size: 12px;
@@ -71,55 +49,41 @@
 }
 
 /* ==================================================Media===================================================== */
-@media screen and (min-width: 375px) {
-  .container {
-    max-width: 375px;
-  }
-}
-
 @media screen and (min-width: 768px) {
-  .container {
-    max-width: 734px;
-    margin: 0 auto;
+  .selected-title {
+    margin-top: 100px;
+    font-size: 48px;
+    line-height: 108%;
   }
 
   .booksgallery {
     display: flex;
-    flex-direction: column;
-  }
-  .name {
-    font-size: 48px;
-    line-height: 108%;
-  }
-  .list-category-books {
-    height: 408px;
-    margin-bottom: 0;
-  }
-  .list-category-name {
-    line-height: 171%;
-  }
-  .list-book {
-    gap: 25px;
     flex-direction: row;
+    flex-wrap: wrap;
+    gap: 40px 25px;
   }
 
-  .card {
+  .booksgallery-item {
+    width: calc((100% - 50px) / 3);
   }
-  .book-item {
-  }
-  .book-img {
+
+  .gallery-image {
+    width: 218px;
     height: 316px;
-  }
-  .title-book {
-    line-height: 125%;
-  }
-
-  .author {
   }
 }
 
 @media screen and (min-width: 1280px) {
-  .container {
-    max-width: 1112px;
+  .selected-title {
+    margin-top: 40px;
+  }
+
+  .booksgallery-item {
+    width: calc((100% - 100px) / 5);
+  }
+
+  .gallery-image {
+    width: 180px;
+    height: 256px;
   }
 }
