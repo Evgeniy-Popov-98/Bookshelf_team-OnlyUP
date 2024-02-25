@@ -1,35 +1,41 @@
-<header class="header animate__animated animate__fadeInLeft">
-    <div class="container">
-        <div>
-            <a href="./index.html" aria-label="Bookshelf" class="header-logo">
-                <svg class="logo" width="24" height="24">
-                    <use href="/img/icons.svg#icon-logo"></use>
-                </svg>
-                <p class="logo-name">Bookshelf</p>
-            </a>
+<header>
+    <div class="header-container">
+      <div class="logo-menu-wrap">
+        <p class="logo-wrap">
+          <a class="logo-img-link" href="">
+            <img class="logo-img" src="../images/logo.svg" alt="logo-img" />
+          </a>
+          <a class="lodo-text-link" href="">
+            <img class="logo-text" src="../images/logo-text.svg" alt="" />
+          </a>
+        </p>
+    
+        <div class="menu-wrap">
+          <div class="home-btn">Home</div>
+    
+          <div class="shopping-wrap">
+            <a class="shopping-link">shopping list</a>
+            <img src="../images/shoppin-list.svg" alt="shoper" />
+          </div>
         </div>
-        <div class="nav">
-            <ul class="nav-container">
-                <li>
-                    <a href="./index.html" class="home">
-                        Home</a>
-                    <div class="switch-box">
-                        <div class="switch-button" data-switch="false"></div>
-                    </div>
-                        
-                </li>
-                <li>
-                    <a href="./cart.html" class="cart" aria-label="Sign">
-                        <p class="header-signup">
-                            Sign up
-                        </p>
-                        <svg class="logo-arrow" width="16" height="12">
-                            <use href="/img/icons.svg#icon-arrrow"></use>
-                        </svg>
-                    </a>
-                </li>
-            </ul>
-        </div>
+      </div>
+    
+      <div class="switcher-user-wrap">
+        <p class="swither-burger-wrap">
+          <a class="switcher-link" href="">
+            <img class="switcher-img" src="../images/switcher.svg" alt="" />
+          </a>
+          <a class="burger-menu-link" href="">
+            <img
+              class="burger-menu-icon"
+              src="../images/burger-menu.svg"
+              alt="burger-menu"
+            />
+          </a>
+        </p>
+    
+        <div class="user"></div>
+      </div>
     </div>
-    <script src="./js/header.js" type="module"></script>
 </header>
+
