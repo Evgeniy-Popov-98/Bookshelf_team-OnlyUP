@@ -139,11 +139,12 @@
 
   .author {
   }
-  .btn-more {
+
+  /* .btn-more {
   }
   .btn-more:hover,
   .btn-more:focus {
-  }
+  } */
 }
 
 @media screen and (min-width: 1280px) {
