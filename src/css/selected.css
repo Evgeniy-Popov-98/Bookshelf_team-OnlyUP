@@ -69,7 +69,7 @@
   letter-spacing: -0.04em;
   color: #b4afaf;
 }
-.btn-more {
+/* .btn-more {
   border: 2px solid var(--violet);
   border-radius: 40px;
   padding: 14px 28px;
@@ -85,12 +85,12 @@
   justify-content: center;
   margin-left: auto;
   margin-bottom: 40px;
-}
-.btn-more:hover,
+} */
+/* .btn-more:hover,
 .btn-more:focus {
   background-color: var(--violet);
   color: var(--white);
-}
+} */
 
 /* ==================================================Media===================================================== */
 @media screen and (min-width: 375px) {
@@ -100,6 +100,11 @@
 }
 
 @media screen and (min-width: 768px) {
+  .container {
+    max-width: 734px;
+    margin: 0 auto;
+  }
+
   .booksgallery {
     display: flex;
     flex-direction: column;
