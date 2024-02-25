@@ -29,5 +29,5 @@ export function renderBooks(books) {
 
 function updateTitle(category) {
   const titleElement = document.querySelector('.selected-title');
-  titleElement.innerHTML = `Category: ${category}`;
+  titleElement.innerHTML = `${category}`;
 }
