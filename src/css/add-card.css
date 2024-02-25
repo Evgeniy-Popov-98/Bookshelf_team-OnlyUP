@@ -23,8 +23,8 @@
 }
 
 .popup-image {
-    top: 40px;
-    left: 40px;
+    margin-top: 40px;
+    margin-left: 40px;
     width: 192px;
     height: 281px;
     position: absolute;
@@ -34,8 +34,7 @@
 .popup-text {
     gap: 8px;
     margin-top: 40px;
-    margin-left: 256px;
-  
+    margin-left: 252px;
     display: flex;
     position: absolute;
     align-items: flex-start;
@@ -74,6 +73,7 @@
     gap: 10px;
     margin-top: 361px;
     margin-left: 40px;
+    margin-right: 40px;
     width: 499px;
     height: 60;
     display: flex;
@@ -116,8 +116,7 @@
 
 .popup-links {
     gap: 20px;
-    top: 204px;
-    left: 256px;
+    margin-top: 155px;
     width: 115px;
     display: flex;
     position: absolute;
@@ -143,8 +142,7 @@
 }
 
 .popup-text7 {
-    margin-top: 114px;
-    margin-left: 256px;
+    margin-top: 65px;
     color: rgba(17, 17, 17, 1);
     width: 279px;
     height: auto;

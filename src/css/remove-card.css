@@ -8,8 +8,8 @@
 }
 
 .popup-popup {
-    width: 100%;
-    height: 501px;
+    width: 579px;
+    height: 465px;
     display: flex;
     overflow: hidden;
     position: relative;
@@ -34,7 +34,7 @@
 .popup-text {
     gap: 8px;
     margin-top: 40px;
-    margin-left: 256px;
+    margin-left: 252px;
     display: flex;
     position: absolute;
     align-items: flex-start;
@@ -74,9 +74,9 @@
     margin-top: 361px;
     margin-left: 40px;
     width: 499px;
-    height: 60px;
-    /* added missing unit */
+    height: 60;
     display: flex;
+
     overflow: hidden;
     position: absolute;
     align-items: center;
@@ -92,6 +92,7 @@
 .popup-btn:focus,
 .popup-btn:active {
     background-color: #4F2EE8;
+
 }
 
 .popup-btn:hover .popup-text5,
@@ -112,6 +113,8 @@
     font-stretch: normal;
     text-decoration: none;
 }
+
+
 
 .popup-links {
     gap: 20px;
@@ -157,8 +160,25 @@
     font-stretch: normal;
     text-decoration: none;
 }
+.bottom-part{display: flex;}
+.popup-text09 {
+    margin: 0;
 
-@media (max-width: 991px) {
+    color: rgba(17, 17, 17, 0.5);
+    width: 324px;
+    height: auto;
+    position: absolute;
+    font-size: 12px;
+    font-style: Regular;
+    text-align: center;
+    font-family: DM Sans;
+    font-weight: 400;
+    line-height: 14px;
+    font-stretch: normal;
+    text-decoration: none;
+}
+
+@media(max-width: 991px) {
     .popup-btn {
         width: 521px;
     }
