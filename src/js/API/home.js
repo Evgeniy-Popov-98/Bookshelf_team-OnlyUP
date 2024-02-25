@@ -6,7 +6,6 @@ let previousWidth = window.innerWidth;
 
 window.addEventListener('resize', async () => {
   const currentWidth = window.innerWidth;
-  //   refs.galleryBooks.innerHTML = '';
   if (
     previousWidth > 768 ||
     (previousWidth < 768 && currentWidth >= 768) ||
@@ -15,6 +14,7 @@ window.addEventListener('resize', async () => {
       (previousWidth <= 768 || currentWidth >= 1439))
   ) {
     try {
+      console.log(1);
       const data = await getBooks('top-books');
       refs.galleryBooks.innerHTML = '';
       for (const el of data) {
