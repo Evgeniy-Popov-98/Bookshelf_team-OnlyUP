@@ -26,7 +26,6 @@ function createModal(book) {
     </li>
   </ul>
 `;
-
   modal.innerHTML = `
   <div class="modal-container">
   <img src="${book.book_image}" class="modal-image">
@@ -94,21 +93,17 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  document.addEventListener('keydown', function (event) {
+  document.addEventListener('keydown', escapeCloseModal);
+  document.removeEventListener('keydown', escapeCloseModal);
+
+  function escapeCloseModal(event) {
     if (event.key === 'Escape') {
       closeModal();
     }
-  });
-
-  function removeEventListeners() {
-    closeModalButton.removeEventListener('click', closeModal);
-    modalBackdrop.removeEventListener('click', closeModal);
-    document.removeEventListener('keydown', closeModal);
   }
 
   function closeModal() {
     modalBackdrop.style.display = 'none';
     body.style.overflow = 'auto';
-    removeEventListeners();
   }
 });
