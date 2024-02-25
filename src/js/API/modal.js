@@ -6,6 +6,22 @@ const modalBackdrop = document.querySelector('.backdrop');
 const closeModalButton = document.querySelector('.close-btn');
 const listButton = document.querySelector('.list-btn');
 
+//Test
+const bookId = '643282b1e85766588626a0ae';
+//=========================
+
+// Open modal
+const OpenModal = document.querySelector('.open-modal');
+OpenModal.addEventListener('click', () => {
+  document.addEventListener('keydown', escapeCloseModal);
+  GetBook();
+});
+
+async function GetBook() {
+  const data = await getBooks(bookId);
+  createModal(data);
+}
+
 function createModal(book) {
   modalBackdrop.style.display = 'flex';
 
@@ -50,22 +66,6 @@ function createModal(book) {
       }
     });
   });
-}
-
-//Test
-const bookId = '643282b1e85766588626a0ae';
-//=========================
-
-// Open modal
-const OpenModal = document.querySelector('.open-modal');
-OpenModal.addEventListener('click', () => {
-  document.addEventListener('keydown', escapeCloseModal);
-  GetBook();
-});
-
-async function GetBook() {
-  const data = await getBooks(bookId);
-  createModal(data);
 }
 
 //Add to shopping list
