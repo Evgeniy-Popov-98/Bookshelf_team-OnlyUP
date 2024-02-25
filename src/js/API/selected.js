@@ -10,7 +10,7 @@ export async function homeCategory(END_POINT, categoriesBooks) {
   }
 }
 
-export function renderBooks(books) {
+function renderBooks(books) {
   const gallery = document.querySelector('.booksgallery');
   const markup = books
     .map(book => {
