@@ -59,6 +59,7 @@ const bookId = '643282b1e85766588626a0ae';
 // Open modal
 const OpenModal = document.querySelector('.open-modal');
 OpenModal.addEventListener('click', () => {
+  document.addEventListener('keydown', escapeCloseModal);
   GetBook();
 });
 
@@ -92,18 +93,17 @@ document.addEventListener('DOMContentLoaded', function () {
       closeModal();
     }
   });
-
-  document.addEventListener('keydown', escapeCloseModal);
-  document.removeEventListener('keydown', escapeCloseModal);
-
-  function escapeCloseModal(event) {
-    if (event.key === 'Escape') {
-      closeModal();
-    }
-  }
-
-  function closeModal() {
-    modalBackdrop.style.display = 'none';
-    body.style.overflow = 'auto';
-  }
 });
+
+function escapeCloseModal(event) {
+  console.log(event.key);
+  if (event.key === 'Escape') {
+    closeModal();
+    document.removeEventListener('keydown', escapeCloseModal);
+  }
+}
+
+function closeModal() {
+  modalBackdrop.style.display = 'none';
+  body.style.overflow = 'auto';
+}
