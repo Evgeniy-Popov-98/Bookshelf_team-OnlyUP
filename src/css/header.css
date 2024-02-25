@@ -44,9 +44,7 @@
   display: flex;
   align-items: center;
 }
-.hburger-menu-icon {
-  fill: black;
-}
+
 .h-user {
   display: none;
 }
@@ -75,7 +73,7 @@
     padding: 8px 16px;
     width: 72px;
     height: 34px;
-    background: #eac645;
+    background: var(--yellow);
   }
 
   .hhome-text {
@@ -94,7 +92,7 @@
     padding: 7px 16px;
     width: 156px;
     height: 34px;
-    background: #eac645;
+    background: var(--yellow);
   }
   .hshopping-link {
     display: flex;
@@ -110,7 +108,7 @@
     line-height: 1.28571;
     letter-spacing: -0.04em;
     text-transform: uppercase;
-    color: #111;
+    color: var(--black);
   }
 
   .hswitcher-user-wrap {
@@ -127,11 +125,22 @@
     display: none;
   }
   .h-user {
-    display: block;
+    display: flex;
+    flex-direction: row;
+    gap: 90px;
+    align-items: center;
     width: 184px;
-    height: 45px;
+    height: 48px;
     border-radius: 36px;
-    background: #4f2ee8;
+    background: var(--violet);
+    padding: 0 14px 0 14px;
+
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.28571;
+    letter-spacing: -0.04em;
+    color: var(--white);
   }
 }
 
