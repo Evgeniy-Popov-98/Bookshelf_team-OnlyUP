@@ -11,14 +11,10 @@ const bookId = '643282b1e85766588626a0ae';
 //=========================
 
 // Open modal
-const OpenModal = document.querySelector('.open-modal');
-OpenModal.addEventListener('click', () => {
-  document.addEventListener('keydown', escapeCloseModal);
-  GetBook();
-});
 
-async function GetBook() {
-  const data = await getBooks(bookId);
+export async function GetBook(id) {
+  document.addEventListener('keydown', escapeCloseModal);
+  const data = await getBooks(id);
   createModal(data);
 }
 
