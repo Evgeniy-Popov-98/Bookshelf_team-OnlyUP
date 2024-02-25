@@ -1,33 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS-new_teamProject</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+      integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@400;500;700&family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    
+    
+    <script type="module" crossorigin src="/JS-new_teamProject/commonHelpers.js"></script>
+    <link rel="modulepreload" crossorigin href="/JS-new_teamProject/assets/vendor-8cce9181.js">
+    <link rel="stylesheet" href="/JS-new_teamProject/assets/vendor-e5212ee8.css">
+    <link rel="stylesheet" href="/JS-new_teamProject/assets/index-89137ed9.css">
+  </head>
 
-<head>
-	<meta charset="UTF-8" />
-	<link rel="icon" type="image/svg+xml" href="" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>JS-new_teamProject</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
-		integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
-		crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link
-		href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@400;500;700&family=Montserrat:wght@400;500;600;700&display=swap"
-		rel="stylesheet">
-	
-  <script type="module" crossorigin src="/JS-new_teamProject/commonHelpers.js"></script>
-  <link rel="modulepreload" crossorigin href="/JS-new_teamProject/assets/vendor-8cce9181.js">
-  <link rel="stylesheet" href="/JS-new_teamProject/assets/vendor-e5212ee8.css">
-  <link rel="stylesheet" href="/JS-new_teamProject/assets/index-cea3c575.css">
-</head>
+  <body>
+    <header>
+      <div class="header-container">
+	<div class="hlogo-menu-wrap">
+		<div class="hlogo-wrap">
+			<a class="hlogo-img-link" href="">
+				<svg class="thlogo-icon" width="24" height="24">
+					<use href="../images/icons.svg#icon-logo"></use>
+				</svg>
+				Bookshelf
+			</a>
+		</div>
 
-<body>
-	<header></header>
-	<main>
-		<div class="switch-box">
-	<div class="switch-button" data-switch="false"></div>
+		<div class="hmenu-wrap">
+			<div class="hhome-text js-hhome">
+				<a href="">Home</a>
+			</div>
+
+			<div class="hshopping-wrap hshopping-btn js-hshopping">
+				<a class="hshopping-link" href="">Shopping list
+					<svg class="hshopping-icon" width="20" height="20">
+						<use href="../images/icons.svg#icon-shopping-list"></use>
+					</svg>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="hswitcher-user-wrap">
+		<div class="hswitcher-burger-wrap">
+			<div class="switch-box">
+				<div class="switch-button" data-switch="false"></div>
+			</div>
+			<a class="hburger-menu-link" href="">
+				<svg class="hburger-menu-icon" width="28" height="28">
+					<use href="../images/icons.svg#icon-burger"></use>
+				</svg>
+			</a>
+		</div>
+
+		<div class="h-user">
+			Sign up
+			<svg class="h-user-sign" width="20" height="20">
+				<use href="../images/icons.svg#icon-arrow"></use>
+			</svg>
+		</div>
+	</div>
 </div>
-		<section class="home-pg js-home-pg container">
+<!-- <script type="module" src="../js/NZheader.js"></script> -->
+    </header>
+    <main>
+      <section class="home-pg js-home-pg container">
     <h2 class="title">Best Sellers <span class="color-text">Books</span></h2>
     <!-- <div class="wrap-gallery"> -->
         <ul class="gallery-books js-gallery-books">
@@ -35,8 +85,8 @@
     <!-- </div> -->
     
 </section>
-	</main>
-	<footer></footer>
-	
-</body>
+    </main>
+    <footer></footer>
+    
+  </body>
 </html>
