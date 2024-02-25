@@ -9,9 +9,10 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  margin: 0 auto;
 }
 
-.logo-wrap {
+.logo-img-link {
   display: flex;
   flex-direction: row;
   gap: 8px;
@@ -19,8 +20,6 @@
   width: 109px;
   height: 28px;
   border: 1px solid blue;
-}
-.logo-img-link {
 }
 .logo-img {
 }
@@ -88,15 +87,15 @@
     text-transform: uppercase;
     color: #111;
   }
-  .shopping-wrap {
+
+  .shopping-link {
     display: flex;
     flex-direction: row;
     gap: 16px;
     width: 118px;
     height: 20px;
     border: 1px solid gray;
-  }
-  .shopping-link {
+
     font-family: 'DM Sans', sans-serif;
     font-weight: 500;
     /* в макеті 14 */
@@ -116,7 +115,6 @@
   .swither-burger-wrap {
     width: 40px;
     height: 24px;
-    /* margin-right: 24px; */
   }
   .burger-menu-link {
     display: none;
