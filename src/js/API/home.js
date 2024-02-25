@@ -1,6 +1,7 @@
 import { getBooks } from './api-books';
 import refs from './refs';
 import { errorMessage } from './messageError';
+import { GetBook } from './modal';
 
 let previousWidth = window.innerWidth;
 
@@ -32,7 +33,7 @@ window.addEventListener('resize', async () => {
   previousWidth = currentWidth;
 });
 
-export async function render() {
+export async function render(event) {
   try {
     const data = await getBooks('top-books');
     for (const el of data) {
@@ -43,6 +44,16 @@ export async function render() {
         errorMessage('Sorry, there are no items in this category');
       }
     }
+
+    const openModal = document.querySelectorAll('.card');
+    document.addEventListener('click', event => {
+      for (const item of openModal) {
+        let data = item.dataset.id;
+        if (event.target.parentNode === item) {
+          GetBook(data);
+        }
+      }
+    });
   } catch (error) {
     errorMessage(`Failed to render books:${error}`);
   }
@@ -91,5 +102,6 @@ function onMediaScreenChange(el) {
   } else {
     mediaMarkup = booksTemplate(el.books.slice(0, 1));
   }
+
   return mediaMarkup;
 }
