@@ -12,7 +12,7 @@
   margin: 0 auto;
 }
 
-.h-logo-img-link {
+.hlogo-img-link {
   display: flex;
   flex-direction: row;
   gap: 8px;
@@ -28,10 +28,10 @@
   text-transform: uppercase;
 }
 
-.h-menu-wrap {
+.hmenu-wrap {
   display: none;
 }
-.h-swither-burger-wrap {
+.hswitcher-burger-wrap {
   width: 82px;
   height: 28px;
   display: flex;
@@ -40,10 +40,11 @@
   align-items: center;
 }
 
-.h-burger-menu-link {
-  display: block;
+.hburger-menu-link {
+  display: flex;
+  align-items: center;
 }
-.h-burger-menu-icon {
+.hburger-menu-icon {
   fill: black;
 }
 .h-user {
@@ -56,25 +57,28 @@
     height: 72px;
   }
 
-  .h-logo-menu-wrap {
+  .hlogo-menu-wrap {
     display: flex;
     flex-direction: row;
     gap: 40px;
     align-items: center;
   }
 
-  .h-menu-wrap {
+  .hmenu-wrap {
     display: flex;
     flex-direction: row;
     gap: 16px;
     align-items: center;
   }
-  .h-home-btn {
+  .hhome-btn {
     border-radius: 36px;
     padding: 8px 16px;
     width: 72px;
     height: 34px;
     background: #eac645;
+  }
+
+  .hhome-text {
     font-family: 'DM Sans', sans-serif;
     font-weight: 700;
     font-size: 14px;
@@ -82,12 +86,21 @@
     letter-spacing: -0.04em;
     text-transform: uppercase;
     color: #111;
+    cursor: pointer;
   }
 
-  .h-shopping-link {
+  .hshopping-btn {
+    border-radius: 36px;
+    padding: 7px 16px;
+    width: 156px;
+    height: 34px;
+    background: #eac645;
+  }
+  .hshopping-link {
     display: flex;
     flex-direction: row;
     gap: 4px;
+    align-items: center;
     width: 118px;
     height: 20px;
 
@@ -100,17 +113,17 @@
     color: #111;
   }
 
-  .h-switcher-user-wrap {
+  .hswitcher-user-wrap {
     display: flex;
     flex-direction: row;
     gap: 24px;
     align-items: center;
   }
-  .h-swither-burger-wrap {
+  .hswitcher-burger-wrap {
     width: 40px;
     height: 24px;
   }
-  .h-burger-menu-link {
+  .hburger-menu-link {
     display: none;
   }
   .h-user {
@@ -129,10 +142,11 @@
     padding-right: 24px;
   }
 
-  .h-logo-menu-wrap {
+  .hlogo-menu-wrap {
     gap: 76px;
   }
-  .h-menu-wrap {
+
+  .hmenu-wrap {
     gap: 24px;
   }
 }
