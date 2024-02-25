@@ -12,44 +12,41 @@
   margin: 0 auto;
 }
 
-.logo-img-link {
+.h-logo-img-link {
   display: flex;
   flex-direction: row;
   gap: 8px;
   align-items: center;
   width: 109px;
   height: 28px;
-  border: 1px solid blue;
+
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
 }
-.logo-img {
-}
-.lodo-text-link {
-}
-.logo-text {
-}
-.menu-wrap {
+
+.h-menu-wrap {
   display: none;
 }
-.swither-burger-wrap {
+.h-swither-burger-wrap {
   width: 82px;
   height: 28px;
   display: flex;
   flex-direction: row;
   gap: 14px;
   align-items: center;
-  border: 1px solid blue;
 }
-.switcher-link {
-}
-.switcher-img {
-}
-.burger-menu-link {
+
+.h-burger-menu-link {
   display: block;
 }
-.burger-menu-icon {
+.h-burger-menu-icon {
   fill: black;
 }
-.user {
+.h-user {
   display: none;
 }
 
@@ -59,21 +56,20 @@
     height: 72px;
   }
 
-  .logo-menu-wrap {
+  .h-logo-menu-wrap {
     display: flex;
     flex-direction: row;
     gap: 40px;
     align-items: center;
   }
 
-  .menu-wrap {
+  .h-menu-wrap {
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    gap: 16px;
     align-items: center;
-    border: 1px solid green;
   }
-  .home-btn {
+  .h-home-btn {
     border-radius: 36px;
     padding: 8px 16px;
     width: 72px;
@@ -88,38 +84,36 @@
     color: #111;
   }
 
-  .shopping-link {
+  .h-shopping-link {
     display: flex;
     flex-direction: row;
-    gap: 16px;
+    gap: 4px;
     width: 118px;
     height: 20px;
-    border: 1px solid gray;
 
     font-family: 'DM Sans', sans-serif;
     font-weight: 500;
-    /* в макеті 14 */
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.28571;
     letter-spacing: -0.04em;
     text-transform: uppercase;
     color: #111;
   }
 
-  .switcher-user-wrap {
+  .h-switcher-user-wrap {
     display: flex;
     flex-direction: row;
     gap: 24px;
     align-items: center;
   }
-  .swither-burger-wrap {
+  .h-swither-burger-wrap {
     width: 40px;
     height: 24px;
   }
-  .burger-menu-link {
+  .h-burger-menu-link {
     display: none;
   }
-  .user {
+  .h-user {
     display: block;
     width: 184px;
     height: 45px;
@@ -131,6 +125,14 @@
 @media screen and (min-width: 1440px) {
   .header-container {
     width: 1440px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .h-logo-menu-wrap {
+    gap: 76px;
+  }
+  .h-menu-wrap {
+    gap: 24px;
   }
 }
-
