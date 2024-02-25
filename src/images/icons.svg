@@ -44,5 +44,19 @@
       <path
         d="M16 30.857c8.206 0 14.857-6.652 14.857-14.857S24.205 1.143 16 1.143C7.795 1.143 1.143 7.795 1.143 16S7.795 30.857 16 30.857z" />
     </symbol>
+    <symbol id="icon-logo" viewBox="0 0 24 24">
+      <path d="M0 0L12.2571 12.1286L24 24V0H0Z" fill="#F6F6F6"/>
+      <path d="M3.34277 3.17145L12.2999 12.0429L20.7428 20.6572H3.34277V3.17145Z" fill="#F6F6F6"/>
+      <path d="M20.7999 20.7137L11.8428 11.8423L3.3999 3.22797H20.7999V20.7137Z" fill="#4F2EE8"/>
+      <path d="M6.94287 6.77142L11.7 11.5286L17.1429 16.9714H6.94287V6.77142Z" fill="#4F2EE8"/>
+      <path d="M6.94287 6.77142L11.7 11.5286L17.1429 16.9714V6.77142H6.94287Z" fill="#F6F6F6"/>
+    </symbol>
+    <symbol id="icon-arrow" viewBox="0 0 16 12">
+      <path d="M1.33325 6H14.6666M14.6666 6L9.66658 1M14.6666 6L9.66658 11" stroke="#EAC645" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+
+</svg>
+
   </defs>
 </svg>
