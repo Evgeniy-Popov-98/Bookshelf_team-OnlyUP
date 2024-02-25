@@ -34,7 +34,8 @@
   transition: stroke 250ms ease;
 }
 
-.close-icon:hover, .close-icon:focus {
+.close-icon:hover,
+.close-icon:focus {
   stroke: rgb(79, 46, 232);
 }
 
@@ -158,6 +159,7 @@
   }
 
   .title {
+    max-width: 230px;
     font-size: 24px;
     line-height: 1.17;
   }
