@@ -69,28 +69,6 @@
   letter-spacing: -0.04em;
   color: #b4afaf;
 }
-/* .btn-more {
-  border: 2px solid var(--violet);
-  border-radius: 40px;
-  padding: 14px 28px;
-  height: 46px;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 129%;
-  letter-spacing: -0.01em;
-  text-transform: uppercase;
-  color: var(--black);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: auto;
-  margin-bottom: 40px;
-} */
-/* .btn-more:hover,
-.btn-more:focus {
-  background-color: var(--violet);
-  color: var(--white);
-} */
 
 /* ==================================================Media===================================================== */
 @media screen and (min-width: 375px) {
@@ -128,7 +106,6 @@
   .card {
   }
   .book-item {
-    /* height: 366px; */
   }
   .book-img {
     height: 316px;
@@ -139,12 +116,6 @@
 
   .author {
   }
-
-  /* .btn-more {
-  }
-  .btn-more:hover,
-  .btn-more:focus {
-  } */
 }
 
 @media screen and (min-width: 1280px) {
