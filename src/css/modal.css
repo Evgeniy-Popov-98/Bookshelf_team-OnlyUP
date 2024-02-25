@@ -31,6 +31,11 @@
 .close-icon {
   fill: transparent;
   stroke: rgb(0, 0, 0);
+  transition: stroke 250ms ease;
+}
+
+.close-icon:hover, .close-icon:focus {
+  stroke: rgb(79, 46, 232);
 }
 
 .modal-image {

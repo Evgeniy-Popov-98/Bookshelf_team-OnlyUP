@@ -1,74 +1,44 @@
 import { getBooks } from './api-books';
 
 const body = document.querySelector('body');
+const modal = document.querySelector('.modal');
 const modalBackdrop = document.querySelector('.backdrop');
 const closeModalButton = document.querySelector('.close-btn');
+const listButton = document.querySelector('.list-btn');
 
 function createModal(book) {
   modalBackdrop.style.display = 'flex';
 
   body.style.overflow = 'hidden';
 
-  const modal = document.querySelector('.modal');
-
-  const modalContainer = document.createElement('div');
-  modalContainer.classList.add('modal-container');
-
-  const modalWrap = document.createElement('div');
-  modalWrap.classList.add('modal-wrap');
-
-  const bookImage = document.createElement('img');
-  bookImage.src = book.book_image;
-  bookImage.classList.add('modal-image');
-
-  const title = document.createElement('h2');
-  title.textContent = book.title;
-  title.classList.add('title');
-
-  const author = document.createElement('p');
-  author.textContent = book.author;
-  author.classList.add('author');
-
-  const description = document.createElement('p');
-  description.textContent = book.description;
-  description.classList.add('description');
-
-  const buyLinksList = document.createElement('ul');
-  buyLinksList.classList.add('buy-links-list');
-
-  const amazonLink = document.createElement('li');
-  const amazonImage = document.createElement('img');
-  amazonImage.src = '../images/amazon.png';
-  amazonImage.alt = 'Amazon';
-  amazonImage.classList.add('platform-image');
   const amazonUrl =
     book.buy_links.find(link => link.name === 'Amazon')?.url || '';
-  amazonImage.dataset.url = amazonUrl;
-  amazonLink.appendChild(amazonImage);
-  buyLinksList.appendChild(amazonLink);
-
-  const appleBooksLink = document.createElement('li');
-  const appleBooksImage = document.createElement('img');
-  appleBooksImage.src = '../images/book.png';
-  appleBooksImage.alt = 'Apple Books';
-  appleBooksImage.classList.add('platform-image');
   const appleBooksUrl =
     book.buy_links.find(link => link.name === 'Apple Books')?.url || '';
-  appleBooksImage.dataset.url = appleBooksUrl;
-  appleBooksLink.appendChild(appleBooksImage);
-  buyLinksList.appendChild(appleBooksLink);
 
-  const listButton = document.querySelector('.list-btn');
+  const buyLinksListHTML = `
+  <ul class="buy-links-list">
+    <li>
+      <img src="../images/amazon.png" alt="Amazon" class="platform-image" data-url="${amazonUrl}">
+    </li>
+    <li>
+      <img src="../images/book.png" alt="Apple Books" class="platform-image" data-url="${appleBooksUrl}">
+    </li>
+  </ul>
+`;
 
-  modal.innerHTML = '';
-  modalWrap.appendChild(title);
-  modalWrap.appendChild(author);
-  modalWrap.appendChild(description);
-  modalWrap.appendChild(buyLinksList);
-  modalContainer.appendChild(bookImage);
-  modalContainer.appendChild(modalWrap);
+  modal.innerHTML = `
+  <div class="modal-container">
+  <img src="${book.book_image}" class="modal-image">
+    <div class="modal-wrap">
+      <h2 class="title">${book.title}</h2>
+      <p class="author">${book.author}</p>
+      <p class="description">${book.description}</p>
+      ${buyLinksListHTML}
+    </div>  
+  </div>
+`;
   modal.appendChild(closeModalButton);
-  modal.appendChild(modalContainer);
   modal.appendChild(listButton);
 
   modal.querySelectorAll('.platform-image').forEach(image => {
@@ -99,8 +69,6 @@ async function GetBook() {
 }
 
 //Add to shopping list
-const listButton = document.querySelector('.list-btn');
-
 function toggleShoppingList() {
   const buttonText = listButton.textContent.trim();
   if (buttonText === 'add to shopping list') {
@@ -131,17 +99,16 @@ document.addEventListener('DOMContentLoaded', function () {
       closeModal();
     }
   });
+
+  function removeEventListeners() {
+    closeModalButton.removeEventListener('click', closeModal);
+    modalBackdrop.removeEventListener('click', closeModal);
+    document.removeEventListener('keydown', closeModal);
+  }
+
+  function closeModal() {
+    modalBackdrop.style.display = 'none';
+    body.style.overflow = 'auto';
+    removeEventListeners();
+  }
 });
-
-function closeModal() {
-  modalBackdrop.style.display = 'none';
-
-  body.style.overflow = 'auto';
-
-  document.removeEventListener('keydown', function (event) {
-    if (event.key === 'Escape') {
-      closeModal();
-    }
-  });
-}
-
