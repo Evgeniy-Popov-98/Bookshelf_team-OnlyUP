@@ -3,6 +3,30 @@ import {getBooks} from './api-books';
 import refs from './refs';
 import {errorMessage} from './messageError';
 
+let previousWidth = window.innerWidth;
+
+window.addEventListener('resize', async () => {
+    const currentWidth = window.innerWidth;
+    if ((previousWidth < 768 && currentWidth >= 768) || 
+        (previousWidth >= 768 && currentWidth <= 1439 && (previousWidth <= 768 || currentWidth >= 1439))) {
+            try{
+                const data = await getBooks('top-books');
+                refs.galleryBooks.innerHTML = ''; 
+                for (const el of data) {
+                    categoriesTemplate(el);  
+                    if(el.books.length>=1) {
+                        renderBooks(el);
+                    }else{
+                        errorMessage('Sorry, there are no items in this category');
+                    }   
+                }
+            } catch (error) {
+                errorMessage(`Failed to render books:${error}`);
+            }
+        }
+    previousWidth = currentWidth;
+});
+
 export async function render(){
     try {
         const data = await getBooks('top-books');
@@ -12,8 +36,7 @@ export async function render(){
                 renderBooks(el);
             }else{
                 errorMessage('Sorry, there are no items in this category');
-            }        
-                
+            }   
         }
     } catch (error) {
         errorMessage(`Failed to render books:${error}`);
@@ -48,8 +71,23 @@ function booksTemplate(books) {
 }
 
 export function renderBooks(el) {
+    const markup = onMediaScreenChange(el);
     const categoriesID = el.list_name;
     const listBook = document.getElementById(categoriesID).querySelector('.list-book');
-    const markup = booksTemplate(el.books);
     listBook.insertAdjacentHTML('afterbegin', markup);
 }
+
+
+function onMediaScreenChange(el){
+    let mediaMarkup
+if (window.innerWidth >= 768 && window.innerWidth <= 1439) {
+    mediaMarkup = booksTemplate(el.books.slice(0,3));
+}else if(window.innerWidth >= 1440){
+    mediaMarkup = booksTemplate(el.books);
+}else{
+    mediaMarkup = booksTemplate(el.books.slice(0,1));
+}
+return mediaMarkup
+}
+
+
