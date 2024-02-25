@@ -3,8 +3,8 @@ import { getBooks } from './api-books';
 const body = document.querySelector('body');
 const modal = document.querySelector('.modal');
 const modalBackdrop = document.querySelector('.backdrop');
-const closeModalButton = document.querySelector('.close-btn');
-const listButton = document.querySelector('.list-btn');
+const closeModalButton = document.querySelector('.modal-close-btn');
+const listButton = document.querySelector('.modal-list-btn');
 
 //Test
 const bookId = '643282b1e85766588626a0ae';
@@ -42,8 +42,8 @@ function createModal(book) {
   <div class="modal-container">
   <img src="${book.book_image}" class="modal-image">
     <div class="modal-wrap">
-      <h2 class="title">${book.title}</h2>
-      <p class="author">${book.author}</p>
+      <h2 class="modal-title">${book.title}</h2>
+      <p class="modal-author">${book.author}</p>
       <p class="description">${book.description}</p>
       ${buyLinksListHTML}
     </div>  
