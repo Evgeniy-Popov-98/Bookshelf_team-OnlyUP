@@ -87,7 +87,10 @@ function toggleShoppingList() {
   localStorage.setItem('shoppingList', JSON.stringify(shoppingList));
 }
 
-listButton.addEventListener('click', toggleShoppingList);
+listButton.addEventListener('click', function () {
+  toggleShoppingList();
+  listButton.blur();
+});
 
 //Close modal
 document.addEventListener('DOMContentLoaded', function () {
@@ -113,4 +116,3 @@ function closeModal() {
   modalBackdrop.style.display = 'none';
   body.style.overflow = 'auto';
 }
-

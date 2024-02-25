@@ -18,6 +18,18 @@
   border: 2px solid rgb(17, 17, 17);
   border-radius: 18px;
   padding: 40px 24px;
+  animation: fadeInOut 0.5s forwards;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
 
 .close-btn {
@@ -34,7 +46,8 @@
   transition: stroke 250ms ease;
 }
 
-.close-icon:hover, .close-icon:focus {
+.close-icon:hover,
+.close-icon:focus {
   stroke: rgb(79, 46, 232);
 }
 
@@ -45,6 +58,7 @@
 }
 
 .title {
+  width: 260px;
   font-weight: 700;
   font-size: 16px;
   line-height: 1.12;
@@ -175,5 +189,4 @@
   }
 }
 
-@media screen and (min-width: 1440px) {
-}
+
