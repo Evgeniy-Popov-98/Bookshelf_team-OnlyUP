@@ -71,13 +71,20 @@ async function GetBook() {
 //Add to shopping list
 function toggleShoppingList() {
   const buttonText = listButton.textContent.trim();
+  const storedData = localStorage.getItem('shoppingList');
+  const shoppingList = JSON.parse(storedData) || {};
+
   if (buttonText === 'add to shopping list') {
-    addToShoppingList(bookId);
+    shoppingList[bookId] = true;
     listButton.textContent = 'remove from the shopping list';
   } else {
-    removeFromShoppingList(bookId);
+    if (shoppingList[bookId]) {
+      delete shoppingList[bookId];
+    }
     listButton.textContent = 'add to shopping list';
   }
+
+  localStorage.setItem('shoppingList', JSON.stringify(shoppingList));
 }
 
 listButton.addEventListener('click', toggleShoppingList);
@@ -96,7 +103,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function escapeCloseModal(event) {
-  console.log(event.key);
   if (event.key === 'Escape') {
     closeModal();
     document.removeEventListener('keydown', escapeCloseModal);
@@ -107,3 +113,4 @@ function closeModal() {
   modalBackdrop.style.display = 'none';
   body.style.overflow = 'auto';
 }
+
