@@ -1,34 +1,42 @@
-// Знаходимо кнопку "add to shopping list"
-const addToShoppingListBtn = document.querySelector('.modal-list-btn');
+document.addEventListener('DOMContentLoaded', function () {
+  const addToShoppingListBtn = document.querySelector('.modal-list-btn');
+  const modalWrap = document.querySelector('.modal-wrap');
+  const shoppingListBooks = document.querySelector('.shoppinglist-books');
 
-// Додаємо обробник події для кнопки
-addToShoppingListBtn.addEventListener('click', function () {
-  // Отримуємо текст або інформацію, яку ви хочете додати до списку покупок
-  const itemToAdd = document.querySelector('.modal-wrap').innerText;
+  addToShoppingListBtn.addEventListener('click', function () {
+    const bookTitle = modalWrap.querySelector('.book-title').innerText;
+    const bookAuthor = modalWrap.querySelector('.book-author').innerText;
+    const bookDescription =
+      modalWrap.querySelector('.book-description').innerText;
+    const bookImageSrc = modalWrap
+      .querySelector('.book-image')
+      .getAttribute('src');
 
-  // Викликаємо функцію, яка додає елемент до списку покупок
-  addToShoppingList(itemToAdd);
+    const bookElement = document.createElement('div');
+    bookElement.classList.add('shoppinglist-book');
+
+    const bookImage = document.createElement('img');
+    bookImage.classList.add('book-image');
+    bookImage.setAttribute('src', bookImageSrc);
+    bookElement.appendChild(bookImage);
+
+    const bookInfo = document.createElement('div');
+    bookInfo.classList.add('book-info');
+
+    const title = document.createElement('h2');
+    title.innerText = bookTitle;
+    bookInfo.appendChild(title);
+
+    const author = document.createElement('p');
+    author.innerText = 'Author: ' + bookAuthor;
+    bookInfo.appendChild(author);
+
+    const description = document.createElement('p');
+    description.innerText = bookDescription;
+    bookInfo.appendChild(description);
+
+    bookElement.appendChild(bookInfo);
+
+    shoppingListBooks.appendChild(bookElement);
+  });
 });
-
-// Функція для додавання елементу до списку покупок
-function addToShoppingList(item) {
-  // Перевіряємо, чи існує список покупок у localStorage
-  let shoppingList = localStorage.getItem('shoppingList');
-
-  // Якщо список покупок не існує або порожній, створюємо новий порожній масив
-  if (!shoppingList || shoppingList === '') {
-    shoppingList = [];
-  } else {
-    // Якщо список покупок існує, розпарсимо його з JSON
-    shoppingList = JSON.parse(shoppingList);
-  }
-
-  // Додаємо новий елемент до списку покупок
-  shoppingList.push(item);
-
-  // Зберігаємо оновлений список покупок у localStorage
-  localStorage.setItem('shoppingList', JSON.stringify(shoppingList));
-
-  // Тут ви також можете додати код для відображення списку покупок на сторінці
-  console.log('Додано до списку покупок:', item);
-}

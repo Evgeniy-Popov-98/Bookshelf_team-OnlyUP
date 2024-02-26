@@ -4,6 +4,7 @@ import './js/switch-button';
 import { render } from './js/API/home';
 import './js/NZheader';
 import './js/test';
+import './js/modalwindow';
 import './js/add-removebook';
 import './js/storage';
 render();
