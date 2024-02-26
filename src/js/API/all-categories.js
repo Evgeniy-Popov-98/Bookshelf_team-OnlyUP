@@ -28,9 +28,7 @@ export async function renderCategoriesList() {
     }
     if (category === 'All categories') {
       const topCategory = document.querySelector('.category-books-item');
-      console.log(topCategory);
       const topBooks = topCategory.dataset.category;
-      console.log(topBooks);
       //   render(topBooks);
     }
   }
