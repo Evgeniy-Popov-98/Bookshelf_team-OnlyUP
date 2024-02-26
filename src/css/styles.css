@@ -5,6 +5,7 @@
 @import url('./home.css');
 @import url('./header.css');
 @import url('./pagination.css');
+@import url('./shoppinglist.css');
 
 :root {
   --bg-color: #f6f6f6;
