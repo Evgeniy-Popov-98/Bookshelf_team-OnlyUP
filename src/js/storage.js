@@ -1,43 +1,34 @@
-// Функція для додавання елементу до списку покупок
-function addToShoppingList(item) {
-  // Перевіряємо, чи існує список покупок у localStorage
-  let shoppingList = localStorage.getItem('shoppingList');
+// Функція для додавання книги до списку покупок
+function addToShoppingList(bookId) {
+  // Виконуємо запит до API за детальною інформацією про книгу
+  fetch(`https://books-backend.p.goit.global/books/${bookId}`)
+    .then(response => response.json())
+    .then(data => {
+      // Отримуємо інформацію про книгу з відповіді API
+      const bookInfo = data;
 
-  // Якщо список покупок не існує або порожній, створюємо новий порожній масив
-  if (!shoppingList || shoppingList === '') {
-    shoppingList = [];
-  } else {
-    // Якщо список покупок існує, розпарсимо його з JSON
-    shoppingList = JSON.parse(shoppingList);
-  }
+      // Додаємо інформацію про книгу до вашого шопінг-листа
+      const shoppingList = document.querySelector('.shoppinglist-books');
+      const bookElement = document.createElement('div');
+      bookElement.classList.add('shoppinglist-book');
 
-  // Додаємо новий елемент до списку покупок
-  shoppingList.push(item);
+      // Створюємо HTML для відображення інформації про книгу
+      bookElement.innerHTML = `
+                <img src="${bookInfo.image}" alt="${bookInfo.title}" class="book-image">
+                <div class="book-info">
+                    <h2>${bookInfo.title}</h2>
+                    <p>Author: ${bookInfo.author}</p>
+                    <p>Price: $${bookInfo.price}</p>
+                </div>
+            `;
 
-  // Зберігаємо оновлений список покупок у localStorage
-  localStorage.setItem('shoppingList', JSON.stringify(shoppingList));
-
-  // Тут ви також можете додати код для відображення списку покупок на сторінці
-  console.log('Додано до списку покупок:', item);
-}
-
-// Функція для отримання списку покупок з локального сховища
-function getShoppingList() {
-  // Отримуємо список покупок з локального сховища
-  const shoppingList = localStorage.getItem('shoppingList');
-
-  // Перевіряємо, чи список покупок існує
-  if (shoppingList) {
-    // Розпарсимо список покупок з JSON і повернемо його
-    return JSON.parse(shoppingList);
-  } else {
-    // Якщо список покупок не існує, повертаємо порожній масив
-    return [];
-  }
-}
-
-// Функція для очищення списку покупок у локальному сховищі
-function clearShoppingList() {
-  localStorage.removeItem('shoppingList');
-  console.log('Список покупок очищено.');
+      // Додаємо елемент книги до списку покупок
+      shoppingList.appendChild(bookElement);
+    })
+    .catch(error => {
+      console.error(
+        'Помилка при отриманні детальної інформації про книгу:',
+        error
+      );
+    });
 }
