@@ -11,6 +11,11 @@ export async function GetBook(id) {
   document.addEventListener('keydown', escapeCloseModal);
   const data = await getBooks(id);
   createModal(data);
+
+  listButton.addEventListener('click', function () {
+    toggleShoppingList(id);
+    listButton.blur();
+  });
 }
 
 function createModal(book) {
@@ -60,28 +65,23 @@ function createModal(book) {
 }
 
 //Add to shopping list
-function toggleShoppingList() {
+function toggleShoppingList(id) {
   const buttonText = listButton.textContent.trim();
   const storedData = localStorage.getItem('shoppingList');
   const shoppingList = JSON.parse(storedData) || {};
 
   if (buttonText === 'add to shopping list') {
-    shoppingList[bookId] = true;
+    shoppingList[id] = true;
     listButton.textContent = 'remove from the shopping list';
   } else {
-    if (shoppingList[bookId]) {
-      delete shoppingList[bookId];
+    if (shoppingList[id]) {
+      delete shoppingList[id];
     }
     listButton.textContent = 'add to shopping list';
   }
 
   localStorage.setItem('shoppingList', JSON.stringify(shoppingList));
 }
-
-listButton.addEventListener('click', function () {
-  toggleShoppingList();
-  listButton.blur();
-});
 
 //Close modal
 document.addEventListener('DOMContentLoaded', function () {
