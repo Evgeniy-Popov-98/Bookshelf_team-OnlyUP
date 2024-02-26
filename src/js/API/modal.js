@@ -26,10 +26,10 @@ function createModal(book) {
   const buyLinksListHTML = `
   <ul class="buy-links-list">
     <li>
-      <img src="../images/amazon.png" alt="Amazon" class="platform-image" data-url="${amazonUrl}">
+      <img src="./images/amazon.png" alt="Amazon" class="platform-image" data-url="${amazonUrl}">
     </li>
     <li>
-      <img src="../images/book.png" alt="Apple Books" class="platform-image" data-url="${appleBooksUrl}">
+      <img src="./images/book.png" alt="Apple Books" class="platform-image" data-url="${appleBooksUrl}">
     </li>
   </ul>
 `;
