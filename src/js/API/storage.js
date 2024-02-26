@@ -19,7 +19,7 @@ export async function addToShoppingList() {
   //   shoppingList.innerHTML = '';
 
   const markup = `
-  	<ul class="shoppeng-list">
+  	<ul class="shopping-list">
 		<li class="shopping-item">
 			<img src="${dataBook.book_image}" alt="${dataBook.title}" class="book-image">
 			<div class="book-info">
