@@ -1,10 +1,18 @@
 import { getBooks } from './api-books';
+import {
+  addItemLocalStorage,
+  infoItemLocalStorage,
+  restoreData,
+  TASKS_KEY,
+} from '../localStorage';
+import { nanoid } from 'nanoid';
 
 const body = document.querySelector('body');
 const modal = document.querySelector('.modal');
 const modalBackdrop = document.querySelector('.backdrop');
 const closeModalButton = document.querySelector('.modal-close-btn');
-const listButton = document.querySelector('.modal-list-btn');
+const listButtonAdd = document.querySelector('.modal-list-btn-add');
+const listButtonRemove = document.querySelector('.modal-list-btn-remove');
 
 // Open modal
 export async function GetBook(id) {
@@ -12,9 +20,14 @@ export async function GetBook(id) {
   const data = await getBooks(id);
   createModal(data);
 
-  listButton.addEventListener('click', function () {
+  listButtonAdd.addEventListener('click', function () {
     toggleShoppingList(id);
-    listButton.blur();
+    listButtonAdd.blur();
+  });
+
+  listButtonRemove.addEventListener('click', function () {
+    removeShoppingList(id);
+    listButtonAdd.blur();
   });
 }
 
@@ -50,7 +63,8 @@ function createModal(book) {
   </div>
 `;
   modal.appendChild(closeModalButton);
-  modal.appendChild(listButton);
+  modal.appendChild(listButtonAdd);
+  modal.appendChild(listButtonRemove);
 
   modal.querySelectorAll('.platform-image').forEach(image => {
     image.addEventListener('click', () => {
@@ -65,22 +79,21 @@ function createModal(book) {
 }
 
 //Add to shopping list
-function toggleShoppingList(id) {
-  const buttonText = listButton.textContent.trim();
-  const storedData = localStorage.getItem('shoppingList');
-  const shoppingList = JSON.parse(storedData) || {};
+function toggleShoppingList(ID) {
+  const buttonText = listButtonAdd.textContent.trim();
 
-  if (buttonText === 'add to shopping list') {
-    shoppingList[id] = true;
-    listButton.textContent = 'remove from the shopping list';
-  } else {
-    if (shoppingList[id]) {
-      delete shoppingList[id];
-    }
-    listButton.textContent = 'add to shopping list';
-  }
+  const arrItem = infoItemLocalStorage(TASKS_KEY) || [];
+  arrItem.push({ ID });
+  addItemLocalStorage(TASKS_KEY, arrItem);
 
-  localStorage.setItem('shoppingList', JSON.stringify(shoppingList));
+  listButtonAdd.style.display = 'none';
+  listButtonRemove.style.display = 'flex';
+}
+
+function removeShoppingList(ID) {
+  restoreData(ID);
+  listButtonAdd.style.display = 'flex';
+  listButtonRemove.style.display = 'none';
 }
 
 //Close modal
