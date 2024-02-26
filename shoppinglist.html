@@ -5,7 +5,7 @@
 	<meta charset="UTF-8" />
 	<link rel="icon" type="image/svg+xml" href="" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>JS-new_teamProject</title>
+	<title>Shopping list</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
 		integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -15,9 +15,6 @@
 		href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@400;500;700&family=Montserrat:wght@400;500;600;700&display=swap"
 		rel="stylesheet" />
 	
-  <script type="module" crossorigin src="/JS-new_teamProject/commonHelpers.js"></script>
-  <link rel="modulepreload" crossorigin href="/JS-new_teamProject/assets/vendor-8cce9181.js">
-  <link rel="stylesheet" href="/JS-new_teamProject/assets/vendor-e5212ee8.css">
   <link rel="stylesheet" href="/JS-new_teamProject/assets/styles-e875da81.css">
 </head>
 
@@ -72,40 +69,21 @@
 </div>
 	</header>
 	<main>
-		<div class="main container">
-			<div class="category-support">
-				<section class="all-categories js-all-categories">
-	<ul class="books-categories js-books-categories"></ul>
-</section>
-				<!-- SUPPORY Ukraine -->
-			</div>
-			<div class="best-book__selected">
-				<section class="home-pg js-home-pg">
-	<h2 class="title">Best Sellers <span class="color-text">Books</span></h2>
-	<ul class="gallery-books js-gallery-books">
-	</ul>
-</section>
-				<section class="selected-page js-selected-page" style="display: none;">
-	<h2 class="selected-title"><span class="selected-color"></span></h2>
-	<ul class="booksgallery js-booksgallery"></ul>
-</section>
-			</div>
+		<div class="shoppinglist-container">
+	<div class="shoppinglist-shoppinglist">
+		<h1 class="shoppinglist-text">
+			<span class="shoppinglist-text1">Shopping</span>
+			List
+		</h1>
+		<div class="shoppinglist-blocks">
+			<h2>This page is empty, add some books and proceed to order.</h2>
+			<img src="../images/IMG_9606.png" alt="Shopping Image" class="shoppinglist-img96061">
 		</div>
-		<div class="backdrop">
-		
-	<div class="modal">
-		<button type="button" class="modal-close-btn">
-			<svg class="close-icon" width="20" height="20">
-				<use href="../images/icons.svg#icon-x-close"></use>
-			</svg>
-		</button>
-		<div class="modal-wrap"></div>
-		<button type="button" class="modal-list-btn">add to shopping list</button>
 	</div>
 </div>
+<div id="pagination"></div>
 	</main>
 	<footer></footer>
-	
 </body>
 
 </html>
