@@ -1,43 +1,4 @@
-/* CSS styles for the book element in the shopping list */
-.shoppinglist-book {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
 
-/* CSS styles for the book image */
-.book-image {
-    width: 100px;
-    height: auto;
-    margin-right: 20px;
-}
-
-/* CSS styles for the book information */
-.book-info {
-    flex: 1;
-}
-
-/* CSS styles for the book title */
-.book-info h2 {
-    margin: 0;
-    font-size: 1.2em;
-}
-
-/* CSS styles for the book author and price */
-.book-info p {
-    margin: 5px 0;
-    font-size: 1em;
-}
-
-/* CSS styles for the book author */
-.book-info p.author {
-    font-style: italic;
-}
-
-/* CSS styles for the book price */
-.book-info p.price {
-    font-weight: bold;
-}
 @media screen and (min-width:350px) {
     .shoppinglist-container {
         margin: 0;
