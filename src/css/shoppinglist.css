@@ -75,7 +75,7 @@
 
 @media screen and (min-width:768px) {
     .shoppinglist-container {
-        min-width: 704;
+        min-width: 704px;
         display: flex;
         overflow: auto;
         min-height: 100vh;
@@ -84,8 +84,8 @@
     }
 
     .shoppinglist-shoppinglist {
+            min-width: 704px;
         width: 100%;
-        height: 1007px;
         display: flex;
         overflow: hidden;
         position: relative;
@@ -158,8 +158,7 @@
     }
 
     .shoppinglist-shoppinglist {
-        width: 100%;
-        height: 770px;
+        min-width: 1392px;
         display: flex;
         overflow: hidden;
         position: relative;
