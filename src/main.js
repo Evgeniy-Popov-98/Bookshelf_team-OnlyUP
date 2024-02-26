@@ -5,4 +5,5 @@ import { render } from './js/API/home';
 import './js/NZheader';
 import './js/test';
 import './js/add-removebook';
+import './js/storage';
 render();

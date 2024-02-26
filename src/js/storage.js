@@ -1,15 +1,3 @@
-// Знаходимо кнопку "add to shopping list"
-const addToShoppingListBtn = document.querySelector('.modal-list-btn');
-
-// Додаємо обробник події для кнопки
-addToShoppingListBtn.addEventListener('click', function () {
-  // Отримуємо текст або інформацію, яку ви хочете додати до списку покупок
-  const itemToAdd = document.querySelector('.modal-wrap').innerText;
-
-  // Викликаємо функцію, яка додає елемент до списку покупок
-  addToShoppingList(itemToAdd);
-});
-
 // Функція для додавання елементу до списку покупок
 function addToShoppingList(item) {
   // Перевіряємо, чи існує список покупок у localStorage
@@ -31,4 +19,25 @@ function addToShoppingList(item) {
 
   // Тут ви також можете додати код для відображення списку покупок на сторінці
   console.log('Додано до списку покупок:', item);
+}
+
+// Функція для отримання списку покупок з локального сховища
+function getShoppingList() {
+  // Отримуємо список покупок з локального сховища
+  const shoppingList = localStorage.getItem('shoppingList');
+
+  // Перевіряємо, чи список покупок існує
+  if (shoppingList) {
+    // Розпарсимо список покупок з JSON і повернемо його
+    return JSON.parse(shoppingList);
+  } else {
+    // Якщо список покупок не існує, повертаємо порожній масив
+    return [];
+  }
+}
+
+// Функція для очищення списку покупок у локальному сховищі
+function clearShoppingList() {
+  localStorage.removeItem('shoppingList');
+  console.log('Список покупок очищено.');
 }
