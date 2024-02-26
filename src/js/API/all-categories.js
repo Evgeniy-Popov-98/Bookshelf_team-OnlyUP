@@ -1,4 +1,5 @@
 import { getBooks } from './api-books';
+import { homeCategory } from './selected';
 import refs from './refs';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -26,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (item.list_name === category) {
           bestCategory.style.display = 'none';
           categories.style.display = 'block';
+          homeCategory(category);
         }
       }
       if (category === 'All categories') {

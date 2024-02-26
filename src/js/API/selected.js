@@ -1,6 +1,11 @@
 import { getBooks } from './api-books';
 
-export async function homeCategory(END_POINT, categoriesBooks) {
+const END_POINT = 'category';
+
+export async function homeCategory(categoriesBooks) {
+  const newSelect = document.querySelector('.js-booksgallery');
+  newSelect.innerHTML = '';
+
   try {
     const data = await getBooks(END_POINT, categoriesBooks);
     renderBooks(data);
