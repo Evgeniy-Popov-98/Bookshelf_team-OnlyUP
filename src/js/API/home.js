@@ -1,18 +1,18 @@
 
 import {getBooks} from './api-books';
 import refs from './refs';
-import {errorMessage} from './messageError';
+import { errorMessage } from './messageError';
 
 export async function render(){
     try {
         const data = await getBooks('top-books');
                 for (const el of data) {
-            categoriesTemplate(el);  
+            categoriesTemplate(el);
             if(el.books.length>=1) {
                 renderBooks(el);
             }else{
                 errorMessage('Sorry, there are no items in this category');
-            }        
+            }
                 
         }
     } catch (error) {

@@ -1,0 +1,38 @@
+li {
+  list-style-type: none;
+}
+
+.container {
+  float: right;
+}
+
+.all-categories {
+  width: 368px;
+  max-height: 472px;
+  padding: 0 20px;
+  overflow-y: auto;
+}
+
+.title-categories {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.33em;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--violet);
+  padding-bottom: 32px;
+}
+
+.category-books-item {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.33em;
+  letter-spacing: -0.02em;
+  color: rgba(17, 17, 17, 0.6);
+  padding-bottom: 32px;
+}
+
+.category-books-item:hover {
+  font-weight: 700;
+  color: var(--violet);
+}
