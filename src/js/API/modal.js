@@ -119,4 +119,6 @@ function escapeCloseModal(event) {
 function closeModal() {
   modalBackdrop.style.display = 'none';
   body.style.overflow = 'auto';
+  listButtonAdd.style.display = 'flex';
+  listButtonRemove.style.display = 'none';
 }
