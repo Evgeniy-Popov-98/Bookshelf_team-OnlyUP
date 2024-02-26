@@ -6,14 +6,12 @@ const shoppingBtn = document.querySelector('.js-hshopping');
 homeBtn.addEventListener('click', onHomeBtnClick);
 shoppingBtn.addEventListener('click', onShoppingBtnClick);
 
-function onHomeBtnClick(e) {
-  e.preventDefault();
+function onHomeBtnClick() {
   homeBtn.classList.add('hhome-btn');
   shoppingBtn.classList.remove('hshopping-btn');
 }
 
-function onShoppingBtnClick(e) {
-  e.preventDefault();
+function onShoppingBtnClick() {
   homeBtn.classList.remove('hhome-btn');
   shoppingBtn.classList.add('hshopping-btn');
 }

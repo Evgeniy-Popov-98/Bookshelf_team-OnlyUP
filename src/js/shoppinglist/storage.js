@@ -3,16 +3,20 @@
 import { getBooks } from '../API/api-books';
 
 const shoppingList = document.querySelector('.shoppinglist-blocks');
+const categoriesBooks = document.querySelector('.js-all-categories');
+const bestBooks = document.querySelector('.js-home-pg');
 
 export async function addToShoppingList() {
   // Виконуємо запит до API за детальною інформацією про книгу
+  //   categoriesBooks.style.display = 'none';
+  //   bestBooks.style.display = 'none';
 
   const bookId = '643282b1e85766588626a0dc';
 
   const dataBook = await getBooks(bookId);
 
   // Створюємо HTML для відображення інформації про книгу
-  shoppingList.innerHTML = '';
+  //   shoppingList.innerHTML = '';
 
   const markup = `
   	<ul class="shoppeng-list">
@@ -30,5 +34,5 @@ export async function addToShoppingList() {
 		</li>
 	</ul>`;
 
-  shoppingList.insertAdjacentHTML('beforeend', markup);
+  //   shoppingList.insertAdjacentHTML('beforeend', markup);
 }
