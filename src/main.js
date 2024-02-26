@@ -1,6 +1,6 @@
 import { getBooks } from './js/API/api-books';
-import { getBooks } from './js/add-removebook';
-import { getBooks } from './js/pagination';
-import { getBooks } from './js/add-card';
-import { getBooks } from './js/remove-card';
-import { getBooks } from './js/modalwindow';
+import './js/API/modal';
+import './js/switch-button';
+import { render } from './js/API/home';
+import './js/NZheader';
+render();
