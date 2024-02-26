@@ -1,5 +1,5 @@
 .backdrop {
-  display: none;
+  display: flex;
   position: fixed;
   top: 0;
   width: 100%;
