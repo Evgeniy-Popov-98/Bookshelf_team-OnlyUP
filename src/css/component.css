@@ -31,7 +31,7 @@ body {
 
 @media screen and (min-width: 1440px) {
   .container {
-    min-width: 1392px;
+    min-width: 1440px;
     padding: 0 24px;
   }
 }
@@ -47,4 +47,9 @@ body {
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
 }
