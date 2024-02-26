@@ -3,6 +3,8 @@
 @import url('./modal.css');
 @import url('./switch-button.css');
 @import url('./home.css');
+@import url('./header.css');
+@import url('./pagination.css');
 
 :root {
   --bg-color: #f6f6f6;
