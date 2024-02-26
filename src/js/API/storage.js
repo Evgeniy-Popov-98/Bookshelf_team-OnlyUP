@@ -1,10 +1,10 @@
 // Функція для додавання книги до списку покупок
 
-import { getBooks } from '../API/api-books';
+import { getBooks } from './api-books';
 
 const shoppingList = document.querySelector('.shoppinglist-blocks');
-const categoriesBooks = document.querySelector('.js-all-categories');
-const bestBooks = document.querySelector('.js-home-pg');
+// const categoriesBooks = document.querySelector('.js-all-categories');
+// const bestBooks = document.querySelector('.js-home-pg');
 
 export async function addToShoppingList() {
   // Виконуємо запит до API за детальною інформацією про книгу

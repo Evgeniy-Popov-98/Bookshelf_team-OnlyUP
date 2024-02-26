@@ -1,4 +1,4 @@
-import { addToShoppingList } from './shoppinglist/storage';
+import { addToShoppingList } from './API/storage';
 
 const homeBtn = document.querySelector('.js-hhome');
 const shoppingBtn = document.querySelector('.js-hshopping');
