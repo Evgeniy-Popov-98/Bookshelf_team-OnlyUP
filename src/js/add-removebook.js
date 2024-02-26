@@ -1,58 +1,36 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const shoppingListContainer = document.querySelector(
-    '.shoppinglist-shoppinglist'
-  );
+  // Знаходимо кнопку "add to shopping list"
+  const addToShoppingListBtn = document.querySelector('.modal-list-btn');
 
-  function displayBooks() {
-    const savedBooks = JSON.parse(localStorage.getItem('savedBooks')) || [];
+  // Додаємо обробник події для кнопки
+  addToShoppingListBtn.addEventListener('click', function () {
+    // Отримуємо текст або інформацію, яку ви хочете додати до списку покупок
+    const itemToAdd = document.querySelector('.modal-wrap').innerText;
 
-    shoppingListContainer.innerHTML = '';
-
-    if (savedBooks.length > 0) {
-      savedBooks.forEach(book => {
-        const bookElement = document.createElement('div');
-        bookElement.textContent = book.title;
-        shoppingListContainer.appendChild(bookElement);
-      });
-    } else {
-      const emptyMessage = document.createElement('h2');
-      emptyMessage.textContent =
-        'There are no books added to the shopping list.';
-      shoppingListContainer.appendChild(emptyMessage);
-    }
-  }
-
-  displayBooks();
-
-  const addButton = document.querySelector('.popup-btn');
-  addButton.addEventListener('click', function () {
-    const popupContent = document.querySelector('.popup-container').innerHTML;
-    const shoppingListItem = document.createElement('div');
-    shoppingListItem.innerHTML = popupContent;
-    shoppingListContainer.appendChild(shoppingListItem);
-
-    const savedBooks = JSON.parse(localStorage.getItem('savedBooks')) || [];
-    savedBooks.push({ title: 'Book Title' }); // Приклад додавання книги в localStorage
-    localStorage.setItem('savedBooks', JSON.stringify(savedBooks));
-
-    alert(
-      'Congratulations! You have added the book to the shopping list. To delete, press the button "Remove from the shopping list".'
-    );
-  });
-
-  shoppingListContainer.addEventListener('click', function (event) {
-    if (event.target.classList.contains('popup-btn')) {
-      event.target.parentElement.remove();
-
-      const savedBooks = JSON.parse(localStorage.getItem('savedBooks')) || [];
-
-      const indexToRemove = savedBooks.findIndex(
-        book => book.title === 'Book Title'
-      );
-      if (indexToRemove !== -1) {
-        savedBooks.splice(indexToRemove, 1);
-        localStorage.setItem('savedBooks', JSON.stringify(savedBooks));
-      }
-    }
+    // Викликаємо функцію, яка додає елемент до списку покупок
+    addToShoppingList(itemToAdd);
   });
 });
+
+// Функція для додавання елементу до списку покупок
+function addToShoppingList(item) {
+  // Перевіряємо, чи існує список покупок у localStorage
+  let shoppingList = localStorage.getItem('shoppingList');
+
+  // Якщо список покупок не існує або порожній, створюємо новий порожній масив
+  if (!shoppingList || shoppingList === '') {
+    shoppingList = [];
+  } else {
+    // Якщо список покупок існує, розпарсимо його з JSON
+    shoppingList = JSON.parse(shoppingList);
+  }
+
+  // Додаємо новий елемент до списку покупок
+  shoppingList.push(item);
+
+  // Зберігаємо оновлений список покупок у localStorage
+  localStorage.setItem('shoppingList', JSON.stringify(shoppingList));
+
+  // Тут ви також можете додати код для відображення списку покупок на сторінці
+  console.log('Додано до списку покупок:', item);
+}
