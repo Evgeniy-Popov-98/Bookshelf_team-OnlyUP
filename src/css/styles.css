@@ -23,6 +23,9 @@
    }
 
 
+   
+
+
 
    .header-tittle {
      font-family: "DM Sans", sans-serif;
@@ -33,7 +36,12 @@
      color: #fff;
      text-align: center;
      margin-left: auto;
-    /* margin-right: 12px;*/
+     margin-bottom: 40px;
+    align-items: center;
+   
+  
+    
+   
     
      
    }
@@ -63,6 +71,11 @@
     letter-spacing: -0.04em;
     color: #fff;
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+      flex-direction: row;
+      justify-content: flex-start;
+      gap: 16px;
  }
  .plus-btn{
   background-color: #fff;
@@ -82,3 +95,18 @@
   display: flex;
   
  }
+
+ .header-img{
+  display: flex;
+ }
+
+ .header-tittle-span{
+  margin-right: 16px;
+ }
+
+ .hidden{
+
+  opacity: 0;
+  display: none;
+ }
+ 
