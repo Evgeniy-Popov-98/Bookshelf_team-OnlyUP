@@ -2,14 +2,10 @@ li {
   list-style-type: none;
 }
 
-.container {
-  float: right;
-}
-
 .all-categories {
-  width: 295px;
+  width: 335px;
   max-height: 228px;
-  padding: 0 20px;
+  margin-top: 40px;
   overflow-y: auto;
 }
 
