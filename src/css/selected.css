@@ -1,3 +1,8 @@
+.selected-page {
+  margin: 40px 0 0 0;
+  height: 100vh;
+}
+
 .selected-title {
   margin-top: 40px;
   font-weight: 700;
@@ -46,6 +51,10 @@
 
 /* ==================================================Media===================================================== */
 @media screen and (min-width: 768px) {
+  .selected-page {
+    margin-top: 100px;
+  }
+
   .selected-title {
     margin-top: 100px;
     font-size: 48px;
@@ -70,6 +79,10 @@
 }
 
 @media screen and (min-width: 1280px) {
+  .selected-page {
+    width: 996px;
+    margin: 40px 0 0 40px;
+  }
   .selected-title {
     margin-top: 40px;
   }
