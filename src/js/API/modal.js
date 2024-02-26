@@ -6,12 +6,7 @@ const modalBackdrop = document.querySelector('.backdrop');
 const closeModalButton = document.querySelector('.modal-close-btn');
 const listButton = document.querySelector('.modal-list-btn');
 
-//Test
-const bookId = '643282b1e85766588626a0ae';
-//=========================
-
 // Open modal
-
 export async function GetBook(id) {
   document.addEventListener('keydown', escapeCloseModal);
   const data = await getBooks(id);

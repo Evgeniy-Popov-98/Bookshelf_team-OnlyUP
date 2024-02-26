@@ -171,13 +171,13 @@
     height: 281px;
   }
 
-  .title {
+  .modal-title {
     max-width: 230px;
     font-size: 24px;
     line-height: 1.17;
   }
 
-  .author {
+  .modal-author {
     font-size: 14px;
     line-height: 1.29;
   }
@@ -189,5 +189,3 @@
     padding: 20px 0;
   }
 }
-
-
