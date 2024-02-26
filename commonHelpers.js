@@ -1,10 +1,10 @@
 import{a as $,i as q}from"./assets/vendor-8cce9181.js";(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const o of document.querySelectorAll('link[rel="modulepreload"]'))i(o);new MutationObserver(o=>{for(const s of o)if(s.type==="childList")for(const r of s.addedNodes)r.tagName==="LINK"&&r.rel==="modulepreload"&&i(r)}).observe(document,{childList:!0,subtree:!0});function n(o){const s={};return o.integrity&&(s.integrity=o.integrity),o.referrerPolicy&&(s.referrerPolicy=o.referrerPolicy),o.crossOrigin==="use-credentials"?s.credentials="include":o.crossOrigin==="anonymous"?s.credentials="omit":s.credentials="same-origin",s}function i(o){if(o.ep)return;o.ep=!0;const s=n(o);fetch(o.href,s)}})();async function h(e,t){const n="https://books-backend.p.goit.global/books/",i=`${e}`;let o;t&&(o={category:`${t}`});const s=`${n}${i}`,r=await $.get(s,{params:o});if(r.data.length===0)throw new Error("Error");return r.data}const L=document.querySelector("body"),d=document.querySelector(".modal"),u=document.querySelector(".backdrop"),w=document.querySelector(".modal-close-btn"),l=document.querySelector(".modal-list-btn");async function M(e){document.addEventListener("keydown",v);const t=await h(e);T(t)}function T(e){var o,s;u.style.display="flex",L.style.overflow="hidden";const t=((o=e.buy_links.find(r=>r.name==="Amazon"))==null?void 0:o.url)||"",n=((s=e.buy_links.find(r=>r.name==="Apple Books"))==null?void 0:s.url)||"",i=`
   <ul class="buy-links-list">
     <li>
-      <img src="../images/amazon.png" alt="Amazon" class="platform-image" data-url="${t}">
+      <img src="./images/amazon.png" alt="Amazon" class="platform-image" data-url="${t}">
     </li>
     <li>
-      <img src="../images/book.png" alt="Apple Books" class="platform-image" data-url="${n}">
+      <img src="./images/book.png" alt="Apple Books" class="platform-image" data-url="${n}">
     </li>
   </ul>
 `;d.innerHTML=`
