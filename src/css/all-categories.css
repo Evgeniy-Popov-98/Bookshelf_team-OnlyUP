@@ -30,7 +30,7 @@ li {
 
 @media screen and (min-width: 768px) {
   .all-categories {
-    width: 297px;
+    width: 357px;
     max-height: 472px;
   }
 
@@ -50,6 +50,6 @@ li {
 
 @media screen and (min-width: 1440px) {
   .all-categories {
-    width: 316px;
+    width: 356px;
   }
 }
