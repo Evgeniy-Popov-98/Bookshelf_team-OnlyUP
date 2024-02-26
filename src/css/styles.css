@@ -8,6 +8,7 @@
 @import url('./scrollbar.css');
 @import url('./header.css');
 @import url('./pagination.css');
+@import url('./shoppinglist.css');
 
 :root {
   --bg-color: #f6f6f6;
@@ -17,7 +18,6 @@
   --violet: #4f2ee8;
   --yellow: #eac645;
   --white: #fff;
-  background-size: auto;
 }
 
 @media (prefers-color-scheme: dark) {

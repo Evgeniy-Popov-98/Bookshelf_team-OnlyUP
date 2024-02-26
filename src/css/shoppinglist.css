@@ -1,0 +1,210 @@
+.shoppinglist-container {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+
+.shoppinglist-shoppinglist {
+  width: 100%;
+  height: 812px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(246, 246, 246, 1);
+}
+
+.shoppinglist-text {
+  margin-top: 104px;
+  margin-left: 20px;
+  color: #4f2ee8;
+  height: auto;
+  position: absolute;
+  font-size: 32px;
+  font-style: Bold;
+  text-align: left;
+  font-weight: 700;
+  line-height: 38px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+.shoppinglist-text1 {
+  color: rgba(17, 17, 17, 1);
+}
+
+.shoppinglist-blocks {
+  gap: 14px;
+  margin-top: 262px;
+  margin-left: 55px;
+  width: 265px;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  flex-direction: column;
+}
+
+.shoppinglist-text3 {
+  color: rgba(0, 0, 0, 0.6000000238418579);
+  width: 244px;
+  height: auto;
+  font-size: 14px;
+  font-style: Regular;
+  text-align: center;
+  font-weight: 400;
+  line-height: 18px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+.shoppinglist-img96061 {
+  width: 265px;
+  height: 198px;
+}
+
+@media screen and (min-width: 768px) {
+  .shoppinglist-container {
+    min-width: 704px;
+    display: flex;
+    overflow: auto;
+    min-height: 100vh;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .shoppinglist-shoppinglist {
+    min-width: 704px;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    align-items: flex-start;
+    flex-shrink: 0;
+    background-color: rgba(246, 246, 246, 1);
+  }
+
+  .shoppinglist-text {
+    margin-top: 112px;
+    margin-left: 32px;
+    height: auto;
+    position: absolute;
+    color: #4f2ee8;
+    font-size: 48px;
+    font-style: Bold;
+    text-align: left;
+    font-weight: 700;
+    line-height: 52px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+
+  .shoppinglist-text1 {
+    color: rgba(17, 17, 17, 1);
+  }
+
+  .shoppinglist-blocks {
+    gap: 20px;
+    margin-top: 304px;
+    margin-left: 210px;
+    width: 349px;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .shoppinglist-text3 {
+    color: rgba(0, 0, 0, 0.6000000238418579);
+    width: 349px;
+    height: auto;
+    font-size: 18px;
+    font-style: Regular;
+    text-align: center;
+    font-weight: 400;
+    line-height: 24px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+
+  .shoppinglist-img96061 {
+    width: 322px;
+    height: 241px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .shoppinglist-container {
+    min-width: 1392px;
+    display: flex;
+    overflow: auto;
+    min-height: 100vh;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .shoppinglist-shoppinglist {
+    min-width: 1392px;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    align-items: flex-start;
+    flex-shrink: 0;
+    background-color: rgba(246, 246, 246, 1);
+  }
+  .modal {
+    display: flex;
+  }
+  .shoppinglist-text {
+    margin-top: 112px;
+    margin-left: 420px;
+    color: #4f2ee8;
+    height: auto;
+    position: absolute;
+    font-size: 48px;
+    font-style: Bold;
+    text-align: left;
+    font-family: DM Sans;
+    font-weight: 700;
+    line-height: 52px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+
+  .shoppinglist-text1 {
+    color: rgba(17, 17, 17, 1);
+  }
+
+  .shoppinglist-blocks {
+    gap: 20px;
+    margin-top: 304px;
+    margin-left: 735px;
+    width: 349px;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .shoppinglist-text3 {
+    color: rgba(0, 0, 0, 0.6000000238418579);
+    width: 349px;
+    height: auto;
+    font-size: 18px;
+    font-style: Regular;
+    text-align: center;
+    font-weight: 400;
+    line-height: 24px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+
+  .shoppinglist-img96061 {
+    width: 322px;
+    height: 241px;
+  }
+}
