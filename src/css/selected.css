@@ -1,0 +1,85 @@
+.selected-title {
+  margin-top: 40px;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 119%;
+  letter-spacing: -0.04em;
+  color: var(--black);
+  margin-bottom: 40px;
+}
+
+.selected-color {
+  color: var(--violet);
+}
+
+.booksgallery {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.gallery-image {
+  margin-bottom: 14px;
+  width: 335px;
+  height: 485px;
+  border-radius: 8px;
+}
+
+.name-book {
+  margin-bottom: 4px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 112%;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--black);
+}
+
+.author-book {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 117%;
+  letter-spacing: -0.04em;
+  color: #b4afaf;
+}
+
+/* ==================================================Media===================================================== */
+@media screen and (min-width: 768px) {
+  .selected-title {
+    margin-top: 100px;
+    font-size: 48px;
+    line-height: 108%;
+  }
+
+  .booksgallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 40px 25px;
+  }
+
+  .booksgallery-item {
+    width: calc((100% - 50px) / 3);
+  }
+
+  .gallery-image {
+    width: 218px;
+    height: 316px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .selected-title {
+    margin-top: 40px;
+  }
+
+  .booksgallery-item {
+    width: calc((100% - 100px) / 5);
+  }
+
+  .gallery-image {
+    width: 180px;
+    height: 256px;
+  }
+}
