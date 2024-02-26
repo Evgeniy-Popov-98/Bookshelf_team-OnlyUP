@@ -50,7 +50,7 @@
 
 @media screen and (min-width: 768px) {
   .header-container {
-    width: 768px;
+    min-width: 768px;
     height: 72px;
   }
 
@@ -142,7 +142,7 @@
 
 @media screen and (min-width: 1440px) {
   .header-container {
-    width: 1440px;
+  min-width: 1392px;
     padding-left: 24px;
     padding-right: 24px;
   }

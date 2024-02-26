@@ -1,5 +1,6 @@
 @media screen and (min-width:350px) {
     .shoppinglist-container {
+        margin: 0;
         width: 100%;
         display: flex;
         overflow: auto;
