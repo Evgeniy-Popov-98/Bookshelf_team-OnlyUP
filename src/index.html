@@ -9,30 +9,29 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
 		integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link
 		href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@400;500;700&family=Montserrat:wght@400;500;600;700&display=swap"
-		rel="stylesheet">
+		rel="stylesheet" />
 	<link rel="stylesheet" href="./css/styles.css" />
 </head>
 
 <body>
 	<header></header>
 	<main>
-		<div>
-		<load scr="partials/header.html"  />
-</div>
-<div id="home-section" >
-		<load scr="partials/home.html" />
+		<div class="main container">
+			<div class="category-support">
+				<load src="./partials/all-categories.html" />
+				<!-- SUPPORY Ukraine -->
+			</div>
+			<div class="best-book__selected">
+				<load src="./partials/home.html" />
+				<load src="./partials/selected.html" />
+			</div>
 		</div>
-		<div id="modal-section">
-		<load scr="partials/modal.html" />
-		</div>
-		<div id="shoppinglist-section" style="display: none;">
-		<load scr="partials/shoppinglist.html"  />
-		</div>
-
+		<load scr="partials/shoppinglist.html" />
+		<load src="./partials/modal.html" />
 	</main>
 	<footer></footer>
 	<script type="module" src="./main.js"></script>

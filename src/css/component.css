@@ -16,6 +16,11 @@ body {
   background-color: --bg-color;
 }
 
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
 .container {
   max-width: 375px;
   padding: 0 20px;
@@ -24,15 +29,25 @@ body {
 
 @media screen and (min-width: 768px) {
   .container {
-    min-width: 704px;
+    min-width: 768px;
     padding: 0 32px;
+  }
+
+  .main {
+    display: flex;
+    flex-direction: column;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .container {
-    min-width: 1392px;
+    min-width: 1440px;
     padding: 0 24px;
+  }
+
+  .main {
+    display: flex;
+    flex-direction: row;
   }
 }
 

@@ -1,10 +1,9 @@
-import { getBooks } from './js/API/api-books';
+import './js/API/all-categories';
+import './js/API/home';
 import './js/API/modal';
 import './js/switch-button';
-import { render } from './js/API/home';
 import './js/NZheader';
-import './js/shoppinglist/test';
-import './js/shoppinglist/modalwindow';
-import './js/shoppinglist/add-removebook';
+// import './js/shoppinglist/test';
+// import './js/shoppinglist/modalwindow';
+// import './js/shoppinglist/add-removebook';
 import './js/shoppinglist/storage';
-render();
