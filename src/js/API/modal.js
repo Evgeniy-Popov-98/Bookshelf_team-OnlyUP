@@ -6,17 +6,29 @@ const modalBackdrop = document.querySelector('.backdrop');
 const closeModalButton = document.querySelector('.modal-close-btn');
 const listButton = document.querySelector('.modal-list-btn');
 
-// Open modal
+let currentId;
+//Open modal
 export async function GetBook(id) {
+  currentId = id;
   document.addEventListener('keydown', escapeCloseModal);
   const data = await getBooks(id);
   createModal(data);
 
-  listButton.addEventListener('click', function () {
-    toggleShoppingList(id);
-    listButton.blur();
-  });
+  // listButton.addEventListener('click', function () {
+  //   toggleShoppingList(id);
+  //   listButton.blur();
+  // });
 }
+
+
+listButton.addEventListener('click', function () {
+  toggleShoppingList(currentId, listButton);
+  GetBook(currentId);
+  listButton.blur();
+});
+
+
+// localStorage.clear();
 
 function createModal(book) {
   modalBackdrop.style.display = 'flex';
@@ -46,7 +58,7 @@ function createModal(book) {
       <p class="modal-author">${book.author}</p>
       <p class="description">${book.description}</p>
       ${buyLinksListHTML}
-    </div>  
+    </div>
   </div>
 `;
   modal.appendChild(closeModalButton);
@@ -65,7 +77,7 @@ function createModal(book) {
 }
 
 //Add to shopping list
-function toggleShoppingList(id) {
+function toggleShoppingList(id, listButton) {
   const buttonText = listButton.textContent.trim();
   const storedData = localStorage.getItem('shoppingList');
   const shoppingList = JSON.parse(storedData) || {};
@@ -107,3 +119,4 @@ function closeModal() {
   modalBackdrop.style.display = 'none';
   body.style.overflow = 'auto';
 }
+
