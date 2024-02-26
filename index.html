@@ -1,7 +1,7 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
 	<meta charset="UTF-8" />
 	<link rel="icon" type="image/svg+xml" href="" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,7 +18,7 @@
   <script type="module" crossorigin src="/JS-new_teamProject/commonHelpers.js"></script>
   <link rel="modulepreload" crossorigin href="/JS-new_teamProject/assets/vendor-8cce9181.js">
   <link rel="stylesheet" href="/JS-new_teamProject/assets/vendor-e5212ee8.css">
-  <link rel="stylesheet" href="/JS-new_teamProject/assets/index-422f5e2c.css">
+  <link rel="stylesheet" href="/JS-new_teamProject/assets/index-930fce62.css">
 </head>
 
 <body>
@@ -35,11 +35,11 @@
 		</div>
 
 		<div class="hmenu-wrap">
-			<div class="hhome-text js-hhome">
+			<div class="hhome-text js-hhome hhome-btn">
 				<a href="">Home</a>
 			</div>
 
-			<div class="hshopping-wrap hshopping-btn js-hshopping">
+			<div class="hshopping-wrap js-hshopping">
 				<a class="hshopping-link" href="">Shopping list
 					<svg class="hshopping-icon" width="20" height="20">
 						<use href="../images/icons.svg#icon-shopping-list"></use>
@@ -72,22 +72,25 @@
 <!-- <script type="module" src="../js/NZheader.js"></script> -->
 	</header>
 	<main>
-		<section class="all-categories js-all-categories">
+		<div class="main container">
+			<div class="category-support">
+				<section class="all-categories js-all-categories">
 	<ul class="books-categories js-books-categories"></ul>
 </section>
-		<section class="home-pg js-home-pg container">
-    <h2 class="title">Best Sellers <span class="color-text">Books</span></h2>
-    <!-- <div class="wrap-gallery"> -->
-        <ul class="gallery-books js-gallery-books">
-        </ul>
-    <!-- </div> -->
-    
-</section>    
-      <section class="selected-page js-selected-page container">
-  <h2 class="selected-title"><span class="selected-color"></span></h2>
-  <ul class="booksgallery js-booksgallery"></ul>
+				<!-- SUPPORY Ukraine -->
+			</div>
+			<div class="best-book__selected">
+				<section class="home-pg js-home-pg">
+	<h2 class="title">Best Sellers <span class="color-text">Books</span></h2>
+	<ul class="gallery-books js-gallery-books">
+	</ul>
 </section>
-
+				<section class="selected-page js-selected-page" style="display: none;">
+	<h2 class="selected-title"><span class="selected-color"></span></h2>
+	<ul class="booksgallery js-booksgallery"></ul>
+</section>
+			</div>
+		</div>
 		<div class="backdrop">
 	<div class="modal">
 		<button type="button" class="modal-close-btn">
