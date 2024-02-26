@@ -2,6 +2,7 @@ import { getBooks } from './api-books';
 import refs from './refs';
 import { errorMessage } from './messageError';
 import { GetBook } from './modal';
+import { homeCategory } from './selected';
 
 document.addEventListener('DOMContentLoaded', () => {
   let previousWidth = window.innerWidth;
@@ -33,8 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     previousWidth = currentWidth;
   });
 
-  //   export async function render(event) {
-  async function render(event) {
+  async function render() {
     try {
       const data = await getBooks('top-books');
       for (const el of data) {
@@ -55,6 +55,19 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }
       });
+
+      const openSeeMore = document.querySelectorAll('.btn-more');
+      openSeeMore.forEach(link => {
+        link.addEventListener('click', categoryClick);
+      });
+      function categoryClick(event) {
+        const bestCategory = document.querySelector('.js-home-pg');
+        const categories = document.querySelector('.js-selected-page');
+        const listName = event.srcElement.dataset.id;
+        bestCategory.style.display = 'none';
+        categories.style.display = 'block';
+        homeCategory(listName);
+      }
     } catch (error) {
       errorMessage(`Failed to render books:${error}`);
     }
@@ -64,9 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const markup = `<li id="${categories.list_name}" class="list-category-books">
     <h2 class="list-category-title">${categories.list_name}</h2>
     <ul class="list-book">
-     </ul>    
-    </li>
-    <button type="button" class="btn-more">See more</button>`;
+     </ul>
+    <button type="button" class="btn-more" data-id="${categories.list_name}">See more</button>`;
     refs.galleryBooks.insertAdjacentHTML('beforeend', markup);
   }
 
@@ -85,7 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
     return books.map(bookTemplate).join('');
   }
 
-  //   export function renderBooks(el) {
   function renderBooks(el) {
     const markup = onMediaScreenChange(el);
     const categoriesID = el.list_name;
@@ -107,5 +118,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     return mediaMarkup;
   }
+
+  //   const openSeeMore = document.querySelector('.btn-more');
+  //   console.log(openSeeMore);
+  //   openSeeMore.addEventListener('click', () => {
+  //     const bestCategory = document.querySelector('.js-home-pg');
+  //     const categories = document.querySelector('.js-selected-page');
+  //     const listName = openSeeMore.dataset.id;
+  //     bestCategory.style.display = 'none';
+  //     categories.style.display = 'block';
+  //     console.log(listName);
+  //     homeCategory(listName);
+  //   });
+
   render();
 });
