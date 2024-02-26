@@ -166,7 +166,7 @@
         flex-shrink: 0;
         background-color: rgba(246, 246, 246, 1);
     }
-
+.modal{display: flex;}
     .shoppinglist-text {
         margin-top: 112px;
         margin-left: 420px;
