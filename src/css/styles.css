@@ -17,6 +17,7 @@
   --violet: #4f2ee8;
   --yellow: #eac645;
   --white: #fff;
+  background-size: auto;
 }
 
 @media (prefers-color-scheme: dark) {
