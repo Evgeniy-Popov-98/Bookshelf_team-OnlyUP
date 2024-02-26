@@ -16,6 +16,11 @@ body {
   background-color: --bg-color;
 }
 
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
 .container {
   max-width: 375px;
   padding: 0 20px;
@@ -27,12 +32,22 @@ body {
     min-width: 768px;
     padding: 0 32px;
   }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 @media screen and (min-width: 1440px) {
   .container {
     min-width: 1440px;
     padding: 0 24px;
+  }
+
+  .main {
+    display: flex;
+    flex-direction: row;
   }
 }
 
@@ -47,9 +62,4 @@ body {
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
-}
-
-.main {
-  display: flex;
-  flex-direction: row;
 }

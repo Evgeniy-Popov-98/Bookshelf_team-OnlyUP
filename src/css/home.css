@@ -1,5 +1,5 @@
 .home-pg {
-  margin: 40px 0 0 40px;
+  margin: 40px 0 0 0;
   height: 100vh;
 }
 
@@ -104,6 +104,10 @@
 /* ==================================================Media===================================================== */
 
 @media screen and (min-width: 768px) {
+  .home-pg {
+    margin-top: 100px;
+  }
+
   .gallery-books {
     display: flex;
     flex-direction: column;
@@ -144,7 +148,8 @@
 
 @media screen and (min-width: 1440px) {
   .home-pg {
-    min-width: 996px;
+    width: 996px;
+    margin: 40px 0 0 40px;
   }
 
   .list-category-books {

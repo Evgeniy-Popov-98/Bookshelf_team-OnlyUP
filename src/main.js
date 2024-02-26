@@ -1,4 +1,3 @@
-
 import { render } from './js/API/home';
 import { homeCategory } from './js/API/selected';
 const END_POINT = 'category';
@@ -9,10 +8,8 @@ render();
 
 import { getBooks } from './js/API/api-books';
 import './js/API/modal';
-// import './js/switch-button';
+import './js/switch-button';
 import { renderCategoriesList } from './js/API/all-categories';
 import './js/NZheader';
 
 renderCategoriesList();
-
-
