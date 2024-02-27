@@ -1,10 +1,10 @@
-.header-container {
-  min-width: 375px;
-  height: 64px;
-  border: 1.5px solid #111;
+.header {
+  border: 1.5px solid var(--text-color);
   border-radius: 0 0 8px 8px;
-  padding-left: 20px;
-  padding-right: 20px;
+}
+
+.header-container {
+  height: 64px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -48,9 +48,12 @@
   display: none;
 }
 
+.hshopping-link {
+  fill: var(--text-color);
+}
+
 @media screen and (min-width: 768px) {
   .header-container {
-    min-width: 768px;
     height: 72px;
   }
 
@@ -67,12 +70,13 @@
     gap: 16px;
     align-items: center;
   }
+
   .hhome-btn {
     border-radius: 36px;
     padding: 8px 16px;
     width: 72px;
     height: 34px;
-    background: var(--yellow);
+    background: #eac645;
   }
 
   .hhome-text {
@@ -81,7 +85,7 @@
     line-height: 1.28571;
     letter-spacing: -0.04em;
     text-transform: uppercase;
-    color: #111;
+    color: --text-color;
     cursor: pointer;
   }
 
@@ -90,7 +94,7 @@
     padding: 7px 16px;
     width: 156px;
     height: 34px;
-    background: var(--yellow);
+    background: #eac645;
   }
   .hshopping-link {
     display: flex;
@@ -105,7 +109,7 @@
     line-height: 1.28571;
     letter-spacing: -0.04em;
     text-transform: uppercase;
-    color: var(--black);
+    color: var(--text-color);
   }
 
   .hswitcher-user-wrap {
@@ -129,24 +133,18 @@
     width: 184px;
     height: 48px;
     border-radius: 36px;
-    background: var(--violet);
+    background: #4f2ee8;
     padding: 0 14px 0 14px;
 
     font-weight: 500;
     font-size: 14px;
     line-height: 1.28571;
     letter-spacing: -0.04em;
-    color: var(--white);
+    color: #fff;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .header-container {
-  min-width: 1392px;
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-
   .hlogo-menu-wrap {
     gap: 76px;
   }
