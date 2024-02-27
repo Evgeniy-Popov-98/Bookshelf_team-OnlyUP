@@ -1,8 +1,8 @@
 import { getBooks } from './api-books';
-import {body, modal, modalBackdrop, closeModalButton, listButton} from './refs';
+//import {body, modal, modalBackdrop, closeModalButton, listButton} from './refs';
+import refs from './refs';
 
-
-// const body = document.querySelector('body');
+//const body = document.querySelector('body');
 // const modal = document.querySelector('.modal');
 // const modalBackdrop = document.querySelector('.backdrop');
 // const closeModalButton = document.querySelector('.modal-close-btn');
@@ -21,9 +21,9 @@ export async function GetBook(id) {
 }
 
 function createModal(book) {
-  modalBackdrop.style.display = 'flex';
+  refs.modalBackdrop.style.display = 'flex';
 
-  body.style.overflow = 'hidden';
+  refs.body.style.overflow = 'hidden';
 
   const amazonUrl =
     book.buy_links.find(link => link.name === 'Amazon')?.url || '';
@@ -51,10 +51,10 @@ function createModal(book) {
     </div>  
   </div>
 `;
-  modal.appendChild(closeModalButton);
-  modal.appendChild(listButton);
+  refs.modal.appendChild(closeModalButton);
+  refs.modal.appendChild(listButton);
 
-  modal.querySelectorAll('.platform-image').forEach(image => {
+  refs.modal.querySelectorAll('.platform-image').forEach(image => {
     image.addEventListener('click', () => {
       const platformUrl = image.dataset.url;
       if (platformUrl) {
@@ -74,12 +74,12 @@ function toggleShoppingList(id) {
 
   if (buttonText === 'add to shopping list') {
     shoppingList[id] = true;
-    listButton.textContent = 'remove from the shopping list';
+    refs.listButton.textContent = 'remove from the shopping list';
   } else {
     if (shoppingList[id]) {
       delete shoppingList[id];
     }
-    listButton.textContent = 'add to shopping list';
+    refs.listButton.textContent = 'add to shopping list';
   }
 
   localStorage.setItem('shoppingList', JSON.stringify(shoppingList));
@@ -87,11 +87,11 @@ function toggleShoppingList(id) {
 
 //Close modal
 document.addEventListener('DOMContentLoaded', function () {
-  closeModalButton.addEventListener('click', function () {
+  refs.closeModalButton.addEventListener('click', function () {
     closeModal();
   });
 
-  modalBackdrop.addEventListener('click', function (event) {
+  refs.modalBackdrop.addEventListener('click', function (event) {
     if (event.target === modalBackdrop) {
       closeModal();
     }

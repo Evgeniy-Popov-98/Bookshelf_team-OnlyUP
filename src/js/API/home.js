@@ -46,9 +46,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
-      const openModal = document.querySelectorAll('.card');
+      //const openModalBest = document.querySelectorAll('.card');
       document.addEventListener('click', event => {
-        for (const item of openModal) {
+        for (const item of refs.openModalBest) {
           let data = item.dataset.id;
           if (event.target.parentNode === item) {
             GetBook(data);
@@ -56,16 +56,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      const openSeeMore = document.querySelectorAll('.btn-more');
-      openSeeMore.forEach(link => {
+      // const openSeeMore = document.querySelectorAll('.btn-more');
+      refs.openSeeMore.forEach(link => {
         link.addEventListener('click', categoryClick);
       });
       function categoryClick(event) {
-        const bestCategory = document.querySelector('.js-home-pg');
-        const categories = document.querySelector('.js-selected-page');
+        // const bestCategory = document.querySelector('.js-home-pg');
+        // const categories = document.querySelector('.js-selected-page');
         const listName = event.srcElement.dataset.id;
-        bestCategory.style.display = 'none';
-        categories.style.display = 'block';
+        refs.bestCategory.style.display = 'none';
+        refs.categories.style.display = 'block';
         homeCategory(listName);
       }
     } catch (error) {

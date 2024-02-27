@@ -1,12 +1,12 @@
 import { getBooks } from './api-books';
 import { GetBook } from './modal';
-import {newSelect, openModal,gallery,titleElement } from './refs';
+import refs from './refs';
 
 const END_POINT = 'category';
 
 export async function homeCategory(categoriesBooks) {
   //const newSelect = document.querySelector('.js-booksgallery');
-  newSelect.innerHTML = '';
+  refs.newSelect.innerHTML = '';
 
   try {
     const data = await getBooks(END_POINT, categoriesBooks);
@@ -18,7 +18,7 @@ export async function homeCategory(categoriesBooks) {
 
   //const openModal = document.querySelectorAll('.cardCategory');
   document.addEventListener('click', event => {
-    for (const item of openModal) {
+    for (const item of refs.openModal) {
       let data = item.dataset.id;
       if (event.target.parentNode === item) {
         GetBook(data);
@@ -39,7 +39,7 @@ function renderBooks(books) {
       </li>`;
     })
     .join('');
-  gallery.insertAdjacentHTML('beforeend', markup);
+  refs.gallery.insertAdjacentHTML('beforeend', markup);
 }
 
 function updateTitle(category) {
@@ -47,7 +47,7 @@ function updateTitle(category) {
   const itemCategory = category.split(' ');
   const textSpan = itemCategory[itemCategory.length - 1];
   itemCategory.pop();
-  titleElement.innerHTML = `${itemCategory.join(
+  refs.titleElement.innerHTML = `${itemCategory.join(
     ' '
   )} <span class="selected-color">${textSpan} </span>`;
 }
