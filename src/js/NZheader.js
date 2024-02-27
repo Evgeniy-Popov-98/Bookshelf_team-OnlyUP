@@ -3,6 +3,8 @@ import { addToShoppingList } from './API/storage';
 const homeBtn = document.querySelector('.js-hhome');
 const shoppingBtn = document.querySelector('.js-hshopping');
 
+document.addEventListener('DOMContentLoaded', onHomeBtnClick);
+
 homeBtn.addEventListener('click', onHomeBtnClick);
 shoppingBtn.addEventListener('click', onShoppingBtnClick);
 

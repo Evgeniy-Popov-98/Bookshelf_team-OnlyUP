@@ -8,12 +8,12 @@
   font-size: 32px;
   line-height: 119%;
   letter-spacing: -0.04em;
-  color: var(--black);
+  color: var(--text-color);
   margin-bottom: 40px;
 }
 
 .color-text {
-  color: var(--violet);
+  color: #4f2ee8;
 }
 
 .gallery-books {
@@ -21,7 +21,6 @@
 }
 
 .list-category-title {
-  font-family: var(--font-family);
   font-weight: 400;
   font-size: 14px;
   line-height: 129%;
@@ -53,7 +52,7 @@
   line-height: 112%;
   letter-spacing: -0.04em;
   text-transform: uppercase;
-  color: var(--black);
+  color: var(--text-color);
   margin-bottom: 4px;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -73,7 +72,7 @@
 }
 
 .btn-more {
-  border: 2px solid var(--violet);
+  border: 2px solid #4f2ee8;
   border-radius: 40px;
   padding: 14px 28px;
   height: 46px;
@@ -82,17 +81,18 @@
   line-height: 129%;
   letter-spacing: -0.01em;
   text-transform: uppercase;
-  color: var(--black);
+  color: var(--text-color);
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 8px 0 40px auto;
+  background-color: #4f2ee8;
 }
 
 .btn-more:hover,
 .btn-more:focus {
-  background-color: var(--violet);
-  color: var(--white);
+  background-color: inherit;
+  color: var(--color-btn);
 }
 
 /* ==================================================Media===================================================== */
