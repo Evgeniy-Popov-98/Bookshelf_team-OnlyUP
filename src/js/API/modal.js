@@ -20,14 +20,21 @@ export async function GetBook(id) {
   listButtonRemove.setAttribute('id', `${id}`);
   constID = id;
   document.addEventListener('keydown', escapeCloseModal);
-  const data = await getBooks(id);
+  const data = await getBooks(constID);
   createModal(data);
 
-  const buttonText = listButtonAdd.textContent.trim();
-
-  if (buttonText === 'remove from the shopping list') {
-    listButtonAdd.textContent = 'add to shopping list';
-  }
+  try {
+    const checkBook = infoItemLocalStorage(TASKS_KEY);
+    console.log(checkBook);
+    for (const item of checkBook) {
+      console.log(item);
+      if (item.constID === id) {
+        console.log(true);
+        listButtonAdd.style.display = 'none';
+        listButtonRemove.style.display = 'flex';
+      }
+    }
+  } catch (error) {}
 
   listButtonAdd.addEventListener('click', toggleShoppingList);
 
@@ -120,6 +127,7 @@ function toggleShoppingList() {
   listButtonRemove.style.display = 'flex';
 
   listButtonAdd.removeEventListener('click', toggleShoppingList);
+  listButtonRemove.addEventListener('click', removeShoppingList);
 }
 
 function removeShoppingList(event) {
@@ -128,4 +136,5 @@ function removeShoppingList(event) {
   listButtonRemove.style.display = 'none';
 
   listButtonAdd.removeEventListener('click', removeShoppingList);
+  listButtonAdd.addEventListener('click', toggleShoppingList);
 }
