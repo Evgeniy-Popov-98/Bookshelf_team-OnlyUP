@@ -33,6 +33,12 @@ body {
   margin: 0 auto;
 }
 
+.right-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     min-width: 768px;
@@ -42,6 +48,12 @@ body {
   .main {
     display: flex;
     flex-direction: column;
+  }
+
+  .right-sections {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
   }
 }
 
@@ -54,6 +66,11 @@ body {
   .main {
     display: flex;
     flex-direction: row;
+  }
+
+  .right-sections {
+    flex-direction: column;
+    gap: 86px;
   }
 }
 
