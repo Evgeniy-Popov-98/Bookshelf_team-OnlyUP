@@ -47,10 +47,17 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const openModal = document.querySelectorAll('.card');
+      //const quickView = document.querySelector('.book-image-overlay-text');
       document.addEventListener('click', event => {
         for (const item of openModal) {
           let data = item.dataset.id;
+
           if (event.target.parentNode === item) {
+          // const targetText = event.target.textContent.trim();
+          // console.log(targetText);
+          
+          // if ( targetText === 'Quick view') {
+          //   let data = event.target.parentNode.dataset.id;
             GetBook(data);
           }
         }
@@ -87,11 +94,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (list_name)
       return `
     <li class="card book-item" data-id="${_id}">
-    <img class="book-img" src="${book_image}" alt="${contributor} ${title}">
+      <div class="wrapper-overlay">
+        <img class="book-img" src="${book_image}" alt="${contributor} ${title}">
+        <div class="book-image-overlay" aria-label="${title}">
+            <p class="book-image-overlay-text">Quick view</p>
+          </div>
+      </div>
     <h3 class="title-book">${title}</h3>
     <p class="author">${author}</p>
     </li>
-   `;
+    `;
   }
   function booksTemplate(books) {
     return books.map(bookTemplate).join('');
