@@ -1,4 +1,5 @@
 import { getBooks } from './api-books';
+import refs from './refs';
 import {
   addItemLocalStorage,
   infoItemLocalStorage,
@@ -42,9 +43,9 @@ export async function GetBook(id) {
 }
 
 function createModal(book) {
-  modalBackdrop.style.display = 'flex';
+  refs.modalBackdrop.style.display = 'flex';
 
-  body.style.overflow = 'hidden';
+  refs.body.style.overflow = 'hidden';
 
   const amazonUrl =
     book.buy_links.find(link => link.name === 'Amazon')?.url || '';
@@ -76,7 +77,7 @@ function createModal(book) {
   modal.appendChild(listButtonAdd);
   modal.appendChild(listButtonRemove);
 
-  modal.querySelectorAll('.platform-image').forEach(image => {
+  refs.modal.querySelectorAll('.platform-image').forEach(image => {
     image.addEventListener('click', () => {
       const platformUrl = image.dataset.url;
       if (platformUrl) {
@@ -90,11 +91,11 @@ function createModal(book) {
 
 //Close modal
 document.addEventListener('DOMContentLoaded', function () {
-  closeModalButton.addEventListener('click', function () {
+  refs.closeModalButton.addEventListener('click', function () {
     closeModal();
   });
 
-  modalBackdrop.addEventListener('click', function (event) {
+  refs.modalBackdrop.addEventListener('click', function (event) {
     if (event.target === modalBackdrop) {
       closeModal();
     }

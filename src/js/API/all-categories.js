@@ -12,27 +12,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     refs.allListCategories.insertAdjacentHTML('beforeend', markup);
 
-    const categoryLinks = document.querySelectorAll('.category-books-item');
+    //const categoryLinks = document.querySelectorAll('.category-books-item');
 
-    categoryLinks.forEach(link => {
+    refs.categoryLinks.forEach(link => {
       link.addEventListener('click', handleCategoryClick);
     });
 
     function handleCategoryClick(event) {
       event.preventDefault();
-      const bestCategory = document.querySelector('.js-home-pg');
-      const categories = document.querySelector('.js-selected-page');
+      // const bestCategory = document.querySelector('.js-home-pg');
+      //const categories = document.querySelector('.js-selected-page');
       const category = event.target.innerHTML;
       for (const item of data) {
         if (item.list_name === category) {
-          bestCategory.style.display = 'none';
-          categories.style.display = 'block';
+          refs.bestCategory.style.display = 'none';
+          refs.categories.style.display = 'block';
           homeCategory(category);
         }
       }
       if (category === 'All categories') {
-        bestCategory.style.display = 'block';
-        categories.style.display = 'none';
+        refs.bestCategory.style.display = 'block';
+        refs.categories.style.display = 'none';
       }
     }
   }

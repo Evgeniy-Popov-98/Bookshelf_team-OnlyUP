@@ -1,21 +1,22 @@
 import { addToShoppingList } from './API/storage';
+import refs from './API/refs'
 
-const homeBtn = document.querySelector('.js-hhome');
-const shoppingBtn = document.querySelector('.js-hshopping');
+//const homeBtn = document.querySelector('.js-hhome');
+//const shoppingBtn = document.querySelector('.js-hshopping');
 
 document.addEventListener('DOMContentLoaded', onHomeBtnClick);
 
-homeBtn.addEventListener('click', onHomeBtnClick);
-shoppingBtn.addEventListener('click', onShoppingBtnClick);
+refs.homeBtn.addEventListener('click', onHomeBtnClick);
+refs.shoppingBtn.addEventListener('click', onShoppingBtnClick);
 
 function onHomeBtnClick() {
-  homeBtn.classList.add('hhome-btn');
-  shoppingBtn.classList.remove('hshopping-btn');
+  refs.homeBtn.classList.add('hhome-btn');
+  refs.shoppingBtn.classList.remove('hshopping-btn');
 }
 
 function onShoppingBtnClick() {
-  homeBtn.classList.remove('hhome-btn');
-  shoppingBtn.classList.add('hshopping-btn');
+  refs.homeBtn.classList.remove('hhome-btn');
+  refs.shoppingBtn.classList.add('hshopping-btn');
 }
 
-shoppingBtn.addEventListener('click', addToShoppingList);
+refs.shoppingBtn.addEventListener('click', addToShoppingList);

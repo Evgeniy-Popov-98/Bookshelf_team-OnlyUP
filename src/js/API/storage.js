@@ -1,8 +1,9 @@
 // Функція для додавання книги до списку покупок
 
 import { getBooks } from './api-books';
+import refs from './refs';
 
-const shoppingList = document.querySelector('.shoppinglist-blocks');
+//*const shoppingList = document.querySelector('.shoppinglist-blocks');
 // const categoriesBooks = document.querySelector('.js-all-categories');
 // const bestBooks = document.querySelector('.js-home-pg');
 
