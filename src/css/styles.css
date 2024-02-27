@@ -1,5 +1,6 @@
 @import url('./reset.css');
 @import url('./component.css');
+@import url('./support.css');
 
 :root {
   --bg-color: #f6f6f6;
@@ -86,15 +87,6 @@
   
 
  }
-
- .second-btn{background-color: #fff;
-  border: none;
-  position: absolute;
-  border-radius: 100%;
-  margin-left: auto;
-  
-
- }
  .plus-btn-plus{
  
   text-align: center;
@@ -115,7 +107,7 @@
 
  .hidden{
 
- /* opacity: 0;*/
+  opacity: 0;
   display: none;
  }
  
