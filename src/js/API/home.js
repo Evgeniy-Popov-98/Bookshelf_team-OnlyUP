@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return `
     <li class="card book-item book-hover" data-id="${_id}">
        <div class="wrapper-overlay">
-        <img class="book-img" src="${book_image}" alt="${contributor} ${title}">
+        <img class="book-img-home" src="${book_image}" alt="${contributor} ${title}">
         <div class="book-image-overlay" aria-label="${title}">
             <p class="book-image-overlay-text quick-view-trigger">Quick view</p>
         </div>

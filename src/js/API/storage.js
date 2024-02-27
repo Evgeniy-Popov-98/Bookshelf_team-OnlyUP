@@ -4,6 +4,7 @@ import {
   infoItemLocalStorage,
   TASKS_KEY,
 } from '../localStorage';
+import '../switch-button';
 import img9606 from '/images/IMG_9606.png';
 import amazonSvg from '/images/amazon.svg';
 import bookSvg from '/images/book.svg';
@@ -18,7 +19,9 @@ const emptyMessage = `
     </div>
 `;
 
-export async function addToShoppingList() {
+export async function addToShoppingList(event) {
+  event.defaultPrevented();
+  console.log(1);
   try {
     const booksIds = infoItemLocalStorage(TASKS_KEY);
 
@@ -100,3 +103,37 @@ shoppingListContainer.addEventListener('click', function (event) {
     updatePagination();
   }
 });
+// =======
+
+//   // Ініціалізуємо або оновлюємо пагінацію
+//   const pagination = new tuiPagination('pagination', {
+//     totalItems: totalPages,
+//     itemsPerPage: 1,
+//     visiblePages: 5,
+//   });
+// }
+
+// // shoppingListContainer.addEventListener('click', function (event) {
+// //   const target = event.target;
+// //   if (event.target.nodeName !== 'BUTTON' || event.target.nodeName !== 'IMG') {
+// //     const bookContainer = target.closest('.container-block');
+// //     const bookId = bookContainer.getAttribute('data-book-id');
+
+// //     const booksIds = infoItemLocalStorage(TASKS_KEY) || [];
+// //     const index = booksIds.indexOf(bookId);
+// //     if (index !== -1) {
+// //       booksIds.splice(index, 1);
+// //       addItemLocalStorage(TASKS_KEY, booksIds);
+// //     }
+
+// //     bookContainer.remove();
+
+// //     if (!shoppingListContainer.querySelector('.container-block')) {
+// //       shoppingListContainer.innerHTML = emptyMessage;
+// //     }
+
+// //     // Оновлення пагінації після видалення книги
+// //     updatePagination();
+// //   }
+// // });
+// >>>>>>> main

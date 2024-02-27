@@ -1,0 +1,27 @@
+html{
+    scroll-behavior: smooth;
+  }
+  
+#scrollTop{
+    position: fixed;
+    right: 15px;
+    bottom: 175px;
+    /* font-size: 10px; */
+    z-index: 10;
+    color: var(--violet);
+  
+  }
+  .ToUp{
+    font-size: 10px;
+  }
+  
+  .isShowScroll{
+    opacity: 1;
+    transition: 1s;
+  }  
+  .isShowScroll_hide{
+      opacity: 0;
+    }
+  
+  
+  

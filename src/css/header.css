@@ -76,9 +76,10 @@
     padding: 8px 16px;
     width: 72px;
     height: 34px;
+  }
+  .active {
     background: #eac645;
   }
-
   .hhome-text {
     font-weight: 700;
     font-size: 14px;
@@ -87,6 +88,7 @@
     text-transform: uppercase;
     color: --text-color;
     cursor: pointer;
+    background: #eac645;
   }
 
   .hshopping-btn {
@@ -94,7 +96,7 @@
     padding: 7px 16px;
     width: 156px;
     height: 34px;
-    background: #eac645;
+    /* background: #eac645; */
   }
   .hshopping-link {
     display: flex;

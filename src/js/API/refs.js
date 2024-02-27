@@ -4,4 +4,5 @@ export default {
   listCategoryTitle: document.querySelector('.list-category-title'),
   allListCategories: document.querySelector('.js-books-categories'),
   categoryItems: document.querySelectorAll('.category-books-item'),
+  scrollTop: document.getElementById('scrollTop'),
 };

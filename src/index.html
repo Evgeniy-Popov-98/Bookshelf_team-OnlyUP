@@ -17,19 +17,28 @@
 	<link rel="stylesheet" href="./css/styles.css" />
 </head>
 
-<body>
-	<header></header>
-	<main>
+<body class="light">
+	<header>
 		<div>
 			<load scr="partials/header.html" />
 		</div>
-		<div id="home-section">
+	</header>
+	<main>
+		<load src="./partials/scroll-up.html" />
+		<div class="main container">
+			<div class="right-sections">
+				<load scr="partials/all-categories.html" />
+				<load src="./particals/support.html" />
+			</div>
 			<load scr="partials/home.html" />
+			<load scr="partials/selected.html" />
 		</div>
-		<div id="modal-section">
+		<div>
 			<load scr="partials/modal.html" />
 		</div>
-
+		<div class="two-page" style="display: none;">
+			<load src="./partials/shoppinglist.html" />
+		</div>
 	</main>
 	<footer></footer>
 	<script type="module" src="./main.js"></script>
