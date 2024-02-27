@@ -47,8 +47,9 @@ padding: 0;}
         margin: 0;
         gap: 14px;
         margin-top: 262px;
-        margin-left: 55px;
-        min-width: 265px;
+       margin-left: 55px;
+        margin-right: 55px;
+        width: 265px;
         display: flex;
         position: absolute;
         align-items: center;
@@ -179,6 +180,7 @@ padding: 0;}
         min-height: 100vh;
         align-items: center;
         flex-direction: column;
+
     }
 
     .shoppinglist-shoppinglist {
@@ -190,23 +192,23 @@ padding: 0;}
         align-items: flex-start;
         flex-shrink: 0;
         background-color: rgba(246, 246, 246, 1);
+        justify-content: center;
     }
-
-    .shoppinglist-text {
-        margin-top: 112px;
-        margin-left: 32px;
-        height: auto;
-        position: absolute;
-        color: #4F2EE8;
-        font-size: 48px;
-        font-style: Bold;
-        text-align: left;
-        font-family: DM Sans;
-        font-weight: 700;
-        line-height: 52px;
-        font-stretch: normal;
-        text-decoration: none;
-    }
+ .shoppinglist-text {
+    top: 10px;
+    left: 80px;
+    height: auto;
+    position: absolute;
+    color: #4F2EE8;
+    font-size: 48px;
+    font-style: Bold;
+    text-align: left;
+    font-family: DM Sans;
+    font-weight: 700;
+    line-height: 52px;
+    font-stretch: normal;
+    text-decoration: none;
+}
 
     .shoppinglist-text1 {
         color: rgba(17, 17, 17, 1);
@@ -214,8 +216,9 @@ padding: 0;}
 
     .shoppinglist-blocks {
         gap: 20px;
-        margin-top: 304px;
-        margin-left: 210px;
+        margin-top: 232px;
+    margin-left: 210px;
+        margin-right: 210px;
         width: 349px;
         display: flex;
         position: absolute;
@@ -277,21 +280,22 @@ padding: 0;}
         background-color: rgba(246, 246, 246, 1);
     }
 .modal{display: flex;}
-    .shoppinglist-text {
-        margin-top: 112px;
-        margin-left: 420px;
-        color: #4F2EE8;
-        height: auto;
-        position: absolute;
-        font-size: 48px;
-        font-style: Bold;
-        text-align: left;
-        font-family: DM Sans;
-        font-weight: 700;
-        line-height: 52px;
-        font-stretch: normal;
-        text-decoration: none;
-    }
+   .shoppinglist-text {
+       top: -40px;
+       left: 476px;
+   
+       color: #4F2EE8;
+       height: auto;
+       position: absolute;
+       font-size: 48px;
+       font-style: Bold;
+       text-align: left;
+       font-family: DM Sans;
+       font-weight: 700;
+       line-height: 52px;
+       font-stretch: normal;
+       text-decoration: none;
+   }
 
     .shoppinglist-text1 {
         color: rgba(17, 17, 17, 1);
@@ -300,6 +304,8 @@ padding: 0;}
     .shoppinglist-blocks {
         gap: 20px;
         margin-top: 304px;
+        margin-left: 735px;
+        margin-right: 355px;
         width: 349px;
         display: flex;
         position: absolute;
