@@ -4,6 +4,7 @@ import {
   infoItemLocalStorage,
   TASKS_KEY,
 } from '../localStorage';
+import '../switch-button';
 import img9606 from '/images/IMG_9606.png';
 import amazonSvg from '/images/amazon.svg';
 import bookSvg from '/images/book.svg';
@@ -20,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
 `;
 
-  export async function addToShoppingList() {
+  async function addToShoppingList() {
     try {
       const booksIds = infoItemLocalStorage(TASKS_KEY); // Отримуємо масив ідентифікаторів книг з локального сховища
 
