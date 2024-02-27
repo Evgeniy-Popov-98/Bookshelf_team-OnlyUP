@@ -15,7 +15,7 @@ li {
   line-height: 1.12em;
   letter-spacing: -0.02em;
   color: var(--color-category);
-  padding-bottom: 24px;
+  margin-bottom: 24px;
 }
 
 .category-books-item:nth-last-child(1) {
@@ -26,6 +26,7 @@ li {
   font-weight: 700;
   color: var(--color-cal);
   text-transform: uppercase;
+  transition: color 550ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 @media screen and (min-width: 768px) {
@@ -39,11 +40,11 @@ li {
     font-size: 18px;
     line-height: 1.33em;
     letter-spacing: -0.02em;
-    padding-bottom: 32px;
+    margin-bottom: 32px;
   }
 
   .category-books-item:nth-last-child(1) {
-    padding-bottom: 0px;
+    margin-bottom: 0px;
   }
 }
 
