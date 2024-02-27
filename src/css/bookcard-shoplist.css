@@ -1,0 +1,219 @@
+
+h2{padding: 0;
+    margin: 0;}
+    p{padding: 0;
+        margin: 0;}
+@media screen and (min-width:350px){
+    .container-block {
+    position: relative;
+    margin: 0;
+    padding: 14px;
+    width: 350px;
+    height: auto;
+    display: flex;
+    border: 2px solid rgba(79, 46, 232, 0.4);
+    border-radius: 16px;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.trash-btn {
+    display: flex;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+    width: 30px;
+    height: 30px;
+   align-items: center;
+   justify-content: center;
+    border-radius: 30px;
+    background-color: #4F2EE8;
+}
+
+.links {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 10;
+    display: flex;
+    gap: 8px;
+        align-items: baseline;
+}
+
+.links li {
+    list-style: none;
+}
+
+.amazon {
+    width: 56px;
+    height: 16px;
+}
+.book {
+     width: 27px;
+     height: 27px;}
+.book-img {
+    width: 100px;
+    height: 142px;
+}
+
+.text-area {
+    display: flex;
+    margin: 0;
+    padding: 0 0 0 14px;
+    width: 193px;
+    height: auto;
+    flex-direction: column;
+}
+
+.title {
+ 
+    padding-bottom: 4px;
+    color: rgba(17, 17, 17, 1);
+    font-size: 16px;
+    font-style: bold;
+    text-align: left;
+    font-family: DM Sans;
+    font-weight: 700;
+    line-height: 18px;
+    font-stretch: normal;
+    text-decoration: none;
+}
+
+.janr {
+ 
+    padding-bottom: 8px;
+    color: rgba(180, 175, 175, 1);
+    font-size: 12px;
+    font-style: italic;
+    text-align: left;
+    font-family: DM Sans;
+    font-weight: 400;
+    line-height: 14px;
+    font-stretch: normal;
+    text-decoration: none;
+}
+
+.description {
+
+    color: rgba(17, 17, 17, 1);
+    width: 193px;
+    height: auto;
+    z-index: 1;
+    font-size: 14px;
+    font-style: regular;
+    text-align: left;
+    font-family: DM Sans;
+    font-weight: 400;
+    line-height: 18px;
+    font-stretch: normal;
+    text-decoration: none;
+}
+
+.author-book {
+  
+    color: rgba(180, 175, 175, 1);
+    font-size: 12px;
+    font-style: italic;
+    text-align: left;
+    font-family: DM Sans;
+    font-weight: 400;
+    line-height: 14px;
+    font-stretch: normal;
+    text-decoration: none;
+}}
+@media screen and (min-width:768px){
+    .container-block {
+        position: relative;
+        margin: 0;
+        padding: 24px;
+        width: 704px;}
+                
+        .links {
+                    
+position: absolute;
+        bottom: 24.5px;
+    right: 24.5px;
+                    z-index: 10;
+                    display: flex;
+                    gap: 8px;
+                    align-items: baseline;}
+.trash-btn {
+    display: flex;
+    position: absolute;
+    top: 24.5px;
+    right: 24.5px;
+    z-index: 10;
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    background-color: #4F2EE8;}
+        .text-area {
+        display: flex;
+         margin: 0;
+         padding: 0 0 0 24px;
+        width: 508px;
+    height: auto;
+        flex-direction: column;
+    }
+        .book-img {
+            width: 116px;
+            height: 165px;
+        }
+        .title{color: rgba(17, 17, 17, 1);
+        
+            font-size: 16px;
+            font-style: Bold;
+            text-align: left;
+            font-family: DM Sans;
+            font-weight: 700;
+            line-height: 18px;
+            font-stretch: normal;
+            text-decoration: none;}
+        .description {
+            padding-bottom: 48px;
+            width: 508px;
+            color: rgba(17, 17, 17, 1);
+                height: 53px;
+                z-index: 1;
+                font-size: 14px;
+                font-style: Regular;
+                text-align: left;
+                font-family: DM Sans;
+                font-weight: 400;
+                line-height: 18px;
+                font-stretch: normal;
+                text-decoration: none;}
+   
+.amazon {
+    width: 48px;
+    height: 15px;
+}
+
+.book {
+    width: 27px;
+    height: 27px;
+}}
+@media screen and (min-width:1440px){
+    .container-block {
+            position: relative;
+            margin: 0;
+            padding: 24px;
+           width: 996px;
+            height: 213px;
+        }
+         .text-area {
+             display: flex;
+             margin: 0;
+             padding: 0 0 0 24px;
+             width: 808px;
+             height: auto;
+             flex-direction: column;
+         }
+                .description {
+                    padding-bottom: 48px;
+                    width: 808px;
+                    color: rgba(17, 17, 17, 1);
+                    height: 53px;}
+}

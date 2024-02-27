@@ -1,38 +1,86 @@
-// Функція для додавання книги до списку покупок
-
 import { getBooks } from './api-books';
+import {
+  addItemLocalStorage,
+  infoItemLocalStorage,
+  TASKS_KEY,
+} from '../localStorage';
+import img9606 from '/images/IMG_9606.png';
+import amazonSvg from '/images/amazon.svg';
+import bookSvg from '/images/book.svg';
+import trashSvg from '/images/trash.svg';
 
-const shoppingList = document.querySelector('.shoppinglist-blocks');
-// const categoriesBooks = document.querySelector('.js-all-categories');
-// const bestBooks = document.querySelector('.js-home-pg');
+const shoppingListContainer = document.querySelector('.shoppinglist-container');
+const emptyMessage = `
+    <div class="shoppinglist-blocks">
+        <h2 class="text">This page is empty, add some books and proceed to order.</h2>
+        <img src="${img9606}" alt="Shopping Image" class="shoppinglist-img96061">
+    </div>
+`;
 
 export async function addToShoppingList() {
-  // Виконуємо запит до API за детальною інформацією про книгу
-  //   categoriesBooks.style.display = 'none';
-  //   bestBooks.style.display = 'none';
+  try {
+    const booksIds = infoItemLocalStorage(TASKS_KEY); // Отримуємо масив ідентифікаторів книг з локального сховища
 
-  const bookId = '643282b1e85766588626a0dc';
+    if (!booksIds || !booksIds.length) {
+      // Відображаємо повідомлення про порожній список, якщо немає книг
+      shoppingListContainer.innerHTML = emptyMessage;
+      return;
+    }
 
-  const dataBook = await getBooks(bookId);
+    let markup = '';
 
-  // Створюємо HTML для відображення інформації про книгу
-  //   shoppingList.innerHTML = '';
+    for (const bookId of booksIds) {
+      const dataBook = await getBooks(bookId);
+      markup += createBookMarkup(dataBook, bookId); // Передаємо ідентифікатор книги
+    }
 
-  const markup = `
-  	<ul class="shoppeng-list">
-		<li class="shopping-item">
-			<img src="${dataBook.book_image}" alt="${dataBook.title}" class="book-image">
-			<div class="book-info">
-				<button class="book-card-button" type="button">
-				<!-- тут должна быть свг для кнопки закрития -->
-				</button>
-				<h2>${dataBook.title}</h2>				
-				<p>${dataBook.list_name}</p>
-				<p>${dataBook.description}</p>
-				<p>${dataBook.author}</p>
-			</div>
-		</li>
-	</ul>`;
-
-  //   shoppingList.insertAdjacentHTML('beforeend', markup);
+    shoppingListContainer.innerHTML = markup;
+  } catch (error) {
+    console.error('Помилка отримання даних книги:', error);
+  }
 }
+
+function createBookMarkup(book, bookId) {
+  // Додаємо параметр bookId
+  return `
+    <div class="container-block" data-book-id="${bookId}"> <!-- Додаємо атрибут data-book-id -->
+        <!-- Розмітка для відображення інформації про книгу -->
+        <div class="btn-and-links">
+            <button class="trash-btn"><img src="${trashSvg}" alt=""></button>
+            <ul class="links">
+                <li><img src="${amazonSvg}" class="amazon"></li>
+                <li><img src="${bookSvg}"></li>
+            </ul>
+        </div>
+        <img src="${book.book_image}" alt="${book.title}" class="book-image">
+        <div class="text-area">
+            <h2 class="shopping-list-title">${book.title}</h2>
+            <h2 class="shopping-list-title-name">${book.list_name}</h2>
+            <p class="shopping-list-description">${book.description}</p>
+            <h2 class="shopping-list-author">${book.author}</h2>
+        </div>
+    </div>
+  `;
+}
+
+shoppingListContainer.addEventListener('click', function (event) {
+  const target = event.target;
+  if (event.target.nodeName !== 'BUTTON' || event.target.nodeName !== 'IMG') {
+    const bookContainer = target.closest('.container-block');
+    const bookId = bookContainer.getAttribute('data-book-id');
+
+    const booksIds = infoItemLocalStorage(TASKS_KEY) || [];
+    const index = booksIds.indexOf(bookId);
+    if (index !== -1) {
+      booksIds.splice(index, 1); // Видаляємо ідентифікатор книги з масиву
+      addItemLocalStorage(TASKS_KEY, booksIds); // Оновлюємо локальне сховище
+    }
+
+    bookContainer.remove(); // Видаляємо HTML елемент книги зі списку покупок
+
+    if (!shoppingListContainer.querySelector('.container-block')) {
+      // Перевіряємо, чи немає більше жодної книги в списку покупок
+      shoppingListContainer.innerHTML = emptyMessage;
+    }
+  }
+});

@@ -1,44 +1,37 @@
+// modal.js
+
 import { getBooks } from './api-books';
 import {
   addItemLocalStorage,
   infoItemLocalStorage,
-  restoreData,
   TASKS_KEY,
+  restoreData,
 } from '../localStorage';
 
 const body = document.querySelector('body');
 const modal = document.querySelector('.modal');
 const modalBackdrop = document.querySelector('.backdrop');
 const closeModalButton = document.querySelector('.modal-close-btn');
-const listButtonAdd = document.querySelector('.modal-list-btn-add');
-const listButtonRemove = document.querySelector('.modal-list-btn-remove');
-
-let constID;
+const listAddButton = document.querySelector('.modal-list-btn-add');
+const listRemoveButton = document.querySelector('.modal-list-btn-remove');
 
 // Open modal
 export async function GetBook(id) {
-  listButtonRemove.setAttribute('id', `${id}`);
-  constID = id;
   document.addEventListener('keydown', escapeCloseModal);
-  const data = await getBooks(constID);
+  const data = await getBooks(id);
   createModal(data);
 
-  try {
-    const checkBook = infoItemLocalStorage(TASKS_KEY);
-    console.log(checkBook);
-    for (const item of checkBook) {
-      console.log(item);
-      if (item.constID === id) {
-        console.log(true);
-        listButtonAdd.style.display = 'none';
-        listButtonRemove.style.display = 'flex';
-      }
-    }
-  } catch (error) {}
+  listAddButton.addEventListener('click', function () {
+    toggleShoppingList(id);
+    listAddButton.style.display = 'none';
+    listRemoveButton.style.display = 'block';
+  });
 
-  listButtonAdd.addEventListener('click', toggleShoppingList);
-
-  listButtonRemove.addEventListener('click', removeShoppingList);
+  listRemoveButton.addEventListener('click', function () {
+    toggleShoppingList(id);
+    listRemoveButton.style.display = 'none';
+    listAddButton.style.display = 'block';
+  });
 }
 
 function createModal(book) {
@@ -52,29 +45,29 @@ function createModal(book) {
     book.buy_links.find(link => link.name === 'Apple Books')?.url || '';
 
   const buyLinksListHTML = `
-  <ul class="buy-links-list">
-    <li>
-      <img src="./images/amazon.png" alt="Amazon" class="platform-image" data-url="${amazonUrl}">
-    </li>
-    <li>
-      <img src="./images/book.png" alt="Apple Books" class="platform-image" data-url="${appleBooksUrl}">
-    </li>
-  </ul>
-`;
+    <ul class="buy-links-list">
+      <li>
+        <img src="./images/amazon.png" alt="Amazon" class="platform-image" data-url="${amazonUrl}">
+      </li>
+      <li>
+        <img src="./images/book.png" alt="Apple Books" class="platform-image" data-url="${appleBooksUrl}">
+      </li>
+    </ul>
+  `;
   modal.innerHTML = `
-  <div class="modal-container">
-  <img src="${book.book_image}" class="modal-image">
-    <div class="modal-wrap">
-      <h2 class="modal-title">${book.title}</h2>
-      <p class="modal-author">${book.author}</p>
-      <p class="description">${book.description}</p>
-      ${buyLinksListHTML}
-    </div>  
-  </div>
-`;
+    <div class="modal-container">
+      <img src="${book.book_image}" class="modal-image">
+      <div class="modal-wrap">
+        <h2 class="modal-title">${book.title}</h2>
+        <p class="modal-author">${book.author}</p>
+        <p class="description">${book.description}</p>
+        ${buyLinksListHTML}
+      </div>  
+    </div>
+  `;
   modal.appendChild(closeModalButton);
-  modal.appendChild(listButtonAdd);
-  modal.appendChild(listButtonRemove);
+  modal.appendChild(listAddButton);
+  modal.appendChild(listRemoveButton);
 
   modal.querySelectorAll('.platform-image').forEach(image => {
     image.addEventListener('click', () => {
@@ -88,7 +81,20 @@ function createModal(book) {
   });
 }
 
-//Close modal
+// Add or remove from shopping list
+function toggleShoppingList(id) {
+  const dataArr = infoItemLocalStorage(TASKS_KEY) || []; // Ensure dataArr is an array
+  const index = dataArr.indexOf(id);
+  if (index === -1) {
+    dataArr.push(id);
+  } else {
+    dataArr.splice(index, 1);
+  }
+  addItemLocalStorage(TASKS_KEY, dataArr);
+  restoreData();
+}
+
+// Close modal
 document.addEventListener('DOMContentLoaded', function () {
   closeModalButton.addEventListener('click', function () {
     closeModal();
@@ -109,32 +115,6 @@ function escapeCloseModal(event) {
 }
 
 function closeModal() {
-  listButtonAdd.removeEventListener('click', toggleShoppingList);
-  listButtonAdd.removeEventListener('click', removeShoppingList);
   modalBackdrop.style.display = 'none';
   body.style.overflow = 'auto';
-  listButtonAdd.style.display = 'flex';
-  listButtonRemove.style.display = 'none';
-}
-
-//Add to shopping list
-function toggleShoppingList() {
-  const arrItem = infoItemLocalStorage(TASKS_KEY) || [];
-  arrItem.push({ constID });
-  addItemLocalStorage(TASKS_KEY, arrItem);
-
-  listButtonAdd.style.display = 'none';
-  listButtonRemove.style.display = 'flex';
-
-  listButtonAdd.removeEventListener('click', toggleShoppingList);
-  listButtonRemove.addEventListener('click', removeShoppingList);
-}
-
-function removeShoppingList(event) {
-  restoreData(event);
-  listButtonAdd.style.display = 'flex';
-  listButtonRemove.style.display = 'none';
-
-  listButtonAdd.removeEventListener('click', removeShoppingList);
-  listButtonAdd.addEventListener('click', toggleShoppingList);
 }
