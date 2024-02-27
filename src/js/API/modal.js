@@ -1,4 +1,7 @@
+// modal.js
+
 import { getBooks } from './api-books';
+import { addToShoppingList } from './storage';
 
 const body = document.querySelector('body');
 const modal = document.querySelector('.modal');
@@ -66,21 +69,7 @@ function createModal(book) {
 
 //Add to shopping list
 function toggleShoppingList(id) {
-  const buttonText = listButton.textContent.trim();
-  const storedData = localStorage.getItem('shoppingList');
-  const shoppingList = JSON.parse(storedData) || {};
-
-  if (buttonText === 'add to shopping list') {
-    shoppingList[id] = true;
-    listButton.textContent = 'remove from the shopping list';
-  } else {
-    if (shoppingList[id]) {
-      delete shoppingList[id];
-    }
-    listButton.textContent = 'add to shopping list';
-  }
-
-  localStorage.setItem('shoppingList', JSON.stringify(shoppingList));
+  addToShoppingList(); // Виклик функції addToShoppingList для додавання книги до списку покупок
 }
 
 //Close modal

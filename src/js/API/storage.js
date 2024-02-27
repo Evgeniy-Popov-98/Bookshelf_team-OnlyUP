@@ -1,4 +1,4 @@
-// Функція для додавання книги до списку покупок
+// storage.js
 
 import { getBooks } from './api-books';
 
@@ -16,21 +16,25 @@ export async function addToShoppingList() {
   const dataBook = await getBooks(bookId);
 
   // Створюємо HTML для відображення інформації про книгу
-  //   shoppingList.innerHTML = '';
-const markup = `
-    <ul class="shoppeng-list">
-        <li class="shopping-item">
-            <img src="${dataBook.book_image}" alt="${dataBook.title}" class="book-image">
-            <div class="shoppinglitem-textarea">
-                <h2 class="shoppinglititem-title">${dataBook.title}</h2>              
-                <p class="shoppinglititem-title-name">${dataBook.list_name}</p>
-                <p class="shoppinglititem-description">${dataBook.description}</p>
-                <p class="shoppinglititem-author">${dataBook.author}</p>
-            </div>
+  const markup = `
+    <div class="container-block">
+        <div class="btn-and-links">
             <button class="trash-btn"><img src="/src/images/trash-03.png" alt=""></button>
-        </li>
-    </ul>
+            <ul class="links">
+                <li><img src="/src/images/amazon.png" class="amazon"></li>
+                <li><img src="/src/images/book.png" class="book"></li>
+            </ul>
+        </div>
+        <img src="${dataBook.book_image}" class="book-img"> <!-- Змінено клас 'book-img' на 'book-image' -->
+        <div class="text-area">
+            <h2 class="title">${dataBook.title}</h2> <!-- Змінено клас 'title' на 'shopping-list-title' -->
+            <h2 class="janr">${dataBook.list_name}</h2> <!-- Змінено клас 'janr' на 'shopping-list-title-name' -->
+            <p class="description">${dataBook.description}</p> <!-- Змінено клас 'description' на 'shopping-list-description' -->
+            <h2 class="author-book">${dataBook.author}</h2> <!-- Змінено клас 'author-book' на 'shopping-list-author' -->
+        </div>
+    </div>
 `;
 
-// Вставка розмітки у shoppingList
-shoppingList.insertAdjacentHTML('beforeend', markup);
+  // Вставка розмітки у shoppingList
+  shoppingList.insertAdjacentHTML('beforeend', markup);
+}
