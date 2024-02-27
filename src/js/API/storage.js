@@ -9,7 +9,7 @@ import img9606 from '/images/IMG_9606.png';
 import amazonSvg from '/images/amazon.svg';
 import bookSvg from '/images/book.svg';
 import trashSvg from '/images/trash.svg';
-import tuiPagination from 'tui-pagination'; // Імпортуємо бібліотеку пагінації
+// import tuiPagination from 'tui-pagination'; // Імпортуємо бібліотеку пагінації
 
 const shoppingListContainer = document.querySelector('.shoppinglist-container');
 const emptyMessage = `
@@ -19,9 +19,12 @@ const emptyMessage = `
     </div>
 `;
 
-export async function addToShoppingList() {
+export async function addToShoppingList(event) {
+  event.defaultPrevented();
+  console.log(1);
   try {
     const booksIds = infoItemLocalStorage(TASKS_KEY);
+    console.log(booksIds);
 
     if (!booksIds || !booksIds.length) {
       shoppingListContainer.innerHTML = emptyMessage;
@@ -78,26 +81,26 @@ function updatePagination() {
   });
 }
 
-shoppingListContainer.addEventListener('click', function (event) {
-  const target = event.target;
-  if (event.target.nodeName !== 'BUTTON' || event.target.nodeName !== 'IMG') {
-    const bookContainer = target.closest('.container-block');
-    const bookId = bookContainer.getAttribute('data-book-id');
+// shoppingListContainer.addEventListener('click', function (event) {
+//   const target = event.target;
+//   if (event.target.nodeName !== 'BUTTON' || event.target.nodeName !== 'IMG') {
+//     const bookContainer = target.closest('.container-block');
+//     const bookId = bookContainer.getAttribute('data-book-id');
 
-    const booksIds = infoItemLocalStorage(TASKS_KEY) || [];
-    const index = booksIds.indexOf(bookId);
-    if (index !== -1) {
-      booksIds.splice(index, 1);
-      addItemLocalStorage(TASKS_KEY, booksIds);
-    }
+//     const booksIds = infoItemLocalStorage(TASKS_KEY) || [];
+//     const index = booksIds.indexOf(bookId);
+//     if (index !== -1) {
+//       booksIds.splice(index, 1);
+//       addItemLocalStorage(TASKS_KEY, booksIds);
+//     }
 
-    bookContainer.remove();
+//     bookContainer.remove();
 
-    if (!shoppingListContainer.querySelector('.container-block')) {
-      shoppingListContainer.innerHTML = emptyMessage;
-    }
+//     if (!shoppingListContainer.querySelector('.container-block')) {
+//       shoppingListContainer.innerHTML = emptyMessage;
+//     }
 
-    // Оновлення пагінації після видалення книги
-    updatePagination();
-  }
-});
+//     // Оновлення пагінації після видалення книги
+//     updatePagination();
+//   }
+// });

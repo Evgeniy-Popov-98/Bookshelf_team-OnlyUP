@@ -1,3 +1,5 @@
+import { addToShoppingList } from './API/storage';
+
 const homeBtn = document.querySelector('.js-hhome');
 const shoppingBtn = document.querySelector('.js-hshopping');
 
@@ -11,7 +13,10 @@ function onHomeBtnClick() {
   shoppingBtn.classList.remove('hshopping-btn');
 }
 
-function onShoppingBtnClick() {
-  homeBtn.classList.remove('hhome-btn');
+function onShoppingBtnClick(event) {
+  event.homeBtn.classList.remove('hhome-btn');
   shoppingBtn.classList.add('hshopping-btn');
+  //   addToShoppingList();
 }
+
+// shoppingBtn.addEventListener('click', addToShoppingList);
