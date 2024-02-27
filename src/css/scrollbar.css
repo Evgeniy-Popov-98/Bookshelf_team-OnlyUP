@@ -1,0 +1,26 @@
+.all-categories {
+  --sb-track-color: transparent;
+  --sb-thumb-color: #e0e0e0;
+  --sb-size: 8px;
+}
+
+.all-categories::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+
+.all-categories::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 12px;
+}
+
+.all-categories::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 12px;
+  border: none;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  .all-categories {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  }
+}

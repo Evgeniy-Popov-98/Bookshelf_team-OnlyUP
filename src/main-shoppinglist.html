@@ -5,39 +5,27 @@
 	<meta charset="UTF-8" />
 	<link rel="icon" type="image/svg+xml" href="" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>JS-new_teamProject</title>
+	<title>Shopping list</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
 		integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link
 		href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@400;500;700&family=Montserrat:wght@400;500;600;700&display=swap"
-		rel="stylesheet">
+		rel="stylesheet" />
 	<link rel="stylesheet" href="./css/styles.css" />
 </head>
 
 <body class="light">
-	<header></header>
+	<header>
+		<load src="./partials/header.html" />
+	</header>
 	<main>
-		<div>
-			<load scr="partials/header.html" />
-		</div>
-		<div class="main container">
-			<load scr="partials/all-categories.html" />
-			<load src="./particals/support.html" />
-			<load scr="partials/home.html" />
-			<load scr="partials/selected.html" />
-		</div>
-		<div>
-			<load scr="partials/modal.html" />
-		</div>
-		<div class="two-page" style="display: none;">
-			<load src="./partials/shoppinglist.html" />
-		</div>
+		<load src="./partials/shoppinglist.html" />
 	</main>
 	<footer></footer>
-	<script type="module" src="./main.js"></script>
+	<script type="module" src="./js/API/storage.js"></script>
 </body>
 
 </html>

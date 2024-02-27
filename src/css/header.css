@@ -1,0 +1,155 @@
+.header {
+  border: 1.5px solid var(--text-color);
+  border-radius: 0 0 8px 8px;
+}
+
+.header-container {
+  height: 64px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.hlogo-img-link {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  width: 109px;
+  height: 28px;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.hmenu-wrap {
+  display: none;
+}
+.hswitcher-burger-wrap {
+  width: 82px;
+  height: 28px;
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  align-items: center;
+}
+
+.hburger-menu-link {
+  display: flex;
+  align-items: center;
+}
+
+.h-user {
+  display: none;
+}
+
+.hshopping-link {
+  fill: var(--text-color);
+}
+
+@media screen and (min-width: 768px) {
+  .header-container {
+    height: 72px;
+  }
+
+  .hlogo-menu-wrap {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .hmenu-wrap {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .hhome-btn {
+    border-radius: 36px;
+    padding: 8px 16px;
+    width: 72px;
+    height: 34px;
+    background: #eac645;
+  }
+
+  .hhome-text {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.28571;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    color: --text-color;
+    cursor: pointer;
+  }
+
+  .hshopping-btn {
+    border-radius: 36px;
+    padding: 7px 16px;
+    width: 156px;
+    height: 34px;
+    background: #eac645;
+  }
+  .hshopping-link {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    align-items: center;
+    width: 118px;
+    height: 20px;
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.28571;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    color: var(--text-color);
+  }
+
+  .hswitcher-user-wrap {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    align-items: center;
+  }
+  .hswitcher-burger-wrap {
+    width: 40px;
+    height: 24px;
+  }
+  .hburger-menu-link {
+    display: none;
+  }
+  .h-user {
+    display: flex;
+    flex-direction: row;
+    gap: 90px;
+    align-items: center;
+    width: 184px;
+    height: 48px;
+    border-radius: 36px;
+    background: #4f2ee8;
+    padding: 0 14px 0 14px;
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.28571;
+    letter-spacing: -0.04em;
+    color: #fff;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .hlogo-menu-wrap {
+    gap: 76px;
+  }
+
+  .hmenu-wrap {
+    gap: 24px;
+  }
+}
