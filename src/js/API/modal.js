@@ -29,6 +29,14 @@ export async function GetBook(id) {
       if (item.constID === id) {
         listButtonAdd.style.display = 'none';
         listButtonRemove.style.display = 'flex';
+
+        textContainer.innerText =
+          'Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.';
+        if (window.innerWidth <= 768) {
+          modal.style.height = '806px';
+        } else {
+          modal.style.height = '501px';
+        }
       }
     }
   } catch (error) {}
@@ -68,7 +76,7 @@ function createModal(book) {
     <div class="modal-wrap">
       <h2 class="modal-title">${book.title}</h2>
       <p class="modal-author">${book.author}</p>
-      <p class="description">${bookDescription}</p>
+      <p class="description-modal">${bookDescription}</p>
       ${buyLinksListHTML}
     </div>  
   </div>

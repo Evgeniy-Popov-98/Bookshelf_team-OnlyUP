@@ -15,14 +15,15 @@ export async function homeCategory(categoriesBooks) {
     console.error('Failed to fetch books:', error);
   }
 
-  const openModal = document.querySelectorAll('.cardCategory');
-  document.addEventListener('click', event => {
-    for (const item of openModal) {
-      let data = item.dataset.id;
-      if (event.target.parentNode === item) {
+  const openModal = document.querySelectorAll('.cat-book-image-overlay');
+  openModal.forEach(trigger => {
+    trigger.addEventListener('click', event => {
+      const item = event.target.closest('.booksgallery-item');
+      if (item) {
+        const data = item.dataset.id;
         GetBook(data);
       }
-    }
+    });
   });
 }
 
@@ -31,9 +32,14 @@ function renderBooks(books) {
   const markup = books
     .map(book => {
       return `
-      <li class="booksgallery-item cardCategory" data-id="${book._id}">
-          <img class="gallery-image" src="${book.book_image}" alt="${book.description}">
-          <h3 class="name-book">${book.title}</h3>
+      <li class="booksgallery-item cardCategory book-hover" data-id="${book._id}">
+	  <div class="wrapper-overlay">
+          <img class="gallery-image" src="${book.book_image}" alt="${book.description}">          
+			<div class="cat-book-image-overlay">
+				<p class="book-image-overlay-text quick-view-trigger">Quick view</p>
+			</div>
+		</div>
+		<h3 class="name-book">${book.title}</h3>
           <p class="author-book">${book.author}</p>
       </li>`;
     })
