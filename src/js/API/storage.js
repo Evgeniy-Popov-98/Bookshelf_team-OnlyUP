@@ -79,7 +79,7 @@ function updatePagination() {
 
 shoppingListContainer.addEventListener('click', function (event) {
   const target = event.target;
-  if (target.classList.contains('trash-btn')) {
+  if (event.target.nodeName !== 'BUTTON' || event.target.nodeName !== 'IMG') {
     const bookContainer = target.closest('.container-block');
     const bookId = bookContainer.getAttribute('data-book-id');
 
