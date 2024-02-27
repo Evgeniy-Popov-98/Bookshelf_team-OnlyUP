@@ -38,9 +38,7 @@
   flex-direction: column;
   gap: 25px;
 }
-.book-item{
 
-}
 .book-img {
   border-radius: 8px;
   margin-bottom: 14px;
@@ -48,10 +46,12 @@
   height: 485px;
   cursor: pointer;
 }
+
 .wrapper-overlay {
   position: relative;
   overflow: hidden;
 }
+
 .book-image-overlay {
   position: absolute;
   bottom: 0;
@@ -65,14 +65,15 @@
   justify-content: center;
   align-items: center;
 
-  background-color: #EAC645;
+  background-color: #eac645;
+  cursor: pointer;
 
   transform: translateY(100%);
   transition: transform 250ms ease;
 }
 
-.book-item:hover .book-image-overlay,
-.book-item:focus .book-image-overlay {
+.book-hover:hover .book-image-overlay,
+.book-hover:focus .book-image-overlay {
   transform: translateY(-10%);
 }
 

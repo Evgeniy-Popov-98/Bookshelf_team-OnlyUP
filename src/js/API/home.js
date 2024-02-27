@@ -46,33 +46,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
-      // const openModal = document.querySelectorAll('.card');
-      // //const quickView = document.querySelector('.book-image-overlay-text');
-      // document.addEventListener('click', event => {
-      //   for (const item of openModal) {
-      //     let data = item.dataset.id;
-
-      //     if (event.target.parentNode === item) {
-      //     // const targetText = event.target.textContent.trim();
-      //     // console.log(targetText);
-          
-      //     // if ( targetText === 'Quick view') {
-      //     //   let data = event.target.parentNode.dataset.id;
-      //       GetBook(data);
-      //     }
-      //   }
-      // });
-
-      const quickViewTriggers = document.querySelectorAll('.quick-view-trigger');
+      const quickViewTriggers = document.querySelectorAll(
+        '.book-image-overlay'
+      );
       quickViewTriggers.forEach(trigger => {
-      trigger.addEventListener('click', event => {
-      const card = event.target.closest('.card');
-      if (card) {
-      const data = card.dataset.id;
-      GetBook(data);
-      }
+        trigger.addEventListener('click', event => {
+          const card = event.target.closest('.card');
+          if (card) {
+            const data = card.dataset.id;
+            GetBook(data);
+          }
+        });
       });
-});
       const openSeeMore = document.querySelectorAll('.btn-more');
       openSeeMore.forEach(link => {
         link.addEventListener('click', categoryClick);
@@ -103,13 +88,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const { book_image, author, title, _id, contributor, list_name } = book;
     if (list_name)
       return `
-    <li class="card book-item" data-id="${_id}">
-      <div class="wrapper-overlay">
+    <li class="card book-item book-hover" data-id="${_id}">
+       <div class="wrapper-overlay">
         <img class="book-img" src="${book_image}" alt="${contributor} ${title}">
         <div class="book-image-overlay" aria-label="${title}">
             <p class="book-image-overlay-text quick-view-trigger">Quick view</p>
-          </div>
-      </div>
+        </div>
+       </div>
     <h3 class="title-book">${title}</h3>
     <p class="author">${author}</p>
     </li>
