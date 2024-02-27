@@ -3,7 +3,7 @@
   height: 100vh;
 }
 
-.title {
+.title-home {
   font-weight: 700;
   font-size: 32px;
   line-height: 119%;
@@ -39,7 +39,7 @@
   gap: 25px;
 }
 
-.book-img {
+.book-img-home {
   border-radius: 8px;
   margin-bottom: 14px;
   width: 100%;
@@ -148,7 +148,7 @@
     flex-direction: column;
   }
 
-  .title {
+  .title-home {
     font-size: 48px;
     line-height: 108%;
   }
@@ -166,7 +166,7 @@
     width: calc((100% - 50px) / 3);
   }
 
-  .book-img {
+  .book-img-home {
     height: 316px;
   }
 
@@ -198,7 +198,7 @@
     width: calc((100% - 96px) / 5);
   }
 
-  .book-img {
+  .book-img-home {
     height: 256px;
   }
 

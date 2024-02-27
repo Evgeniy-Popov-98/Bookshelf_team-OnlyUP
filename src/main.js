@@ -1,8 +1,9 @@
 import './js/API/api-books';
-import './js/API/all-categories';
+import './js/localStorage';
+import './js/NZheader';
+import './js/switch-button';
 import './js/API/all-categories';
 import './js/API/home';
+import './js/API/selected';
 import './js/API/modal';
-import './js/switch-button';
-import './js/NZheader';
-// import './js/API/storage';
+import './js/API/messageError';
