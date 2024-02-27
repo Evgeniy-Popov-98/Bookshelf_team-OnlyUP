@@ -20,11 +20,6 @@
   overflow: hidden;
 }
 
-.list-category-books {
-  height: 571px;
-  margin-bottom: 8px;
-}
-
 .list-category-title {
   font-family: var(--font-family);
   font-weight: 400;
@@ -91,8 +86,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: auto;
-  margin-bottom: 40px;
+  margin: 8px 0 40px auto;
 }
 
 .btn-more:hover,
@@ -118,11 +112,6 @@
     line-height: 108%;
   }
 
-  .list-category-books {
-    height: 408px;
-    margin-bottom: 20px;
-  }
-
   .list-category-title {
     line-height: 171%;
   }
@@ -144,17 +133,16 @@
     width: 100%;
     line-height: 125%;
   }
+
+  .btn-more {
+    margin: 20px 0 40px auto;
+  }
 }
 
 @media screen and (min-width: 1440px) {
   .home-pg {
     width: 996px;
     margin: 40px 0 0 40px;
-  }
-
-  .list-category-books {
-    height: 348px;
-    margin-bottom: 32px;
   }
 
   .list-category-title {
@@ -171,5 +159,9 @@
 
   .book-img {
     height: 256px;
+  }
+
+  .btn-more {
+    margin: 32px 0 40px auto;
   }
 }
