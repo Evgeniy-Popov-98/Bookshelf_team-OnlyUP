@@ -84,11 +84,9 @@ shoppingListContainer.addEventListener('click', function (event) {
   if (event.target.nodeName !== 'BUTTON' || event.target.nodeName !== 'IMG') {
     const bookContainer = target.closest('.container-block');
     const bookId = bookContainer.getAttribute('id');
-    console.log(bookId);
     let newArr = [];
     const dataArr = infoItemLocalStorage(TASKS_KEY);
     for (const item of dataArr) {
-      console.log(item);
       if (item.constID !== bookId) {
         newArr.push(item);
       }
