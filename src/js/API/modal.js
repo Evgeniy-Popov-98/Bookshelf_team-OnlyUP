@@ -60,7 +60,7 @@ function createModal(book) {
       <div class="modal-wrap">
         <h2 class="modal-title">${book.title}</h2>
         <p class="modal-author">${book.author}</p>
-        <p class="description">${book.description}</p>
+        <p class="description-modal">${book.description}</p>
         ${buyLinksListHTML}
       </div>  
     </div>

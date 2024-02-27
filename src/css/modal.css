@@ -78,12 +78,15 @@
   margin-bottom: 18px;
 }
 
-.description {
+.description-modal {
+  max-width: 280px;
+  height: auto;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.04em;
   margin-bottom: 18px;
+  color: var(--text-color);
 }
 
 .buy-links-list {
