@@ -7,6 +7,8 @@ import './js/API/all-categories';
 import './js/API/home';
 import './js/API/selected';
 import './js/API/modal';
+import './js/switch-button';
+import './js/scroll-up';
 import './js/API/messageError';
 import './js/API/storage';
 import './js/colorPage';
