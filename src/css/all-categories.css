@@ -16,6 +16,7 @@ li {
   letter-spacing: -0.02em;
   color: var(--color-category);
   padding-bottom: 24px;
+  cursor: pointer;
 }
 
 .category-books-item:nth-last-child(1) {
