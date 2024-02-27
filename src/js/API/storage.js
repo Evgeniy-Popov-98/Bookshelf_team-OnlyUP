@@ -17,21 +17,20 @@ export async function addToShoppingList() {
 
   // Створюємо HTML для відображення інформації про книгу
   //   shoppingList.innerHTML = '';
+const markup = `
+    <ul class="shoppeng-list">
+        <li class="shopping-item">
+            <img src="${dataBook.book_image}" alt="${dataBook.title}" class="book-image">
+            <div class="shoppinglitem-textarea">
+                <h2 class="shoppinglititem-title">${dataBook.title}</h2>              
+                <p class="shoppinglititem-title-name">${dataBook.list_name}</p>
+                <p class="shoppinglititem-description">${dataBook.description}</p>
+                <p class="shoppinglititem-author">${dataBook.author}</p>
+            </div>
+            <button class="trash-btn"><img src="/src/images/trash-03.png" alt=""></button>
+        </li>
+    </ul>
+`;
 
-  const markup = `
-  	<ul class="shoppeng-list">
-		<li class="shopping-item">
-			<img src="${dataBook.book_image}" alt="${dataBook.title}" class="book-image">
-            <div class="shoppinglitem-textarea" >
-				<h2 class="shoppinglititem-title">${dataBook.title}</h2>				
-				<p class="shoppinglititem-title-name">${dataBook.list_name}</p>
-				<p class="shoppinglititem-description">${dataBook.description}</p>
-				<pclass="shoppinglititem-author">${dataBook.author}</p>
-				</div>
-				
-					<button class="book-card-button" type="button" onclick="window.location.href='src\images\trash-03.png'"></button>
-		</li>
-	</ul>`;
-
-  //   shoppingList.insertAdjacentHTML('beforeend', markup);
-}
+// Вставка розмітки у shoppingList
+shoppingList.insertAdjacentHTML('beforeend', markup);
