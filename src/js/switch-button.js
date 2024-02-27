@@ -2,7 +2,8 @@ const switchBox = document.querySelector('.switch-box');
 const switchButton = document.querySelector('.switch-button');
 const topicMain = document.querySelector('body');
 
-switchButton.addEventListener('click', newPosition => {
+switchButton.addEventListener('click', () => {
+  console.log(switchButton.dataset.switch);
   if (switchButton.dataset.switch === 'true') {
     switchButton.classList.remove('new-position');
     switchBox.classList.remove('new-background');
