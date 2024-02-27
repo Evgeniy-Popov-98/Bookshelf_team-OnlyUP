@@ -1,23 +1,45 @@
 import { getBooks } from './api-books';
-//import {body, modal, modalBackdrop, closeModalButton, listButton} from './refs';
 import refs from './refs';
+import {
+  addItemLocalStorage,
+  infoItemLocalStorage,
+  restoreData,
+  TASKS_KEY,
+} from '../localStorage';
 
-//const body = document.querySelector('body');
-// const modal = document.querySelector('.modal');
-// const modalBackdrop = document.querySelector('.backdrop');
-// const closeModalButton = document.querySelector('.modal-close-btn');
-// const listButton = document.querySelector('.modal-list-btn');
+const body = document.querySelector('body');
+const modal = document.querySelector('.modal');
+const modalBackdrop = document.querySelector('.backdrop');
+const closeModalButton = document.querySelector('.modal-close-btn');
+const listButtonAdd = document.querySelector('.modal-list-btn-add');
+const listButtonRemove = document.querySelector('.modal-list-btn-remove');
+
+let constID;
 
 // Open modal
 export async function GetBook(id) {
+  listButtonRemove.setAttribute('id', `${id}`);
+  constID = id;
   document.addEventListener('keydown', escapeCloseModal);
-  const data = await getBooks(id);
+  const data = await getBooks(constID);
   createModal(data);
 
-  listButton.addEventListener('click', function () {
-    toggleShoppingList(id);
-    listButton.blur();
-  });
+  try {
+    const checkBook = infoItemLocalStorage(TASKS_KEY);
+    console.log(checkBook);
+    for (const item of checkBook) {
+      console.log(item);
+      if (item.constID === id) {
+        console.log(true);
+        listButtonAdd.style.display = 'none';
+        listButtonRemove.style.display = 'flex';
+      }
+    }
+  } catch (error) {}
+
+  listButtonAdd.addEventListener('click', toggleShoppingList);
+
+  listButtonRemove.addEventListener('click', removeShoppingList);
 }
 
 function createModal(book) {
@@ -51,8 +73,9 @@ function createModal(book) {
     </div>  
   </div>
 `;
-  refs.modal.appendChild(closeModalButton);
-  refs.modal.appendChild(listButton);
+  modal.appendChild(closeModalButton);
+  modal.appendChild(listButtonAdd);
+  modal.appendChild(listButtonRemove);
 
   refs.modal.querySelectorAll('.platform-image').forEach(image => {
     image.addEventListener('click', () => {
@@ -64,25 +87,6 @@ function createModal(book) {
       }
     });
   });
-}
-
-//Add to shopping list
-function toggleShoppingList(id) {
-  const buttonText = listButton.textContent.trim();
-  const storedData = localStorage.getItem('shoppingList');
-  const shoppingList = JSON.parse(storedData) || {};
-
-  if (buttonText === 'add to shopping list') {
-    shoppingList[id] = true;
-    refs.listButton.textContent = 'remove from the shopping list';
-  } else {
-    if (shoppingList[id]) {
-      delete shoppingList[id];
-    }
-    refs.listButton.textContent = 'add to shopping list';
-  }
-
-  localStorage.setItem('shoppingList', JSON.stringify(shoppingList));
 }
 
 //Close modal
@@ -106,6 +110,32 @@ function escapeCloseModal(event) {
 }
 
 function closeModal() {
+  listButtonAdd.removeEventListener('click', toggleShoppingList);
+  listButtonAdd.removeEventListener('click', removeShoppingList);
   modalBackdrop.style.display = 'none';
   body.style.overflow = 'auto';
+  listButtonAdd.style.display = 'flex';
+  listButtonRemove.style.display = 'none';
+}
+
+//Add to shopping list
+function toggleShoppingList() {
+  const arrItem = infoItemLocalStorage(TASKS_KEY) || [];
+  arrItem.push({ constID });
+  addItemLocalStorage(TASKS_KEY, arrItem);
+
+  listButtonAdd.style.display = 'none';
+  listButtonRemove.style.display = 'flex';
+
+  listButtonAdd.removeEventListener('click', toggleShoppingList);
+  listButtonRemove.addEventListener('click', removeShoppingList);
+}
+
+function removeShoppingList(event) {
+  restoreData(event);
+  listButtonAdd.style.display = 'flex';
+  listButtonRemove.style.display = 'none';
+
+  listButtonAdd.removeEventListener('click', removeShoppingList);
+  listButtonAdd.addEventListener('click', toggleShoppingList);
 }
