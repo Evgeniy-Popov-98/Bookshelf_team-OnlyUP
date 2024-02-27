@@ -1,30 +1,74 @@
+const arrSuppotr = [
+  {
+    title: 'Save the Children',
+    url: 'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis',
+    img: null,
+  },
+  {
+    title: 'Project HOPE',
+    url: 'https://www.projecthope.org/country/ukraine/',
+    img: null,
+  },
+  {
+    title: 'UNITED24',
+    url: 'https://u24.gov.ua/uk',
+    img: null,
+  },
+  {
+    title: 'International Medical Corps',
+    url: 'https://internationalmedicalcorps.org/country/ukraine/',
+    img: null,
+  },
+  {
+    title: 'Medicins Sans Frontieres',
+    url: 'https://www.msf.org/ukraine',
+    img: null,
+  },
+  {
+    title: 'RAZOM',
+    url: 'https://www.razomforukraine.org/',
+    img: null,
+  },
+  {
+    title: 'Action against hunger',
+    url: 'https://www.actionagainsthunger.org/location/europe/ukraine/',
+    img: null,
+  },
+  {
+    title: 'World vision',
+    url: 'https://www.wvi.org/emergencies/ukraine',
+    img: null,
+  },
+  {
+    title: 'Serhiy Prytula Charity Foundation',
+    url: 'https://prytulafoundation.org/en',
+    img: null,
+  },
+];
 
-let isVisible = false; 
 let firstButton = document.querySelector('.plus-btn');
 let secondButton = document.querySelector('.second-btn');
 
+const supportItem = document.querySelectorAll('.header-link');
+
+for (let i = 0; i < supportItem.length; i++) {
+  supportItem[i].setAttribute('href', `${arrSuppotr[i].url}`);
+}
+
 firstButton.addEventListener('click', function () {
-  const hiddenItems = document.querySelectorAll('.header-menu:nth-child(n+4):nth-child(-n+9)'); 
-  const visibleItems = document.querySelectorAll('.header-menu:nth-last-child(-n+3)'); 
-  hiddenItems.forEach(item => {
-    item.classList.remove('hidden'); 
-  });
-  visibleItems.forEach(item => {
-    item.classList.add('hidden'); 
-  });
-  firstButton.classList.add('hidden');
-  secondButton.classList.remove('hidden');
+  firstButton.style.display = 'none';
+  secondButton.style.display = 'flex';
+
+  for (let i = 0; i < 3; i++) {
+    supportItem[i].style.display = 'none';
+  }
 });
 
 secondButton.addEventListener('click', function () {
-  const hiddenItems = document.querySelectorAll('.header-menu:nth-child(n+7):nth-child(-n+9)'); 
-  const visibleItems = document.querySelectorAll('.header-menu:nth-child(-n+6)'); 
-  hiddenItems.forEach(item => {
-    item.classList.remove('hidden'); 
-  });
-  visibleItems.forEach(item => {
-    item.classList.add('hidden'); 
-  });
-  secondButton.classList.add('hidden');
-  firstButton.classList.remove('hidden');
+  firstButton.style.display = 'flex';
+  secondButton.style.display = 'none';
+
+  for (let i = 0; i < 3; i++) {
+    supportItem[i].style.display = 'flex';
+  }
 });
