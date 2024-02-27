@@ -5,7 +5,6 @@ import {
   restoreData,
   TASKS_KEY,
 } from '../localStorage';
-import { nanoid } from 'nanoid';
 
 const body = document.querySelector('body');
 const modal = document.querySelector('.modal');
@@ -16,19 +15,40 @@ const listButtonRemove = document.querySelector('.modal-list-btn-remove');
 
 // Open modal
 export async function GetBook(id) {
+  listButtonAdd.setAttribute('id', `${id}`);
   document.addEventListener('keydown', escapeCloseModal);
   const data = await getBooks(id);
   createModal(data);
 
-  listButtonAdd.addEventListener('click', function () {
-    toggleShoppingList(id);
-    listButtonAdd.blur();
-  });
+  const buttonText = listButtonAdd.textContent.trim();
 
-  listButtonRemove.addEventListener('click', function () {
-    removeShoppingList(id);
-    listButtonAdd.blur();
-  });
+  if (buttonText === 'remove from the shopping list') {
+    listButtonAdd.textContent = 'add to shopping list';
+  }
+
+  listButtonAdd.addEventListener('click', toggleShoppingList);
+
+  listButtonRemove.addEventListener('click', removeShoppingList);
+
+  //Add to shopping list
+  function toggleShoppingList() {
+    const arrItem = infoItemLocalStorage(TASKS_KEY) || [];
+    arrItem.push({ id });
+    addItemLocalStorage(TASKS_KEY, arrItem);
+
+    listButtonAdd.style.display = 'none';
+    listButtonRemove.style.display = 'flex';
+
+    listButtonAdd.removeEventListener('click', toggleShoppingList);
+  }
+
+  function removeShoppingList(event) {
+    restoreData(event);
+    listButtonAdd.style.display = 'flex';
+    listButtonRemove.style.display = 'none';
+
+    listButtonAdd.removeEventListener('click', removeShoppingList);
+  }
 }
 
 function createModal(book) {
@@ -76,24 +96,6 @@ function createModal(book) {
       }
     });
   });
-}
-
-//Add to shopping list
-function toggleShoppingList(ID) {
-  const buttonText = listButtonAdd.textContent.trim();
-
-  const arrItem = infoItemLocalStorage(TASKS_KEY) || [];
-  arrItem.push({ ID });
-  addItemLocalStorage(TASKS_KEY, arrItem);
-
-  listButtonAdd.style.display = 'none';
-  listButtonRemove.style.display = 'flex';
-}
-
-function removeShoppingList(ID) {
-  restoreData(ID);
-  listButtonAdd.style.display = 'flex';
-  listButtonRemove.style.display = 'none';
 }
 
 //Close modal
