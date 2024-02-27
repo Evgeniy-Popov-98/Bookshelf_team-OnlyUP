@@ -1,9 +1,14 @@
+import './js/API/api-books';
+import './js/localStorage';
+import './js/NZheader';
+import './js/API/header1';
+import './js/switch-button';
 import './js/API/all-categories';
 import './js/API/home';
+import './js/API/selected';
 import './js/API/modal';
 import './js/switch-button';
-//import {render} from './js/API/home'
-import './js/scroll-up'
-
-
- //render()
+import './js/scroll-up';
+import './js/API/messageError';
+import './js/API/storage';
+import './js/colorPage';
