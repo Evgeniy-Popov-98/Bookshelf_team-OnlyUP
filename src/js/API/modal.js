@@ -25,11 +25,8 @@ export async function GetBook(id) {
 
   try {
     const checkBook = infoItemLocalStorage(TASKS_KEY);
-    console.log(checkBook);
     for (const item of checkBook) {
-      console.log(item);
       if (item.constID === id) {
-        console.log(true);
         listButtonAdd.style.display = 'none';
         listButtonRemove.style.display = 'flex';
       }
@@ -53,7 +50,7 @@ function createModal(book) {
 
   const bookDescription = book.description
     ? book.description
-    : 'With our diverse range of titles, you\'re sure to find the perfect companion for cozy nights in. Treat yourself to the joy of reading and explore the endless possibilities that await within the pages of our books.';
+    : "With our diverse range of titles, you're sure to find the perfect companion for cozy nights in. Treat yourself to the joy of reading and explore the endless possibilities that await within the pages of our books.";
 
   const buyLinksListHTML = `
   <ul class="buy-links-list">
@@ -71,7 +68,6 @@ function createModal(book) {
     <div class="modal-wrap">
       <h2 class="modal-title">${book.title}</h2>
       <p class="modal-author">${book.author}</p>
-      <p class="description">${book.description}</p>
       <p class="description">${bookDescription}</p>
       ${buyLinksListHTML}
     </div>  
@@ -129,7 +125,6 @@ listButtonRemove.addEventListener('click', function () {
   listButtonRemove.removeEventListener('click', this);
 });
 
-
 function escapeCloseModal(event) {
   if (event.key === 'Escape') {
     closeModal();
@@ -167,7 +162,7 @@ function removeShoppingList(event) {
   restoreData(event);
   listButtonAdd.style.display = 'flex';
   listButtonRemove.style.display = 'none';
-  
+
   listButtonAdd.removeEventListener('click', removeShoppingList);
   listButtonAdd.addEventListener('click', toggleShoppingList);
 }
