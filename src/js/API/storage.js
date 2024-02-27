@@ -2,7 +2,13 @@
 
 import { getBooks } from './api-books';
 
-const shoppingList = document.querySelector('.shoppinglist-blocks');
+const shoppingListContainer = document.querySelector('.shoppinglist-container');
+const emptyMessage = `
+    <div class="shoppinglist-blocks">
+        <h2>This page is empty, add some books and proceed to order.</h2>
+        <img src="../images/IMG_9606.png" alt="Shopping Image" class="shoppinglist-img96061">
+    </div>
+`;
 
 export async function addToShoppingList() {
   const bookId = '643282b1e85766588626a0dc'; // Приклад ID книги (можна змінити на реальний ID)
@@ -31,7 +37,14 @@ export async function addToShoppingList() {
         `;
 
     // Заміна вмісту елемента shoppingList на розмітку книги
-    shoppingList.innerHTML = markup;
+    shoppingListContainer.innerHTML = markup;
+
+    // Додавання обробника події для кнопки "trash-btn"
+    const trashButton = document.querySelector('.trash-btn');
+    trashButton.addEventListener('click', function () {
+      // Повернення до попереднього вмісту списку покупок
+      shoppingListContainer.innerHTML = emptyMessage;
+    });
   } catch (error) {
     console.error('Помилка отримання даних книги:', error);
   }
