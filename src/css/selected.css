@@ -9,12 +9,12 @@
   font-size: 32px;
   line-height: 119%;
   letter-spacing: -0.04em;
-  color: var(--black);
+  color: var(--text-color);
   margin-bottom: 40px;
 }
 
 .selected-color {
-  color: var(--violet);
+  color: #4f2ee8;
 }
 
 .booksgallery {
@@ -37,7 +37,7 @@
   line-height: 112%;
   letter-spacing: -0.04em;
   text-transform: uppercase;
-  color: var(--black);
+  color: var(--text-color);
 }
 
 .author-book {
