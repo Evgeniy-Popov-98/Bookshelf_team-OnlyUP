@@ -47,7 +47,7 @@
         gap: 14px;
         margin-top: 262px;
         margin-left: 55px;
-        width: 265px;
+        min-width: 265px;
         display: flex;
         position: absolute;
         align-items: center;
@@ -62,7 +62,6 @@
         .shopping-item {
             display: flex;
             align-items: flex-start;
-         
                 width: 335px;
                 height: auto;
                 display: flex;
