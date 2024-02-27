@@ -31,7 +31,7 @@ export async function addToShoppingList() {
 
     for (const bookId of booksIds) {
       const dataBook = await getBooks(bookId);
-      markup += createBookMarkup(dataBook);
+      markup += createBookMarkup(dataBook, bookId); // Передаємо ідентифікатор книги
     }
 
     shoppingListContainer.innerHTML = markup;
@@ -40,9 +40,10 @@ export async function addToShoppingList() {
   }
 }
 
-function createBookMarkup(book) {
+function createBookMarkup(book, bookId) {
+  // Додаємо параметр bookId
   return `
-    <div class="container-block">
+    <div class="container-block" data-book-id="${bookId}"> <!-- Додаємо атрибут data-book-id -->
         <!-- Розмітка для відображення інформації про книгу -->
         <div class="btn-and-links">
             <button class="trash-btn"><img src="${trashSvg}" alt=""></button>
@@ -76,5 +77,10 @@ shoppingListContainer.addEventListener('click', function (event) {
     }
 
     bookContainer.remove(); // Видаляємо HTML елемент книги зі списку покупок
+
+    if (!shoppingListContainer.querySelector('.container-block')) {
+      // Перевіряємо, чи немає більше жодної книги в списку покупок
+      shoppingListContainer.innerHTML = emptyMessage;
+    }
   }
 });
