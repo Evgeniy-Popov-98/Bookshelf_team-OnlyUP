@@ -1,6 +1,8 @@
-// storage.js
-
 import { getBooks } from './api-books';
+import img9606 from '/images/IMG_9606.png';
+import amazonSvg from '/images/amazon.svg';
+import bookSvg from '/images/book.svg';
+import trashSvg from '/images/trash.svg';
 
 const shoppingListContainer = document.querySelector('.shoppinglist-container');
 const emptyMessage = `
@@ -16,17 +18,25 @@ export async function addToShoppingList() {
   try {
     const dataBook = await getBooks(bookId);
 
-    const markup = `
+    const markup =
+      `
             <div class="container-block">
                 <!-- Розмітка для відображення інформації про книгу -->
                 <div class="btn-and-links">
-                    <button class="trash-btn"><img src="/src/images/trash-03.png" alt=""></button>
+                    <button class="trash-btn"><img src="` +
+      trashSvg +
+      `" alt=""></button>
                     <ul class="links">
-                        <li><img src="/src/images/amazon.png" class="amazon"></li>
-                        <li><img src="/src/images/book.png" class="book"></li>
+                        <li><img src="` +
+      amazonSvg +
+      `" class="amazon"></li>
+                        <li><img src="` +
+      bookSvg +
+      `"></li>
                     </ul>
                 </div>
-                <img src="${dataBook.book_image}" class="book-image">
+              	<img src="${dataBook.book_image}" alt="${dataBook.title}" class="book-image">
+			<div class="book-info">
                 <div class="text-area">
                     <h2 class="shopping-list-title">${dataBook.title}</h2>
                     <h2 class="shopping-list-title-name">${dataBook.list_name}</h2>

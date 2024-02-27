@@ -8,7 +8,7 @@ h2{padding: 0;
     position: relative;
     margin: 0;
     padding: 14px;
-    min-width: 350px;
+    width: 350px;
     height: auto;
     display: flex;
     border: 2px solid rgba(79, 46, 232, 0.4);
@@ -126,12 +126,12 @@ h2{padding: 0;
         position: relative;
         margin: 0;
         padding: 24px;
-        min-width: 704px;}
+        width: 704px;}
                 
         .links {
                     
 position: absolute;
-        bottom: 2.7px;
+        bottom: 24.5px;
     right: 24.5px;
                     z-index: 10;
                     display: flex;
@@ -200,7 +200,7 @@ position: absolute;
             position: relative;
             margin: 0;
             padding: 24px;
-            min-width: 996px;
+           width: 996px;
             height: 213px;
         }
          .text-area {
