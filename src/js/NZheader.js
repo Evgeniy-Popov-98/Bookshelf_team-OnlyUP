@@ -1,7 +1,8 @@
 import { addToShoppingList } from './API/storage';
+import {homeBtn, shoppingBtn} from './API/refs'
 
-const homeBtn = document.querySelector('.js-hhome');
-const shoppingBtn = document.querySelector('.js-hshopping');
+//const homeBtn = document.querySelector('.js-hhome');
+//const shoppingBtn = document.querySelector('.js-hshopping');
 
 document.addEventListener('DOMContentLoaded', onHomeBtnClick);
 

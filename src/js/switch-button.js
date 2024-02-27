@@ -1,6 +1,10 @@
-const switchBox = document.querySelector('.switch-box');
-const switchButton = document.querySelector('.switch-button');
-const topicMain = document.querySelector('body');
+import {switchBox, switchButton, topicMain} from './API/refs'
+
+
+
+// const switchBox = document.querySelector('.switch-box');
+// const switchButton = document.querySelector('.switch-button');
+// const topicMain = document.querySelector('body');
 
 switchButton.addEventListener('click', newPosition => {
   if (switchButton.dataset.switch === 'true') {

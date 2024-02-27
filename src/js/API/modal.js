@@ -1,10 +1,12 @@
 import { getBooks } from './api-books';
+import {body, modal, modalBackdrop, closeModalButton, listButton} from './refs';
 
-const body = document.querySelector('body');
-const modal = document.querySelector('.modal');
-const modalBackdrop = document.querySelector('.backdrop');
-const closeModalButton = document.querySelector('.modal-close-btn');
-const listButton = document.querySelector('.modal-list-btn');
+
+// const body = document.querySelector('body');
+// const modal = document.querySelector('.modal');
+// const modalBackdrop = document.querySelector('.backdrop');
+// const closeModalButton = document.querySelector('.modal-close-btn');
+// const listButton = document.querySelector('.modal-list-btn');
 
 // Open modal
 export async function GetBook(id) {

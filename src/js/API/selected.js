@@ -1,10 +1,11 @@
 import { getBooks } from './api-books';
 import { GetBook } from './modal';
+import {newSelect, openModal,gallery,titleElement } from './refs';
 
 const END_POINT = 'category';
 
 export async function homeCategory(categoriesBooks) {
-  const newSelect = document.querySelector('.js-booksgallery');
+  //const newSelect = document.querySelector('.js-booksgallery');
   newSelect.innerHTML = '';
 
   try {
@@ -15,7 +16,7 @@ export async function homeCategory(categoriesBooks) {
     console.error('Failed to fetch books:', error);
   }
 
-  const openModal = document.querySelectorAll('.cardCategory');
+  //const openModal = document.querySelectorAll('.cardCategory');
   document.addEventListener('click', event => {
     for (const item of openModal) {
       let data = item.dataset.id;
@@ -27,7 +28,7 @@ export async function homeCategory(categoriesBooks) {
 }
 
 function renderBooks(books) {
-  const gallery = document.querySelector('.booksgallery');
+  //const gallery = document.querySelector('.booksgallery');
   const markup = books
     .map(book => {
       return `
@@ -42,7 +43,7 @@ function renderBooks(books) {
 }
 
 function updateTitle(category) {
-  const titleElement = document.querySelector('.selected-title');
+  //const titleElement = document.querySelector('.selected-title');
   const itemCategory = category.split(' ');
   const textSpan = itemCategory[itemCategory.length - 1];
   itemCategory.pop();
