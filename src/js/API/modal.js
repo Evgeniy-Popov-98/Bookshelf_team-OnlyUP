@@ -13,9 +13,12 @@ const closeModalButton = document.querySelector('.modal-close-btn');
 const listButtonAdd = document.querySelector('.modal-list-btn-add');
 const listButtonRemove = document.querySelector('.modal-list-btn-remove');
 
+let constID;
+
 // Open modal
 export async function GetBook(id) {
-  listButtonAdd.setAttribute('id', `${id}`);
+  listButtonRemove.setAttribute('id', `${id}`);
+  constID = id;
   document.addEventListener('keydown', escapeCloseModal);
   const data = await getBooks(id);
   createModal(data);
@@ -29,26 +32,6 @@ export async function GetBook(id) {
   listButtonAdd.addEventListener('click', toggleShoppingList);
 
   listButtonRemove.addEventListener('click', removeShoppingList);
-
-  //Add to shopping list
-  function toggleShoppingList() {
-    const arrItem = infoItemLocalStorage(TASKS_KEY) || [];
-    arrItem.push({ id });
-    addItemLocalStorage(TASKS_KEY, arrItem);
-
-    listButtonAdd.style.display = 'none';
-    listButtonRemove.style.display = 'flex';
-
-    listButtonAdd.removeEventListener('click', toggleShoppingList);
-  }
-
-  function removeShoppingList(event) {
-    restoreData(event);
-    listButtonAdd.style.display = 'flex';
-    listButtonRemove.style.display = 'none';
-
-    listButtonAdd.removeEventListener('click', removeShoppingList);
-  }
 }
 
 function createModal(book) {
@@ -119,8 +102,30 @@ function escapeCloseModal(event) {
 }
 
 function closeModal() {
+  listButtonAdd.removeEventListener('click', toggleShoppingList);
+  listButtonAdd.removeEventListener('click', removeShoppingList);
   modalBackdrop.style.display = 'none';
   body.style.overflow = 'auto';
   listButtonAdd.style.display = 'flex';
   listButtonRemove.style.display = 'none';
+}
+
+//Add to shopping list
+function toggleShoppingList() {
+  const arrItem = infoItemLocalStorage(TASKS_KEY) || [];
+  arrItem.push({ constID });
+  addItemLocalStorage(TASKS_KEY, arrItem);
+
+  listButtonAdd.style.display = 'none';
+  listButtonRemove.style.display = 'flex';
+
+  listButtonAdd.removeEventListener('click', toggleShoppingList);
+}
+
+function removeShoppingList(event) {
+  restoreData(event);
+  listButtonAdd.style.display = 'flex';
+  listButtonRemove.style.display = 'none';
+
+  listButtonAdd.removeEventListener('click', removeShoppingList);
 }

@@ -10,21 +10,13 @@ export function infoItemLocalStorage(key) {
 
 export function restoreData(event) {
   if (event.target.nodeName !== 'BUTTON') return;
-  const idItem = event.target.parentNode.getAttribute('id');
-  //   console.log(idItem);
-  //   event.target.parentNode.remove();
-
+  const idItem = event.target.getAttribute('id');
+  let newArr = [];
   const dataArr = infoItemLocalStorage(TASKS_KEY);
-  const newArr = dataArr.filter(item => {
-    console.log(item.idItem);
-    console.log(idItem);
-    item.id !== idItem;
-  });
+  for (const item of dataArr) {
+    if (item.constID !== idItem) {
+      newArr.push(item);
+    }
+  }
   addItemLocalStorage(TASKS_KEY, newArr);
-
-  //   const data = infoItemLocalStorage(TASKS_KEY);
-  //   if (!data) return;
-  //   const newArr = data.filter(item => item.id !== idItem);
-
-  //   addItemLocalStorage(TASKS_KEY, newArr);
 }
