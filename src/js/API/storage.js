@@ -12,7 +12,7 @@ import trashSvg from '/images/trash.svg';
 const shoppingListContainer = document.querySelector('.shoppinglist-container');
 const emptyMessage = `
     <div class="shoppinglist-blocks">
-        <h2>This page is empty, add some books and proceed to order.</h2>
+        <h2 class="text">This page is empty, add some books and proceed to order.</h2>
         <img src="${img9606}" alt="Shopping Image" class="shoppinglist-img96061">
     </div>
 `;
