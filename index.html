@@ -16,13 +16,13 @@
 		rel="stylesheet">
 	
   <script type="module" crossorigin src="/JS-new_teamProject/commonHelpers.js"></script>
+  <link rel="modulepreload" crossorigin href="/JS-new_teamProject/assets/storage-2ca05d50.js">
   <link rel="modulepreload" crossorigin href="/JS-new_teamProject/assets/vendor-8cce9181.js">
-  <link rel="modulepreload" crossorigin href="/JS-new_teamProject/assets/storage-e6b87283.js">
-  <link rel="stylesheet" href="/JS-new_teamProject/assets/storage-c33a2a47.css">
+  <link rel="stylesheet" href="/JS-new_teamProject/assets/storage-344f56d3.css">
   <link rel="stylesheet" href="/JS-new_teamProject/assets/vendor-e5212ee8.css">
 </head>
 
-<body>
+<body class="light">
 	<header></header>
 	<main>
 		<div>
@@ -30,7 +30,7 @@
 	<div class="header-container">
 		<div class="hlogo-menu-wrap">
 			<div class="hlogo-wrap">
-				<a class="hlogo-img-link" href="">
+				<a class="hlogo-img-link" href="./index.html">
 					<svg class="thlogo-icon" width="24" height="24">
 						<use href="../images/icons.svg#icon-logo"></use>
 					</svg>
@@ -75,14 +75,21 @@
 	</div>
 </div>
 		</div>
-		<div id="home-section">
+		<div class="main container">
+			<section class="all-categories js-all-categories">
+	<ul class="books-categories js-books-categories"></ul>
+</section>
 			<section class="home-pg js-home-pg">
-	<h2 class="title">Best Sellers <span class="color-text">Books</span></h2>
+	<h2 class="title-home">Best Sellers <span class="color-text">Books</span></h2>
 	<ul class="gallery-books js-gallery-books">
 	</ul>
 </section>
+			<section class="selected-page js-selected-page" style="display: none;">
+	<h2 class="selected-title"><span class="selected-color"></span></h2>
+	<ul class="booksgallery js-booksgallery"></ul>
+</section>
 		</div>
-		<div id="modal-section">
+		<div>
 			<div class="backdrop">
 
 	<div class="modal">
@@ -97,6 +104,21 @@
 			shopping list</button>
 	</div>
 </div>
+		</div>
+		<div class="two-page" style="display: none;">
+			<div class="shoppinglist-container">
+	<div class="shoppinglist-shoppinglist">
+		<h1 class="shoppinglist-text">
+			<span class="shoppinglist-text1">Shopping</span>
+			List
+		</h1>
+		<div class="shoppinglist-blocks">
+			<h2 class="text">This page is empty, add some books and proceed to order.</h2>
+			<img src="../images/IMG_9606.png" alt="Shopping Image" class="shoppinglist-img96061">
+		</div>
+	</div>
+</div>
+<div id="pagination"></div>
 		</div>
 
 	</main>
