@@ -44,8 +44,49 @@
   margin-bottom: 14px;
   width: 100%;
   height: 485px;
+  cursor: pointer;
 }
 
+.wrapper-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.book-image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  width: 100%;
+  height: 27%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #eac645;
+  cursor: pointer;
+
+  transform: translateY(100%);
+  transition: transform 250ms ease;
+}
+
+.book-hover:hover .book-image-overlay,
+.book-hover:focus .book-image-overlay {
+  transform: translateY(-10%);
+}
+
+.book-image-overlay-text {
+  color: var(--black-color);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: center;
+  padding: auto;
+  cursor: pointer;
+  text-transform: uppercase;
+}
 .title-book {
   font-weight: 700;
   font-size: 16px;
