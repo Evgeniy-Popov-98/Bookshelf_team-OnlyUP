@@ -2,6 +2,7 @@ import { getBooks } from './api-books';
 import {
   addItemLocalStorage,
   infoItemLocalStorage,
+  restoreData,
   TASKS_KEY,
 } from '../localStorage';
 import '../switch-button';
@@ -19,9 +20,7 @@ const emptyMessage = `
     </div>
 `;
 
-export async function addToShoppingList(event) {
-  event.defaultPrevented();
-  console.log(1);
+async function addToShoppingList() {
   try {
     const booksIds = infoItemLocalStorage(TASKS_KEY);
 
@@ -33,14 +32,14 @@ export async function addToShoppingList(event) {
     let markup = '';
 
     for (const bookId of booksIds) {
-      const dataBook = await getBooks(bookId);
+      const dataBook = await getBooks(bookId.constID);
       markup += createBookMarkup(dataBook, bookId);
     }
 
     shoppingListContainer.innerHTML = markup;
 
     // Оновлення пагінації після додавання книг
-    updatePagination();
+    // updatePagination();
   } catch (error) {
     console.error('Error fetching book data:', error);
   }
@@ -48,7 +47,7 @@ export async function addToShoppingList(event) {
 
 function createBookMarkup(book, bookId) {
   return `
-    <div class="container-block" data-book-id="${bookId}">
+    <div class="container-block" id="${bookId.constID}">
         <div class="btn-and-links">
             <button class="trash-btn"><img src="${trashSvg}" alt=""></button>
             <ul class="links">
@@ -84,14 +83,17 @@ shoppingListContainer.addEventListener('click', function (event) {
   const target = event.target;
   if (event.target.nodeName !== 'BUTTON' || event.target.nodeName !== 'IMG') {
     const bookContainer = target.closest('.container-block');
-    const bookId = bookContainer.getAttribute('data-book-id');
-
-    const booksIds = infoItemLocalStorage(TASKS_KEY) || [];
-    const index = booksIds.indexOf(bookId);
-    if (index !== -1) {
-      booksIds.splice(index, 1);
-      addItemLocalStorage(TASKS_KEY, booksIds);
+    const bookId = bookContainer.getAttribute('id');
+    console.log(bookId);
+    let newArr = [];
+    const dataArr = infoItemLocalStorage(TASKS_KEY);
+    for (const item of dataArr) {
+      console.log(item);
+      if (item.constID !== bookId) {
+        newArr.push(item);
+      }
     }
+    addItemLocalStorage(TASKS_KEY, newArr);
 
     bookContainer.remove();
 
@@ -100,7 +102,7 @@ shoppingListContainer.addEventListener('click', function (event) {
     }
 
     // Оновлення пагінації після видалення книги
-    updatePagination();
+    // updatePagination();
   }
 });
 // =======
@@ -137,3 +139,4 @@ shoppingListContainer.addEventListener('click', function (event) {
 // //   }
 // // });
 // >>>>>>> main
+addToShoppingList();
