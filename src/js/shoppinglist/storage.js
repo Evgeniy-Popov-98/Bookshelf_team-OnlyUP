@@ -18,15 +18,14 @@ export async function addToShoppingList() {
   	<ul class="shoppeng-list">
 		<li class="shopping-item">
 			<img src="${dataBook.book_image}" alt="${dataBook.title}" class="book-image">
-			<div class="book-info">
-				<button class="book-card-button" type="button">
-				<!-- тут должна быть свг для кнопки закрития -->
-				</button>
-				<h2>${dataBook.title}</h2>				
-				<p>${dataBook.list_name}</p>
-				<p>${dataBook.description}</p>
-				<p>${dataBook.author}</p>
-			</div>
+            <div class="shoppinglitem-textarea" >
+				<h2 class="shoppinglititem-title">${dataBook.title}</h2>				
+				<p class="shoppinglititem-title-name">${dataBook.list_name}</p>
+				<p class="shoppinglititem-description">${dataBook.description}</p>
+				<pclass="shoppinglititem-author">${dataBook.author}</p>
+				</div>
+				
+					<button class="book-card-button" type="button" onclick="window.location.href='src\images\trash-03.png'"></button>
 		</li>
 	</ul>`;
 

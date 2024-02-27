@@ -42,6 +42,8 @@
     }
 
     .shoppinglist-blocks {
+        
+        margin: 0;
         gap: 14px;
         margin-top: 262px;
         margin-left: 55px;
@@ -51,7 +53,90 @@
         align-items: center;
         flex-direction: column;
     }
-
+        .shoppeng-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+    
+        .shopping-item {
+            display: flex;
+            align-items: flex-start;
+         
+                width: 335px;
+                height: auto;
+                display: flex;
+                padding: 14px 20px;
+               
+                flex-shrink: 0;
+                border-color: rgba(79, 46, 232, 0.4000000059604645);
+                border-style: solid;
+                border-width: 2px;
+                border-radius: 16px;
+                background-color: rgba(255, 255, 255, 1);
+        }
+    
+        .shoppinglitem-textarea {
+            display: flex;
+            flex-direction: column;
+            width: 193px;
+            height: 63px ;
+            flex: 1;
+            padding: 0 10px 0 10px;
+            /* простір по боках */
+            text-align: center;
+            /* вирівнювання тексту по центру */
+           
+        }
+    .shoppinglititem-title-name{color: rgba(179, 175, 175, 1);
+        height: auto;
+        z-index: 4;
+     
+        font-size: 12px;
+        font-style: Regular;
+        
+        font-family: DM Sans;
+        font-weight: 400;
+        line-height: 14px;
+        font-stretch: normal;
+        text-decoration: none;}
+        .shoppinglititem-description{color: rgba(17, 17, 17, 1);
+            width: 193px;
+            height: auto;
+            z-index: 1;
+            position: absolute;
+            font-size: 14px;
+            font-style: Regular;
+            text-align: left;
+            font-family: DM Sans;
+            font-weight: 400;
+            line-height: 18px;
+            font-stretch: normal;
+            text-decoration: none;}
+        .book-image {
+            width: 100px;
+            height: auto;
+            /* автоматична висота, щоб зберегти пропорції */
+            margin-right: 10px;
+            /* простір між зображенням книги і текстовою областю */
+        }
+    
+           .book-card-button {
+               width: 28px;
+               height: 28px;
+               margin-top: 10px;
+              
+               margin-left: auto;
+            
+               border-radius: 50%;
+               
+               background-color: blue;
+            
+               border: none;
+           
+               cursor: pointer;
+              
+           }
     .shoppinglist-text3 {
         color: rgba(0, 0, 0, 0.6000000238418579);
         width: 244px;
