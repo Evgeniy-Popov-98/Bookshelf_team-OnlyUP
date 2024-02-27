@@ -9,46 +9,44 @@ import img9606 from '/images/IMG_9606.png';
 import amazonSvg from '/images/amazon.svg';
 import bookSvg from '/images/book.svg';
 import trashSvg from '/images/trash.svg';
+import tuiPagination from 'tui-pagination'; // Імпортуємо бібліотеку пагінації
 
-document.addEventListener('DOMContentLoaded', () => {
-  const shoppingListContainer = document.querySelector(
-    '.shoppinglist-container'
-  );
-  const emptyMessage = `
+const shoppingListContainer = document.querySelector('.shoppinglist-container');
+const emptyMessage = `
     <div class="shoppinglist-blocks">
         <h2 class="text">This page is empty, add some books and proceed to order.</h2>
         <img src="${img9606}" alt="Shopping Image" class="shoppinglist-img96061">
     </div>
 `;
 
-  async function addToShoppingList() {
-    try {
-      const booksIds = infoItemLocalStorage(TASKS_KEY); // Отримуємо масив ідентифікаторів книг з локального сховища
+export async function addToShoppingList() {
+  try {
+    const booksIds = infoItemLocalStorage(TASKS_KEY);
 
-      if (!booksIds || !booksIds.length) {
-        // Відображаємо повідомлення про порожній список, якщо немає книг
-        shoppingListContainer.innerHTML = emptyMessage;
-        return;
-      }
-
-      let markup = '';
-
-      for (const bookId of booksIds) {
-        const dataBook = await getBooks(bookId);
-        markup += createBookMarkup(dataBook, bookId); // Передаємо ідентифікатор книги
-      }
-
-      shoppingListContainer.innerHTML = markup;
-    } catch (error) {
-      console.error('Помилка отримання даних книги:', error);
+    if (!booksIds || !booksIds.length) {
+      shoppingListContainer.innerHTML = emptyMessage;
+      return;
     }
-  }
 
-  function createBookMarkup(book, bookId) {
-    // Додаємо параметр bookId
-    return `
-    <div class="container-block" data-book-id="${bookId}"> <!-- Додаємо атрибут data-book-id -->
-        <!-- Розмітка для відображення інформації про книгу -->
+    let markup = '';
+
+    for (const bookId of booksIds) {
+      const dataBook = await getBooks(bookId);
+      markup += createBookMarkup(dataBook, bookId);
+    }
+
+    shoppingListContainer.innerHTML = markup;
+
+    // Оновлення пагінації після додавання книг
+    updatePagination();
+  } catch (error) {
+    console.error('Error fetching book data:', error);
+  }
+}
+
+function createBookMarkup(book, bookId) {
+  return `
+    <div class="container-block" data-book-id="${bookId}">
         <div class="btn-and-links">
             <button class="trash-btn"><img src="${trashSvg}" alt=""></button>
             <ul class="links">
@@ -65,27 +63,41 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     </div>
   `;
-  }
+}
 
-  shoppingListContainer.addEventListener('click', function (event) {
-    const target = event.target;
-    if (event.target.nodeName !== 'BUTTON' || event.target.nodeName !== 'IMG') {
-      const bookContainer = target.closest('.container-block');
-      const bookId = bookContainer.getAttribute('data-book-id');
+function updatePagination() {
+  // Отримуємо кількість сторінок на основі кількості книг
+  const booksIds = infoItemLocalStorage(TASKS_KEY);
+  const totalPages = Math.ceil(booksIds.length / 4); // По 4 книги на сторінку
 
-      const booksIds = infoItemLocalStorage(TASKS_KEY) || [];
-      const index = booksIds.indexOf(bookId);
-      if (index !== -1) {
-        booksIds.splice(index, 1); // Видаляємо ідентифікатор книги з масиву
-        addItemLocalStorage(TASKS_KEY, booksIds); // Оновлюємо локальне сховище
-      }
-
-      bookContainer.remove(); // Видаляємо HTML елемент книги зі списку покупок
-
-      if (!shoppingListContainer.querySelector('.container-block')) {
-        // Перевіряємо, чи немає більше жодної книги в списку покупок
-        shoppingListContainer.innerHTML = emptyMessage;
-      }
-    }
+  // Ініціалізуємо або оновлюємо пагінацію
+  const pagination = new tuiPagination('pagination', {
+    totalItems: totalPages,
+    itemsPerPage: 1,
+    visiblePages: 5,
   });
+}
+
+shoppingListContainer.addEventListener('click', function (event) {
+  const target = event.target;
+  if (event.target.nodeName !== 'BUTTON' || event.target.nodeName !== 'IMG') {
+    const bookContainer = target.closest('.container-block');
+    const bookId = bookContainer.getAttribute('data-book-id');
+
+    const booksIds = infoItemLocalStorage(TASKS_KEY) || [];
+    const index = booksIds.indexOf(bookId);
+    if (index !== -1) {
+      booksIds.splice(index, 1);
+      addItemLocalStorage(TASKS_KEY, booksIds);
+    }
+
+    bookContainer.remove();
+
+    if (!shoppingListContainer.querySelector('.container-block')) {
+      shoppingListContainer.innerHTML = emptyMessage;
+    }
+
+    // Оновлення пагінації після видалення книги
+    updatePagination();
+  }
 });
