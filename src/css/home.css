@@ -127,7 +127,8 @@
   align-items: center;
   justify-content: center;
   margin: 8px 0 40px auto;
-  }
+  background-color: transparent;
+}
 
 .btn-more:hover,
 .btn-more:focus {
