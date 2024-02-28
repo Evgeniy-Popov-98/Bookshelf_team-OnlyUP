@@ -170,33 +170,49 @@
     align-items: center;
   }
 
-  .hhome-btn {
+  .hhome-btn:hover {
     border-radius: 36px;
     padding: 8px 16px;
-    width: 72px;
     height: 34px;
-  }
-  .active {
-    background: #eac645;
-  }
-  .hhome-text {
+    background-color: #eac645;
+    transition: all 1s ease;
     font-weight: 700;
+  }
+
+  .hhome-text {
+    /* font-weight: 700; */
     font-size: 14px;
     line-height: 1.28571;
     letter-spacing: -0.04em;
     text-transform: uppercase;
     color: var(--text-color);
     cursor: pointer;
-    background: #eac645;
   }
 
-  .hshopping-btn {
+  .hshopping-btn:hover {
     border-radius: 36px;
     padding: 7px 16px;
     width: 156px;
     height: 34px;
-    /* background: #eac645; */
+    background-color: #eac645;
+    transition: all 1s ease;
+    font-weight: 700;
   }
+
+  /* Styles for active page below */
+
+  .active-page {
+    border-radius: 36px;
+    padding: 8px 16px;
+    min-width: 72px;
+    height: 34px;
+    background-color: #eac645;
+    transition: all 1s ease;
+    font-weight: 700;
+  }
+
+  /* Styles for active page  above */
+
   .hshopping-link {
     display: flex;
     flex-direction: row;
