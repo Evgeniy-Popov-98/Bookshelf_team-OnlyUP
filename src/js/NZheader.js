@@ -9,13 +9,3 @@ document.addEventListener('DOMContentLoaded', function () {
     shoppingBtn.classList.add('active-page');
   }
 });
-
-// function onHomeBtnClick() {
-//   homeBtn.classList.add('hhome-btn');
-//   shoppingBtn.classList.remove('hshopping-btn');
-// }
-
-// function onShoppingBtnClick(event) {
-//   event.homeBtn.classList.remove('hhome-btn');
-//   shoppingBtn.classList.add('hshopping-btn');
-// }

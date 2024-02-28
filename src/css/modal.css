@@ -68,6 +68,11 @@
   stroke: rgb(79, 46, 232);
 }
 
+.modal-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
 .modal-image {
   width: 287px;
   height: 408px;
@@ -130,16 +135,16 @@
 }
 
 body.dark .img-amazon {
-   filter: brightness(0) invert(1); 
-   transition: filter 250ms ease;
+  filter: brightness(0) invert(1);
+  transition: filter 250ms ease;
 }
 
 body.dark .img-amazon:hover {
-    filter: drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35)) 
+  filter: drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35));
 }
 
 body.dark .img-apple:hover {
-    filter: drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35)) 
+  filter: drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35));
 }
 
 .modal-list-btn {
@@ -164,7 +169,7 @@ body.dark .img-apple:hover {
 .modal-list-btn:hover,
 .modal-list-btn:focus {
   background-color: rgb(79, 46, 232);
-  color:rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
 }
 
 .modal-list-container {
