@@ -5,6 +5,8 @@ import {
   restoreData,
   TASKS_KEY,
 } from '../localStorage';
+import amazonPng from '/images/amazon.png';
+import bookPng from '/images/book.png';
 
 const body = document.querySelector('body');
 const modal = document.querySelector('.modal');
@@ -24,6 +26,7 @@ export async function GetBook(id) {
   createModal(data);
 
   try {
+    textContainer.innerText = '';
     const checkBook = infoItemLocalStorage(TASKS_KEY);
     for (const item of checkBook) {
       if (item.constID === id) {
@@ -32,7 +35,7 @@ export async function GetBook(id) {
 
         textContainer.innerText =
           'Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.';
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 767) {
           modal.style.height = '806px';
         } else {
           modal.style.height = '501px';
@@ -63,10 +66,10 @@ function createModal(book) {
   const buyLinksListHTML = `
   <ul class="buy-links-list">
     <li>
-      <img class="img-amazon" src="./images/amazon.png" alt="Amazon" class="platform-image" data-url="${amazonUrl}">
+      <img class="img-amazon" src="${amazonPng}" alt="Amazon" class="platform-image" data-url="${amazonUrl}">
     </li>
     <li>
-      <img class="img-apple" src="./images/book.png" alt="Apple Books" class="platform-image" data-url="${appleBooksUrl}">
+      <img class="img-apple" src="${bookPng}" alt="Apple Books" class="platform-image" data-url="${appleBooksUrl}">
     </li>
   </ul>
 `;
@@ -115,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
 listButtonAdd.addEventListener('click', function () {
   textContainer.innerText =
     'Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.';
-  if (window.innerWidth <= 768) {
+  if (window.innerWidth <= 767) {
     modal.style.height = '806px';
   } else {
     modal.style.height = '501px';
@@ -125,7 +128,7 @@ listButtonAdd.addEventListener('click', function () {
 
 listButtonRemove.addEventListener('click', function () {
   textContainer.innerText = '';
-  if (window.innerWidth <= 768) {
+  if (window.innerWidth <= 767) {
     modal.style.height = '762px';
   } else {
     modal.style.height = '465px';

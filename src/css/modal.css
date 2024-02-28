@@ -63,6 +63,16 @@
   transition: stroke 250ms ease;
 }
 
+body.dark .close-icon {
+  fill: transparent;
+  stroke: var(--text-color);
+  transition: stroke 250ms ease;
+}
+
+body.dark .close-icon:hover {
+  stroke: rgb(79, 46, 232);
+}
+
 .close-icon:hover,
 .close-icon:focus {
   stroke: rgb(79, 46, 232);
@@ -181,6 +191,10 @@ body.dark .img-apple:hover {
   letter-spacing: -0.04em;
   text-align: center;
   margin: 0 auto;
+}
+
+body.dark .modal-list-container {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 @media screen and (max-width: 767px) {
