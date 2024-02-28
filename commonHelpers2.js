@@ -1,24 +1,28 @@
-import{i as r,a as p,T as n,g as d}from"./assets/switch-button-5d4f229b.js";import"./assets/vendor-f87d3a68.js";const m="/JS-new_teamProject/assets/IMG_9606-a8e7c57b.png",h="/JS-new_teamProject/assets/amazon-2651c11a.svg",u="/JS-new_teamProject/assets/book-5e54f05d.svg",k="/JS-new_teamProject/assets/trash-121ef440.svg",e=document.querySelector(".shoppinglist-container"),l=`
-    <div class="shoppinglist-blocks">
-        <h2 class="text">This page is empty, add some books and proceed to order.</h2>
-        <img src="${m}" alt="Shopping Image" class="shoppinglist-img96061">
+import{i as c,a as g,T as n,g as h}from"./assets/switch-button-5d4f229b.js";import"./assets/vendor-f87d3a68.js";const d="/JS-new_teamProject/assets/IMG_9606-a8e7c57b.png",m="/JS-new_teamProject/assets/amazon-2651c11a.svg",u="/JS-new_teamProject/assets/book-5e54f05d.svg",f="/JS-new_teamProject/assets/trash-121ef440.svg",o=document.querySelector(".shoppinglist-shoppinglist");function S(){const t=o.querySelector(".shoppinglist-text");if(t)return t;const s=document.createElement("h1");return s.classList.add("shoppinglist-text"),s.innerHTML=`
+        <span class="shoppinglist-text1">Shopping</span>
+        List
+    `,s}o.appendChild(S());const l=`
+<h1 class="shoppinglist-text">Shopping
+	<span class="shoppinglist-text1">List</span>
+</h1>
+<div class="shoppinglist-blocks">
+    <h2 class="text">This page is empty, add some books and proceed to order.</h2>
+    <img src="${d}" alt="Shopping Image" class="shoppinglist-img96061">
+</div>
+`;async function k(){try{const t=c(n);if(!t||!t.length){o.innerHTML=l;return}let s="";for(const e of t){const i=await h(e.constID);s+=b(i,e)}o.innerHTML+=s}catch(t){console.error("Error fetching book data:",t)}}function b(t,s){const e=t.description?t.description:"With our diverse range of titles, you're sure to find the perfect companion for cozy nights in. Treat yourself to the joy of reading and explore the endless possibilities that await within the pages of our books.";return console.log(e),`
+<div class="container-block" id="${s.constID}">    
+    <img src="${t.book_image}" alt="${t.title}" class="book-image">
+    <div class="text-area">
+        <h2 class="shopping-list-title">${t.title}</h2>
+        <h2 class="shopping-list-title-name">${t.list_name}</h2>
+        <p class="shopping-list-description">${e}</p>
+        <h2 class="shopping-list-author">${t.author}</h2>
     </div>
-`;async function S(){try{const t=r(n);if(!t||!t.length){e.innerHTML=l;return}let s="";for(const o of t){const a=await d(o.constID);s+=f(a,o)}e.innerHTML=s}catch(t){console.error("Error fetching book data:",t)}}function f(t,s){return`
-    <div class="container-block" id="${s.constID}">
-        <div class="btn-and-links">
-            <button class="trash-btn"><img src="${k}" alt=""></button>
-            <ul class="links">
-                <li><img src="${h}" class="amazon"></li>
-                <li><img src="${u}"></li>
-            </ul>
-        </div>
-        <img src="${t.book_image}" alt="${t.title}" class="book-image">
-        <div class="text-area">
-            <h2 class="shopping-list-title">${t.title}</h2>
-            <h2 class="shopping-list-title-name">${t.list_name}</h2>
-            <p class="shopping-list-description">${t.description}</p>
-            <h2 class="shopping-list-author">${t.author}</h2>
-        </div>
-    </div>
-  `}e.addEventListener("click",function(t){const s=t.target;if(t.target.parentNode.nodeName==="BUTTON"||t.target.nodeName==="BUTTON"){const o=s.closest(".container-block"),a=o.getAttribute("id");let i=[];const g=r(n);for(const c of g)c.constID!==a&&i.push(c);p(n,i),o.remove(),e.querySelector(".container-block")||(e.innerHTML=l)}});S();
+        <button class="trash-btn"><img src="${f}" alt=""></button>
+        <ul class="links">
+            <li><img src="${m}" class="amazon"></li>
+            <li><img src="${u}" class="apple-book"></li>
+        </ul>
+</div>
+  `}o.addEventListener("click",function(t){const s=t.target;if(t.target.parentNode.nodeName==="BUTTON"||t.target.nodeName==="BUTTON"){const e=s.closest(".container-block"),i=e.getAttribute("id");let a=[];const p=c(n);for(const r of p)r.constID!==i&&a.push(r);g(n,a),e.remove(),o.querySelector(".container-block")||(o.innerHTML=l)}});k();
 //# sourceMappingURL=commonHelpers2.js.map
