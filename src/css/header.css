@@ -79,9 +79,7 @@
     transition: all 1s ease;
     font-weight: 700;
   }
-  .active {
-    background: #eac645;
-  }
+
   .hhome-text {
     /* font-weight: 700; */
     font-size: 14px;
