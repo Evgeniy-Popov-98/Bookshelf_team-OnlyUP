@@ -1,3 +1,5 @@
+// localStorage.js
+
 export const TASKS_KEY = 'TASKS_KEY';
 
 export function addItemLocalStorage(key, item) {

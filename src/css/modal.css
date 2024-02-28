@@ -78,6 +78,11 @@ body.dark .close-icon:hover {
   stroke: rgb(79, 46, 232);
 }
 
+.modal-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
 .modal-image {
   width: 287px;
   height: 408px;
