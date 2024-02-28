@@ -6,8 +6,11 @@
 }
 
 .header {
+  position: relative;
+  z-index: 1;
   border: 1.5px solid var(--text-color);
   border-radius: 0 0 8px 8px;
+  background-color: var(--bg-color);
 }
 
 .header-container {
@@ -73,29 +76,32 @@
 }
 
 .hshopping-link,
-.hburger-menu-link {
+.hburger-menu-link,
+.hclose-menu-icon,
+.hmob-burger-menu,
+.hclose-menu-icon {
   fill: var(--text-color);
+  stroke: var(--text-color);
 }
 
 /* ********  header-Mob-modal ***** */
+.hmodal-shopping-icon {
+  fill: #fff;
+}
+
 .hmob-modal-wrap {
   width: 100%;
-  height: 812px;
+  height: 100%;
 
   position: fixed;
-  top: 65px;
+  top: 0;
   right: 0;
-
-  background-image: radial-gradient(
+  background: url(../images/hmodal.png) center bottom no-repeat,
+    radial-gradient(
       189.32% 190.93% at 59.76% -23.42%,
-      rgba(79, 46, 232, 0.6),
-      rgba(255, 255, 255, 0.3)
-    ),
-    url(./images/hmodal.png);
-
-  background-repeat: no-repeat;
-  background-position: bottom;
-  background-size: cover 375px 368px;
+      rgb(79, 46, 232) 18.02733987569809%,
+      rgb(255, 255, 255) 100%
+    );
 }
 
 .hmob-modal-nav {
@@ -144,6 +150,10 @@
 @media screen and (min-width: 768px) {
   .header-container {
     height: 72px;
+  }
+
+  .icon {
+    display: none;
   }
 
   .hlogo-menu-wrap {
@@ -212,6 +222,7 @@
   .hswitcher-burger-wrap {
     width: 40px;
     height: 24px;
+    gap: 0;
   }
 
   .hburger-menu-link {

@@ -1,6 +1,7 @@
 import './js/API/api-books';
 import './js/localStorage';
 import './js/NZheader';
+import './js/NZheadermodal';
 import './js/API/header1';
 import './js/switch-button';
 import './js/API/all-categories';
