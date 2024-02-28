@@ -18,6 +18,7 @@
     align-items: center;
     flex-direction: column;
   }
+  z
   /* .header-styles {
     display: none;
   } */
@@ -288,6 +289,7 @@
     align-items: center;
     flex-direction: column;
   }
+
   .header-styles {
     display: inherit;
   }
