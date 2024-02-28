@@ -14,7 +14,7 @@
     align-items: center;
     flex-direction: column;
   }
-
+.header-styles{display: none;}
   .shoppinglist-shoppinglist {
     width: 100%;
     min-height: 812px;
@@ -196,7 +196,7 @@
   }
 
   .shoppinglist-shoppinglist {
-    min-width: 704px;
+    width: 704px;
     width: 100%;
     display: flex;
     overflow: hidden;
@@ -272,16 +272,16 @@
 
 @media screen and (min-width: 1440px) {
   .shoppinglist-container {
-    min-width: 1392px;
+    width: 1392px;
     display: flex;
     overflow: auto;
     min-height: 100vh;
     align-items: center;
     flex-direction: column;
   }
-
+.header-styles{display:inherit;}
   .shoppinglist-shoppinglist {
-    min-width: 1392px;
+    width: 1392px;
     display: flex;
     overflow: hidden;
     position: relative;
@@ -293,8 +293,9 @@
     display: flex;
   }
   .shoppinglist-text {
-    top: -40px;
-    left: 476px;
+    margin: 0;
+    margin-top: 40px;
+ 
 
     color: #4f2ee8;
     height: auto;
@@ -316,7 +317,7 @@
   .shoppinglist-blocks {
     gap: 20px;
     margin-top: 304px;
-    margin-left: 735px;
+  margin-left:0;
     margin-right: 355px;
     width: 349px;
     display: flex;
