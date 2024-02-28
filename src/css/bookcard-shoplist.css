@@ -204,12 +204,15 @@ p {
 }
 @media screen and (min-width: 1440px) {
   .container-block {
-    position: relative;
+  position: relative;
+  top: 50px;
+  right: auto;
     margin: 0;
     padding: 24px;
     width: 996px;
     height: 213px;
   }
+
   .text-area {
     display: flex;
     margin: 0;

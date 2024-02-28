@@ -23,11 +23,33 @@ if (screen.width < 1440) {
 }
 
 const shoppingListContainer = document.querySelector('.shoppinglist-container');
+
+// Функція для створення елементу <h1 class="shoppinglist-text">
+function createShoppingListHeader() {
+  // Перевірка наявності елемента перед створенням нового
+  const existingHeader =
+    shoppingListContainer.querySelector('.shoppinglist-text');
+  if (existingHeader) {
+    return existingHeader;
+  }
+
+  const header = document.createElement('h1');
+  header.classList.add('shoppinglist-text');
+  header.innerHTML = `
+        <span class="shoppinglist-text1">Shopping</span>
+        List
+    `;
+  return header;
+}
+
+// Додавання елементу <h1 class="shoppinglist-text"> до shoppingListContainer
+shoppingListContainer.appendChild(createShoppingListHeader());
+
 const emptyMessage = `
-    <div class="shoppinglist-blocks">
-        <h2 class="text">This page is empty, add some books and proceed to order.</h2>
-        <img src="${img9606}" alt="Shopping Image" class="shoppinglist-img96061">
-    </div>
+<div class="shoppinglist-blocks">
+    <h2 class="text">This page is empty, add some books and proceed to order.</h2>
+    <img src="${img9606}" alt="Shopping Image" class="shoppinglist-img96061">
+</div>
 `;
 
 async function addToShoppingList() {
@@ -46,7 +68,7 @@ async function addToShoppingList() {
       markup += createBookMarkup(dataBook, bookId);
     }
 
-    shoppingListContainer.innerHTML = markup;
+    shoppingListContainer.innerHTML += markup; // Додайте новий вміст до існуючого
 
     // Оновлення пагінації після додавання книг
     // updatePagination();
@@ -57,22 +79,22 @@ async function addToShoppingList() {
 
 function createBookMarkup(book, bookId) {
   return `
-    <div class="container-block" id="${bookId.constID}">
-        <div class="btn-and-links">
-            <button class="trash-btn"><img src="${trashSvg}" alt=""></button>
-            <ul class="links">
-                <li><img src="${amazonSvg}" class="amazon"></li>
-                <li><img src="${bookSvg}"></li>
-            </ul>
-        </div>
-        <img src="${book.book_image}" alt="${book.title}" class="book-image">
-        <div class="text-area">
-            <h2 class="shopping-list-title">${book.title}</h2>
-            <h2 class="shopping-list-title-name">${book.list_name}</h2>
-            <p class="shopping-list-description">${book.description}</p>
-            <h2 class="shopping-list-author">${book.author}</h2>
-        </div>
+<div class="container-block" id="${bookId.constID}">
+    <div class="btn-and-links">
+        <button class="trash-btn"><img src="${trashSvg}" alt=""></button>
+        <ul class="links">
+            <li><img src="${amazonSvg}" class="amazon"></li>
+            <li><img src="${bookSvg}"></li>
+        </ul>
     </div>
+    <img src="${book.book_image}" alt="${book.title}" class="book-image">
+    <div class="text-area">
+        <h2 class="shopping-list-title">${book.title}</h2>
+        <h2 class="shopping-list-title-name">${book.list_name}</h2>
+        <p class="shopping-list-description">${book.description}</p>
+        <h2 class="shopping-list-author">${book.author}</h2>
+    </div>
+</div>
   `;
 }
 
@@ -116,4 +138,5 @@ shoppingListContainer.addEventListener('click', function (event) {
     // updatePagination();
   }
 });
+
 addToShoppingList();

@@ -3,7 +3,7 @@
   flex-direction: column;
 }
 
-.hiden-support {
+.header-support {
   display: none;
 }
 
@@ -47,6 +47,7 @@
     text-decoration: none;
   }
   .shoppinglist-text {
+    display: block;
     margin-top: 104px;
     margin-left: 20px;
     color: #4f2ee8;
@@ -290,9 +291,7 @@
     flex-direction: column;
   }
 
-  .header-styles {
-    display: inherit;
-  }
+  
   .shoppinglist-shoppinglist {
     width: 1392px;
     display: flex;
@@ -308,10 +307,10 @@
   .shoppinglist-text {
     margin: 0;
     margin-top: 40px;
-
+margin-right:auto ;
     color: #4f2ee8;
     height: auto;
-    position: absolute;
+    position: relative;
     font-size: 48px;
     font-style: Bold;
     text-align: left;
@@ -329,7 +328,7 @@
   .shoppinglist-blocks {
     gap: 20px;
     margin-top: 245px;
-    margin-left: 0;
+    margin-left: 355;
     margin-right: 355px;
     width: 349px;
     display: flex;
