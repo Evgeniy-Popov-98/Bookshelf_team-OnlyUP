@@ -14,7 +14,9 @@ import bookSvg from '/images/book.svg';
 import trashSvg from '/images/trash.svg';
 import tuiPagination from 'tui-pagination'; // Імпортуємо бібліотеку пагінації
 
-const shoppingListContainer = document.querySelector('.shoppinglist-container');
+const shoppingListContainer = document.querySelector(
+  '.shoppinglist-shoppinglist'
+);
 
 // Функція для створення елементу <h1 class="shoppinglist-text">
 function createShoppingListHeader() {
@@ -38,6 +40,9 @@ function createShoppingListHeader() {
 shoppingListContainer.appendChild(createShoppingListHeader());
 
 const emptyMessage = `
+<h1 class="shoppinglist-text">Shopping
+	<span class="shoppinglist-text1">List</span>
+</h1>
 <div class="shoppinglist-blocks">
     <h2 class="text">This page is empty, add some books and proceed to order.</h2>
     <img src="${img9606}" alt="Shopping Image" class="shoppinglist-img96061">
@@ -77,14 +82,7 @@ function createBookMarkup(book, bookId) {
   console.log(bookDescription);
 
   return `
-<div class="container-block" id="${bookId.constID}">
-    <div class="btn-and-links">
-        <button class="trash-btn"><img src="${trashSvg}" alt=""></button>
-        <ul class="links">
-            <li><img src="${amazonSvg}" class="amazon"></li>
-            <li><img src="${bookSvg}"></li>
-        </ul>
-    </div>
+<div class="container-block" id="${bookId.constID}">    
     <img src="${book.book_image}" alt="${book.title}" class="book-image">
     <div class="text-area">
         <h2 class="shopping-list-title">${book.title}</h2>
@@ -92,6 +90,11 @@ function createBookMarkup(book, bookId) {
         <p class="shopping-list-description">${bookDescription}</p>
         <h2 class="shopping-list-author">${book.author}</h2>
     </div>
+        <button class="trash-btn"><img src="${trashSvg}" alt=""></button>
+        <ul class="links">
+            <li><img src="${amazonSvg}" class="amazon"></li>
+            <li><img src="${bookSvg}" class="apple-book"></li>
+        </ul>
 </div>
   `;
 }
