@@ -92,8 +92,8 @@ function createBookMarkup(book, bookId) {
     </div>
         <button class="trash-btn"><img src="${trashSvg}" alt=""></button>
         <ul class="links">
-            <li><img src="${amazonSvg}" class="amazon"></li>
-            <li><img src="${bookSvg}" class="apple-book"></li>
+            <li><img src="${amazonSvg}" hred="${book.buy_links[0].url}" class="amazon"></li>
+            <li><img src="${bookSvg}" hred="${book.buy_links[1].url}" class="apple-book"></li>
         </ul>
 </div>
   `;
