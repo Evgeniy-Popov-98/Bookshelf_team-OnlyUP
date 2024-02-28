@@ -46,8 +46,8 @@ const arrSuppotr = [
   },
 ];
 
-let firstButton = document.querySelector('.plus-btn');
-let secondButton = document.querySelector('.second-btn');
+const firstButton = document.querySelector('.plus-btn');
+const secondButton = document.querySelector('.second-btn');
 
 const supportItem = document.querySelectorAll('.header-link');
 const hidentItem = document.querySelectorAll('.header-item');
@@ -59,9 +59,6 @@ for (let i = 0; i < supportItem.length; i++) {
 firstButton.addEventListener('click', function () {
   firstButton.style.display = 'none';
   secondButton.style.display = 'flex';
-
-  const hidentItem = document.querySelectorAll('.header-item');
-
   for (let i = 0; i < 3; i++) {
     hidentItem[i].style.display = 'none';
   }
@@ -71,9 +68,7 @@ secondButton.addEventListener('click', function () {
   firstButton.style.display = 'flex';
   secondButton.style.display = 'none';
 
-  const showItem = document.querySelectorAll('.header-item');
-
   for (let i = 0; i < 3; i++) {
-    showItem[i].style.display = 'flex';
+    hidentItem[i].style.display = 'flex';
   }
 });
