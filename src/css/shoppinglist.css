@@ -19,10 +19,6 @@
     flex-direction: column;
   }
 
-  .header-styles {
-    display: none;
-  }
-
   .shoppinglist-shoppinglist {
     width: 100%;
     min-height: 812px;
@@ -290,9 +286,8 @@
     flex-direction: column;
   }
 
-  .header-styles {
+  .hiden-support {
     display: flex;
-    flex-direction: column;
   }
 
   .shoppinglist-shoppinglist {
