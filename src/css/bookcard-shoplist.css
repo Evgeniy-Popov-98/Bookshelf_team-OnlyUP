@@ -69,7 +69,7 @@ p {
     flex-direction: column;
   }
 
-  .title {
+  .shopping-list-title {
     padding-bottom: 4px;
     color: rgba(17, 17, 17, 1);
     font-size: 16px;
@@ -82,7 +82,7 @@ p {
     text-decoration: none;
   }
 
-  .janr {
+  .shopping-list-title-name {
     padding-bottom: 8px;
     color: rgba(180, 175, 175, 1);
     font-size: 12px;
@@ -95,7 +95,7 @@ p {
     text-decoration: none;
   }
 
-  .description {
+  .shopping-list-description {
     color: rgba(17, 17, 17, 1);
     width: 193px;
     height: auto;
@@ -110,7 +110,7 @@ p {
     text-decoration: none;
   }
 
-  .author-book {
+  .shopping-list-author {
     color: rgba(180, 175, 175, 1);
     font-size: 12px;
     font-style: italic;
@@ -164,7 +164,7 @@ p {
     width: 116px;
     height: 165px;
   }
-  .title {
+  .shopping-list-title {
     color: rgba(17, 17, 17, 1);
 
     font-size: 16px;
@@ -176,7 +176,7 @@ p {
     font-stretch: normal;
     text-decoration: none;
   }
-  .description {
+  .shopping-list-description{
     padding-bottom: 48px;
     width: 508px;
     color: rgba(17, 17, 17, 1);
@@ -222,7 +222,7 @@ p {
     height: auto;
     flex-direction: column;
   }
-  .description {
+  .shopping-list-description  {
     padding-bottom: 48px;
     width: 808px;
     color: rgba(17, 17, 17, 1);
