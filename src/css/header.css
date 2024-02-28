@@ -39,18 +39,100 @@
   align-items: center;
 }
 
+/****** header burger - close menu *********/
 .hburger-menu-link {
   display: flex;
   align-items: center;
+  fill: black;
 }
+
+.hburger-menu-icon {
+  display: none;
+}
+
+.hclose-menu-icon,
+.hmob-modal-wrap {
+  display: none;
+}
+
+.is-visible {
+  display: block;
+}
+
+/****** *********/
 
 .h-user {
   display: none;
 }
 
-.hshopping-link {
+.hshopping-link,
+.hburger-menu-link {
   fill: var(--text-color);
 }
+
+/* ********  header-Mob-modal ***** */
+.hmob-modal-wrap {
+  width: 100%;
+  height: 812px;
+
+  position: fixed;
+  top: 65px;
+  right: 0;
+
+  background-image: radial-gradient(
+      189.32% 190.93% at 59.76% -23.42%,
+      rgba(79, 46, 232, 0.6),
+      rgba(255, 255, 255, 0.3)
+    ),
+    url(./images/hmodal.png);
+
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover 375px 368px;
+}
+
+.hmob-modal-nav {
+  position: fixed;
+  top: 183px;
+  right: 129px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.hmodal-home-btn {
+  border-radius: 36px;
+  padding: 8px 16px;
+  width: 72px;
+  height: 34px;
+  background: #eac645;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #111;
+}
+
+.hmodal-shopping-link {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  width: 128px;
+  height: 20px;
+
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* **************************** */
 
 @media screen and (min-width: 768px) {
   .header-container {
@@ -86,7 +168,7 @@
     line-height: 1.28571;
     letter-spacing: -0.04em;
     text-transform: uppercase;
-    color: --text-color;
+    color: var(--text-color);
     cursor: pointer;
     background: #eac645;
   }
@@ -124,9 +206,11 @@
     width: 40px;
     height: 24px;
   }
+
   .hburger-menu-link {
     display: none;
   }
+
   .h-user {
     display: flex;
     flex-direction: row;
