@@ -14,14 +14,6 @@ import bookSvg from '/images/book.svg';
 import trashSvg from '/images/trash.svg';
 import tuiPagination from 'tui-pagination'; // Імпортуємо бібліотеку пагінації
 
-const supportSection = document.querySelector('.header-styles');
-if (screen.width < 1440) {
-  console.log(screen.width);
-  supportSection.style.display = 'none';
-} else {
-  supportSection.style.display = 'flex';
-}
-
 const shoppingListContainer = document.querySelector('.shoppinglist-container');
 
 // Функція для створення елементу <h1 class="shoppinglist-text">
