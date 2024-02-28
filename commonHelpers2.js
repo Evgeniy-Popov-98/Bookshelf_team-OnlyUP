@@ -20,8 +20,8 @@ import{i as c,a as g,T as n,g as h}from"./assets/switch-button-43392486.js";impo
     </div>
         <button class="trash-btn"><img src="${f}" alt=""></button>
         <ul class="links">
-            <li><img src="${m}" class="amazon"></li>
-            <li><img src="${u}" class="apple-book"></li>
+            <li><img src="${m}" hred="${t.buy_links[0].url}" class="amazon"></li>
+            <li><img src="${u}" hred="${t.buy_links[1].url}" class="apple-book"></li>
         </ul>
 </div>
   `}o.addEventListener("click",function(t){const s=t.target;if(t.target.parentNode.nodeName==="BUTTON"||t.target.nodeName==="BUTTON"){const e=s.closest(".container-block"),i=e.getAttribute("id");let a=[];const p=c(n);for(const r of p)r.constID!==i&&a.push(r);g(n,a),e.remove(),o.querySelector(".container-block")||(o.innerHTML=l)}});k();
