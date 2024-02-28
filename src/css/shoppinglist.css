@@ -291,7 +291,6 @@
     flex-direction: column;
   }
 
-  
   .shoppinglist-shoppinglist {
     width: 1392px;
     display: flex;
@@ -307,7 +306,7 @@
   .shoppinglist-text {
     margin: 0;
     margin-top: 40px;
-margin-right:auto ;
+    margin-right: auto;
     color: #4f2ee8;
     height: auto;
     position: relative;

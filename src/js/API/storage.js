@@ -78,6 +78,12 @@ async function addToShoppingList() {
 }
 
 function createBookMarkup(book, bookId) {
+  const bookDescription = book.description
+    ? book.description
+    : "With our diverse range of titles, you're sure to find the perfect companion for cozy nights in. Treat yourself to the joy of reading and explore the endless possibilities that await within the pages of our books.";
+
+  console.log(bookDescription);
+
   return `
 <div class="container-block" id="${bookId.constID}">
     <div class="btn-and-links">
@@ -91,7 +97,7 @@ function createBookMarkup(book, bookId) {
     <div class="text-area">
         <h2 class="shopping-list-title">${book.title}</h2>
         <h2 class="shopping-list-title-name">${book.list_name}</h2>
-        <p class="shopping-list-description">${book.description}</p>
+        <p class="shopping-list-description">${bookDescription}</p>
         <h2 class="shopping-list-author">${book.author}</h2>
     </div>
 </div>
