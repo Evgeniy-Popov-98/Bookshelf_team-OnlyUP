@@ -127,12 +127,12 @@
   align-items: center;
   justify-content: center;
   margin: 8px 0 40px auto;
-  background-color: #4f2ee8;
+  background-color: transparent;
 }
 
 .btn-more:hover,
 .btn-more:focus {
-  background-color: inherit;
+  background-color: #4f2ee8;
   color: var(--color-btn);
 }
 

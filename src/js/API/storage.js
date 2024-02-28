@@ -1,8 +1,10 @@
 import '../NZheader';
+import '../API/header1';
 import { getBooks } from './api-books';
 import {
   addItemLocalStorage,
   infoItemLocalStorage,
+  restoreData,
   TASKS_KEY,
 } from '../localStorage';
 import '../switch-button';
@@ -10,7 +12,15 @@ import img9606 from '/images/IMG_9606.png';
 import amazonSvg from '/images/amazon.svg';
 import bookSvg from '/images/book.svg';
 import trashSvg from '/images/trash.svg';
-// import tuiPagination from 'tui-pagination'; // Імпортуємо бібліотеку пагінації
+import tuiPagination from 'tui-pagination'; // Імпортуємо бібліотеку пагінації
+
+const supportSection = document.querySelector('.header-styles');
+if (screen.width < 1440) {
+  console.log(screen.width);
+  supportSection.style.display = 'none';
+} else {
+  supportSection.style.display = 'flex';
+}
 
 const shoppingListContainer = document.querySelector('.shoppinglist-container');
 const emptyMessage = `
@@ -20,12 +30,9 @@ const emptyMessage = `
     </div>
 `;
 
-export async function addToShoppingList(event) {
-  event.defaultPrevented();
-  console.log(1);
+async function addToShoppingList() {
   try {
     const booksIds = infoItemLocalStorage(TASKS_KEY);
-    console.log(booksIds);
 
     if (!booksIds || !booksIds.length) {
       shoppingListContainer.innerHTML = emptyMessage;
@@ -35,14 +42,14 @@ export async function addToShoppingList(event) {
     let markup = '';
 
     for (const bookId of booksIds) {
-      const dataBook = await getBooks(bookId);
+      const dataBook = await getBooks(bookId.constID);
       markup += createBookMarkup(dataBook, bookId);
     }
 
     shoppingListContainer.innerHTML = markup;
 
     // Оновлення пагінації після додавання книг
-    updatePagination();
+    // updatePagination();
   } catch (error) {
     console.error('Error fetching book data:', error);
   }
@@ -50,7 +57,7 @@ export async function addToShoppingList(event) {
 
 function createBookMarkup(book, bookId) {
   return `
-    <div class="container-block" data-book-id="${bookId}">
+    <div class="container-block" id="${bookId.constID}">
         <div class="btn-and-links">
             <button class="trash-btn"><img src="${trashSvg}" alt=""></button>
             <ul class="links">
@@ -82,26 +89,31 @@ function updatePagination() {
   });
 }
 
-// shoppingListContainer.addEventListener('click', function (event) {
-//   const target = event.target;
-//   if (event.target.nodeName !== 'BUTTON' || event.target.nodeName !== 'IMG') {
-//     const bookContainer = target.closest('.container-block');
-//     const bookId = bookContainer.getAttribute('data-book-id');
+shoppingListContainer.addEventListener('click', function (event) {
+  const target = event.target;
+  if (
+    event.target.parentNode.nodeName === 'BUTTON' ||
+    event.target.nodeName === 'BUTTON'
+  ) {
+    const bookContainer = target.closest('.container-block');
+    const bookId = bookContainer.getAttribute('id');
+    let newArr = [];
+    const dataArr = infoItemLocalStorage(TASKS_KEY);
+    for (const item of dataArr) {
+      if (item.constID !== bookId) {
+        newArr.push(item);
+      }
+    }
+    addItemLocalStorage(TASKS_KEY, newArr);
 
-//     const booksIds = infoItemLocalStorage(TASKS_KEY) || [];
-//     const index = booksIds.indexOf(bookId);
-//     if (index !== -1) {
-//       booksIds.splice(index, 1);
-//       addItemLocalStorage(TASKS_KEY, booksIds);
-//     }
+    bookContainer.remove();
 
-//     bookContainer.remove();
+    if (!shoppingListContainer.querySelector('.container-block')) {
+      shoppingListContainer.innerHTML = emptyMessage;
+    }
 
-//     if (!shoppingListContainer.querySelector('.container-block')) {
-//       shoppingListContainer.innerHTML = emptyMessage;
-//     }
-
-//     // Оновлення пагінації після видалення книги
-//     updatePagination();
-//   }
-// });
+    // Оновлення пагінації після видалення книги
+    // updatePagination();
+  }
+});
+addToShoppingList();

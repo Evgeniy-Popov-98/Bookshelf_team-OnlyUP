@@ -4,10 +4,12 @@ import { errorMessage } from './messageError';
 import { GetBook } from './modal';
 import { homeCategory } from './selected';
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   let previousWidth = window.innerWidth;
-
-  window.addEventListener('resize', async () => {
+  const data = await getBooks('top-books');
+  window.addEventListener('resize', onResize)
+  
+  async function onResize() {
     const currentWidth = window.innerWidth;
     if (
       previousWidth > 768 ||
@@ -17,65 +19,61 @@ document.addEventListener('DOMContentLoaded', () => {
         (previousWidth <= 768 || currentWidth >= 1439))
     ) {
       try {
-        const data = await getBooks('top-books');
-        refs.galleryBooks.innerHTML = '';
-        for (const el of data) {
-          categoriesTemplate(el);
-          if (el.books.length >= 1) {
-            renderBooks(el);
-          } else {
-            errorMessage('Sorry, there are no items in this category');
-          }
-        }
+        //const data = await getBooks('top-books');
+        render(data);
       } catch (error) {
         errorMessage(`Failed to render books:${error}`);
       }
     }
     previousWidth = currentWidth;
-  });
+  }
 
-  async function render() {
+  async function render(data) {
     try {
-      const data = await getBooks('top-books');
-      for (const el of data) {
-        categoriesTemplate(el);
-        if (el.books.length >= 1) {
-          renderBooks(el);
-        } else {
-          errorMessage('Sorry, there are no items in this category');
-        }
+    refs.galleryBooks.innerHTML = '';
+    for (const el of data) {
+      categoriesTemplate(el);
+      if (el.books.length >= 1) {
+        renderBooks(el);
+      } else {
+        errorMessage('Sorry, there are no items in this category');
       }
-
-      const quickViewTriggers = document.querySelectorAll(
-        '.book-image-overlay'
-      );
-      quickViewTriggers.forEach(trigger => {
-        trigger.addEventListener('click', event => {
-          const card = event.target.closest('.card');
-          if (card) {
-            const data = card.dataset.id;
-            GetBook(data);
-          }
-        });
-      });
-      const openSeeMore = document.querySelectorAll('.btn-more');
-      openSeeMore.forEach(link => {
-        link.addEventListener('click', categoryClick);
-      });
-      function categoryClick(event) {
-        const bestCategory = document.querySelector('.js-home-pg');
-        const categories = document.querySelector('.js-selected-page');
-        const listName = event.srcElement.dataset.id;
-        bestCategory.style.display = 'none';
-        categories.style.display = 'block';
-        homeCategory(listName);
-      }
+    }
+    addQuickViewListeners();
     } catch (error) {
       errorMessage(`Failed to render books:${error}`);
     }
   }
 
-  function categoriesTemplate(categories) {
+  function addQuickViewListeners(){
+    const quickViewTriggers = document.querySelectorAll(
+      '.book-image-overlay'
+    );
+    quickViewTriggers.forEach(trigger => {
+      trigger.addEventListener('click', event => {
+        const card = event.target.closest('.card');
+        if (card) {
+          const data = card.dataset.id;
+          GetBook(data);
+        }
+      });
+    });
+  }
+    const openSeeMore = document.querySelectorAll('.btn-more');
+    openSeeMore.forEach(link => {
+      link.addEventListener('click', categoryClick);
+    });
+    function categoryClick(event) {
+      const bestCategory = document.querySelector('.js-home-pg');
+      const categories = document.querySelector('.js-selected-page');
+      const listName = event.srcElement.dataset.id;
+      bestCategory.style.display = 'none';
+      categories.style.display = 'block';
+      homeCategory(listName);
+    }
+  
+
+   function categoriesTemplate(categories) {
     const markup = `<li id="${categories.list_name}" class="list-category-books">
     <h2 class="list-category-title">${categories.list_name}</h2>
     <ul class="list-book">
@@ -126,17 +124,5 @@ document.addEventListener('DOMContentLoaded', () => {
     return mediaMarkup;
   }
 
-  //   const openSeeMore = document.querySelector('.btn-more');
-  //   console.log(openSeeMore);
-  //   openSeeMore.addEventListener('click', () => {
-  //     const bestCategory = document.querySelector('.js-home-pg');
-  //     const categories = document.querySelector('.js-selected-page');
-  //     const listName = openSeeMore.dataset.id;
-  //     bestCategory.style.display = 'none';
-  //     categories.style.display = 'block';
-  //     console.log(listName);
-  //     homeCategory(listName);
-  //   });
-
-  render();
+  render(data);
 });
