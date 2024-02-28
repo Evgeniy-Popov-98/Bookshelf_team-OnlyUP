@@ -1,5 +1,3 @@
-import { addToShoppingList } from './API/storage';
-
 document.addEventListener('DOMContentLoaded', function () {
   const currentLocation = window.location.href;
   const homeBtn = document.querySelector('.js-hhome');
@@ -12,12 +10,12 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-function onHomeBtnClick() {
-  homeBtn.classList.add('hhome-btn');
-  shoppingBtn.classList.remove('hshopping-btn');
-}
+// function onHomeBtnClick() {
+//   homeBtn.classList.add('hhome-btn');
+//   shoppingBtn.classList.remove('hshopping-btn');
+// }
 
-function onShoppingBtnClick(event) {
-  event.homeBtn.classList.remove('hhome-btn');
-  shoppingBtn.classList.add('hshopping-btn');
-}
+// function onShoppingBtnClick(event) {
+//   event.homeBtn.classList.remove('hhome-btn');
+//   shoppingBtn.classList.add('hshopping-btn');
+// }
