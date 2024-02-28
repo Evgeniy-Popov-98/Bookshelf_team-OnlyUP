@@ -1,20 +1,39 @@
-// pagination.js
+var currentPage = 1;
+var itemsPerPage = 10;
+var totalItems = 500;
 
-// Імпортуємо бібліотеку TUI Pagination з вашої папки
-import tuiPagination from 'tui-pagination';
+function renderPagination() {
+  var totalPages = Math.ceil(totalItems / itemsPerPage);
+  var pagination = document.getElementById('pagination');
+  pagination.innerHTML = '';
 
-// Ініціалізуємо пагінацію як ви раніше робили
-var pagination = new tuiPagination('pagination', {
-  totalItems: 500,
-});
+  var startPage = Math.max(1, currentPage - 2);
+  var endPage = Math.min(totalPages, startPage + 4);
 
-pagination.on('beforeMove', function (eventData) {
-  return confirm('Go to page ' + eventData.page + '?');
-});
+  for (var i = startPage; i <= endPage; i++) {
+    var li = document.createElement('li');
+    var a = document.createElement('a');
+    a.href = '#';
+    a.textContent = i;
+    li.appendChild(a);
 
-pagination.on('afterMove', function (eventData) {
-  alert('The current page is ' + eventData.page);
-});
+    if (i === currentPage) {
+      li.classList.add('active');
+    }
 
-// Експортуємо об'єкт, якщо потрібно
-export default pagination;
+    li.addEventListener('click', function (e) {
+      e.preventDefault();
+      currentPage = parseInt(e.target.textContent);
+      renderPagination();
+      renderItems();
+    });
+
+    pagination.appendChild(li);
+  }
+}
+
+function renderItems() {
+  // Оновлення вмісту сторінки залежно від поточної сторінки
+}
+
+renderPagination();
