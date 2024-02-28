@@ -1,6 +1,6 @@
 @import url('./reset.css');
-@import url('./component.css');
 @import url('./header.css');
+@import url('./support.css');
 @import url('./all-categories.css');
 @import url('./scrollbar.css');
 @import url('./home.css');
@@ -9,3 +9,6 @@
 @import url('./pagination.css');
 @import url('./modal.css');
 @import url('./switch-button.css');
+@import url('./scroll-up.css');
+@import url('./bookcard-shoplist.css');
+@import url('./component.css');
