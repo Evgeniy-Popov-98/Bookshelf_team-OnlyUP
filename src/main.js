@@ -10,5 +10,5 @@ import './js/API/modal';
 import './js/switch-button';
 import './js/scroll-up';
 import './js/API/messageError';
-import './js/API/storage';
+// import './js/API/storage';
 import './js/colorPage';

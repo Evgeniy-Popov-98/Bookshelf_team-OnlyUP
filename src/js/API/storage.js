@@ -81,7 +81,10 @@ function updatePagination() {
 
 shoppingListContainer.addEventListener('click', function (event) {
   const target = event.target;
-  if (event.target.nodeName !== 'BUTTON' || event.target.nodeName !== 'IMG') {
+  if (
+    event.target.parentNode.nodeName === 'BUTTON' ||
+    event.target.nodeName === 'BUTTON'
+  ) {
     const bookContainer = target.closest('.container-block');
     const bookId = bookContainer.getAttribute('id');
     let newArr = [];

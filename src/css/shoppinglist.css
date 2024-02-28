@@ -1,7 +1,8 @@
-div {
-  margin: 0;
-  padding: 0;
+.shoppinglist-box {
+  display: flex;
+  flex-direction: column;
 }
+
 @media screen and (min-width: 350px) {
   .shoppinglist-container {
     margin: 0;
