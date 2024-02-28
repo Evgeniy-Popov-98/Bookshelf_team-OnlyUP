@@ -223,7 +223,7 @@ p {
     flex-direction: column;
   }
   .shopping-list-description  {
-    padding-bottom: 48px;
+    margin-bottom: 48px;
     width: 808px;
     color: rgba(17, 17, 17, 1);
     height: 53px;
