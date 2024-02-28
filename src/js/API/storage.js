@@ -16,9 +16,9 @@ import tuiPagination from 'tui-pagination'; // Імпортуємо бібліо
 const supportSection = document.querySelector('.header-styles');
 if (screen.width < 1440) {
   console.log(screen.width);
-  supportSection.classList.add('hiden-support');
+  supportSection.style.display = 'none';
 } else {
-  supportSection.classList.remove('hiden-support');
+  supportSection.style.display = 'flex';
 }
 
 const shoppingListContainer = document.querySelector('.shoppinglist-container');
