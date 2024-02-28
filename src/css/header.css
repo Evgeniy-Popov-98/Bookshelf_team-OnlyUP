@@ -1,3 +1,10 @@
+.icon {
+  display: inline-block;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
 .header {
   border: 1.5px solid var(--text-color);
   border-radius: 0 0 8px 8px;
