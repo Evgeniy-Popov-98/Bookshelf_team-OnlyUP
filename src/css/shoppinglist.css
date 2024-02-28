@@ -3,6 +3,10 @@
   flex-direction: column;
 }
 
+.hiden-support {
+  display: none;
+}
+
 @media screen and (min-width: 350px) {
   .shoppinglist-container {
     margin: 0;
@@ -14,7 +18,10 @@
     align-items: center;
     flex-direction: column;
   }
-.header-styles{display: none;}
+  /* .header-styles {
+    display: none;
+  } */
+
   .shoppinglist-shoppinglist {
     width: 100%;
     min-height: 812px;
@@ -25,17 +32,19 @@
     flex-shrink: 0;
     background-color: rgba(246, 246, 246, 1);
   }
-.block-text{color: rgba(0, 0, 0, 0.6000000238418579);
-  width: 244px;
-  height: auto;
-  font-size: 14px;
-  font-style: Regular;
-  text-align: center;
-  font-family: DM Sans;
-  font-weight: 400;
-  line-height: 18px;
-  font-stretch: normal;
-  text-decoration: none;}
+  .block-text {
+    color: rgba(0, 0, 0, 0.6000000238418579);
+    width: 244px;
+    height: auto;
+    font-size: 14px;
+    font-style: Regular;
+    text-align: center;
+    font-family: DM Sans;
+    font-weight: 400;
+    line-height: 18px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
   .shoppinglist-text {
     margin-top: 104px;
     margin-left: 20px;
@@ -279,7 +288,9 @@
     align-items: center;
     flex-direction: column;
   }
-.header-styles{display:inherit;}
+  .header-styles {
+    display: inherit;
+  }
   .shoppinglist-shoppinglist {
     width: 1392px;
     display: flex;
@@ -295,7 +306,6 @@
   .shoppinglist-text {
     margin: 0;
     margin-top: 40px;
- 
 
     color: #4f2ee8;
     height: auto;
@@ -317,7 +327,7 @@
   .shoppinglist-blocks {
     gap: 20px;
     margin-top: 245px;
-  margin-left:0;
+    margin-left: 0;
     margin-right: 355px;
     width: 349px;
     display: flex;
