@@ -56,18 +56,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       });
     });
   }
-  const openSeeMore = document.querySelectorAll('.btn-more');
-  openSeeMore.forEach(link => {
-    link.addEventListener('click', categoryClick);
-  });
-  function categoryClick(event) {
-    const bestCategory = document.querySelector('.js-home-pg');
-    const categories = document.querySelector('.js-selected-page');
-    const listName = event.srcElement.dataset.id;
-    bestCategory.style.display = 'none';
-    categories.style.display = 'block';
-    homeCategory(listName);
-  }
 
   function categoriesTemplate(categories) {
     const markup = `<li id="${categories.list_name}" class="list-category-books">
@@ -121,4 +109,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   render(data);
+  const openSeeMore = document.querySelectorAll('.btn-more');
+  openSeeMore.forEach(link => {
+    link.addEventListener('click', categoryClick);
+  });
+  function categoryClick(event) {
+    const bestCategory = document.querySelector('.js-home-pg');
+    const categories = document.querySelector('.js-selected-page');
+    const listName = event.srcElement.dataset.id;
+    bestCategory.style.display = 'none';
+    categories.style.display = 'block';
+    homeCategory(listName);
+  }
 });
