@@ -115,38 +115,4 @@ shoppingListContainer.addEventListener('click', function (event) {
     // updatePagination();
   }
 });
-// =======
-
-//   // Ініціалізуємо або оновлюємо пагінацію
-//   const pagination = new tuiPagination('pagination', {
-//     totalItems: totalPages,
-//     itemsPerPage: 1,
-//     visiblePages: 5,
-//   });
-// }
-
-// // shoppingListContainer.addEventListener('click', function (event) {
-// //   const target = event.target;
-// //   if (event.target.nodeName !== 'BUTTON' || event.target.nodeName !== 'IMG') {
-// //     const bookContainer = target.closest('.container-block');
-// //     const bookId = bookContainer.getAttribute('data-book-id');
-
-// //     const booksIds = infoItemLocalStorage(TASKS_KEY) || [];
-// //     const index = booksIds.indexOf(bookId);
-// //     if (index !== -1) {
-// //       booksIds.splice(index, 1);
-// //       addItemLocalStorage(TASKS_KEY, booksIds);
-// //     }
-
-// //     bookContainer.remove();
-
-// //     if (!shoppingListContainer.querySelector('.container-block')) {
-// //       shoppingListContainer.innerHTML = emptyMessage;
-// //     }
-
-// //     // Оновлення пагінації після видалення книги
-// //     updatePagination();
-// //   }
-// // });
-// >>>>>>> main
 addToShoppingList();
