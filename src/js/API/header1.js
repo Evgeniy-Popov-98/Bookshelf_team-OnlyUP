@@ -48,6 +48,7 @@ const arrSuppotr = [
 
 const firstButton = document.querySelector('.plus-btn');
 const secondButton = document.querySelector('.second-btn');
+const supportList = document.querySelector('.header-menu');
 
 const supportItem = document.querySelectorAll('.header-link');
 const hidentItem = document.querySelectorAll('.header-item');
@@ -59,16 +60,12 @@ for (let i = 0; i < supportItem.length; i++) {
 firstButton.addEventListener('click', function () {
   firstButton.style.display = 'none';
   secondButton.style.display = 'flex';
-  for (let i = 0; i < 3; i++) {
-    hidentItem[i].style.display = 'none';
-  }
+  supportList.style.transform = 'translateY(-156px)';
+  supportList.style.transition = 'transform 2s allow-discrete';
 });
 
 secondButton.addEventListener('click', function () {
   firstButton.style.display = 'flex';
   secondButton.style.display = 'none';
-
-  for (let i = 0; i < 3; i++) {
-    hidentItem[i].style.display = 'flex';
-  }
+  supportList.style.transform = '';
 });
