@@ -2,11 +2,12 @@
 div {
     display: flex;
 }
-
 .peremukach {
     display: flex;
     list-style: none;
     padding: 0;
+    position: absolute;
+    bottom: 0px;
 }
 
 .peremukach li {
