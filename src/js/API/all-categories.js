@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const category = event.target.innerHTML;
       for (const item of data) {
         if (item.list_name === category) {
-          bestCategory.style.display = 'none';
-          categories.style.display = 'block';
+          //   bestCategory.style.display = 'none';
+          //   categories.style.display = 'block';
           homeCategory(category);
         }
       }

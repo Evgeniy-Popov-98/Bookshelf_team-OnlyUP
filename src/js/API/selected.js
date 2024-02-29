@@ -2,15 +2,22 @@ import { getBooks } from './api-books';
 import { GetBook } from './modal';
 
 const END_POINT = 'category';
+const loader = document.querySelector('.loader-selected');
 
 export async function homeCategory(categoriesBooks) {
+  const bestCategory = document.querySelector('.js-home-pg');
+  const categories = document.querySelector('.js-selected-page');
+  bestCategory.style.display = 'none';
+  categories.style.display = 'block';
+  loader.style.display = 'block';
   const newSelect = document.querySelector('.js-booksgallery');
-  const loader = document.querySelector('.loader');
   newSelect.innerHTML = '';
+  const newTitle = document.querySelector('.selected-title');
+  newTitle.innerHTML = '';
 
   try {
-    loader.style.display = 'none';
     const data = await getBooks(END_POINT, categoriesBooks);
+    loader.style.display = 'none';
     renderBooks(data);
     updateTitle(categoriesBooks);
   } catch (error) {
@@ -31,7 +38,6 @@ export async function homeCategory(categoriesBooks) {
 
 function renderBooks(books) {
   const gallery = document.querySelector('.booksgallery');
-  console.log(gallery);
   const markup = books
     .map(book => {
       return `
