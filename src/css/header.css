@@ -193,57 +193,46 @@
     align-items: center;
   }
 
-  .hhome-btn:hover {
-    border-radius: 36px;
-    padding: 8px 16px;
-    height: 34px;
-    background-color: #eac645;
-    transition: all 1s ease;
-    font-weight: 700;
-  }
-
   .hhome-text {
-    /* font-weight: 700; */
-    font-size: 14px;
-    line-height: 1.28571;
-    letter-spacing: -0.04em;
-    text-transform: uppercase;
-    color: var(--text-color);
-    cursor: pointer;
   }
 
-  .hshopping-btn:hover {
-    border-radius: 36px;
-    padding: 7px 16px;
-    width: 156px;
-    height: 34px;
-    background-color: #eac645;
-    transition: all 1s ease;
-    font-weight: 700;
-  }
-
-  /* Styles for active page below */
-
-  .active-page {
+  .header-newbg {
     border-radius: 36px;
     padding: 8px 16px;
-    min-width: 72px;
-    height: 34px;
     background-color: #eac645;
     transition: all 1s ease;
-    font-weight: 700;
   }
 
-  /* Styles for active page  above */
+  .header-hover {
+    transition: all 1s ease;
+  }
+
+  .header-hover:hover {
+    border-radius: 36px;
+    padding: 8px 16px;
+    background-color: #eac645;
+    transition: all 1s ease;
+  }
+
+  .header-home-link {
+    border-radius: 36px;
+    transition: all 1s ease;
+  }
+
+  .header-home-link:focus,
+  .hshopping-link:focus {
+    border-radius: 36px;
+    background-color: #eac645;
+    transition: all 1s ease;
+    padding: 8px 16px;
+  }
 
   .hshopping-link {
+    transition: all 1s ease;
     display: flex;
     flex-direction: row;
     gap: 4px;
     align-items: center;
-    width: 118px;
-    height: 20px;
-
     font-weight: 500;
     font-size: 14px;
     line-height: 1.28571;

@@ -4,7 +4,7 @@
   position: relative;
   display: flex;
   align-items: center;
-
+  border: none;
   border-radius: 15px;
   background: linear-gradient(180deg, #4f2ee8 0%, #dcdcdc 100%);
   box-shadow: inset 1px 1px 2px 0 rgba(0, 0, 0, 0.1);
