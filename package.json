@@ -1,11 +1,11 @@
 {
-  "name": "js-new_team-project",
+  "name": "Bookshelf_team-OnlyUP",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/JS-new_teamProject/",
+    "build": "vite build --base=/Bookshelf_team-OnlyUP/",
     "preview": "vite preview"
   },
   "devDependencies": {
