@@ -5,9 +5,11 @@ const END_POINT = 'category';
 
 export async function homeCategory(categoriesBooks) {
   const newSelect = document.querySelector('.js-booksgallery');
+  const loader = document.querySelector('.loader');
   newSelect.innerHTML = '';
 
   try {
+    loader.style.display = 'none';
     const data = await getBooks(END_POINT, categoriesBooks);
     renderBooks(data);
     updateTitle(categoriesBooks);
@@ -29,6 +31,7 @@ export async function homeCategory(categoriesBooks) {
 
 function renderBooks(books) {
   const gallery = document.querySelector('.booksgallery');
+  console.log(gallery);
   const markup = books
     .map(book => {
       return `
