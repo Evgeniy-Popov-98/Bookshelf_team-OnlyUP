@@ -6,10 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
   async function renderCategoriesList() {
     const data = await getBooks('category-list');
 
-    let markup = `<li data-category="top-books" class="category-books-item">All categories</li>`;
+    let markup = `<li data-category="top-books" class="category-books-item " tabindex="0">All categories</li>`;
 
     data.forEach(category => {
-      markup += `<li class="category-books-item" data-category="${category.list_name}">${category.list_name}</li>`;
+      markup += `<li class="category-books-item" data-category="${category.list_name}" tabindex="0">${category.list_name} </li>`;
     });
 
     refs.allListCategories.insertAdjacentHTML('beforeend', markup);
