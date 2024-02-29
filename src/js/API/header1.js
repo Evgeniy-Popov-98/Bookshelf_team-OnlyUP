@@ -54,7 +54,13 @@ const supportItem = document.querySelectorAll('.header-link');
 const hidentItem = document.querySelectorAll('.header-item');
 
 for (let i = 0; i < supportItem.length; i++) {
-  supportItem[i].setAttribute('href', `${arrSuppotr[i].url}`);
+  let markup = '';
+
+  markup += `<li class="header-item"> <a class="header-link" target="_blank" href="${arrSuppotr[i].url}">
+  <span class="header-img">01</span>
+  <img src="./images/section-support/Mask group-min.png" alt="Logo" Width="129" Height="32"></a></li>`;
+
+  supportList.insertAdjacentHTML('beforeend', markup);
 }
 
 firstButton.addEventListener('click', function () {
