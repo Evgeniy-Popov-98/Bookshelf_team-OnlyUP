@@ -95,7 +95,8 @@ body {
 }
 
 .loader,
-.loader-selected {
+.loader-selected,
+.loader-shopping {
   transform: rotateZ(45deg);
   perspective: 1000px;
   border-radius: 50%;
@@ -132,8 +133,23 @@ body {
   animation: 1s spin linear infinite;
 }
 
+.loader-shopping:before,
+.loader-shopping:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 250px;
+  left: 50%;
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+  transform: rotateX(70deg);
+  animation: 1s spin linear infinite;
+}
+
 .loader:after,
-.loader-selected:after {
+.loader-selected:after,
+.loader-shopping:after {
   color: #4f2ee8;
   transform: rotateY(70deg);
   animation-delay: 0.4s;

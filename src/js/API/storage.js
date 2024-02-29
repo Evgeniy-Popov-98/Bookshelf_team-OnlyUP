@@ -66,20 +66,17 @@ async function addToShoppingList() {
     }
 
     shoppingListContainer.innerHTML += markup; // Додайте новий вміст до існуючого
-
-    // Оновлення пагінації після додавання книг
-    // updatePagination();
   } catch (error) {
     console.error('Error fetching book data:', error);
   }
 }
 
 function createBookMarkup(book, bookId) {
+  const loader = document.querySelector('.loader-shopping');
+  loader.style.display = 'none';
   const bookDescription = book.description
     ? book.description
     : "With our diverse range of titles, you're sure to find the perfect companion for cozy nights in. Treat yourself to the joy of reading and explore the endless possibilities that await within the pages of our books.";
-
-  console.log(bookDescription);
 
   return `
 <div class="container-block" id="${bookId.constID}">    
@@ -97,19 +94,6 @@ function createBookMarkup(book, bookId) {
         </ul>
 </div>
   `;
-}
-
-function updatePagination() {
-  // Отримуємо кількість сторінок на основі кількості книг
-  const booksIds = infoItemLocalStorage(TASKS_KEY);
-  const totalPages = Math.ceil(booksIds.length / 4); // По 4 книги на сторінку
-
-  // Ініціалізуємо або оновлюємо пагінацію
-  const pagination = new tuiPagination('pagination', {
-    totalItems: totalPages,
-    itemsPerPage: 1,
-    visiblePages: 5,
-  });
 }
 
 shoppingListContainer.addEventListener('click', function (event) {
@@ -134,9 +118,6 @@ shoppingListContainer.addEventListener('click', function (event) {
     if (!shoppingListContainer.querySelector('.container-block')) {
       shoppingListContainer.innerHTML = emptyMessage;
     }
-
-    // Оновлення пагінації після видалення книги
-    // updatePagination();
   }
 });
 
