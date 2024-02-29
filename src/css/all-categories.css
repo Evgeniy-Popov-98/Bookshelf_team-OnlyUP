@@ -23,7 +23,7 @@
   font-weight: 700;
   color: var(--color-cal);
   text-transform: uppercase;
-  transition: color 500ms ease, text-transform 500ms ease;
+  transition: color 1s ease, text-transform 1s ease;
 }
 
 @media screen and (min-width: 768px) {
