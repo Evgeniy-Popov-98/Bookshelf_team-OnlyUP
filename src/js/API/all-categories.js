@@ -5,6 +5,7 @@ import refs from './refs';
 document.addEventListener('DOMContentLoaded', () => {
   async function renderCategoriesList() {
     const data = await getBooks('category-list');
+
     let markup = `<li data-category="top-books" class="category-books-item">All categories</li>`;
 
     data.forEach(category => {
@@ -26,8 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const category = event.target.innerHTML;
       for (const item of data) {
         if (item.list_name === category) {
-          bestCategory.style.display = 'none';
-          categories.style.display = 'block';
+          //   bestCategory.style.display = 'none';
+          //   categories.style.display = 'block';
           homeCategory(category);
         }
       }

@@ -2,13 +2,22 @@ import { getBooks } from './api-books';
 import { GetBook } from './modal';
 
 const END_POINT = 'category';
+const loader = document.querySelector('.loader-selected');
 
 export async function homeCategory(categoriesBooks) {
+  const bestCategory = document.querySelector('.js-home-pg');
+  const categories = document.querySelector('.js-selected-page');
+  bestCategory.style.display = 'none';
+  categories.style.display = 'block';
+  loader.style.display = 'block';
   const newSelect = document.querySelector('.js-booksgallery');
   newSelect.innerHTML = '';
+  const newTitle = document.querySelector('.selected-title');
+  newTitle.innerHTML = '';
 
   try {
     const data = await getBooks(END_POINT, categoriesBooks);
+    loader.style.display = 'none';
     renderBooks(data);
     updateTitle(categoriesBooks);
   } catch (error) {

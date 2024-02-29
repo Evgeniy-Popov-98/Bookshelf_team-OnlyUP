@@ -4,8 +4,11 @@ import { errorMessage } from './messageError';
 import { GetBook } from './modal';
 import { homeCategory } from './selected';
 
+const loader = document.querySelector('.loader');
+
 document.addEventListener('DOMContentLoaded', async () => {
   let previousWidth = window.innerWidth;
+  loader.style.display = 'none';
   const data = await getBooks('top-books');
   window.addEventListener('resize', onResize);
 
