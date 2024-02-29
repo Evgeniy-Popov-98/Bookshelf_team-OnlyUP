@@ -57,11 +57,21 @@ document.addEventListener('DOMContentLoaded', async () => {
           GetBook(data);
         }
       });
+      
+    });
+    document.addEventListener('keydown', function(event) {
+      if (event.code == 'Enter') {
+        const card = event.target.closest('.card');
+        if (card) {
+          const data = card.dataset.id;
+          GetBook(data);
+        }
+      }
     });
   }
 
   function categoriesTemplate(categories) {
-    const markup = `<li id="${categories.list_name}" class="list-category-books">
+    const markup = `<li id="${categories.list_name}" class="list-category-books" >
     <h2 class="list-category-title">${categories.list_name}</h2>
     <ul class="list-book">
      </ul>
@@ -73,7 +83,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const { book_image, author, title, _id, contributor, list_name } = book;
     if (list_name)
       return `
-    <li class="card book-item book-hover" data-id="${_id}">
+    <li class="card book-item book-hover" data-id="${_id}" tabindex="0">
        <div class="wrapper-overlay">
         <img class="book-img-home" src="${book_image}" alt="${contributor} ${title}">
         <div class="book-image-overlay" aria-label="${title}">
