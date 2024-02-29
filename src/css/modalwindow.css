@@ -5,13 +5,24 @@ form {
     all: initial;
 }
 
-input[type="text"],
+
 input[type="email"],
-input[type="password"],
 textarea {
     all: initial;
+    width: 150px;
 
 }
+
+input[type="text"]{
+    all: initial;
+    width: 200px;
+}
+
+input[type="password"]{
+    all: initial;
+    width: 100px;
+}
+
 .modaldodal {
     position: fixed;
     width: 100%;
@@ -66,6 +77,18 @@ textarea {
     border-radius: 40px;
 }
 
+.popup-input-name {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 10px;
+    width: 295px;
+    height: 50px;
+    border: 2px solid #111111;
+    border-radius: 40px;
+}
+
 .popup-label {    
         width: 46px;
         height: 18px;
@@ -81,9 +104,31 @@ textarea {
 
 }
 
+.popup-label-pass {
+    width: 92px;
+    height: 18px;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 18px;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #111111;
+
+
+}
+
 .popup-input-field {}
 
-.popup-icon {}
+.popup-icon {
+
+    position:relative;
+    width: 18px;
+    height: 18px;
+
+
+}
 
 .popup-button {
     display: flex;
@@ -154,7 +199,21 @@ textarea {
 }
 
 @media screen and (min-width: 749px) and (max-width: 1440px){
-    .modalcontent {
+
+input[type="email"],
+textarea {
+width: 300px;
+}
+    
+input[type="text"] {
+    width: 350px;
+}
+
+input[type="password"]{
+    width: 260px;
+}
+        
+.modalcontent {
     width: 580px;
 }
 
@@ -171,6 +230,12 @@ textarea {
 
 }
 
+.popup-input-name {
+    gap: 10px;
+    width: 499px;
+    height: 64px;
+}
+
 .popup-label {    
         width: 52px;
         height: 24px;
@@ -183,7 +248,13 @@ textarea {
 
 .popup-input-field {}
 
-.popup-icon {}
+.popup-icon {
+
+    width: 28px;
+    height: 28px;
+
+
+}
 
 .popup-button {
     padding: 20px 173px;
