@@ -12,3 +12,4 @@ import './js/switch-button';
 import './js/scroll-up';
 import './js/API/messageError';
 import './js/colorPage';
+// import './js/mobmenu';
