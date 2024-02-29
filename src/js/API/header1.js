@@ -54,7 +54,6 @@ const supportItem = document.querySelectorAll('.header-link');
 const hidentItem = document.querySelectorAll('.header-item');
 
 for (let i = 0; i < supportItem.length; i++) {
-  // supportItem[i].setAttribute('href', `${arrSuppotr[i].url}`);
   let markup = '';
 
   markup += `<li class="header-item"> <a class="header-link" target="_blank" href="${arrSuppotr[i].url}">
