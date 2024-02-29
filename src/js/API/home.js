@@ -57,9 +57,8 @@ document.addEventListener('DOMContentLoaded', async () => {
           GetBook(data);
         }
       });
-      
     });
-    document.addEventListener('keydown', function(event) {
+    document.addEventListener('keydown', function (event) {
       if (event.code == 'Enter') {
         const card = event.target.closest('.card');
         if (card) {
@@ -132,6 +131,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const listName = event.srcElement.dataset.id;
     bestCategory.style.display = 'none';
     categories.style.display = 'block';
+    console.log(2);
     homeCategory(listName);
   }
 });
