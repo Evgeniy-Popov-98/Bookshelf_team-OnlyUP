@@ -26,6 +26,12 @@
   transition: color 1s ease, text-transform 1s ease;
 }
 
+.category-books-item.selected {
+  font-weight: 700;
+  color: var(--color-cal);
+  text-transform: uppercase;
+}
+
 @media screen and (min-width: 768px) {
   .all-categories {
     width: 357px;
