@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     homeBtnlink.classList.remove('header-home-link');
   } else if (currentLocation.includes('shoppinglist.html')) {
     shoppingBtn.classList.add('header-newbg');
+    homeBtn.classList.remove('header-newbg');
     shoppingBtnlink.classList.remove('hshopping-icon');
   }
 });
