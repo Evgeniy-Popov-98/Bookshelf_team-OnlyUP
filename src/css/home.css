@@ -129,7 +129,7 @@
   justify-content: center;
   margin: 8px 0 40px auto;
   background-color: transparent;
-  transition: background-color 250ms ease, color 250ms ease; 
+  transition: background-color 500ms ease, color 500ms ease; 
 }
 
 .btn-more:hover,
