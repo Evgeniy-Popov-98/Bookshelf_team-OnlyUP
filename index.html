@@ -17,9 +17,9 @@
 	
   <script type="module" crossorigin src="/Bookshelf_team-OnlyUP/commonHelpers.js"></script>
   <link rel="modulepreload" crossorigin href="/Bookshelf_team-OnlyUP/assets/vendor-f87d3a68.js">
-  <link rel="modulepreload" crossorigin href="/Bookshelf_team-OnlyUP/assets/switch-button-43392486.js">
+  <link rel="modulepreload" crossorigin href="/Bookshelf_team-OnlyUP/assets/switch-button-cd75a2d2.js">
   <link rel="stylesheet" href="/Bookshelf_team-OnlyUP/assets/vendor-e5212ee8.css">
-  <link rel="stylesheet" href="/Bookshelf_team-OnlyUP/assets/index-69d92b5c.css">
+  <link rel="stylesheet" href="/Bookshelf_team-OnlyUP/assets/index-511a0765.css">
 </head>
 
 <body class="light">
@@ -37,21 +37,18 @@
 				</a>
 			</div>
 			<nav class="hmenu-wrap">
-				<div class="hhome-text js-hhome hhome-btn">
-					<a href="./index.html">Home</a>
-				</div>
-				<div class="hshopping-wrap js-hshopping hhome-btn">
-					<a class="hshopping-link" href="./main-shoppinglist.html">Shopping list
-						<svg class="hshopping-icon" width="20" height="20">
-							<use href="/Bookshelf_team-OnlyUP/assets/icons-311b5d9e.svg#icon-shopping-list"></use>
-						</svg>
-					</a>
-				</div>
+				<a class="header-home-link hhome-text js-hhome header-hover" href="./index.html">Home</a>
+				<a class="hshopping-link hshopping-wrap js-hshopping header-hover"
+					href="./main-shoppinglist.html">Shopping list
+					<svg class="hshopping-icon" width="20" height="20">
+						<use href="/Bookshelf_team-OnlyUP/assets/icons-311b5d9e.svg#icon-shopping-list"></use>
+					</svg>
+				</a>
 			</nav>
 		</div>
 		<div class="hswitcher-user-wrap">
 			<div class="hswitcher-burger-wrap">
-				<div class="switch-box">
+				<div class="switch-box" tabindex="0">
 					<div class="switch-button" data-switch="false"></div>
 				</div>
 
@@ -66,7 +63,7 @@
 				</div>
 			</div>
 
-			<div class="h-user">
+			<div class="h-user" tabindex="0">
 				Sign up
 				<svg class="h-user-sign" width="20" height="20">
 					<use href="/Bookshelf_team-OnlyUP/assets/icons-311b5d9e.svg#icon-arrow"></use>
