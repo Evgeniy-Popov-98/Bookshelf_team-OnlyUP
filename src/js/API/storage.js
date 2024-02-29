@@ -14,20 +14,39 @@ import bookSvg from '/images/book.svg';
 import trashSvg from '/images/trash.svg';
 import tuiPagination from 'tui-pagination'; // Імпортуємо бібліотеку пагінації
 
-const supportSection = document.querySelector('.header-styles');
-if (screen.width < 1440) {
-  console.log(screen.width);
-  supportSection.style.display = 'none';
-} else {
-  supportSection.style.display = 'flex';
+const shoppingListContainer = document.querySelector(
+  '.shoppinglist-shoppinglist'
+);
+
+// Функція для створення елементу <h1 class="shoppinglist-text">
+function createShoppingListHeader() {
+  // Перевірка наявності елемента перед створенням нового
+  const existingHeader =
+    shoppingListContainer.querySelector('.shoppinglist-text');
+  if (existingHeader) {
+    return existingHeader;
+  }
+
+  const header = document.createElement('h1');
+  header.classList.add('shoppinglist-text');
+  header.innerHTML = `
+        <span class="shoppinglist-text1">Shopping</span>
+        List
+    `;
+  return header;
 }
 
-const shoppingListContainer = document.querySelector('.shoppinglist-container');
+// Додавання елементу <h1 class="shoppinglist-text"> до shoppingListContainer
+shoppingListContainer.appendChild(createShoppingListHeader());
+
 const emptyMessage = `
-    <div class="shoppinglist-blocks">
-        <h2 class="text">This page is empty, add some books and proceed to order.</h2>
-        <img src="${img9606}" alt="Shopping Image" class="shoppinglist-img96061">
-    </div>
+<h1 class="shoppinglist-text">Shopping
+	<span class="shoppinglist-text1">List</span>
+</h1>
+<div class="shoppinglist-blocks">
+    <h2 class="text">This page is empty, add some books and proceed to order.</h2>
+    <img src="${img9606}" alt="Shopping Image" class="shoppinglist-img96061">
+</div>
 `;
 
 async function addToShoppingList() {
@@ -46,47 +65,35 @@ async function addToShoppingList() {
       markup += createBookMarkup(dataBook, bookId);
     }
 
-    shoppingListContainer.innerHTML = markup;
-
-    // Оновлення пагінації після додавання книг
-    // updatePagination();
+    shoppingListContainer.innerHTML += markup; // Додайте новий вміст до існуючого
   } catch (error) {
     console.error('Error fetching book data:', error);
   }
 }
 
 function createBookMarkup(book, bookId) {
+  const loader = document.querySelector('.loader-shopping');
+  loader.style.display = 'none';
+  const bookDescription = book.description
+    ? book.description
+    : "With our diverse range of titles, you're sure to find the perfect companion for cozy nights in. Treat yourself to the joy of reading and explore the endless possibilities that await within the pages of our books.";
+
   return `
-    <div class="container-block" id="${bookId.constID}">
-        <div class="btn-and-links">
-            <button class="trash-btn"><img src="${trashSvg}" alt=""></button>
-            <ul class="links">
-                <li><img src="${amazonSvg}" class="amazon"></li>
-                <li><img src="${bookSvg}"></li>
-            </ul>
-        </div>
-        <img src="${book.book_image}" alt="${book.title}" class="book-image">
-        <div class="text-area">
-            <h2 class="shopping-list-title">${book.title}</h2>
-            <h2 class="shopping-list-title-name">${book.list_name}</h2>
-            <p class="shopping-list-description">${book.description}</p>
-            <h2 class="shopping-list-author">${book.author}</h2>
-        </div>
+<div class="container-block" id="${bookId.constID}">    
+    <img src="${book.book_image}" alt="${book.title}" class="book-image">
+    <div class="text-area">
+        <h2 class="shopping-list-title">${book.title}</h2>
+        <h2 class="shopping-list-title-name">${book.list_name}</h2>
+        <p class="shopping-list-description">${bookDescription}</p>
+        <h2 class="shopping-list-author">${book.author}</h2>
     </div>
+        <button class="trash-btn"><img src="${trashSvg}" alt=""></button>
+        <ul class="links">
+            <li><a target="_blank" href="${book.buy_links[0].url}"><img src="${amazonSvg}" class="amazon"></a></li>
+            <li><a target="_blank" href="${book.buy_links[1].url}"><img src="${bookSvg}"  class="apple-book"></a></li>
+        </ul>
+</div>
   `;
-}
-
-function updatePagination() {
-  // Отримуємо кількість сторінок на основі кількості книг
-  const booksIds = infoItemLocalStorage(TASKS_KEY);
-  const totalPages = Math.ceil(booksIds.length / 4); // По 4 книги на сторінку
-
-  // Ініціалізуємо або оновлюємо пагінацію
-  const pagination = new tuiPagination('pagination', {
-    totalItems: totalPages,
-    itemsPerPage: 1,
-    visiblePages: 5,
-  });
 }
 
 shoppingListContainer.addEventListener('click', function (event) {
@@ -111,9 +118,7 @@ shoppingListContainer.addEventListener('click', function (event) {
     if (!shoppingListContainer.querySelector('.container-block')) {
       shoppingListContainer.innerHTML = emptyMessage;
     }
-
-    // Оновлення пагінації після видалення книги
-    // updatePagination();
   }
 });
+
 addToShoppingList();

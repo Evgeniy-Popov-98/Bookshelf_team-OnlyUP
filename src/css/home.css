@@ -1,4 +1,5 @@
 .home-pg {
+  position: relative;
   margin: 40px 0 0 0;
   height: 100vh;
 }
@@ -44,7 +45,7 @@
   margin-bottom: 14px;
   width: 100%;
   height: 485px;
-  cursor: pointer;
+  
 }
 
 .wrapper-overlay {
@@ -128,12 +129,13 @@
   justify-content: center;
   margin: 8px 0 40px auto;
   background-color: transparent;
+  transition: background-color 250ms ease, color 250ms ease; 
 }
 
 .btn-more:hover,
 .btn-more:focus {
   background-color: #4f2ee8;
-  color: var(--color-btn);
+  color: #FFFFFF;
 }
 
 /* ==================================================Media===================================================== */

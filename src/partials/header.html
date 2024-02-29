@@ -1,4 +1,4 @@
-<header>
+<div class="header container ">
 	<div class="header-container">
 		<div class="hlogo-menu-wrap">
 			<div class="hlogo-wrap">
@@ -9,10 +9,9 @@
 					Bookshelf
 				</a>
 			</div>
-
-			<div class="hmenu-wrap">
-				<div class="hhome-text js-hhome">
-					<a href="">Home</a>
+			<nav class="hmenu-wrap">
+				<div class="hhome-text js-hhome hhome-btn">
+					<a href="./index.html">Home</a>
 				</div>
 
 				<div class="hshopping-wrap hshopping-btn js-hshopping">
@@ -22,19 +21,23 @@
 						</svg>
 					</a>
 				</div>
-			</div>
+			</nav>
 		</div>
-
 		<div class="hswitcher-user-wrap">
 			<div class="hswitcher-burger-wrap">
 				<div class="switch-box">
 					<div class="switch-button" data-switch="false"></div>
 				</div>
-				<a class="hburger-menu-link" href="">
-					<svg class="hburger-menu-icon" width="28" height="28">
-						<use href="../images/icons.svg#icon-burger"></use>
+
+				<div class="hmob-burger-menu">
+					<svg class="hburger-menu-icon icon is-visible" width="28" height="28">
+						<use href="./images/icons.svg#icon-burger-meny"></use>
 					</svg>
-				</a>
+
+					<svg class="hclose-menu-icon icon" width="28" height="28">
+						<use href="./images/icons.svg#icon-x-close"></use>
+					</svg>
+				</div>
 			</div>
 
 			<div class="h-user">
@@ -45,87 +48,26 @@
 			</div>
 		</div>
 	</div>
-
-	<div id="modal" class="modal">
-
-		<div class="modalbody">
-
-			<div class="modalcontent">
-				<svg class="modalclose" width="14" height="14">
-					<use href="../images/icons.svg#icon-x-close"></use>
-				</svg>
-
-				<div class="datelage">
-					<div class="popup-input">
-						<label class="popup-label">Name</label>
-						<input type="text" class="popup-input-field" />
-					</div>
-
-					<div class="popup-input">
-						<label class="popup-label">Email</label>
-						<input type="email" class="popup-input-field" />
-						<img src="../images/icons.svg#icon-envelopp" alt="Email Icon" class="popup-icon" />
-					</div>
-
-					<div class="popup-input">
-						<label class="popup-label">Password</label>
-						<input type="password" class="popup-input-field" />
-						<img src="path/to/password-icon.svg" alt="Password Icon" class="popup-icon" />
-					</div>
-				</div>
-
-				<div class="popup-button">
-					<button class="popup-button-signup">Sign up</button>
-				</div>
-
-				<div class="popup-link">
-					<a href="#" class="popup-link-signup">Sign up</a>
-					<a href="#" class="popup-link-signup">Sign in</a>
-				</div>
-
-			</div>
-
+</div>
+<!--******************** header Mob modal *******************-->
+<div class="hmob-modal-wrap js-hmob-modal">
+	<nav class="hmob-modal-nav">
+		<div class="hmodal-home-btn">
+			<a href="./index.html">Home</a>
 		</div>
-	</div>
 
-	<div class="mobilebody">
-		<div class="mobile-wrap">
-			<div class="logout-button-text">
-				<svg class="h-user-sign" width="20" height="20">
-					<use href="../images/icons.svg#icon-user"></use>
+		<div class="hmodal-shopping-wrap">
+			<a class="hmodal-shopping-link" href="./main-shoppinglist.html">Shopping list
+				<svg class="hmodal-shopping-icon" width="20" height="20">
+					<use href="./images/icons.svg#icon-shopping-list"></use>
 				</svg>
-				User
-
-			</div>
-			<div class="mob-home-btn js-mobhome">
-				<a class="mob-home-text" href="">Home</a>
-			</div>
-
-			<div class="hshopping-wrap mob-shopping-btn js-mobhopping">
-				<a class="mob-shopping-link" href="">Shopping list
-					<svg class="mob-hopping-icon" width="20" height="20">
-						<use href="../images/icons.svg#icon-shopping-list"></use>
-					</svg>
-				</a>
-			</div>
-
-			<div class="logout-button">
-				<div class="logout-button-text">Log Out
-					<svg class="h-user-sign" width="20" height="20">
-						<use href="../images/icons.svg#icon-arrow"></use>
-					</svg>
-					<div>
-					</div>
-
-
-
-				</div>
-
-
-
-			</div>
-
-			<script src="../js/modalwindow.js"></script>
-			<script src="../js/mobmenu.js"></script>
-
-</header>
+			</a>
+		</div>
+	</nav>
+	<div class="h-user-mobail">
+		Sign up
+		<svg class="h-user-sign-mobail" width="20" height="20">
+			<use href="./images/icons.svg#icon-arrow"></use>
+		</svg>
+	</div>
+</div>
