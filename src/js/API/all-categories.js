@@ -5,7 +5,6 @@ import refs from './refs';
 document.addEventListener('DOMContentLoaded', () => {
   async function renderCategoriesList() {
     const data = await getBooks('category-list');
-
     let markup = `<li data-category="top-books" class="category-books-item">All categories</li>`;
 
     data.forEach(category => {
