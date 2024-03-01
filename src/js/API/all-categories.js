@@ -5,6 +5,7 @@ import refs from './refs';
 document.addEventListener('DOMContentLoaded', () => {
   async function renderCategoriesList() {
     const data = await getBooks('category-list');
+    data.sort((a, b) => a.list_name.localeCompare(b.list_name));
 
     let markup = `<li data-category="top-books" class="category-books-item" tabindex="0">All categories</li>`;
 
@@ -48,3 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   renderCategoriesList();
 });
+
+// ------------------------------ Sort categories ----------------------- //
+
+
+

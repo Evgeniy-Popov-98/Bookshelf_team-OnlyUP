@@ -13,6 +13,8 @@
   color: var(--color-category);
   cursor: pointer;
   margin-bottom: 24px;
+  transition: color 500ms linear, text-transform 500ms linear,
+    font-weight 500ms linear;
 }
 
 .category-books-item:nth-last-child(1) {
@@ -23,7 +25,8 @@
   font-weight: 700;
   color: var(--color-cal);
   text-transform: uppercase;
-  transition: color 500ms ease, text-transform 500ms ease;
+  transition: color 500ms linear, text-transform 500ms linear,
+    font-weight 500ms linear;
 }
 
 @media screen and (min-width: 768px) {
