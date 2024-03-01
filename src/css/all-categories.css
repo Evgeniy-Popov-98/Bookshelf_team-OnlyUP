@@ -35,7 +35,7 @@
   cursor: pointer;
   margin-bottom: 24px;
   transition: color 0.5s ease, background-color 0.5s ease, font-weight 0.5s ease;
-  animation: uppercaseAnimation 0.8s ease-in;
+  /* animation: uppercaseAnimation 0.8s ease-in; */
 }
 
 .category-books-item:nth-last-child(1) {
@@ -46,6 +46,7 @@
   font-weight: 700;
   color: var(--color-cal);
   text-transform: uppercase;
+  transition: color 0.5s ease, background-color 0.5s ease, font-weight 0.5s ease;
 }
 
 .category-books-item.selected {
