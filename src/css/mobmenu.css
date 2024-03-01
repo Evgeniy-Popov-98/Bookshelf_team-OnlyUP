@@ -1,0 +1,139 @@
+.modalUser {
+  display: none;
+}
+
+@media screen and (min-width: 769px) and (max-width: 1440px) {
+  .mobilebody {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .mobilebody {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(79, 46, 232, 1);
+    top: 0;
+    left: 0;
+    opacity: 1;
+    visibility: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Здесь вы также можете добавить другие стили, применимые только для мобильных устройств с шириной экрана до 320 пикселей */
+}
+
+.mobileuser {
+}
+
+.mobile-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.mob-home-btn {
+  border-radius: 36px;
+  padding: 7px 16px;
+  width: 72px;
+  height: 34px;
+  background: var(--yellow);
+}
+
+.mob-home-text {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #111;
+  cursor: pointer;
+}
+
+.mobilehome {
+}
+
+.mob-shopping-wrap {
+}
+
+.mob-shopping-btn {
+  border-radius: 36px;
+  padding: 7px 16px;
+  width: 156px;
+  height: 34px;
+  background: var(--yellow);
+}
+
+.mob-home-text {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #111;
+  cursor: pointer;
+}
+
+.mob-shopping-link {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+  width: 118px;
+  height: 20px;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--black);
+}
+
+.mob-shopping-icon {
+}
+
+.log-user {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 4px;
+}
+
+.logout-button {
+  /* Rectangle 14 */
+
+  box-sizing: border-box;
+
+  position: relative;
+  width: 118px;
+  height: 48px;
+  left: 0px;
+  top: 0px;
+
+  background: #ffffff;
+  border: 1.5px solid #111111;
+  border-radius: 18px;
+}
+
+.logout-button-text {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+
+  padding: 14px 23px;
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: -0.04em;
+
+  color: #111111;
+}
