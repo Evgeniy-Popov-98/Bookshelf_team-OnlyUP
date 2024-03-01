@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Modal</title>
+<link rel="stylesheet" href="/src/css/registration.css">
+</head>
+<body>
+
+<!-- Button to open the modal -->
+<button id="openModalBtn">Open Modal</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Registration Form</h2>
+    <form id="registrationForm">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      <label for="confirmPassword">Confirm Password:</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" required>
+      <button type="submit">Register</button>
+    </form>
+  </div>
+</div>
+
+<!-- Overlay to close the modal -->
+<div class="modal-overlay"></div>
+
+<script src="/src/js/registration.js"></script>
+</body>
+</html>
