@@ -1,3 +1,24 @@
+@keyframes uppercaseAnimation {
+  0% {
+    text-transform: none;
+  }
+  15% {
+    text-transform: uppercase;
+  }
+  25% {
+    text-transform: uppercase;
+  }
+  50% {
+    text-transform: uppercase;
+  }
+  75% {
+    text-transform: uppercase;
+  }
+  100% {
+    text-transform: uppercase;
+  }
+}
+
 .all-categories {
   width: 335px;
   max-height: 228px;
@@ -13,6 +34,7 @@
   color: var(--color-category);
   cursor: pointer;
   margin-bottom: 24px;
+  /* animation: uppercaseAnimation 0.8s ease-in; */
   transition: color 500ms linear, text-transform 500ms linear,
     font-weight 500ms linear;
 }
@@ -22,6 +44,14 @@
 }
 
 .category-books-item:hover {
+  font-weight: 700;
+  color: var(--color-cal);
+  text-transform: uppercase;
+  transition: color 500ms linear, text-transform 500ms linear,
+    font-weight 500ms linear;
+}
+
+.category-books-item.selected {
   font-weight: 700;
   color: var(--color-cal);
   text-transform: uppercase;
