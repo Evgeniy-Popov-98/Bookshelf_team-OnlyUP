@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
       link.addEventListener('keypress', handleKeyPress)
     });
 
-    // Додано клас "selected" до "All categories", щоб підсвічувалась ця категорія
+     // Додано клас "selected" до "All categories", щоб підсвічувалась ця категорія
   document.querySelector('[data-category="top-books"]').classList.add('selected');
 
     function handleCategoryClick(event) {
@@ -30,8 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const bestCategory = document.querySelector('.js-home-pg');
       const categories = document.querySelector('.js-selected-page');
       const category = event.target.innerHTML;
-
-    // Видалено клас "selected" з усіх елементів списку
+        // Видалено клас "selected" з усіх елементів списку
     categoryLinks.forEach(link => link.classList.remove('selected'));
 
     // Додано клас "selected" до категорії, яка була обрана користувачем
@@ -60,6 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderCategoriesList();
 });
 
+// ------------------------------ Sort categories ----------------------- //
 
 
 

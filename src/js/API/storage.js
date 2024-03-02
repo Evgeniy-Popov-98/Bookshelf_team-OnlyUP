@@ -12,7 +12,7 @@ import img9606 from '/images/IMG_9606.png';
 import amazonSvg from '/images/amazon.svg';
 import bookSvg from '/images/book.svg';
 import trashSvg from '/images/trash.svg';
-import tuiPagination from 'tui-pagination'; // Імпортуємо бібліотеку пагінації
+// import tuiPagination from 'tui-pagination'; // Імпортуємо бібліотеку пагінації
 
 const shoppingListContainer = document.querySelector(
   '.shoppinglist-shoppinglist'
