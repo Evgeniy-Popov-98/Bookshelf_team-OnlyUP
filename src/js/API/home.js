@@ -129,6 +129,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     const bestCategory = document.querySelector('.js-home-pg');
     const categories = document.querySelector('.js-selected-page');
     const listName = event.srcElement.dataset.id;
+
+    // При натисканні на See more підсвічується відповідна категорія в списку all-categories (код нижче)
+    const categoryLinks = document.querySelectorAll('.category-books-item');
+     categoryLinks.forEach(link => {
+       if (link.innerHTML === listName) {
+      
+      link.classList.add('selected');
+    } else {
+      link.classList.remove('selected');
+    }
+     });
+    // При натисканні на See more підсвічується відповідна категорія в списку all-categories (код вище)
+    
     bestCategory.style.display = 'none';
     categories.style.display = 'block';
     console.log(2);
