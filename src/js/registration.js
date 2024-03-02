@@ -1,5 +1,5 @@
-const modal = document.getElementById('myModal');
-const openModalBtn = document.getElementById('openModalBtn');
+const modal = document.querySelector('.hmob-modal-wrap');
+const openModalBtn = document.querySelector('.signup-button');
 const closeModalBtn = document.querySelector('.close');
 const overlay = document.querySelector('.modal-overlay');
 
