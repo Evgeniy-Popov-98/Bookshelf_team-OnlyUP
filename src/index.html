@@ -15,12 +15,17 @@
 		href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@400;500;700&family=Montserrat:wght@400;500;600;700&display=swap"
 		rel="stylesheet">
 	<link rel="stylesheet" href="./css/styles.css" />
+	<script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth-compat.js"></script>
 </head>
 
 <body class="light">
 	<header>
 		<div>
 			<load scr="./partials/header.html" />
+			<load scr="./partials/form-authorization.html" />
+			<load scr="./partials/form-singIn.html" />
 		</div>
 	</header>
 	<main>
@@ -35,6 +40,9 @@
 		</div>
 		<div>
 			<load scr="./partials/modal.html" />
+		</div>
+		<div>
+			
 		</div>
 	</main>
 	<footer></footer>
