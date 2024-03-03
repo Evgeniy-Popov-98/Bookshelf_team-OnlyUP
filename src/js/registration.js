@@ -1,76 +1,81 @@
-const modal = document.querySelector('.hmob-modal-wrap');
-const openModalBtn = document.querySelector('.signup-button');
-const closeModalBtn = document.querySelector('.close');
-const overlay = document.querySelector('.modal-overlay');
+// Функція для створення HTML-структури модального вікна
+import iziToast from 'izitoast';
+function modalWindow() {
+  return `
+    <div id="myModal" class="modal" style="display: none;">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <form id="registrationForm">
+          <div class="input-group">
+            <input type="text" id="username" name="username" placeholder="NAME" required>
+            <label for="username" class="icon"></label>
+          </div>
+          <div class="input-group">
+            <input type="email" id="email" name="email" placeholder="EMAIL" required>
+            <label for="email" class="icon">
+              <img src="/src/images/mail-02.svg" alt="Email icon">
+            </label>
+          </div>
+          <div class="input-group">
+            <input type="password" id="password" name="password" placeholder="PASSWORD" required>
+            <label for="password" class="icon">
+              <img src="/src/images/lock-02.svg" alt="Password icon">
+            </label>
+          </div>
+          <button type="submit">SIGN UP</button>
+          <nav class="registration-nav"> 
+            <div class="SIGN">SIGN UP</div>
+            <div class="SIGN">SIGN IN</div>
+          </nav>
+        </form>
+      </div>
+    </div>
+    <div class="modal-overlay" style="display: none;"></div>
+  `;
+}
 
-// Function to open the modal
-function openModal() {
+document.querySelector('.signup-button').addEventListener('click', function () {
+  const modalWrap = document.querySelector('h-user-mobail');
+  modalWrap.innerHTML = modalWindow();
+
+  const modal = modalWrap.querySelector('.modal');
+  const overlay = document.querySelector('.modal-overlay'); // Змінив пошук overlay
+  const closeBtn = modal.querySelector('.close');
+  const registrationForm = modal.querySelector('#registrationForm');
+
   modal.style.display = 'block';
-}
+  overlay.style.display = 'block';
 
-// Function to close the modal
-function closeModal() {
-  modal.style.display = 'none';
-}
+  closeBtn.addEventListener('click', function () {
+    modal.style.display = 'none';
+    overlay.style.display = 'none';
+  });
 
-// Open the modal when the button is clicked
-openModalBtn.addEventListener('click', openModal);
+  overlay.addEventListener('click', function (event) {
+    if (event.target === overlay) {
+      modal.style.display = 'none';
+      overlay.style.display = 'none';
+    }
+  });
 
-// Close the modal when the close button is clicked
-closeModalBtn.addEventListener('click', closeModal);
+  registrationForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    const username = registrationForm.elements['username'].value;
+    const email = registrationForm.elements['email'].value;
+    const password = registrationForm.elements['password'].value;
 
-// Close the modal when clicking on the overlay
-overlay.addEventListener('click', function (event) {
-  if (event.target === overlay) {
-    closeModal();
-  }
-});
+    // Показуємо повідомлення за допомогою IZITOAST
+    izitoast.success({
+      title: 'Success',
+      message: 'Your registration was successful!',
+      position: 'topRight', // позиція повідомлення
+      timeout: 3000, // тривалість відображення повідомлення в мілісекундах
+    });
 
-// Simulated function to send email confirmation
-function sendConfirmationEmail(email) {
-  // This is a placeholder function to simulate email sending
-  console.log('Sending confirmation email to:', email);
-}
-
-// Form submission logic
-const registrationForm = document.getElementById('registrationForm');
-registrationForm.addEventListener('submit', function (event) {
-  event.preventDefault();
-
-  // Get values from the form fields
-  const username = registrationForm.elements['username'].value;
-  const email = registrationForm.elements['email'].value;
-  const password = registrationForm.elements['password'].value;
-  const confirmPassword = registrationForm.elements['confirmPassword'].value;
-
-  // Check if email is valid
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailPattern.test(email)) {
-    alert('Please enter a valid email address.');
-    return;
-  }
-
-  // Check if password meets length requirements
-  if (password.length < 6) {
-    alert('Password must be at least 6 characters long.');
-    return;
-  }
-
-  // Check if passwords match
-  if (password !== confirmPassword) {
-    alert('Passwords do not match.');
-    return;
-  }
-
-  // Process the form data (e.g., send it to the server)
-  console.log('Username:', username);
-  console.log('Email:', email);
-  console.log('Password:', password);
-  console.log('Confirm Password:', confirmPassword);
-
-  // Send confirmation email (simulate sending)
-  sendConfirmationEmail(email);
-
-  // Close the modal after successful registration
-  closeModal();
+    console.log('Username:', username);
+    console.log('Email:', email);
+    console.log('Password:', password);
+    modal.style.display = 'none';
+    overlay.style.display = 'none';
+  });
 });

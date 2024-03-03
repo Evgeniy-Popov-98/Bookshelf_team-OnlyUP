@@ -165,7 +165,11 @@
   letter-spacing: -0.04em;
   color: #fff;
 }
-.h-user-sign-mobail {
+.h-user-sign-mobail:hover ,
+.h-user-sign-mobail:focus ,
+.h-user-sign-mobail:active {
+    background: #4f2ee8;
+
 }
 
 /* **************************** */
