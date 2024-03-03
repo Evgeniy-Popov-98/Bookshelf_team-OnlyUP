@@ -1,63 +1,22 @@
-// Функція для створення HTML-структури модального вікна
-import iziToast from 'izitoast';
-function modalWindow() {
-  return `
-    <div id="myModal" class="modal" style="display: none;">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <form id="registrationForm">
-          <div class="input-group">
-            <input type="text" id="username" name="username" placeholder="NAME" required>
-            <label for="username" class="icon"></label>
-          </div>
-          <div class="input-group">
-            <input type="email" id="email" name="email" placeholder="EMAIL" required>
-            <label for="email" class="icon">
-              <img src="/src/images/mail-02.svg" alt="Email icon">
-            </label>
-          </div>
-          <div class="input-group">
-            <input type="password" id="password" name="password" placeholder="PASSWORD" required>
-            <label for="password" class="icon">
-              <img src="/src/images/lock-02.svg" alt="Password icon">
-            </label>
-          </div>
-          <button type="submit">SIGN UP</button>
-          <nav class="registration-nav"> 
-            <div class="SIGN">SIGN UP</div>
-            <div class="SIGN">SIGN IN</div>
-          </nav>
-        </form>
-      </div>
-    </div>
-    <div class="modal-overlay" style="display: none;"></div>
-  `;
-}
-
 document.querySelector('.signup-button').addEventListener('click', function () {
-  const modalWrap = document.querySelector('h-user-mobail');
-  modalWrap.innerHTML = modalWindow();
+  const modalWrap = document.querySelector('.window');
+  modalWrap.style.display = 'block';
 
-  const modal = modalWrap.querySelector('.modal');
-  const overlay = document.querySelector('.modal-overlay'); // Змінив пошук overlay
-  const closeBtn = modal.querySelector('.close');
-  const registrationForm = modal.querySelector('#registrationForm');
-
-  modal.style.display = 'block';
+  const overlay = document.querySelector('.window-overlay');
   overlay.style.display = 'block';
 
-  closeBtn.addEventListener('click', function () {
-    modal.style.display = 'none';
-    overlay.style.display = 'none';
-  });
+  const closeBtn = document.querySelector('.close');
+  closeBtn.addEventListener('click', closeModal);
 
-  overlay.addEventListener('click', function (event) {
-    if (event.target === overlay) {
-      modal.style.display = 'none';
-      overlay.style.display = 'none';
+  // Додамо обробник подій для кліку на всьому документі
+  document.addEventListener('click', function (event) {
+    // Перевіряємо, чи клік не відбувся в межах модального вікна
+    if (!modalWrap.contains(event.target)) {
+      closeModal();
     }
   });
 
+  const registrationForm = document.querySelector('#registrationForm');
   registrationForm.addEventListener('submit', function (event) {
     event.preventDefault();
     const username = registrationForm.elements['username'].value;
@@ -75,7 +34,15 @@ document.querySelector('.signup-button').addEventListener('click', function () {
     console.log('Username:', username);
     console.log('Email:', email);
     console.log('Password:', password);
-    modal.style.display = 'none';
-    overlay.style.display = 'none';
+    closeModal();
   });
+
+  // Додамо функцію для закриття модального вікна
+  function closeModal() {
+    modalWrap.style.display = 'none';
+    overlay.style.display = 'none';
+
+    // Видаляємо обробник події для кнопки close
+    closeBtn.removeEventListener('click', closeModal);
+  }
 });
