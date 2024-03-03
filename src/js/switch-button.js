@@ -1,23 +1,38 @@
+import { addItemLocalStorage, infoItemLocalStorage } from './localStorage';
+
 const switchBox = document.querySelector('.switch-box');
 const switchButton = document.querySelector('.switch-button');
 const topicMain = document.querySelector('body');
+const TASK_KEY_SEITCH = '';
 
-switchButton.addEventListener('click', () => {
-  console.log(switchButton.dataset.switch);
-  if (switchButton.dataset.switch === 'true') {
+let infoSwitchButton = false;
+
+document.addEventListener('DOMContentLoaded', () => {
+  const dataSwitch = infoItemLocalStorage(TASK_KEY_SEITCH);
+  if (dataSwitch) {
+    switchTopic();
+  }
+});
+
+switchButton.addEventListener('click', switchTopic);
+
+function switchTopic() {
+  if (infoSwitchButton) {
     switchButton.classList.remove('new-position');
     switchBox.classList.remove('new-background');
-    switchButton.dataset.switch = 'false';
+    topicMain.classList.remove('dark');
+    topicMain.classList.add('light');
+    infoSwitchButton = false;
+    addItemLocalStorage(TASK_KEY_SEITCH, infoSwitchButton);
   } else {
     switchButton.classList.add('new-position');
     switchBox.classList.add('new-background');
-    switchButton.dataset.switch = 'true';
-  }
-  if (topicMain.classList.value === 'dark') {
-    topicMain.classList.remove('dark');
-    topicMain.classList.add('light');
-  } else {
     topicMain.classList.remove('light');
     topicMain.classList.add('dark');
+    infoSwitchButton = true;
   }
-});
+
+  if (infoSwitchButton) {
+    addItemLocalStorage(TASK_KEY_SEITCH, infoSwitchButton);
+  }
+}
