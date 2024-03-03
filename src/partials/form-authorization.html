@@ -1,15 +1,20 @@
 <dialog id="favDialog">
     <form class="form-authorization">
             <button type="button" id="btn-close">
-                <svg class="x-icon"  width="21" height="21">
+                <svg class="x-icon"  width="14" height="14">
                     <use href="../images/icons.svg#icon-x-close"></use>
                 </svg>
             </button>
-            <div class="wrap-form"></div>
-        <button type="button" id="btn-open">sing up</button>
+            <div class="wrap-input">
+                <input class="input" type="text" name="name" placeholder="NAME" id="username" autocomplete="username">
+  <input class="input" type="email" name="email" placeholder="EMAIL" id="email" autocomplete="email">
+  <input class="input" type="password" name="password" placeholder="PASSWORD" id="current-password" autocomplete="current-password">
+            </div>
+        <button type="submit" id="btn-open-up">sing up</button>
+        <button type="submit" id="btn-open-in" class="hidden">sing in</button>
         <div class="link-form">
-            <a class="link-singUp" href="">sing up</a>
-            <a class="link-singIn" href="">sing in</a>
+            <button class="link-singUp" type="button">sing up</button>
+            <button class="link-singIn" type="button">sing in</button>
         </div>
     </form>
 </dialog>

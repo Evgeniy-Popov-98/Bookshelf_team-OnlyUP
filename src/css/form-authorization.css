@@ -17,18 +17,24 @@ background: rgb(246, 246, 246);
 padding: 24px 24px 40px 40px;
 
 }
+.form-authorization{
+    height: 100%;
+}
 #btn-close{
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     border: none;
     margin-left: auto;
     width: 28px;
     height: 28px;   
     margin-bottom: 28px; 
+    padding: 0;
 }
 .x-icon{
     stroke:#111111;
+    /* width: 20px;
+    height: 20px; */
 }
 .wrap-input{
     display: flex;
@@ -48,7 +54,8 @@ justify-content: flex-start;
 align-items: center;
 padding: 20px 173px 20px 40px;
 }
-#btn-open{
+#btn-open-up,
+#btn-open-in{
     width: 499px;
     height: 64px;
    
@@ -68,7 +75,9 @@ font-weight: 700;
 line-height: 24px;
 letter-spacing: -1%;
 text-transform: uppercase;
-
+}
+.hidden{
+    visibility: hidden;
 }
 
 .link-form{
@@ -86,6 +95,9 @@ line-height: 24px;
 letter-spacing: -1%;
 text-align: left;
 text-transform: uppercase;
+border:none;
+background-color: transparent;
+
 }
 .link-singUp:hover,
 .link-singUp:focus,
