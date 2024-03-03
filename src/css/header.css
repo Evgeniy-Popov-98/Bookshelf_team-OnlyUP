@@ -165,10 +165,14 @@
   letter-spacing: -0.04em;
   color: #fff;
 }
-.uaer {
+.user {
   width: 100%;
   height: 100%;
   z-index: 5;
+}
+.user-nickname {
+  display: flex;
+  gap: 9px;
 }
 .h-user-mobail {
   position: relative;
@@ -281,7 +285,34 @@
   .hburger-menu-link {
     display: none;
   }
+  .user-nickname-icon {
+    background-color: #fff;
+  }
+  .wrap-desk-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* height: 48px; */
+    position: relative;
+  }
+  .user-nickname-desk {
+    display: flex;
+    flex-direction: row;
+    gap: 90px;
+    align-items: center;
+    width: 184px;
+    height: 48px;
+    border-radius: 36px;
+    background: #4f2ee8;
+    padding: 0 14px 0 14px;
 
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.28571;
+    letter-spacing: -0.04em;
+    color: #fff;
+  }
   .h-user {
     display: flex;
     flex-direction: row;
@@ -298,6 +329,26 @@
     line-height: 1.28571;
     letter-spacing: -0.04em;
     color: #fff;
+  }
+  .h-user-logout-desk button {
+    width: 184px;
+    height: 48px;
+    box-sizing: border-box;
+    border: 1.5px solid rgb(17, 17, 17);
+    border-radius: 18px;
+    padding: 15px 14px;
+    background: rgb(255, 255, 255);
+    color: rgb(17, 17, 17);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: -4%;
+    text-align: left;
+    position: absolute;
+    top: 48px;
+    right: 0;
+    display: flex;
+    justify-content: start;
   }
 }
 

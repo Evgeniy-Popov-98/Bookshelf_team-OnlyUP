@@ -22,7 +22,8 @@ const linkSingIn = document.querySelector('.link-singIn')
 const wrapForm = document.querySelector('.wrap-form')
 const form = document.querySelector('.form-authorization')
 const navMob = document.querySelector('.user');
-
+const btnWrapDesk = document.querySelector('.wrap-desk-btn')
+const username = document.querySelector('.username')
 
 btnClose.addEventListener("click", () => {
   dialog.close();
@@ -97,7 +98,7 @@ function singIn() {
   const password =document.getElementById('current-password').value;
   firebase.auth().signInWithEmailAndPassword(email, password)
   .then((result) => {
-    console.log(result, 1);
+    console.log(result.user, 1);
   })
   .catch((error) => {
     console.log(error.code); 
@@ -113,9 +114,13 @@ linkSingIn.addEventListener('click', onLinkSingInClick)
 
 function onFormSubmit(e) {
   e.preventDefault();
-  
+  if (window.matchMedia("(min-width: 768px)").matches) {
+  updateMenuTab()
+} else {
   navMob.classList.remove('hidden');
   updateMenu(); 
+}
+  
 }
 
 function updateMenu() {
@@ -127,4 +132,52 @@ function updateMenu() {
 function onLogOutClick() {
   btnSingUpMob.classList.remove('hidden');
   navMob.classList.add('hidden');
+  window.location.href = 'index.html';
+}
+function updateMenuTab() {
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+ console.log(user);
+  } 
+  btnWrapDesk.innerHTML = `<div class="user-nickname-desk toggleMenu">
+      <svg class="user-nickname-icon" width="37" height="37">
+        <use href="./images/icons.svg#icon-user"></use>
+      </svg>
+      <p class="user-nickname-name">${username}</p>
+    </div>
+    <div class="h-user-logout-desk hidden">
+      <button >
+        Log out
+        <svg class="h-user-sign-mobail" width="20" height="20">
+          <use href="./images/icons.svg#icon-arrow"></use>
+        </svg>
+      </button>
+    </div>`
+    dialog.close();
+    const btnLogOutTab = document.querySelector('.h-user-logout-desk');
+    const toggleMenu = document.querySelector('.toggleMenu')
+    toggleMenu.addEventListener('click', () => {
+      btnLogOutTab.classList.toggle('hidden');
+    })
+   
+  btnLogOutTab.addEventListener("click", onLogOutDeskClick)
+    })  
+   .catch((error) => {
+    console.log('Error fetching user data:', error);
+  });
+}
+
+function onLogOutDeskClick() {
+  btnWrapDesk.innerHTML = `<button class="h-user">
+          Sign up
+          <svg class="h-user-sign" width="20" height="20">
+            <use href="./images/icons.svg#icon-arrow"></use>
+          </svg>
+        </button>`
+  
+  const btnSingUp = document.querySelector('.h-user');
+  btnSingUp.addEventListener("click", () => {
+    dialog.showModal();
+  });
+  window.location.href = 'index.html';
 }
