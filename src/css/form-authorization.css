@@ -2,20 +2,23 @@
     position: fixed;
     width: 100%; 
     top: 0;
-    background-color: rgba(17, 17, 17, 0.4);
+    background-color: rgb(79, 46, 232);
     height: 100%;
   }
 
   #favDialog{
-
-width: 579px;
-height: 516px;
 box-sizing: border-box;
 border: 2px solid rgb(17, 17, 17);
 border-radius: 18px;
 background: rgb(246, 246, 246);
-padding: 24px 24px 40px 40px;
-
+padding: 14px 14px 40px 20px;
+}
+.sizeUp{
+    width: 335px;
+    height: 384px;
+}
+.sizeIn{
+    height: 314px;
 }
 .form-authorization{
     height: 100%;
@@ -23,56 +26,65 @@ padding: 24px 24px 40px 40px;
 #btn-close{
     display: flex;
     justify-content: center;
-    /* align-items: center; */
+    align-items: center; 
     border: none;
     margin-left: auto;
-    width: 28px;
-    height: 28px;   
-    margin-bottom: 28px; 
+    width: 24px;
+    height: 24px;   
+    margin-bottom: 6px; 
     padding: 0;
+    background-color: transparent;
 }
 .x-icon{
     stroke:#111111;
     /* width: 20px;
     height: 20px; */
 }
+.wrap-form{
+    margin-bottom: 14px;
+}
 .wrap-input{
     display: flex;
     flex-direction: column;
-    gap: 28px;
-    margin-bottom: 40px;
+    gap: 24px;
+    margin-bottom: 24px;
 }
 .input{
     box-sizing: border-box;
 border: 2px solid rgb(17, 17, 17);
 border-radius: 40px;
-width: 499px;
-height: 64px;
+width: 293px;
+height: 50px;
 display: flex;
 flex-direction: row;
 justify-content: flex-start;
 align-items: center;
-padding: 20px 173px 20px 40px;
+padding: 16px 173px 16px 24px;
+color: rgb(17, 17, 17);
 }
 #btn-open-up,
 #btn-open-in{
-    width: 499px;
-    height: 64px;
+    width: 293px;
+    height: 50px;
    
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px 173px 20px 173px;
+    padding: 16px;
    
     border-radius: 40px;
     background-color: rgb(17, 17, 17);
     outline: none;
-    margin-bottom: 20px;
+    color: rgb(243, 243, 243);
+    /* margin-bottom: 14px; */
+}
+#btn-open-up,
+#btn-open-in,
+.input{
 
-        color: rgb(243, 243, 243);
-font-size: 18px;
+font-size: 16px;
 font-weight: 700;
-line-height: 24px;
+line-height: 18px;
 letter-spacing: -1%;
 text-transform: uppercase;
 }
@@ -89,9 +101,9 @@ text-transform: uppercase;
 .link-singIn{
     color: rgba(17, 17, 17, 0.5);
 font-family: DM Sans;
-font-size: 18px;
+font-size: 14px;
 font-weight: 700;
-line-height: 24px;
+line-height: 18px;
 letter-spacing: -1%;
 text-align: left;
 text-transform: uppercase;
@@ -105,4 +117,72 @@ background-color: transparent;
 .link-singIn:focus{
     color: rgb(79, 46, 232);
     text-decoration: dashed;
+}
+
+
+
+@media screen and (min-width: 768px) {
+#favDialog{
+    
+    padding: 24px 24px 40px 40px;
+
+}
+.sizeUp{
+    width: 579px;
+    height: 516px;
+}
+.sizeIn{
+    height: 434px;
+}
+.form-authorization{
+    height: 100%;
+}
+#btn-close{
+    
+    width: 28px;
+    height: 28px;   
+    margin-bottom: 28px; 
+    
+}
+.x-icon{
+   
+}
+.wrap-form{
+    margin-bottom: 20px;
+}
+.wrap-input{
+    gap: 28px;
+    margin-bottom: 40px;
+}
+.input{
+padding: 20px 173px 20px 40px;
+}
+#btn-open-up,
+#btn-open-in{
+    padding: 20px 173px 20px 173px;
+    /* margin-bottom: 20px; */
+}
+#btn-open-up,
+#btn-open-in,
+.input{
+font-size: 18px;
+line-height: 24px;
+width: 499px;
+    height: 64px;
+}
+
+.link-form{
+   
+}
+.link-singUp,
+.link-singIn{
+font-size: 18px;
+line-height: 24px;
+}
+.link-singUp:hover,
+.link-singUp:focus,
+.link-singIn:hover,
+.link-singIn:focus{
+}
+
 }

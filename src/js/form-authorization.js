@@ -18,7 +18,7 @@ const btnOpenUp = document.querySelector('#btn-open-up')
 const btnOpenIn = document.querySelector('#btn-open-in')
 const linkSingUp = document.querySelector('.link-singUp')
 const linkSingIn = document.querySelector('.link-singIn')
-const wrapInput = document.querySelector('.wrap-input')
+const wrapForm = document.querySelector('.wrap-form')
 
 
 
@@ -50,27 +50,31 @@ linkSingUp.addEventListener('click', onLinkSingUpClick)
 linkSingIn.addEventListener('click', onLinkSingInClick)
 
 function onLinkSingUpClick(){
-  btnOpenIn.classList.add('hidden');
-  btnOpenUp.classList.remove('hidden');
+  // btnOpenIn.classList.add('hidden');
+  // btnOpenUp.classList.remove('hidden');
   const markup=`
-  <input class="input" type="text" name="name" placeholder="NAME" id="username" autocomplete="username">
-  <input class="input" type="email" name="email" placeholder="EMAIL" id="email" autocomplete="email">
-  <input class="input" type="password" name="password" placeholder="PASSWORD" id="current-password" autocomplete="current-password">
+  <div class="wrap-input">
+                    <input class="input" type="text" name="name" placeholder="NAME" id="username" autocomplete="username">
+                    <input class="input" type="email" name="email" placeholder="EMAIL" id="email" autocomplete="email">
+                    <input class="input" type="password" name="password" placeholder="PASSWORD" id="current-password" autocomplete="current-password">
+                </div>
+                <button type="submit" id="btn-open-up">sing up</button>
   `
-  dialog.style.height = '516px';
-  wrapInput.innerHTML = markup;
+  dialog.classList.remove('sizeIn');
+  dialog.classList.add('sizeUp');
+  wrapForm.innerHTML = markup;
 }
 
 function onLinkSingInClick(){
-  btnOpenUp.classList.add('hidden');
-  btnOpenIn.classList.remove('hidden');
-  const markup=`
+  const markup=`<div class="wrap-input">
   <input class="input" type="email" name="email" placeholder="EMAIL" id="email" autocomplete="email">
   <input class="input" type="password" name="password" placeholder="PASSWORD" id="current-password" autocomplete="current-password">
+</div>
+  <button type="submit" id="btn-open-in">sing in</button>
   `;
-  
-  dialog.style.height = '434px'
-  wrapInput.innerHTML = markup;
+  dialog.classList.remove('sizeUp');
+  dialog.classList.add('sizeIn');
+  wrapForm.innerHTML = markup;
 }
 
 
@@ -78,8 +82,8 @@ btnOpenIn.addEventListener("click", singIn)
 
 function singIn(){ 
 
-  const email = document.getElementById('email').value;
-const password = document.getElementById('current-password').value;
+  const email =document.getElementById('email').value;
+const password =document.getElementById('current-password').value;
   firebase.auth().signInWithEmailAndPassword(email, password)
   .then((result) => {
    
