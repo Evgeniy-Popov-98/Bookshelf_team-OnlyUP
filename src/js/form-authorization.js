@@ -23,7 +23,7 @@ const wrapForm = document.querySelector('.wrap-form')
 const form = document.querySelector('.form-authorization')
 const navMob = document.querySelector('.user');
 const btnWrapDesk = document.querySelector('.wrap-desk-btn')
-const username = document.querySelector('.username')
+
 
 btnClose.addEventListener("click", () => {
   dialog.close();
@@ -45,15 +45,23 @@ btnLogOutMob.addEventListener('click', onLogOutClick)
 
 function singUp() {
   const email = document.getElementById('email').value;
-  const password =document.getElementById('current-password').value;
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-  .then((result) => {
-  console.log(result);
-  })
-  .catch((error) => {
-    console.log(error.code); 
-    console.log(error.message); 
-  });
+  const password = document.getElementById('current-password').value;
+  const username = document.getElementById('username').value;
+
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      
+      return userCredential.user.updateProfile({
+        displayName: username
+      });
+    })
+    .then(() => {
+      alert('New account created');
+    })
+    .catch((error) => {
+      console.log(error.code); 
+      console.log(error.message); 
+    });
 }
 
 
@@ -98,7 +106,7 @@ function singIn() {
   const password =document.getElementById('current-password').value;
   firebase.auth().signInWithEmailAndPassword(email, password)
   .then((result) => {
-    console.log(result.user, 1);
+    console.log(auth.currentUser);
   })
   .catch((error) => {
     console.log(error.code); 
@@ -134,12 +142,13 @@ function onLogOutClick() {
   navMob.classList.add('hidden');
   window.location.href = 'index.html';
 }
+
+
 function updateMenuTab() {
-firebase.auth().onAuthStateChanged((user) => {
+  const user = firebase.auth().currentUser;
   if (user) {
- console.log(user);
-  } 
-  btnWrapDesk.innerHTML = `<div class="user-nickname-desk toggleMenu">
+    const username = user.displayName; 
+    btnWrapDesk.innerHTML = `<div class="user-nickname-desk toggleMenu">
       <svg class="user-nickname-icon" width="37" height="37">
         <use href="./images/icons.svg#icon-user"></use>
       </svg>
@@ -152,19 +161,18 @@ firebase.auth().onAuthStateChanged((user) => {
           <use href="./images/icons.svg#icon-arrow"></use>
         </svg>
       </button>
-    </div>`
+    </div>`;
     dialog.close();
     const btnLogOutTab = document.querySelector('.h-user-logout-desk');
     const toggleMenu = document.querySelector('.toggleMenu')
     toggleMenu.addEventListener('click', () => {
       btnLogOutTab.classList.toggle('hidden');
-    })
-   
-  btnLogOutTab.addEventListener("click", onLogOutDeskClick)
-    })  
-   .catch((error) => {
-    console.log('Error fetching user data:', error);
-  });
+    });
+
+    btnLogOutTab.addEventListener("click", onLogOutDeskClick);
+  } else {
+    console.log('User is not signed in');
+  }
 }
 
 function onLogOutDeskClick() {
