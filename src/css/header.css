@@ -145,7 +145,31 @@
   color: #fff;
   cursor: pointer;
 }
+.h-user-mobail-sign {
+  position: relative;
+  top: 120px;
+  left: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 90px;
+  align-items: center;
+  width: 184px;
+  height: 48px;
+  border-radius: 36px;
+  background: #4f2ee8;
+  padding: 0 14px 0 14px;
 
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.04em;
+  color: #fff;
+}
+.uaer {
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
 .h-user-mobail {
   position: relative;
   top: 90vh;
