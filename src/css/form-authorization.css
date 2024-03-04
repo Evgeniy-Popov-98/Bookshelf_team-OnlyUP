@@ -178,3 +178,7 @@
   .link-singIn:focus {
   }
 }
+
+.show-modal {
+  display: block;
+}
