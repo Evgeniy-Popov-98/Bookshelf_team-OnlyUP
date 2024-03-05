@@ -1,5 +1,5 @@
 /* Стилізація модального вікна */
-.modal {
+.window {
     display: none;
     position: fixed;
     z-index: 1;
@@ -11,7 +11,7 @@
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-.modal-content {
+.window {
     background-color: #fefefe;
     margin: 10% auto;
     padding: 20px;
@@ -131,7 +131,7 @@ input[type="password"]:focus {
 }
 
 /* Стилізація заднього фону */
-.modal-overlay {
+.window-overlay {
     display: none;
     position: fixed;
     z-index: 1;
