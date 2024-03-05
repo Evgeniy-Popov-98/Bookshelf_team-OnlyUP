@@ -9,3 +9,10 @@ export function errorMessage(message) {
         });
     
 }
+export function successMessage(message) {
+    iziToast.success({
+        title: 'Ok',
+        message: message,
+        });
+    
+}

@@ -107,7 +107,7 @@
 
 .hmob-modal-nav {
   position: fixed;
-  top: 183px;
+  top: 247px;
   right: 129px;
   display: flex;
   flex-direction: column;
@@ -167,32 +167,44 @@
 }
 .user {
   width: 100%;
-  height: 100%;
+  /* height: 100; */
   z-index: 5;
+  padding: 84px 20px 20px;
+  display: flex;
+  flex-direction: column;
 }
 .user-nickname {
   display: flex;
   gap: 9px;
+  color: rgb(255, 255, 255);
+  font-family: DM Sans;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 29px;
+  letter-spacing: -2%;
+  text-align: left;
+  margin-bottom: 126px;
 }
 .h-user-mobail {
-  position: relative;
-  top: 90vh;
-  left: 20px;
+  position: fixed;
+  bottom: 20px;
   display: flex;
   flex-direction: row;
-  gap: 90px;
+  gap: 4px;
   align-items: center;
-  width: 184px;
+  width: 118px;
   height: 48px;
-  border-radius: 36px;
-  background: #4f2ee8;
-  padding: 0 14px 0 14px;
+  border: 1.5px solid rgb(17, 17, 17);
+  border-radius: 18px;
+  background: rgb(255, 255, 255);
+  padding: 15px 24px;
 
-  font-weight: 500;
+  color: rgb(17, 17, 17);
   font-size: 14px;
-  line-height: 1.28571;
-  letter-spacing: -0.04em;
-  color: #fff;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: -4%;
+  text-align: left;
 }
 .h-user-sign-mobail {
 }
@@ -287,6 +299,7 @@
   }
   .user-nickname-icon {
     background-color: #fff;
+    margin-right: 5px;
   }
   .wrap-desk-btn {
     display: flex;
@@ -312,6 +325,16 @@
     line-height: 1.28571;
     letter-spacing: -0.04em;
     color: #fff;
+  }
+  .user-nickname-desk-auth {
+    display: flex;
+    gap: 4px;
+  }
+  .user-nickname-name {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 29px;
+    letter-spacing: -2%;
   }
   .h-user {
     display: flex;
@@ -349,6 +372,7 @@
     right: 0;
     display: flex;
     justify-content: start;
+    gap: 90px;
   }
 }
 
