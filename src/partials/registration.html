@@ -1,0 +1,35 @@
+<!-- Модальне вікно -->
+<div class="window-modal">
+<div class="window" >
+  <button class="close">&times;</button>
+  
+  <!-- Форма реєстрації -->
+  <form id="registrationForm">
+    <div class="input-group">
+      <input type="text" id="username" name="username" placeholder="NAME" required>
+      <label for="username" class="icon"></label>
+    </div>
+    <div class="input-group">
+      <input type="email" id="email" name="email" placeholder="EMAIL" required>
+      <label for="email" class="icon">
+        <img src="/src/images/mail-02.svg" alt="Email icon">
+      </label>
+    </div>
+    <div class="input-group">
+      <input type="password" id="password" name="password" placeholder="PASSWORD" required>
+      <label for="password" class="icon">
+        <img src="/src/images/lock-02.svg" alt="Password icon">
+      </label>
+    </div>
+    <button type="submit">SIGN UP</button>
+
+    <nav class="registration-nav"> 
+      <div class="SIGN">SIGN UP</div>
+      <div class="SIGN">SIGN IN</div>
+    </nav>
+  </form>
+</div>
+
+<!-- Затемнення заднього фону -->
+<div class="window-overlay" style="display: none;"></div>
+</div>

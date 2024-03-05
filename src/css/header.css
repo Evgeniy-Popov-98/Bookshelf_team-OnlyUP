@@ -166,7 +166,10 @@
   letter-spacing: -0.04em;
   color: #fff;
 }
-.h-user-sign-mobail {
+.h-user-mobile:hover,
+.h-user-mobile:focus,
+.h-user-mobile:active {
+  background: #c5bee3;
 }
 
 /* **************************** */
@@ -268,13 +271,13 @@
     border-radius: 36px;
     background: #4f2ee8;
     padding: 0 14px 0 14px;
-
     font-weight: 500;
     font-size: 14px;
     line-height: 1.28571;
     letter-spacing: -0.04em;
     color: #fff;
   }
+
 }
 
 @media screen and (min-width: 1440px) {
