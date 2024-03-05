@@ -71,15 +71,15 @@ async function singUp() {
   await createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       
-    //   return userCredential.user.updateProfile({
-    //     displayName: username
-    //   });
-    // })
-    // .then(() => {
-    //   const user = auth.currentUser;
-    //   const userData = {
-    //     displayName: user.displayName,
-    //   };
+      //   return userCredential.user.updateProfile({
+      //     displayName: username
+      //   });
+      // })
+      // .then(() => {
+      //   const user = auth.currentUser;
+      //   const userData = {
+      //     displayName: user.displayName,
+      //   };
       //   addItemLocalStorage(USER_KEY, userData);
       
 
@@ -91,18 +91,19 @@ async function singUp() {
         // profile_picture: imageUrl,
       })
       successMessage('New account created');
-      updateProfile(auth.currentUser, { displayName: username });
-    })
-    .then(() => {
-      const user = auth.currentUser;
-      const userData = {
-        displayName: user.displayName,
-      };
-})
-.catch((error) => {
-  errorMessage(error.message);
-});
-}
+      updateProfile(user, { displayName: username })
+        .then(() => {
+          const userData = {
+            displayName: username,
+          };
+          addItemLocalStorage(USER_KEY, userData);
+          updateUIWithUsername(username)
+        })
+        .catch((error) => {
+          errorMessage(error.message);
+        });
+      });
+    }
 
 // ----------------------- вхід SingIn--------------------------------------
   
@@ -116,7 +117,8 @@ function singIn() {
       update(ref(db, 'users/' + user.uid), {
         last_login: dt,
       })
-      successMessage('You are log in');
+      successMessage('You loged in');
+      //addItemLocalStorage(USER_KEY, db.users.username);
 })
 .catch((error) => {
   errorMessage(error.message);
@@ -171,25 +173,36 @@ function onLogOutDeskClick() {
 
 const user = auth.currentUser;
 onAuthStateChanged(auth, (user) => {
-  
-    if (user) {
-      textNickName.textContent = user.displayName || '';
+    
+  if (user) {
+    const userData = infoItemLocalStorage(USER_KEY); 
+     if (userData && userData.displayName) {
+      matchMedia();
+      textNickName.textContent = userData.displayName || '';
     } else {
       textNickName.textContent = '';
     }
-});
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const userData = auth.currentUser;
-  if (userData) {
-         matchMedia();
-        textNickName.textContent = userData.displayName;
       } else {
-        textNickName.textContent = '';
-      }
-    
+       
+    }
 });
+
+// -----------------------LocalStorage на вхід\вихід користувача---------------------------------------
+
+
+
+
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   const userData = auth.currentUser;
+//   if (userData) {
+//          matchMedia();
+//         textNickName.textContent = userData.displayName;
+//       } else {
+//         textNickName.textContent = '';
+//       }
+    
+// });
 
 
 // ----------------------- зміна медіа запитів ---------------------------------------
