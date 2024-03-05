@@ -123,12 +123,9 @@ async function singIn() {
 
 function onLogOutClick() {
 signOut(auth).then(() => {
-    btnSingUpMob.classList.remove('hidden');
-    navMob.classList.add('hidden');
-    window.location.href = 'index.html';
-  localStorage.removeItem(USER_KEY); 
+    localStorage.removeItem(USER_KEY); 
   //isAuthenticated = false;
-  //matchMedia();
+    matchMedia();
   }).catch((error) => {
     console.log(error.message);
   });
@@ -196,7 +193,7 @@ function onFormSubmit(e) {
 function matchMedia() {
   if (window.matchMedia("(min-width: 768px)").matches) {
     updateMenuTab();
-    infoItemLocalStorage(USER_KEY);
+    // infoItemLocalStorage(USER_KEY);
   } else {
     navMob.classList.remove('hidden');
     updateMenu();
@@ -268,16 +265,22 @@ function updateMenuTab() {
       const toggleMenu = document.querySelector('.toggleMenu')
       toggleMenu.addEventListener('click', () => {
         btnLogOutTab.classList.toggle('hidden');
-      });
-  
+      });  
       btnLogOutTab.addEventListener("click", onLogOutDeskClick);
     }  else {
   }
 }
 
 function updateMenu() {
- 
+  const user = auth.currentUser;
+  
+   if (!user && window.matchMedia("(max-width: 768px)").matches) {
+    btnSingUpMob.classList.remove('hidden');
+    navMob.classList.add('hidden');
+    return;
+  } else {
     btnSingUpMob.classList.add('hidden');
     dialog.close();
-
+    return;
+  };
 }
