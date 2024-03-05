@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set, update } from "firebase/database";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile } from "firebase/auth";
 import {
   addItemLocalStorage,
   infoItemLocalStorage,
@@ -63,12 +63,12 @@ btnLogOutMob.addEventListener('click', onLogOutClick)
 
  // ----------------------- SingUp---------------------------------------
 
-function singUp() {
+async function singUp() {
   const email = document.getElementById('email').value;
   const password = document.getElementById('current-password').value;
   const username = document.getElementById('username').value;
 
-  createUserWithEmailAndPassword(auth, email, password)
+  await createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       
     //   return userCredential.user.updateProfile({
@@ -91,6 +91,13 @@ function singUp() {
         // profile_picture: imageUrl,
       })
       successMessage('New account created');
+      updateProfile(auth.currentUser, { displayName: username });
+    })
+    .then(() => {
+      const user = auth.currentUser;
+      const userData = {
+        displayName: user.displayName,
+      };
 })
 .catch((error) => {
   errorMessage(error.message);
@@ -174,7 +181,7 @@ onAuthStateChanged(auth, (user) => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  const userData = infoItemLocalStorage(USER_KEY);
+  const userData = auth.currentUser;
   if (userData) {
          matchMedia();
         textNickName.textContent = userData.displayName;
@@ -240,7 +247,7 @@ function onLinkSingInClick(){
 
 function updateMenuTab() {
   const user = auth.currentUser;
-  console.log(user);
+   console.log(user);
   if (user) {
     const username = user.displayName; 
     btnWrapDesk.innerHTML = `<div class="user-nickname-desk toggleMenu">
