@@ -1,6 +1,6 @@
-import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set, update } from "firebase/database";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile } from "firebase/auth";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+import { getDatabase, ref, set, update, get } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
 import {
   addItemLocalStorage,
   infoItemLocalStorage,
@@ -60,6 +60,10 @@ linkSingIn.addEventListener('click', onLinkSingInClick)
 //btnOpenIn.addEventListener('click', singIn)
 btnLogOutMob.addEventListener('click', onLogOutClick)
 
+btnOpenUp.addEventListener('click', singUp)
+form.addEventListener('submit', onFormSubmit)
+linkSingUp.addEventListener('click', onLinkSingUpClick)
+linkSingIn.addEventListener('click', onLinkSingInClick)
 
  // ----------------------- SingUp---------------------------------------
 
@@ -70,19 +74,6 @@ async function singUp() {
 
   await createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      
-      //   return userCredential.user.updateProfile({
-      //     displayName: username
-      //   });
-      // })
-      // .then(() => {
-      //   const user = auth.currentUser;
-      //   const userData = {
-      //     displayName: user.displayName,
-      //   };
-      //   addItemLocalStorage(USER_KEY, userData);
-      
-
       const user = userCredential.user;
 
       set(ref(db, 'users/' + user.uid), {
@@ -100,17 +91,17 @@ async function singUp() {
           updateUIWithUsername(username)
         })
         .catch((error) => {
-          errorMessage(error.message);
+          console.log(error.message);
         });
       });
     }
 
 // ----------------------- вхід SingIn--------------------------------------
   
-function singIn() {
+async function singIn() {
   const email = document.getElementById('email').value;
   const password =document.getElementById('current-password').value;
-  signInWithEmailAndPassword(auth, email, password)
+  await signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
       const dt = new Date();
@@ -121,29 +112,28 @@ function singIn() {
       //addItemLocalStorage(USER_KEY, db.users.username);
 })
 .catch((error) => {
-  errorMessage(error.message);
+  console.log(error.message);
 });
 }
-btnOpenUp.addEventListener('click', singUp)
-form.addEventListener('submit', onFormSubmit)
-linkSingUp.addEventListener('click', onLinkSingUpClick)
-linkSingIn.addEventListener('click', onLinkSingInClick)
 //btnOpenIn.addEventListener('click', singIn)
 
 
 // ----------------------- LogOut mob---------------------------------------
-
+// let isAuthenticated = false;
 
 function onLogOutClick() {
-  signOut(auth).then(() => {
+signOut(auth).then(() => {
     btnSingUpMob.classList.remove('hidden');
-  navMob.classList.add('hidden');
-  window.location.href = 'index.html';
+    navMob.classList.add('hidden');
+    window.location.href = 'index.html';
   localStorage.removeItem(USER_KEY); 
-}).catch((error) => {
-  errorMessage(error.message);
-});
+  //isAuthenticated = false;
+  //matchMedia();
+  }).catch((error) => {
+    console.log(error.message);
+  });
 }
+
 
 // ----------------------- LogOut tab/desk---------------------------------------
 
@@ -158,12 +148,12 @@ function onLogOutDeskClick() {
   
   const btnSingUp = document.querySelector('.h-user');
   btnSingUp.addEventListener("click", () => {
-    dialog.showModal();
+  dialog.showModal();
   });
   window.location.href = 'index.html';
   localStorage.removeItem(USER_KEY); 
 }).catch((error) => {
-  errorMessage(error.message);
+  console.log(error.message);
 });
   
   //signOut(auth);
@@ -173,36 +163,28 @@ function onLogOutDeskClick() {
 
 const user = auth.currentUser;
 onAuthStateChanged(auth, (user) => {
-    
-  if (user) {
-    const userData = infoItemLocalStorage(USER_KEY); 
-     if (userData && userData.displayName) {
-      matchMedia();
-      textNickName.textContent = userData.displayName || '';
-    } else {
-      textNickName.textContent = '';
-    }
+    if (user) {
+    const userId = user.uid;
+   const userRef = ref(db, `users/${userId}`);
+    get(userRef).then((snapshot) => {
+      if (snapshot.exists()) {
+        const userData = snapshot.val();
+        const userName = userData.username;
+        textNickName.textContent = userName;
       } else {
-       
-    }
+        console.log('Дані про користувача відсутні в базі даних');
+      }
+       }).catch((error) => {
+      console.error('Помилка при отриманні даних користувача:', error);
+    });
+  } else {
+  }
+  
+  matchMedia()
 });
 
 // -----------------------LocalStorage на вхід\вихід користувача---------------------------------------
 
-
-
-
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   const userData = auth.currentUser;
-//   if (userData) {
-//          matchMedia();
-//         textNickName.textContent = userData.displayName;
-//       } else {
-//         textNickName.textContent = '';
-//       }
-    
-// });
 
 
 // ----------------------- зміна медіа запитів ---------------------------------------
@@ -214,19 +196,17 @@ function onFormSubmit(e) {
 function matchMedia() {
   if (window.matchMedia("(min-width: 768px)").matches) {
     updateMenuTab();
-    infoItemLocalStorage(USER_KEY)
-} else {
+    infoItemLocalStorage(USER_KEY);
+  } else {
     navMob.classList.remove('hidden');
     updateMenu();
-}
+  }
 }
 
 
 // ----------------------- Розмітка---------------------------------------
 
 function onLinkSingUpClick(){
-  // btnOpenIn.classList.add('hidden');
-  // btnOpenUp.classList.remove('hidden');
   const markup=`
   <div class="wrap-input">
                     <input class="input" type="text" name="name" placeholder="NAME" id="username" autocomplete="username">
@@ -244,7 +224,8 @@ function onLinkSingUpClick(){
 
 
 
-function onLinkSingInClick(){
+function onLinkSingInClick() {
+  
   const markup=`<div class="wrap-input">
   <input class="input" type="email" name="email" placeholder="EMAIL" id="email" autocomplete="email">
   <input class="input" type="password" name="password" placeholder="PASSWORD" id="current-password" autocomplete="current-password">
@@ -259,45 +240,44 @@ function onLinkSingInClick(){
 }
 
 function updateMenuTab() {
-  const user = auth.currentUser;
-   console.log(user);
-  if (user) {
-    const username = user.displayName; 
-    btnWrapDesk.innerHTML = `<div class="user-nickname-desk toggleMenu">
-      <div class="user-nickname-desk-auth">
-        <svg class="user-nickname-icon" width="37" height="37">
-          <use href="./images/icons.svg#icon-user"></use>
-        </svg>
-        <p class="user-nickname-name">${username}</p>
-        <svg class="user-icon-caret-down" width="23" height="26">
-          <use href="./images/icons.svg#icon-caret-down"></use>
-        </svg>
+    
+   const user = auth.currentUser;
+    if (user) {
+      const username = user.displayName; 
+      btnWrapDesk.innerHTML = `<div class="user-nickname-desk toggleMenu">
+        <div class="user-nickname-desk-auth">
+          <svg class="user-nickname-icon" width="37" height="37">
+            <use href="./images/icons.svg#icon-user"></use>
+          </svg>
+          <p class="user-nickname-name">${username}</p>
+          <svg class="user-icon-caret-down" width="23" height="26">
+            <use href="./images/icons.svg#icon-caret-down"></use>
+          </svg>
+        </div>
       </div>
-    </div>
-    <div class="h-user-logout-desk hidden">
-      <button >
-        Log out
-        <svg class="h-user-sign-mobail" width="20" height="20">
-          <use href="./images/icons.svg#icon-arrow"></use>
-        </svg>
-      </button>
-    </div>`;
-    dialog.close();
-    const btnLogOutTab = document.querySelector('.h-user-logout-desk');
-    const toggleMenu = document.querySelector('.toggleMenu')
-    toggleMenu.addEventListener('click', () => {
-      btnLogOutTab.classList.toggle('hidden');
-    });
-
-    btnLogOutTab.addEventListener("click", onLogOutDeskClick);
-  } else {
-    errorMessage('User is not signed in');
+      <div class="h-user-logout-desk hidden">
+        <button >
+          Log out
+          <svg class="h-user-sign-mobail" width="20" height="20">
+            <use href="./images/icons.svg#icon-arrow"></use>
+          </svg>
+        </button>
+      </div>`;
+      dialog.close();
+      const btnLogOutTab = document.querySelector('.h-user-logout-desk');
+      const toggleMenu = document.querySelector('.toggleMenu')
+      toggleMenu.addEventListener('click', () => {
+        btnLogOutTab.classList.toggle('hidden');
+      });
+  
+      btnLogOutTab.addEventListener("click", onLogOutDeskClick);
+    }  else {
   }
 }
 
 function updateMenu() {
-  
-  btnSingUpMob.classList.add('hidden');
-  dialog.close();
-}
+ 
+    btnSingUpMob.classList.add('hidden');
+    dialog.close();
 
+}
