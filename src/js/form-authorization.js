@@ -38,6 +38,7 @@ const form = document.querySelector('.form-authorization')
 const navMob = document.querySelector('.user');
 const btnWrapDesk = document.querySelector('.wrap-desk-btn')
 const textNickName = document.querySelector('.user-nickname-name')
+const mobMenu = document.querySelector('.js-hmob-modal')
 
 
 
@@ -125,7 +126,8 @@ function onLogOutClick() {
 signOut(auth).then(() => {
     localStorage.removeItem(USER_KEY); 
   //isAuthenticated = false;
-    matchMedia();
+  matchMedia();
+  window.location.href ='index.html';
   }).catch((error) => {
     console.log(error.message);
   });
@@ -277,6 +279,7 @@ function updateMenu() {
    if (!user && window.matchMedia("(max-width: 768px)").matches) {
     btnSingUpMob.classList.remove('hidden');
     navMob.classList.add('hidden');
+    
     return;
   } else {
     btnSingUpMob.classList.add('hidden');
