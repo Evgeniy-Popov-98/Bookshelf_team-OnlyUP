@@ -175,6 +175,7 @@
 }
 .user-nickname {
   display: flex;
+  align-items: center;
   gap: 9px;
   color: rgb(255, 255, 255);
   font-family: DM Sans;
@@ -190,16 +191,16 @@
   bottom: 20px;
   display: flex;
   flex-direction: row;
-  gap: 4px;
+  justify-content: space-between;
   align-items: center;
-  width: 118px;
+  width: 140px;
   height: 48px;
-  border: 1.5px solid rgb(17, 17, 17);
+  border: 1.5px solid var(--text-color);
   border-radius: 18px;
-  background: rgb(255, 255, 255);
+  background: var(--bg-color);
   padding: 15px 24px;
 
-  color: rgb(17, 17, 17);
+  color: var(--text-color);
   font-size: 14px;
   font-weight: 500;
   line-height: 18px;
