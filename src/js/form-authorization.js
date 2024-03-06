@@ -295,8 +295,9 @@ function updateMenuTab() {
           </svg>
         </div>
       </div>
-      <div class="h-user-logout-desk hidden">
-        <button >
+      <div class="h-user-logout-desk">	  
+		<!-- <p class="user-nickname-name-modal">${username}</p> -->
+        <button class="btnLogOutClose">
           Log out
           <svg class="h-user-sign-mobail" width="20" height="20">
             <use href="./images/icons.svg#icon-arrow"></use>
@@ -305,12 +306,14 @@ function updateMenuTab() {
       </div>`;
     dialog.close();
     const btnLogOutTab = document.querySelector('.h-user-logout-desk');
+    const btnLogIcon = document.querySelector('.user-icon-caret-down');
     const toggleMenu = document.querySelector('.toggleMenu');
+    const btnLogOutClose = document.querySelector('.btnLogOutClose');
     toggleMenu.addEventListener('click', () => {
-      btnLogOutTab.classList.toggle('hidden');
+      btnLogOutTab.classList.toggle('h-user-logout-desk-active');
+      btnLogIcon.classList.toggle('user-icon-caret-down-active');
     });
-    btnLogOutTab.addEventListener('click', onLogOutDeskClick);
-  } else {
+    btnLogOutClose.addEventListener('click', onLogOutDeskClick);
   }
 }
 

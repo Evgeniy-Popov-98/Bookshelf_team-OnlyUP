@@ -298,6 +298,7 @@
     display: none;
   }
   .user-nickname-icon {
+    border-radius: 50%;
     background-color: #fff;
     margin-right: 5px;
   }
@@ -310,6 +311,7 @@
     position: relative;
   }
   .user-nickname-desk {
+    z-index: 10;
     display: flex;
     flex-direction: row;
     gap: 90px;
@@ -325,17 +327,37 @@
     line-height: 1.28571;
     letter-spacing: -0.04em;
     color: #fff;
+    cursor: pointer;
   }
+
   .user-nickname-desk-auth {
+    position: relative;
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 4px;
   }
   .user-nickname-name {
+    width: 90px;
     font-size: 22px;
     font-weight: 700;
     line-height: 29px;
     letter-spacing: -2%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
+
+  .user-nickname-name-modal {
+    margin: 50px auto;
+    width: 90px;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 29px;
+    letter-spacing: -2%;
+    color: #fff;
+  }
+
   .h-user {
     display: flex;
     flex-direction: row;
@@ -353,26 +375,56 @@
     letter-spacing: -0.04em;
     color: #fff;
   }
+
+  .h-user-logout-desk {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    width: 185px;
+    height: 202px;
+    border: solid 1px var(--text-color);
+    border-top: none;
+    border-radius: 24px;
+    background: radial-gradient(
+      189.32% 190.93% at 59.76% -23.42%,
+      rgb(79, 46, 232) 18.02733987569809%,
+      rgb(255, 255, 255) 100%
+    );
+    transition: transform 500ms linear;
+    transform: translateY(-156px);
+  }
+
+  .h-user-logout-desk-active {
+    transform: translateY(156px);
+  }
+
+  .user-icon-caret-down {
+    transition: transform 500ms linear;
+  }
+  .user-icon-caret-down-active {
+    transition: transform 500ms linear;
+    transform: rotate(0.5turn);
+  }
+
   .h-user-logout-desk button {
-    width: 184px;
+    margin-top: 120px;
+    width: 120px;
     height: 48px;
     box-sizing: border-box;
-    border: 1.5px solid rgb(17, 17, 17);
+    border: 1.5px solid var(--text-color);
     border-radius: 18px;
     padding: 15px 14px;
-    background: rgb(255, 255, 255);
-    color: rgb(17, 17, 17);
+    background: var(--bg-color);
+    color: var(--text-color);
     font-size: 14px;
     font-weight: 500;
     line-height: 18px;
     letter-spacing: -4%;
-    text-align: left;
-    position: absolute;
-    top: 48px;
-    right: 0;
     display: flex;
     justify-content: start;
-    gap: 90px;
+    align-items: center;
+    gap: 20px;
   }
 }
 
