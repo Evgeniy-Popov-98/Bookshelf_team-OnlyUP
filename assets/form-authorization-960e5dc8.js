@@ -40,11 +40,11 @@ import{a as Y,i as D}from"./vendor-8cce9181.js";import{initializeApp as F}from"h
   `;r.classList.remove("sizeUp"),r.classList.add("sizeIn"),_.innerHTML=e,document.querySelector("#btn-open-in").addEventListener("click",me)}function he(){const e=c.currentUser;if(e){const s=e.displayName;W.innerHTML=`<div class="user-nickname-desk toggleMenu">
         <div class="user-nickname-desk-auth">
           <svg class="user-nickname-icon" width="37" height="37">
-            <use href="/images/icons.svg#icon-user"></use>
+            <use href="../images/icons.svg#icon-user"></use>
           </svg>
           <p class="user-nickname-name">${s}</p>
           <svg class="user-icon-caret-down" width="23" height="26">
-            <use href="/images/icons.svg#icon-caret-down"></use>
+            <use href="../images/icons.svg#icon-caret-down"></use>
           </svg>
         </div>
       </div>
@@ -53,8 +53,8 @@ import{a as Y,i as D}from"./vendor-8cce9181.js";import{initializeApp as F}from"h
         <button class="btnLogOutClose">
           Log out
           <svg class="h-user-sign-mobail" width="20" height="20">
-            <use href="/images/icons.svg#icon-arrow"></use>
+            <use href="../images/icons.svg#icon-arrow"></use>
           </svg>
         </button>
       </div>`,r.close();const n=document.querySelector(".h-user-logout-desk"),i=document.querySelector(".user-icon-caret-down"),t=document.querySelector(".toggleMenu"),o=document.querySelector(".btnLogOutClose");t.addEventListener("click",()=>{n.classList.toggle("h-user-logout-desk-active"),i.classList.toggle("user-icon-caret-down-active")}),o.addEventListener("click",pe)}}function fe(){if(!c.currentUser&&window.matchMedia("(max-width: 768px)").matches){L.classList.remove("hidden"),K.classList.add("hidden");return}else{L.classList.add("hidden"),r.close();return}}export{h as T,p as a,ie as c,ke as e,Le as g,E as i,Se as r};
-//# sourceMappingURL=form-authorization-1868bf91.js.map
+//# sourceMappingURL=form-authorization-960e5dc8.js.map
