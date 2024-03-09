@@ -7,6 +7,7 @@ import {
 } from '../localStorage';
 import amazonPng from '/images/amazon.png';
 import bookPng from '/images/book.png';
+import chekInfoNumber from '../number-shopping';
 
 const body = document.querySelector('body');
 const modal = document.querySelector('.modal');
@@ -161,6 +162,7 @@ function toggleShoppingList() {
   const arrItem = infoItemLocalStorage(TASKS_KEY) || [];
   arrItem.push({ constID });
   addItemLocalStorage(TASKS_KEY, arrItem);
+  chekInfoNumber();
 
   listButtonAdd.style.display = 'none';
   listButtonRemove.style.display = 'flex';
@@ -171,6 +173,7 @@ function toggleShoppingList() {
 
 function removeShoppingList(event) {
   restoreData(event);
+  chekInfoNumber();
   listButtonAdd.style.display = 'flex';
   listButtonRemove.style.display = 'none';
 

@@ -452,7 +452,10 @@
   justify-content: center;
   border: 1px solid var(--text-color);
   border-radius: 50%;
+  transition: all 1s ease;
 }
 
 .number-shopping-list {
+  color: var(--text-color);
+  transition: all 1s ease;
 }

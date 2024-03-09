@@ -12,6 +12,7 @@ import img9606 from '/images/IMG_9606.png';
 import amazonSvg from '/images/amazon.svg';
 import bookSvg from '/images/book.svg';
 import trashSvg from '/images/trash.svg';
+import chekInfoNumber from '../number-shopping';
 //import tuiPagination from 'tui-pagination'; // Імпортуємо бібліотеку пагінації
 
 const shoppingListContainer = document.querySelector(
@@ -114,6 +115,7 @@ shoppingListContainer.addEventListener('click', function (event) {
     addItemLocalStorage(TASKS_KEY, newArr);
 
     bookContainer.remove();
+    chekInfoNumber();
 
     if (!shoppingListContainer.querySelector('.container-block')) {
       shoppingListContainer.innerHTML = emptyMessage;
