@@ -9,29 +9,29 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
 		integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link
 		href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@400;500;700&family=Montserrat:wght@400;500;600;700&display=swap"
-		rel="stylesheet">
+		rel="stylesheet" />
 	
   <script type="module" crossorigin src="/Bookshelf_team-OnlyUP/commonHelpers.js"></script>
   <link rel="modulepreload" crossorigin href="/Bookshelf_team-OnlyUP/assets/vendor-8cce9181.js">
-  <link rel="modulepreload" crossorigin href="/Bookshelf_team-OnlyUP/assets/switch-button-7f14999f.js">
+  <link rel="modulepreload" crossorigin href="/Bookshelf_team-OnlyUP/assets/form-authorization-09a513f6.js">
   <link rel="stylesheet" href="/Bookshelf_team-OnlyUP/assets/vendor-e5212ee8.css">
-  <link rel="stylesheet" href="/Bookshelf_team-OnlyUP/assets/index-396bcccb.css">
+  <link rel="stylesheet" href="/Bookshelf_team-OnlyUP/assets/index-47d055d2.css">
 </head>
 
 <body class="light">
 	<header>
 		<div>
-			<div class="header container ">
+			<div class="header container">
 	<div class="header-container">
 		<div class="hlogo-menu-wrap">
 			<div class="hlogo-wrap">
 				<a class="hlogo-img-link" href="./index.html">
 					<svg class="thlogo-icon" width="24" height="24">
-						<use href="/Bookshelf_team-OnlyUP/assets/icons-311b5d9e.svg#icon-logo"></use>
+						<use href="/Bookshelf_team-OnlyUP/assets/icons-a8e9d60b.svg#icon-logo"></use>
 					</svg>
 					Bookshelf
 				</a>
@@ -41,10 +41,14 @@
 				<a class="hshopping-link hshopping-wrap js-hshopping header-hover"
 					href="./main-shoppinglist.html">Shopping list
 					<svg class="hshopping-icon" width="20" height="20">
-						<use href="/Bookshelf_team-OnlyUP/assets/icons-311b5d9e.svg#icon-shopping-list"></use>
+						<use href="/Bookshelf_team-OnlyUP/assets/icons-a8e9d60b.svg#icon-shopping-list"></use>
 					</svg>
 				</a>
+				<div class="number-box">
+					<span class="number-shopping-list"></span>
+				</div>
 			</nav>
+
 		</div>
 		<div class="hswitcher-user-wrap">
 			<div class="hswitcher-burger-wrap">
@@ -54,52 +58,95 @@
 
 				<div class="hmob-burger-menu">
 					<svg class="hburger-menu-icon icon is-visible" width="28" height="28">
-						<use href="/Bookshelf_team-OnlyUP/assets/icons-311b5d9e.svg#icon-burger-meny"></use>
+						<use href="/Bookshelf_team-OnlyUP/assets/icons-a8e9d60b.svg#icon-burger-meny"></use>
 					</svg>
 
 					<svg class="hclose-menu-icon icon" width="28" height="28">
-						<use href="/Bookshelf_team-OnlyUP/assets/icons-311b5d9e.svg#icon-x-close"></use>
+						<use href="/Bookshelf_team-OnlyUP/assets/icons-a8e9d60b.svg#icon-x-close"></use>
 					</svg>
 				</div>
 			</div>
 
-			<div class="h-user" tabindex="0">
-				Sign up
-				<svg class="h-user-sign" width="20" height="20">
-					<use href="/Bookshelf_team-OnlyUP/assets/icons-311b5d9e.svg#icon-arrow"></use>
-				</svg>
+			<div class="wrap-desk-btn">
+				<button class="h-user">
+					Sign up
+					<svg class="h-user-sign" width="20" height="20">
+						<use href="/Bookshelf_team-OnlyUP/assets/icons-a8e9d60b.svg#icon-arrow"></use>
+					</svg>
+				</button>
 			</div>
 		</div>
 	</div>
 </div>
 <!--******************** header Mob modal *******************-->
 <div class="hmob-modal-wrap js-hmob-modal">
-	<nav class="hmob-modal-nav">
-		<div class="hmodal-home-btn">
-			<a href="./index.html">Home</a>
-		</div>
-
-		<div class="hmodal-shopping-wrap">
-			<a class="hmodal-shopping-link" href="./main-shoppinglist.html">Shopping list
-				<svg class="hmodal-shopping-icon" width="20" height="20">
-					<use href="/Bookshelf_team-OnlyUP/assets/icons-311b5d9e.svg#icon-shopping-list"></use>
-				</svg>
-			</a>
-		</div>
-	</nav>
-	<div class="h-user-mobail">
+	<button class="h-user-mobail-sign">
 		Sign up
 		<svg class="h-user-sign-mobail" width="20" height="20">
-			<use href="/Bookshelf_team-OnlyUP/assets/icons-311b5d9e.svg#icon-arrow"></use>
+			<use href="/Bookshelf_team-OnlyUP/assets/icons-a8e9d60b.svg#icon-arrow"></use>
 		</svg>
+	</button>
+	<div class="user hidden">
+		<div class="user-nickname">
+			<svg class="user-nickname-icon" width="37" height="37">
+				<use href="/Bookshelf_team-OnlyUP/assets/icons-a8e9d60b.svg#icon-user"></use>
+			</svg>
+			<p class="user-nickname-name"></p>
+		</div>
+		<nav class="hmob-modal-nav">
+			<a class="hmodal-home-btn mob-nav-color" href=" ./index.html">Home</a>
+			<a class="hmodal-shopping-link" href="./main-shoppinglist.html">Shopping list
+				<svg class="hmodal-shopping-icon" width="20" height="20">
+					<use href="/Bookshelf_team-OnlyUP/assets/icons-a8e9d60b.svg#icon-shopping-list"></use>
+				</svg>
+			</a>
+		</nav>
+		<button class="h-user-mobail">
+			Log out
+			<svg class="h-user-sign-mobail" width="20" height="20">
+				<use href="/Bookshelf_team-OnlyUP/assets/icons-a8e9d60b.svg#icon-arrow"></use>
+			</svg>
+		</button>
 	</div>
 </div>
+			<dialog id="favDialog" class="sizeUp">
+	<form class="form-authorization">
+		<button type="button" id="btn-close">
+			<svg class="x-icon" width="28" height="28">
+				<use href="../images/icons.svg#icon-x-close"></use>
+			</svg>
+		</button>
+		<div class="wrap-form">
+			<div class="wrap-input">
+				<input class="input" type="text" name="name" placeholder="NAME" id="username" autocomplete="username">
+				<label class="form-label" for="email">
+					<input class="input" type="email" name="email" placeholder="EMAIL" id="email" autocomplete="email">
+					<svg class="icons-form" width="28" height="28">
+						<use href="/Bookshelf_team-OnlyUP/assets/symbol-defs-2d35a08a.svg#icon-form-mail"></use>
+					</svg>
+				</label>
+				<label class="form-label" for="current-password">
+					<input class="input " type="password" name="password" placeholder="PASSWORD" id="current-password"
+						autocomplete="current-password">
+					<svg class="icons-form" width="28" height="28">
+						<use href="/Bookshelf_team-OnlyUP/assets/symbol-defs-2d35a08a.svg#icon-form-lock"></use>
+					</svg>
+				</label>
+			</div>
+			<button type="submit" id="btn-open-up">sing up</button>
+		</div>
+		<div class="link-form">
+			<button class="link-singUp " type="button">sing up</button>
+			<button class="link-singIn " type="button">sing in</button>
+		</div>
+	</form>
+</dialog>
 		</div>
 	</header>
 	<main>
 		<div id="scrollTop" class="isShowScroll_hide">
 	<svg width="64" height="64">
-		<use href="/Bookshelf_team-OnlyUP/assets/icons-311b5d9e.svg#icon-up"></use>
+		<use href="/Bookshelf_team-OnlyUP/assets/icons-a8e9d60b.svg#icon-up"></use>
 	</svg>
 
 </div>
@@ -112,7 +159,7 @@
 	<div class="element-mod">
 		<h2 class="header-tittle">Support Ukraine </h2>
 		<svg class="plus-icon" width="17" height="29">
-			<use href="/Bookshelf_team-OnlyUP/assets/symbol-defs-aea18b16.svg#icon-Vector-5"></use>
+			<use href="/Bookshelf_team-OnlyUP/assets/symbol-defs-2d35a08a.svg#icon-Vector-5"></use>
 		</svg>
 	</div>
 	<div class="header-list">
@@ -151,12 +198,12 @@
 	<div class="plus-btn-plus">
 		<button type="button" class="plus-btn support-button">
 			<svg class="btn-icon-plus" width="20" height="20">
-				<use href="/Bookshelf_team-OnlyUP/assets/symbol-defs-aea18b16.svg#icon-Vector-4"></use>
+				<use href="/Bookshelf_team-OnlyUP/assets/symbol-defs-2d35a08a.svg#icon-Vector-4"></use>
 			</svg>
 		</button>
 		<button type="button" class="second-btn support-button" style="display: none;">
 			<svg class="btn-icon-plus" width="20" height="20">
-				<use href="/Bookshelf_team-OnlyUP/assets/symbol-defs-aea18b16.svg#icon-Vector-3"></use>
+				<use href="/Bookshelf_team-OnlyUP/assets/symbol-defs-2d35a08a.svg#icon-Vector-3"></use>
 			</svg>
 		</button>
 	</div>
@@ -179,7 +226,7 @@
 	<div class="modal">
 		<button type="button" class="modal-close-btn">
 			<svg class="close-icon" width="20" height="20">
-				<use href="/Bookshelf_team-OnlyUP/assets/icons-311b5d9e.svg#icon-close"></use>
+				<use href="/Bookshelf_team-OnlyUP/assets/icons-a8e9d60b.svg#icon-close"></use>
 			</svg>
 		</button>
 		<div class="modal-wrap"></div>
@@ -190,6 +237,7 @@
 	</div>
 </div>
 		</div>
+		<div></div>
 	</main>
 	<footer></footer>
 	
