@@ -1,4 +1,4 @@
-<div class="header container ">
+<div class="header container">
 	<div class="header-container">
 		<div class="hlogo-menu-wrap">
 			<div class="hlogo-wrap">
@@ -17,7 +17,11 @@
 						<use href="./images/icons.svg#icon-shopping-list"></use>
 					</svg>
 				</a>
+				<div class="number-box">
+					<span class="number-shopping-list"></span>
+				</div>
 			</nav>
+
 		</div>
 		<div class="hswitcher-user-wrap">
 			<div class="hswitcher-burger-wrap">
@@ -36,34 +40,45 @@
 				</div>
 			</div>
 
-			<div class="h-user" tabindex="0">
-				Sign up
-				<svg class="h-user-sign" width="20" height="20">
-					<use href="./images/icons.svg#icon-arrow"></use>
-				</svg>
+			<div class="wrap-desk-btn">
+				<button class="h-user">
+					Sign up
+					<svg class="h-user-sign" width="20" height="20">
+						<use href="./images/icons.svg#icon-arrow"></use>
+					</svg>
+				</button>
 			</div>
 		</div>
 	</div>
 </div>
 <!--******************** header Mob modal *******************-->
 <div class="hmob-modal-wrap js-hmob-modal">
-	<nav class="hmob-modal-nav">
-		<div class="hmodal-home-btn">
-			<a href="./index.html">Home</a>
+	<button class="h-user-mobail-sign">
+		Sign up
+		<svg class="h-user-sign-mobail" width="20" height="20">
+			<use href="./images/icons.svg#icon-arrow"></use>
+		</svg>
+	</button>
+	<div class="user hidden">
+		<div class="user-nickname">
+			<svg class="user-nickname-icon" width="37" height="37">
+				<use href="./images/icons.svg#icon-user"></use>
+			</svg>
+			<p class="user-nickname-name"></p>
 		</div>
-
-		<div class="hmodal-shopping-wrap">
+		<nav class="hmob-modal-nav">
+			<a class="hmodal-home-btn mob-nav-color" href=" ./index.html">Home</a>
 			<a class="hmodal-shopping-link" href="./main-shoppinglist.html">Shopping list
 				<svg class="hmodal-shopping-icon" width="20" height="20">
 					<use href="./images/icons.svg#icon-shopping-list"></use>
 				</svg>
 			</a>
-		</div>
-	</nav>
-	<div class="h-user-mobail">
-		Sign up
-		<svg class="h-user-sign-mobail" width="20" height="20">
-			<use href="./images/icons.svg#icon-arrow"></use>
-		</svg>
+		</nav>
+		<button class="h-user-mobail">
+			Log out
+			<svg class="h-user-sign-mobail" width="20" height="20">
+				<use href="./images/icons.svg#icon-arrow"></use>
+			</svg>
+		</button>
 	</div>
 </div>

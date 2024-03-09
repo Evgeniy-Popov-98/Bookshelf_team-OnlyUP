@@ -12,3 +12,5 @@ import './js/switch-button';
 import './js/scroll-up';
 import './js/API/messageError';
 import './js/colorPage';
+import './js/form-authorization';
+import './js/number-shopping';

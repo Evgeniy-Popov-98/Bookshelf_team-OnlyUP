@@ -1,4 +1,5 @@
 export const TASKS_KEY = 'TASKS_KEY';
+export const USER_KEY = 'USER_KEY';
 
 export function addItemLocalStorage(key, item) {
   localStorage.setItem(key, JSON.stringify(item));

@@ -107,7 +107,7 @@
 
 .hmob-modal-nav {
   position: fixed;
-  top: 183px;
+  top: 247px;
   right: 129px;
   display: flex;
   flex-direction: column;
@@ -115,11 +115,8 @@
 }
 
 .hmodal-home-btn {
-  border-radius: 36px;
-  padding: 8px 16px;
   width: 72px;
   height: 34px;
-  background: #eac645;
   font-family: 'DM Sans', sans-serif;
   font-weight: 700;
   font-size: 14px;
@@ -145,10 +142,9 @@
   color: #fff;
   cursor: pointer;
 }
-
-.h-user-mobail {
+.h-user-mobail-sign {
   position: relative;
-  top: 90vh;
+  top: 120px;
   left: 20px;
   display: flex;
   flex-direction: row;
@@ -165,6 +161,48 @@
   line-height: 1.28571;
   letter-spacing: -0.04em;
   color: #fff;
+}
+.user {
+  width: 100%;
+  /* height: 100; */
+  z-index: 5;
+  padding: 84px 20px 20px;
+  display: flex;
+  flex-direction: column;
+}
+.user-nickname {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: rgb(255, 255, 255);
+  font-family: DM Sans;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 29px;
+  letter-spacing: -2%;
+  text-align: left;
+  margin-bottom: 126px;
+}
+.h-user-mobail {
+  position: fixed;
+  bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 140px;
+  height: 48px;
+  border: 1.5px solid var(--text-color);
+  border-radius: 18px;
+  background: var(--bg-color);
+  padding: 15px 24px;
+
+  color: var(--text-color);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: -4%;
+  text-align: left;
 }
 .h-user-sign-mobail {
 }
@@ -228,6 +266,13 @@
     padding: 8px 16px;
   }
 
+  .mob-nav-color {
+    border-radius: 36px;
+    padding: 8px 16px;
+    background-color: #eac645;
+    transition: all 1s ease;
+  }
+
   .hshopping-link {
     transition: all 1s ease;
     display: flex;
@@ -257,6 +302,66 @@
   .hburger-menu-link {
     display: none;
   }
+  .user-nickname-icon {
+    border-radius: 50%;
+    background-color: #fff;
+    margin-right: 5px;
+  }
+  .wrap-desk-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  .user-nickname-desk {
+    z-index: 10;
+    display: flex;
+    flex-direction: row;
+    gap: 90px;
+    align-items: center;
+    width: 184px;
+    height: 48px;
+    border-radius: 36px;
+    background: #4f2ee8;
+    padding: 0 14px 0 14px;
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.28571;
+    letter-spacing: -0.04em;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .user-nickname-desk-auth {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+  }
+  .user-nickname-name {
+    width: 90px;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 29px;
+    letter-spacing: -2%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .user-nickname-name-modal {
+    margin-top: 20px;
+    width: 120px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -2%;
+    color: #fff;
+    text-align: center;
+  }
 
   .h-user {
     display: flex;
@@ -275,6 +380,59 @@
     letter-spacing: -0.04em;
     color: #fff;
   }
+
+  .h-user-logout-desk {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 185px;
+    height: 202px;
+    border: solid 1px var(--text-color);
+    border-top: none;
+    border-radius: 24px;
+    background: radial-gradient(
+      189.32% 190.93% at 59.76% -23.42%,
+      rgb(79, 46, 232) 18.02733987569809%,
+      rgb(255, 255, 255) 100%
+    );
+    transition: transform 500ms linear;
+    transform: translateY(-156px);
+  }
+
+  .h-user-logout-desk-active {
+    transform: translateY(156px);
+  }
+
+  .user-icon-caret-down {
+    transition: transform 500ms linear;
+  }
+  .user-icon-caret-down-active {
+    transition: transform 500ms linear;
+    transform: rotate(0.5turn);
+  }
+
+  .btnLogOutClose {
+    width: 120px;
+    height: 48px;
+    box-sizing: border-box;
+    border: 1.5px solid var(--text-color);
+    border-radius: 18px;
+    padding: 15px 14px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: -4%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -285,4 +443,20 @@
   .hmenu-wrap {
     gap: 24px;
   }
+}
+
+.number-box {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--text-color);
+  border-radius: 50%;
+  transition: all 1s ease;
+}
+
+.number-shopping-list {
+  color: var(--text-color);
+  transition: all 1s ease;
 }
