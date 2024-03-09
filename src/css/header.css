@@ -314,6 +314,7 @@
     align-items: center;
     /* height: 48px; */
     position: relative;
+    overflow: hidden;
   }
   .user-nickname-desk {
     z-index: 10;
@@ -441,4 +442,17 @@
   .hmenu-wrap {
     gap: 24px;
   }
+}
+
+.number-box {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--text-color);
+  border-radius: 50%;
+}
+
+.number-shopping-list {
 }
