@@ -312,9 +312,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* height: 48px; */
     position: relative;
-    overflow: hidden;
   }
   .user-nickname-desk {
     z-index: 10;
@@ -355,13 +353,14 @@
   }
 
   .user-nickname-name-modal {
-    margin: 50px auto;
-    width: 90px;
-    font-size: 22px;
-    font-weight: 700;
-    line-height: 29px;
+    margin-top: 20px;
+    width: 120px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.25;
     letter-spacing: -2%;
     color: #fff;
+    text-align: center;
   }
 
   .h-user {
@@ -386,7 +385,10 @@
     position: absolute;
     bottom: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    gap: 20px;
     width: 185px;
     height: 202px;
     border: solid 1px var(--text-color);
@@ -413,8 +415,7 @@
     transform: rotate(0.5turn);
   }
 
-  .h-user-logout-desk button {
-    margin-top: 120px;
+  .btnLogOutClose {
     width: 120px;
     height: 48px;
     box-sizing: border-box;

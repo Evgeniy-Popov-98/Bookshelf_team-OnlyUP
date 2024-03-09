@@ -19,7 +19,7 @@ import {
   infoItemLocalStorage,
   USER_KEY,
 } from './localStorage';
-import { errorMessage, successMessage } from './API/messageError';
+import { errorMessage, successMessage, userExists } from './API/messageError';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDHiSfvnjzVWJqWI_IEEi6bW_1h4HyJ_fU',
@@ -296,7 +296,7 @@ function updateMenuTab() {
         </div>
       </div>
       <div class="h-user-logout-desk">	  
-		<!-- <p class="user-nickname-name-modal">${username}</p> -->
+		<p class="user-nickname-name-modal">Do you want to go out?</p> 
         <button class="btnLogOutClose">
           Log out
           <svg class="h-user-sign-mobail" width="20" height="20">
