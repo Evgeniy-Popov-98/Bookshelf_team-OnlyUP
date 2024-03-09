@@ -287,11 +287,11 @@ function updateMenuTab() {
     btnWrapDesk.innerHTML = `<div class="user-nickname-desk toggleMenu">
         <div class="user-nickname-desk-auth">
           <svg class="user-nickname-icon" width="37" height="37">
-            <use href="../images/icons.svg#icon-user"></use>
+            <use href="/images/icons.svg#icon-user"></use>
           </svg>
           <p class="user-nickname-name">${username}</p>
           <svg class="user-icon-caret-down" width="23" height="26">
-            <use href="../images/icons.svg#icon-caret-down"></use>
+            <use href="/images/icons.svg#icon-caret-down"></use>
           </svg>
         </div>
       </div>
@@ -300,7 +300,7 @@ function updateMenuTab() {
         <button class="btnLogOutClose">
           Log out
           <svg class="h-user-sign-mobail" width="20" height="20">
-            <use href="../images/icons.svg#icon-arrow"></use>
+            <use href="/images/icons.svg#icon-arrow"></use>
           </svg>
         </button>
       </div>`;
