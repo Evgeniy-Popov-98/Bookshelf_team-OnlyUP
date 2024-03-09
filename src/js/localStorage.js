@@ -1,5 +1,3 @@
-// localStorage.js
-
 export const TASKS_KEY = 'TASKS_KEY';
 export const USER_KEY = 'USER_KEY';
 

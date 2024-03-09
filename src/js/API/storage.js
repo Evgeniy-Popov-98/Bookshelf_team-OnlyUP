@@ -13,7 +13,6 @@ import amazonSvg from '/images/amazon.svg';
 import bookSvg from '/images/book.svg';
 import trashSvg from '/images/trash.svg';
 import chekInfoNumber from '../number-shopping';
-//import tuiPagination from 'tui-pagination'; // Імпортуємо бібліотеку пагінації
 
 const shoppingListContainer = document.querySelector(
   '.shoppinglist-shoppinglist'
