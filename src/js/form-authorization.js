@@ -117,7 +117,6 @@ async function singUp() {
 // ----------------------- вхід SingIn--------------------------------------
 
 async function singIn() {
-  //console.log(true);
   linkSingUp.classList.add('text-decoration-line');
   linkSingIn.classList.remove('text-decoration-line');
 
@@ -295,7 +294,6 @@ function onLinkSingInClick() {
 }
 
 function updateMenuTab() {
-  console.log(true);
   const user = auth.currentUser;
   if (user) {
     const username = user.displayName;
