@@ -5,6 +5,7 @@ export function errorMessage(message) {
   iziToast.error({
     title: 'Error',
     message: message,
+    position: 'topRight',
   });
 }
 export function successMessage(message) {
@@ -15,7 +16,7 @@ export function successMessage(message) {
 }
 
 export function userExists() {
-  iziToast.success({
+  iziToast.error({
     title: 'Error',
     message: 'There is already a user under this address!',
   });

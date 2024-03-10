@@ -83,36 +83,40 @@ async function singUp() {
   const email = document.getElementById('email').value;
   const password = document.getElementById('current-password').value;
   const username = document.getElementById('username').value;
+try {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
 
-  await createUserWithEmailAndPassword(auth, email, password).then(
-    userCredential => {
-      const user = userCredential.user;
+    await set(ref(db, 'users/' + user.uid), {
+      username: username,
+      email: email,
+      // profile_picture: imageUrl,
+    });
 
-      set(ref(db, 'users/' + user.uid), {
-        username: username,
-        email: email,
-        // profile_picture: imageUrl,
-      });
-      successMessage('New account created');
-      updateProfile(user, { displayName: username })
-        .then(() => {
-          const userData = {
-            displayName: username,
-          };
-          addItemLocalStorage(USER_KEY, userData);
-          updateUIWithUsername(username);
-        })
-        .catch(error => {
-          console.log(error.message);
-        });
+    successMessage('New account created');
+    await updateProfile(user, { displayName: username });
+
+    const userData = {
+      displayName: username,
+    };
+    addItemLocalStorage(USER_KEY, userData);
+    
+  } catch (error) {
+     if (error.code === 'auth/email-already-in-use') {
+      dialog.close();
+      errorMessage('The email address is already in use.');
+    } else {
+      
+      errorMessage(error.message);
     }
-  );
+    
+  }
 }
 
 // ----------------------- вхід SingIn--------------------------------------
 
 async function singIn() {
-  console.log(true);
+  //console.log(true);
   linkSingUp.classList.add('text-decoration-line');
   linkSingIn.classList.remove('text-decoration-line');
 
@@ -129,8 +133,14 @@ async function singIn() {
       //   addItemLocalStorage(USER_KEY, db.users.username);
     })
     .catch(error => {
-      console.log(error.message);
-    });
+      if (error.code === 'auth/invalid-credential') {
+      dialog.close();
+      errorMessage('Please ensure that the data entered is accurate and free from errors.');
+    } else {
+      // Інші помилки обробляються тут
+      errorMessage(error.message);
+      }
+  })
 }
 // btnOpenIn.addEventListener('click', singIn);
 
