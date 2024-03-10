@@ -83,8 +83,12 @@ async function singUp() {
   const email = document.getElementById('email').value;
   const password = document.getElementById('current-password').value;
   const username = document.getElementById('username').value;
-try {
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+  try {
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
     const user = userCredential.user;
 
     await set(ref(db, 'users/' + user.uid), {
@@ -100,16 +104,13 @@ try {
       displayName: username,
     };
     addItemLocalStorage(USER_KEY, userData);
-    
   } catch (error) {
-     if (error.code === 'auth/email-already-in-use') {
+    if (error.code === 'auth/email-already-in-use') {
       dialog.close();
       errorMessage('The email address is already in use.');
     } else {
-      
       errorMessage(error.message);
     }
-    
   }
 }
 
@@ -134,13 +135,15 @@ async function singIn() {
     })
     .catch(error => {
       if (error.code === 'auth/invalid-credential') {
-      dialog.close();
-      errorMessage('Please ensure that the data entered is accurate and free from errors.');
-    } else {
-      // Інші помилки обробляються тут
-      errorMessage(error.message);
+        dialog.close();
+        errorMessage(
+          'Please ensure that the data entered is accurate and free from errors.'
+        );
+      } else {
+        // Інші помилки обробляються тут
+        errorMessage(error.message);
       }
-  })
+    });
 }
 // btnOpenIn.addEventListener('click', singIn);
 
@@ -222,7 +225,8 @@ function onFormSubmit(e) {
 }
 function matchMedia() {
   if (window.matchMedia('(min-width: 768px)').matches) {
-    updateMenuTab();
+    const timeoutID = window.setTimeout(updateMenuTab, 1000);
+
     // infoItemLocalStorage(USER_KEY);
   } else {
     navMob.classList.remove('hidden');
@@ -291,6 +295,7 @@ function onLinkSingInClick() {
 }
 
 function updateMenuTab() {
+  console.log(true);
   const user = auth.currentUser;
   if (user) {
     const username = user.displayName;
