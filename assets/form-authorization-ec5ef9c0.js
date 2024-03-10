@@ -3,7 +3,7 @@ import{a as F,i as B}from"./vendor-8cce9181.js";import{initializeApp as J}from"h
           <svg class="h-user-sign" width="20" height="20">
             <use href="./images/icons.svg#icon-arrow"></use>
           </svg>
-        </button>`,document.querySelector(".h-user").addEventListener("click",()=>{r.showModal()}),window.location.href="index.html",localStorage.removeItem(q)}).catch(e=>{console.log(e.message)})}a.currentUser;se(a,e=>{if(e){const s=e.uid,n=E(O,`users/${s}`);G(n).then(o=>{if(o.exists()){const i=o.val().username;he.textContent=i}else console.log("Дані про користувача відсутні в базі даних")}).catch(o=>{console.error("Помилка при отриманні даних користувача:",o)})}A()});function W(e){e.preventDefault(),A()}function A(){window.matchMedia("(min-width: 768px)").matches?window.setTimeout(we(),1e3):(K.classList.remove("hidden"),ve())}function j(){u.classList.add("text-decoration-line"),m.classList.remove("text-decoration-line");const e=`
+        </button>`,document.querySelector(".h-user").addEventListener("click",()=>{r.showModal()}),window.location.href="index.html",localStorage.removeItem(q)}).catch(e=>{console.log(e.message)})}a.currentUser;se(a,e=>{if(e){const s=e.uid,n=E(O,`users/${s}`);G(n).then(o=>{if(o.exists()){const i=o.val().username;he.textContent=i}else console.log("Дані про користувача відсутні в базі даних")}).catch(o=>{console.error("Помилка при отриманні даних користувача:",o)})}A()});function W(e){e.preventDefault(),A()}function A(){window.matchMedia("(min-width: 768px)").matches?window.setTimeout(we,1e3):(K.classList.remove("hidden"),ve())}function j(){u.classList.add("text-decoration-line"),m.classList.remove("text-decoration-line");const e=`
   <div class="wrap-input">
                     <input class="input" type="text" name="name" placeholder="NAME" id="username" autocomplete="username">
 					<label class="form-label" for="email">
@@ -51,4 +51,4 @@ import{a as F,i as B}from"./vendor-8cce9181.js";import{initializeApp as J}from"h
 		  <img src="${ce}" alt="" class="h-user-sign-mobail" width="20" height="20">
         </button>
       </div>`,r.close();const n=document.querySelector(".h-user-logout-desk"),o=document.querySelector(".user-icon-caret-down"),t=document.querySelector(".toggleMenu"),i=document.querySelector(".btnLogOutClose");t.addEventListener("click",()=>{n.classList.toggle("h-user-logout-desk-active"),o.classList.toggle("user-icon-caret-down-active")}),i.addEventListener("click",ye)}}function ve(){if(!a.currentUser&&window.matchMedia("(max-width: 768px)").matches){k.classList.remove("hidden"),K.classList.add("hidden");return}else{k.classList.add("hidden"),r.close();return}}export{b as T,p as a,re as c,h as e,qe as g,I as i,Ie as r};
-//# sourceMappingURL=form-authorization-6feba803.js.map
+//# sourceMappingURL=form-authorization-ec5ef9c0.js.map
