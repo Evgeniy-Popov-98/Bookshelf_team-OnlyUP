@@ -31,6 +31,9 @@ const firebaseConfig = {
   messagingSenderId: '168346739495',
   appId: '1:168346739495:web:c2181a801d16964f053f02',
 };
+import userImg from '../images/user-img/user.svg';
+import userArow from '../images/user-img/Icon.svg';
+import userArowDown from '../images/user-img/Vector.svg';
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
@@ -299,22 +302,16 @@ function updateMenuTab() {
     const username = user.displayName;
     btnWrapDesk.innerHTML = `<div class="user-nickname-desk toggleMenu">
         <div class="user-nickname-desk-auth">
-          <svg class="user-nickname-icon" width="37" height="37">
-            <use href="/images/icons.svg#icon-user"></use>
-          </svg>
-          <p class="user-nickname-name">${username}</p>
-          <svg class="user-icon-caret-down" width="23" height="26">
-            <use href="/images/icons.svg#icon-caret-down"></use>
-          </svg>
+			<img src="${userImg}" alt="" class="user-nickname-icon" width="37" height="37">
+            <p class="user-nickname-name">${username}</p>
+		    <img src="${userArowDown}" alt="" class="user-icon-caret-down" width="23" height="26">
         </div>
       </div>
       <div class="h-user-logout-desk">	  
 		<p class="user-nickname-name-modal">Do you want to go out?</p> 
         <button class="btnLogOutClose">
           Log out
-          <svg class="h-user-sign-mobail" width="20" height="20">
-            <use href="/images/icons.svg#icon-arrow"></use>
-          </svg>
+		  <img src="${userArow}" alt="" class="h-user-sign-mobail" width="20" height="20">
         </button>
       </div>`;
     dialog.close();
