@@ -400,11 +400,11 @@
       rgb(255, 255, 255) 100%
     );
     transition: transform 500ms linear;
-    transform: translateY(156px);
+    transform: translateY(-156px);
   }
 
   .h-user-logout-desk-active {
-    transform: translateY(-156px);
+    transform: translateY(156px);
   }
 
   .user-icon-caret-down {
