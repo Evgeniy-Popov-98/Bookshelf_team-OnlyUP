@@ -227,7 +227,7 @@ function onFormSubmit(e) {
 }
 function matchMedia() {
   if (window.matchMedia('(min-width: 768px)').matches) {
-    const timeoutID = window.setTimeout(updateMenuTab(), 1000);
+    const timeoutID = window.setTimeout(updateMenuTab, 1000);
 
     // infoItemLocalStorage(USER_KEY);
   } else {
