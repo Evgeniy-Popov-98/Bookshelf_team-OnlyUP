@@ -40,11 +40,11 @@ import{a as F,i as T}from"./vendor-8cce9181.js";import{initializeApp as J}from"h
   `;r.classList.remove("sizeUp"),r.classList.add("sizeIn"),_.innerHTML=e,document.querySelector("#btn-open-in").addEventListener("click",ge)}function fe(){const e=a.currentUser;if(e){const s=e.displayName;W.innerHTML=`<div class="user-nickname-desk toggleMenu">
         <div class="user-nickname-desk-auth">
           <svg class="user-nickname-icon" width="37" height="37">
-            <use href="/images/icons.svg#icon-user"></use>
+            <use href="../images/icons.svg#icon-user"></use>
           </svg>
           <p class="user-nickname-name">${s}</p>
           <svg class="user-icon-caret-down" width="23" height="26">
-            <use href="/images/icons.svg#icon-caret-down"></use>
+            <use href="../images/icons.svg#icon-caret-down"></use>
           </svg>
         </div>
       </div>
@@ -53,8 +53,8 @@ import{a as F,i as T}from"./vendor-8cce9181.js";import{initializeApp as J}from"h
         <button class="btnLogOutClose">
           Log out
           <svg class="h-user-sign-mobail" width="20" height="20">
-            <use href="/images/icons.svg#icon-arrow"></use>
+            <use href="../images/icons.svg#icon-arrow"></use>
           </svg>
         </button>
       </div>`,r.close();const n=document.querySelector(".h-user-logout-desk"),o=document.querySelector(".user-icon-caret-down"),t=document.querySelector(".toggleMenu"),i=document.querySelector(".btnLogOutClose");t.addEventListener("click",()=>{n.classList.toggle("h-user-logout-desk-active"),o.classList.toggle("user-icon-caret-down-active")}),i.addEventListener("click",he)}}function be(){if(!a.currentUser&&window.matchMedia("(max-width: 768px)").matches){k.classList.remove("hidden"),R.classList.add("hidden");return}else{k.classList.add("hidden"),r.close();return}}export{b as T,p as a,re as c,h as e,Se as g,I as i,ke as r};
-//# sourceMappingURL=form-authorization-de6f1548.js.map
+//# sourceMappingURL=form-authorization-d1194818.js.map
