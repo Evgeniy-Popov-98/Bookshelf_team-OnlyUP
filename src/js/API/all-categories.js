@@ -10,7 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let markup = `<li data-category="top-books" class="category-books-item" tabindex="0">All categories</li>`;
 
     data.forEach(category => {
-      markup += `<li class="category-books-item" data-category="${category.list_name}" tabindex="0">${category.list_name}</li>`;
+      markup += `<li class="category-books-item" data-category="${category.list_name}">
+      <a href="#anchor">${category.list_name}</a>
+      </li>`;
     });
 
     refs.allListCategories.insertAdjacentHTML('beforeend', markup);

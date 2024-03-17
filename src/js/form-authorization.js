@@ -19,7 +19,7 @@ import {
   infoItemLocalStorage,
   USER_KEY,
 } from './localStorage';
-import { errorMessage, successMessage, userExists } from './API/messageError';
+import { errorMessage, successMessage} from './API/messageError';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDHiSfvnjzVWJqWI_IEEi6bW_1h4HyJ_fU',
@@ -43,6 +43,7 @@ const btnSingUp = document.querySelector('.h-user');
 const btnSingUpMob = document.querySelector('.h-user-mobail-sign');
 const btnLogOutMob = document.querySelector('.h-user-mobail');
 const dialog = document.querySelector('#favDialog');
+const dialogWrap = document.querySelector('#favDialogWrap');
 const btnClose = document.querySelector('#btn-close');
 const btnOpenUp = document.querySelector('#btn-open-up');
 const btnOpenIn = document.querySelector('#btn-open-in');
@@ -59,13 +60,16 @@ const mobMenu = document.querySelector('.js-hmob-modal');
 
 btnClose.addEventListener('click', () => {
   dialog.close();
+  dialogWrap.classList.remove('backdrop-wrap');
 });
 btnSingUp.addEventListener('click', () => {
   dialog.showModal();
+  dialogWrap.classList.add('backdrop-wrap');
   linkSingUp.classList.add('text-decoration-line');
 });
 btnSingUpMob.addEventListener('click', () => {
   dialog.showModal();
+  dialogWrap.classList.add('backdrop-wrap');
 });
 
 btnOpenUp.addEventListener('click', singUp);
@@ -101,6 +105,7 @@ async function singUp() {
     });
 
     successMessage('New account created');
+    dialogWrap.classList.remove('backdrop-wrap');
     await updateProfile(user, { displayName: username });
 
     const userData = {
@@ -109,9 +114,9 @@ async function singUp() {
     addItemLocalStorage(USER_KEY, userData);
   } catch (error) {
     if (error.code === 'auth/email-already-in-use') {
-      dialog.close();
+      // dialog.close();
       errorMessage('The email address is already in use.');
-    } else {
+          } else {
       errorMessage(error.message);
     }
   }
@@ -133,15 +138,16 @@ async function singIn() {
         last_login: dt,
       });
       successMessage('You loged in');
+      dialogWrap.classList.remove('backdrop-wrap');
       //   addItemLocalStorage(USER_KEY, db.users.username);
     })
     .catch(error => {
       if (error.code === 'auth/invalid-credential') {
-        dialog.close();
+        // dialog.close();
         errorMessage(
           'Please ensure that the data entered is accurate and free from errors.'
         );
-      } else {
+             } else {
         // Інші помилки обробляються тут
         errorMessage(error.message);
       }
