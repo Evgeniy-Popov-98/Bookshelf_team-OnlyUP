@@ -21,3 +21,4 @@ export function userExists() {
     message: 'There is already a user under this address!',
   });
 }
+
