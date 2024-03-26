@@ -19,6 +19,7 @@
     "firebase": "^10.8.1",
     "izitoast": "^1.4.0",
     "node": "^21.6.2",
+    "paginationjs": "^2.6.0",
     "tui-pagination": "^3.4.1",
     "vite-plugin-full-reload": "^1.0.5",
     "vite-plugin-html-inject": "^1.0.1"

@@ -1,39 +1,10 @@
-var currentPage = 1;
-var itemsPerPage = 10;
-var totalItems = 500;
+// npm install paginationjs
 
-function renderPagination() {
-  var totalPages = Math.ceil(totalItems / itemsPerPage);
-  var pagination = document.getElementById('pagination');
-  pagination.innerHTML = '';
-
-  var startPage = Math.max(1, currentPage - 2);
-  var endPage = Math.min(totalPages, startPage + 4);
-
-  for (var i = startPage; i <= endPage; i++) {
-    var li = document.createElement('li');
-    var a = document.createElement('a');
-    a.href = '#';
-    a.textContent = i;
-    li.appendChild(a);
-
-    if (i === currentPage) {
-      li.classList.add('active');
+$('#pagination-container').pagination({
+    dataSource: [1, 2, 3, 4, 5, 6, 7, ... , 195],
+    callback: function(data, pagination) {
+        // template method of yourself
+        var html = template(data);
+        $('#data-container').html(html);
     }
-
-    li.addEventListener('click', function (e) {
-      e.preventDefault();
-      currentPage = parseInt(e.target.textContent);
-      renderPagination();
-      renderItems();
-    });
-
-    pagination.appendChild(li);
-  }
-}
-
-function renderItems() {
-  // Оновлення вмісту сторінки залежно від поточної сторінки
-}
-
-renderPagination();
+})
